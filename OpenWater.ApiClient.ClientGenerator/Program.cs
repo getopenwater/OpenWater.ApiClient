@@ -20,7 +20,7 @@ namespace OpenWater.ApiClient.ClientGenerator
             const string apiClientNamespace = "OpenWater.ApiClient";
             var outputPath = GetApiClientProjectDirectoryPath();
 
-            var apiDocument = OpenApiDocument.FromUrlAsync("http://localhost:11100/swagger/v2/swagger.json").Result;
+            var apiDocument = OpenApiDocument.FromUrlAsync("https://api.secure-platform.com/swagger/v2/swagger.json").Result;
 
             GenerateClient(apiDocument, outputPath, apiClientClassName, generatedClientFilePostfix, CSharpClientGeneratorSettingsCreator, out var typeNameHintsModelWithNamespaceInfos);
 
