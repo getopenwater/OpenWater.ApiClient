@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OpenWater.ApiClient
 {
-    public partial class OpenWaterApiClient
+    public sealed partial class OpenWaterApiClient
     {
         private readonly string _clientKey;
         private readonly string _apiKey;

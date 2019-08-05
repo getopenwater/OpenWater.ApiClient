@@ -13,7 +13,7 @@
 namespace OpenWater.ApiClient
 {
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial class OpenWaterApiClient 
+    public sealed partial class OpenWaterApiClient 
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;

@@ -40,6 +40,7 @@ namespace OpenWater.ApiClient.ClientGenerator
                         GenerateDataAnnotations = false
                     },
                     OperationNameGenerator = new SingleClientFromOperationIdOperationNameGenerator(),
+                    ClientClassAccessModifier = "public sealed",
                     ExcludedParameterNames = new[] { "X-ClientKey", "X-OrganizationCode", "X-ApiKey", "X-SuppressEmails" },
                     GenerateOptionalParameters = true,
                     ExceptionClass = apiExceptionClassName
