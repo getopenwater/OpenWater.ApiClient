@@ -59,7 +59,7 @@ namespace OpenWater.ApiClient.ClientGenerator
             var genericTypeSections = genericTypeAndGenericArgumentSections.First().Split(".");
             var genericTypeName = genericTypeSections.Last();
 
-            var typeNameInfo = new ModelNameWithNamespaceInfo(genericArgumentTypeNamespace, genericTypeName);
+            var typeNameInfo = new ModelNameWithNamespaceInfo(genericArgumentTypeNamespace, genericTypeName + genericArgumentTypeSections.Last());
 
             _typeNameHintsModelNameWithNamespaceInfos.Add(genericTypeNameHint, typeNameInfo);
 
