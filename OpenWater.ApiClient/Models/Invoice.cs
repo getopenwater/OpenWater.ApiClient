@@ -15,10 +15,10 @@ namespace OpenWater.ApiClient.Invoice
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponse 
+    public partial class PagingResponseInvoiceListItemModel 
     {
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponse(System.Collections.Generic.ICollection<RefundListItemModel> @items, Pagination.PagingInfo @pagingInfo)
+        public PagingResponseInvoiceListItemModel(System.Collections.Generic.ICollection<InvoiceListItemModel> @items, Pagination.PagingInfo @pagingInfo)
         {
             this.PagingInfo = @pagingInfo;
             this.Items = @items;
@@ -28,7 +28,7 @@ namespace OpenWater.ApiClient.Invoice
         public Pagination.PagingInfo PagingInfo { get; }
     
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<RefundListItemModel> Items { get; }
+        public System.Collections.Generic.ICollection<InvoiceListItemModel> Items { get; }
     
     
     }
@@ -231,6 +231,25 @@ namespace OpenWater.ApiClient.Invoice
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseBillingLineItemListItemModel 
+    {
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseBillingLineItemListItemModel(System.Collections.Generic.ICollection<BillingLineItemListItemModel> @items, Pagination.PagingInfo @pagingInfo)
+        {
+            this.PagingInfo = @pagingInfo;
+            this.Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Pagination.PagingInfo PagingInfo { get; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BillingLineItemListItemModel> Items { get; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BillingLineItemListItemModel 
     {
         [Newtonsoft.Json.JsonConstructor]
@@ -274,6 +293,25 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? CreatedAtUtc { get; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponsePaymentListItemModel 
+    {
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponsePaymentListItemModel(System.Collections.Generic.ICollection<PaymentListItemModel> @items, Pagination.PagingInfo @pagingInfo)
+        {
+            this.PagingInfo = @pagingInfo;
+            this.Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Pagination.PagingInfo PagingInfo { get; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PaymentListItemModel> Items { get; }
     
     
     }
@@ -338,6 +376,25 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? CreatedAtUtc { get; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseRefundListItemModel 
+    {
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseRefundListItemModel(System.Collections.Generic.ICollection<RefundListItemModel> @items, Pagination.PagingInfo @pagingInfo)
+        {
+            this.PagingInfo = @pagingInfo;
+            this.Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Pagination.PagingInfo PagingInfo { get; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<RefundListItemModel> Items { get; }
     
     
     }

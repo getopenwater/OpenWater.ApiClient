@@ -13,7 +13,7 @@
 namespace OpenWater.ApiClient
 {
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v9.0.0.0))")]
-    public sealed partial class OpenWaterApiClient 
+    public partial class OpenWaterApiClient 
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
@@ -54,7 +54,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Application.PagingResponse> ApplicationListAsync(int? programId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Application.PagingResponseApplicationListItemModel> ApplicationListAsync(int? programId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications?");
@@ -112,7 +112,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Application.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Application.PagingResponseApplicationListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -122,7 +122,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Application.PagingResponse);
+                        return default(Application.PagingResponseApplicationListItemModel);
                     }
                     finally
                     {
@@ -953,7 +953,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<DeletedApplication.PagingResponse> ListAsync(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedApplication.PagingResponseDeletedApplicationListItem> ListAsync(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/DeletedData?");
@@ -1003,7 +1003,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<DeletedApplication.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DeletedApplication.PagingResponseDeletedApplicationListItem>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1013,7 +1013,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(DeletedApplication.PagingResponse);
+                        return default(DeletedApplication.PagingResponseDeletedApplicationListItem);
                     }
                     finally
                     {
@@ -1102,7 +1102,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Invoice.PagingResponse> GetInvoicesAsync(int? programId = null, bool? isPaid = null, System.DateTimeOffset? mostRecentTransactionSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Invoice.PagingResponseInvoiceListItemModel> GetInvoicesAsync(int? programId = null, bool? isPaid = null, System.DateTimeOffset? mostRecentTransactionSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices?");
@@ -1156,7 +1156,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponseInvoiceListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1166,7 +1166,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Invoice.PagingResponse);
+                        return default(Invoice.PagingResponseInvoiceListItemModel);
                     }
                     finally
                     {
@@ -1253,7 +1253,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Invoice.PagingResponse> GetBillingLineItemsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Invoice.PagingResponseBillingLineItemListItemModel> GetBillingLineItemsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/BillingLineItems?");
@@ -1299,7 +1299,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponseBillingLineItemListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1309,7 +1309,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Invoice.PagingResponse);
+                        return default(Invoice.PagingResponseBillingLineItemListItemModel);
                     }
                     finally
                     {
@@ -1330,7 +1330,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Invoice.PagingResponse> GetPaymentsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Invoice.PagingResponsePaymentListItemModel> GetPaymentsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/Payments?");
@@ -1376,7 +1376,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponsePaymentListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1386,7 +1386,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Invoice.PagingResponse);
+                        return default(Invoice.PagingResponsePaymentListItemModel);
                     }
                     finally
                     {
@@ -1407,7 +1407,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Invoice.PagingResponse> GetRefundsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Invoice.PagingResponseRefundListItemModel> GetRefundsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/Refunds?");
@@ -1453,7 +1453,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponseRefundListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1463,7 +1463,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Invoice.PagingResponse);
+                        return default(Invoice.PagingResponseRefundListItemModel);
                     }
                     finally
                     {
@@ -1487,7 +1487,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponse> AssignedToRoundAsync(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> AssignedToRoundAsync(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (roundId == null)
                 throw new System.ArgumentNullException("roundId");
@@ -1545,7 +1545,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<JudgeAssignment.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<JudgeAssignment.PagingResponseJudgeListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1555,7 +1555,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(JudgeAssignment.PagingResponse);
+                        return default(JudgeAssignment.PagingResponseJudgeListItemModel);
                     }
                     finally
                     {
@@ -1926,7 +1926,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeScorecard.PagingResponse> JudgeScorecardListAsync(int? programId = null, int? roundId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeScorecard.PagingResponseJudgeScorecardListItemModel> JudgeScorecardListAsync(int? programId = null, int? roundId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Evaluations?");
@@ -1980,7 +1980,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<JudgeScorecard.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<JudgeScorecard.PagingResponseJudgeScorecardListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1990,7 +1990,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(JudgeScorecard.PagingResponse);
+                        return default(JudgeScorecard.PagingResponseJudgeScorecardListItemModel);
                     }
                     finally
                     {
@@ -2347,7 +2347,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Program.PagingResponse> ProgramListAsync(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Program.PagingResponseProgramListItemModel> ProgramListAsync(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs?");
@@ -2401,7 +2401,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Program.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Program.PagingResponseProgramListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -2411,7 +2411,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Program.PagingResponse);
+                        return default(Program.PagingResponseProgramListItemModel);
                     }
                     finally
                     {
@@ -2967,7 +2967,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Session.PagingResponse> GetSessionsAsync(int? programId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, string sessionChairEmail = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Session.PagingResponseSessionListItemModel> GetSessionsAsync(int? programId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, string sessionChairEmail = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Sessions?");
@@ -3021,7 +3021,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Session.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Session.PagingResponseSessionListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -3031,7 +3031,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Session.PagingResponse);
+                        return default(Session.PagingResponseSessionListItemModel);
                     }
                     finally
                     {
@@ -3191,7 +3191,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User.PagingResponse> UserListAsync(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User.PagingResponseUserListItemModel> UserListAsync(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users?");
@@ -3269,7 +3269,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<User.PagingResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<User.PagingResponseUserListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -3279,7 +3279,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(User.PagingResponse);
+                        return default(User.PagingResponseUserListItemModel);
                     }
                     finally
                     {
@@ -3724,7 +3724,7 @@ namespace OpenWater.ApiClient
     
         public bool ReadResponseAsString { get; set; }
         
-        protected virtual async System.Threading.Tasks.Task<ObjectResponseResult<T>> ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers)
+        protected async System.Threading.Tasks.Task<ObjectResponseResult<T>> ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers)
         {
             if (response == null || response.Content == null)
             {

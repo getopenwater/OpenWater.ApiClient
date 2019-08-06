@@ -15,10 +15,10 @@ namespace OpenWater.ApiClient.JudgeAssignment
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponse 
+    public partial class PagingResponseJudgeListItemModel 
     {
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponse(System.Collections.Generic.ICollection<JudgeListItemModel> @items, Pagination.PagingInfo @pagingInfo)
+        public PagingResponseJudgeListItemModel(System.Collections.Generic.ICollection<JudgeListItemModel> @items, Pagination.PagingInfo @pagingInfo)
         {
             this.PagingInfo = @pagingInfo;
             this.Items = @items;

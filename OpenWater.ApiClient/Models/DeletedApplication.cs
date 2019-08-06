@@ -15,10 +15,10 @@ namespace OpenWater.ApiClient.DeletedApplication
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponse 
+    public partial class PagingResponseDeletedApplicationListItem 
     {
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponse(System.Collections.Generic.ICollection<DeletedApplicationListItem> @items, Pagination.PagingInfo @pagingInfo)
+        public PagingResponseDeletedApplicationListItem(System.Collections.Generic.ICollection<DeletedApplicationListItem> @items, Pagination.PagingInfo @pagingInfo)
         {
             this.PagingInfo = @pagingInfo;
             this.Items = @items;

@@ -15,10 +15,10 @@ namespace OpenWater.ApiClient.Program
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponse 
+    public partial class PagingResponseProgramListItemModel 
     {
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponse(System.Collections.Generic.ICollection<ProgramListItemModel> @items, Pagination.PagingInfo @pagingInfo)
+        public PagingResponseProgramListItemModel(System.Collections.Generic.ICollection<ProgramListItemModel> @items, Pagination.PagingInfo @pagingInfo)
         {
             this.PagingInfo = @pagingInfo;
             this.Items = @items;
