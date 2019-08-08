@@ -107,11 +107,12 @@ namespace OpenWater.ApiClient.Application
     public partial class DetailsResponse 
     {
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(string @categoryCode, string @categoryName, string @categoryPath, string @code, System.Collections.Generic.ICollection<CollaboratorInfo> @collaborators, string @downloadPdfAsApplicantUrl, string @downloadPdfAsJudgeUrl, int? @id, string @name, int? @programId, System.Collections.Generic.ICollection<RoundSubmission> @roundSubmissions, SchedulerInfo @scheduler, int? @userId)
+        public DetailsResponse(string @categoryCode, string @categoryName, string @categoryPath, string @code, System.Collections.Generic.ICollection<CollaboratorInfo> @collaborators, string @downloadPdfAsApplicantUrl, string @downloadPdfAsJudgeUrl, int? @id, string @name, int? @programId, System.Collections.Generic.ICollection<RoundSubmission> @roundSubmissions, SchedulerInfo @scheduler, int? @sessionId, int? @userId)
         {
             this.Id = @id;
             this.ProgramId = @programId;
             this.UserId = @userId;
+            this.SessionId = @sessionId;
             this.Name = @name;
             this.Code = @code;
             this.CategoryCode = @categoryCode;
@@ -132,6 +133,9 @@ namespace OpenWater.ApiClient.Application
     
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? UserId { get; }
+    
+        [Newtonsoft.Json.JsonProperty("sessionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? SessionId { get; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; }

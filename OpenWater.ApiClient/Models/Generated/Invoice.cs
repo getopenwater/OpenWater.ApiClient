@@ -37,11 +37,12 @@ namespace OpenWater.ApiClient.Invoice
     public partial class InvoiceListItemModel 
     {
         [Newtonsoft.Json.JsonConstructor]
-        public InvoiceListItemModel(System.DateTimeOffset? @createdAtUtc, int? @id, System.DateTimeOffset? @mostRecentTransactionDateUtc, string @programCode, int? @programId)
+        public InvoiceListItemModel(System.DateTimeOffset? @createdAtUtc, int? @id, System.DateTimeOffset? @mostRecentTransactionDateUtc, string @programCode, int? @programId, string @thirdPartyCorporateId)
         {
             this.Id = @id;
             this.ProgramId = @programId;
             this.ProgramCode = @programCode;
+            this.ThirdPartyCorporateId = @thirdPartyCorporateId;
             this.CreatedAtUtc = @createdAtUtc;
             this.MostRecentTransactionDateUtc = @mostRecentTransactionDateUtc;
         }
@@ -54,6 +55,9 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("programCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProgramCode { get; }
+    
+        [Newtonsoft.Json.JsonProperty("thirdPartyCorporateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ThirdPartyCorporateId { get; }
     
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? CreatedAtUtc { get; }
@@ -68,11 +72,12 @@ namespace OpenWater.ApiClient.Invoice
     public partial class DetailsResponse 
     {
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(System.Collections.Generic.ICollection<BillingLineItemModel> @billingLineItems, System.DateTimeOffset? @createdAtUtc, int? @id, System.DateTimeOffset? @mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<PaymentModel> @payments, string @programCode, int? @programId, System.Collections.Generic.ICollection<RefundModel> @refunds)
+        public DetailsResponse(System.Collections.Generic.ICollection<BillingLineItemModel> @billingLineItems, System.DateTimeOffset? @createdAtUtc, int? @id, System.DateTimeOffset? @mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<PaymentModel> @payments, string @programCode, int? @programId, System.Collections.Generic.ICollection<RefundModel> @refunds, string @thirdPartyCorporateId)
         {
             this.Id = @id;
             this.ProgramId = @programId;
             this.ProgramCode = @programCode;
+            this.ThirdPartyCorporateId = @thirdPartyCorporateId;
             this.CreatedAtUtc = @createdAtUtc;
             this.MostRecentTransactionDateUtc = @mostRecentTransactionDateUtc;
             this.BillingLineItems = @billingLineItems;
@@ -88,6 +93,9 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("programCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProgramCode { get; }
+    
+        [Newtonsoft.Json.JsonProperty("thirdPartyCorporateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ThirdPartyCorporateId { get; }
     
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? CreatedAtUtc { get; }
