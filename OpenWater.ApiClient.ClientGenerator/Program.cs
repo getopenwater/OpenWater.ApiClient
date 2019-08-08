@@ -24,10 +24,10 @@ namespace OpenWater.ApiClient.ClientGenerator
 
             GenerateClient(apiDocument, outputPath, apiClientClassName, generatedClientFilePostfix, CSharpClientGeneratorSettingsCreator, out var typeNameHintsModelWithNamespaceInfos);
 
-            GenerateModels(apiDocument, Path.Combine(outputPath, "Models"), apiClientNamespace, CSharpClientGeneratorSettingsCreator, typeNameHintsModelWithNamespaceInfos);
+            GenerateModels(apiDocument, Path.Combine(outputPath, "Models", "Generated"), apiClientNamespace, CSharpClientGeneratorSettingsCreator, typeNameHintsModelWithNamespaceInfos);
 
             Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
+            Console.ReadKey(true);
 
             CSharpClientGeneratorSettings CSharpClientGeneratorSettingsCreator()
             {
