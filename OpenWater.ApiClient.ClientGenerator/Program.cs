@@ -66,6 +66,10 @@ namespace OpenWater.ApiClient.ClientGenerator
             // there are no options to make constructor protected using generator settings
             generatedClientFile = generatedClientFile.Replace($"public {apiClientClassName}(", $"private {apiClientClassName}(");
 
+            // sealed class doesn't contain virtual and protected methods
+            generatedClientFile = generatedClientFile.Replace(" virtual ", " ");
+            generatedClientFile = generatedClientFile.Replace("protected ", "private ");
+
             var path = Path.Combine(outputDirectory, $"{settings.ClassName}.{generatedClientFilePostfix}.cs");
             File.WriteAllText(path, generatedClientFile);
 
@@ -98,7 +102,7 @@ namespace OpenWater.ApiClient.ClientGenerator
 
         private static void GenerateModelsForNamespace(OpenApiDocument apiDocument, string outputDirectory, string rootNamespace, string currentNamespace, Func<CSharpClientGeneratorSettings> cSharpClientGeneratorSettingsCreator, IReadOnlyDictionary<string, ModelNameWithNamespaceInfo> typeNameHintsModelWithNamespaceInfos)
         {
-            Console.Write($"{currentNamespace}...");
+            Console.Write($"{currentNamespace}... ");
 
             var modelWithNamespaceTypeNameGenerator = new NamespaceRelatedModelTypeNameGenerator(typeNameHintsModelWithNamespaceInfos, currentNamespace);
 
@@ -108,8 +112,12 @@ namespace OpenWater.ApiClient.ClientGenerator
             settings.CSharpGeneratorSettings.TypeNameGenerator = modelWithNamespaceTypeNameGenerator;
 
             var generator = new CSharpClientGenerator(apiDocument, settings);
+            
             var generatedModelsFile = generator.GenerateFile();
 
+            if (currentNamespace.Contains("fieldvalues", StringComparison.OrdinalIgnoreCase))
+                generatedModelsFile = generatedModelsFile.Replace("string @alias, string @alias", "string @alias");
+            
             var path = Path.Combine(outputDirectory, $"{currentNamespace}.cs");
             File.WriteAllText(path, generatedModelsFile);
 
