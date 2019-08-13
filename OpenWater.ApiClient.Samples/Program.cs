@@ -2,19 +2,32 @@
 
 namespace OpenWater.ApiClient.Samples
 {
-    class Program
+    public partial class Program
     {
-        static void Main(string[] args)
-        {
-            var apiClient = new OpenWaterApiClient("demo.secure-platform.com", "41c41e1c-9786-4f79-be44-8e14d4fdc95b");
-//            var apiClient = new OpenWaterApiClient("localhost", "some api key", baseUrl: "http://localhost:11100");
+        protected static OpenWaterApiClient ApiClient;
 
-            GetAllUsers(apiClient);
-        }
-
-        private static void GetAllUsers(OpenWaterApiClient apiClient)
+        static void Main()
         {
-            var users = apiClient.UserListAsync(pageSize: 200).Result;
+            //ApiClient = new OpenWaterApiClient("demo.secure-platform.com", "41c41e1c-9786-4f79-be44-8e14d4fdc95b");
+
+            //GetAllUsersExample();
+            //GetUsersByName();
+            //GetUsersWithPaginationExample();
+            //CreateUserExample();
+            //CreateUserAndGetThatUserExample();
+            //CreateUserAndUpdateProfileExample();
+            //UpdateProfile();
+            //GetSsoUrlByUserEmailExample();
+            //GetAllInvoicesLastWeek();
+            //GetInvoiceById();
+            //GetAllBillingLineItemsSinceLastWeek();
+            //GetAllPaymentsSinceLastWeek();
+            //GetAllRefundsSinceLastWeek();
+            //RunReportBackgroundJobExample();
+            //CreateNewApplicationExample();
+            //GetApplicationsCreatedInLast24HoursExample();
+            //UpdateApplicationData();
+            //UpdateApplicationCategoryExample();
         }
     }
 }
