@@ -24,9 +24,9 @@ namespace OpenWater.ApiClient.ClientGenerator
 
             GenerateClient(apiDocument, outputPath, apiClientClassName, generatedClientFilePostfix, CSharpClientGeneratorSettingsCreator, out var typeNameHintsModelWithNamespaceInfos);
 
-            GenerateModels(apiDocument, Path.Combine(outputPath, "Models", "Generated"), apiClientNamespace, CSharpClientGeneratorSettingsCreator, typeNameHintsModelWithNamespaceInfos);
+            GenerateModels(apiDocument, Path.Combine(outputPath, "Models"), apiClientNamespace, CSharpClientGeneratorSettingsCreator, typeNameHintsModelWithNamespaceInfos);
 
-            Console.WriteLine("Press any key to exit...");
+            Console.Write("Press any key to exit...");
             Console.ReadKey(true);
 
             CSharpClientGeneratorSettings CSharpClientGeneratorSettingsCreator()
@@ -112,12 +112,9 @@ namespace OpenWater.ApiClient.ClientGenerator
             settings.CSharpGeneratorSettings.TypeNameGenerator = modelWithNamespaceTypeNameGenerator;
 
             var generator = new CSharpClientGenerator(apiDocument, settings);
-            
-            var generatedModelsFile = generator.GenerateFile();
 
-            if (currentNamespace.Contains("fieldvalues", StringComparison.OrdinalIgnoreCase))
-                generatedModelsFile = generatedModelsFile.Replace("string @alias, string @alias", "string @alias");
-            
+            var generatedModelsFile = generator.GenerateFile();
+           
             var path = Path.Combine(outputDirectory, $"{currentNamespace}.cs");
             File.WriteAllText(path, generatedModelsFile);
 
