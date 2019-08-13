@@ -13,7 +13,7 @@
 namespace OpenWater.ApiClient
 {
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial class OpenWaterApiClient 
+    public sealed partial class OpenWaterApiClient 
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
@@ -37,7 +37,7 @@ namespace OpenWater.ApiClient
             set { _baseUrl = value; }
         }
     
-        protected Newtonsoft.Json.JsonSerializerSettings JsonSerializerSettings { get { return _settings.Value; } }
+        private Newtonsoft.Json.JsonSerializerSettings JsonSerializerSettings { get { return _settings.Value; } }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -3709,7 +3709,7 @@ namespace OpenWater.ApiClient
             }
         }
     
-        protected struct ObjectResponseResult<T>
+        private struct ObjectResponseResult<T>
         {
             public ObjectResponseResult(T responseObject, string responseText)
             {
@@ -3724,7 +3724,7 @@ namespace OpenWater.ApiClient
     
         public bool ReadResponseAsString { get; set; }
         
-        protected async System.Threading.Tasks.Task<ObjectResponseResult<T>> ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers)
+        private async System.Threading.Tasks.Task<ObjectResponseResult<T>> ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers)
         {
             if (response == null || response.Content == null)
             {
