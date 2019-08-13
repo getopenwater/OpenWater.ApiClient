@@ -75,11 +75,17 @@ namespace OpenWater.ApiClient.Samples
             var createRequest = new User.CreateRequest(
                 email: "jodoe2@example.com",
                 externalAccountData: "SampleData",
-                fieldValues: new List<FieldValueModelBase>(),
+                fieldValues: new List<FieldValueModelBase>
+                {
+                    new TextFieldValueModel("firstName", "Dohn"),
+                    new TextFieldValueModel("lastName", "Jonny"),
+                    new TextFieldValueModel("companyName", "Sample Company Name"),
+                    new TextFieldValueModel("emailAddress", "jodoeV@example.com"),
+                },
                 firstName: "Dohn",
-                lastName: "Joe",
+                lastName: "Jonny",
                 password: "SecurePassword",
-                thirdPartyUniqueId: "123"
+                thirdPartyUniqueId: "123112"
             );
 
             var user = ApiClient.CreateUserAsync(createRequest).Result;
@@ -89,7 +95,7 @@ namespace OpenWater.ApiClient.Samples
                 var updateRequest = new ProfileFormValuesRequest(
                     new List<FieldValueModelBase>(new FieldValueModelBase[]
                     {
-                        new FieldValueModelBase("x")
+                        new TextFieldValueModel("companyName", "Yet Another Company Name"),
                     })
                 );
 
