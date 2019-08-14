@@ -7,7 +7,7 @@ namespace OpenWater.ApiClient.Samples
     {
         public static string RunReportBackgroundJobExample()
         {
-            var reportId = 83001;
+            const int reportId = 83001;
             var reportExportFormat = new RunRequest("xlsx");
 
             var jobId = ApiClient.RunReportAsync(reportId, reportExportFormat).Result.JobId.Value;

@@ -8,25 +8,26 @@ namespace OpenWater.ApiClient.Samples
 
         static void Main()
         {
-            //ApiClient = new OpenWaterApiClient("demo.secure-platform.com", "41c41e1c-9786-4f79-be44-8e14d4fdc95b");
+            ApiClient = new OpenWaterApiClient("demo.secure-platform.com", "41c41e1c-9786-4f79-be44-8e14d4fdc95b");
+            //ApiClient = new OpenWaterApiClient("localhost", "some api key", baseUrl: "http://localhost:11100");
 
             //GetAllUsersExample();
-            //GetUsersByName();
+            //GetUsersByNameExample();
             //GetUsersWithPaginationExample();
             //CreateUserExample();
             //CreateUserAndGetThatUserExample();
             //CreateUserAndUpdateProfileExample();
-            //UpdateProfile();
+            //UpdateProfileExample();
             //GetSsoUrlByUserEmailExample();
-            //GetAllInvoicesLastWeek();
-            //GetInvoiceById();
-            //GetAllBillingLineItemsSinceLastWeek();
-            //GetAllPaymentsSinceLastWeek();
-            //GetAllRefundsSinceLastWeek();
+            //GetAllInvoicesLastWeekExample();
+            //GetInvoiceByIdExample();
+            //GetAllBillingLineItemsSinceLastWeekExample();
+            //GetAllPaymentsSinceLastWeekExample();
+            //GetAllRefundsSinceLastWeekExample();
             //RunReportBackgroundJobExample();
             //CreateNewApplicationExample();
             //GetApplicationsCreatedInLast24HoursExample();
-            //UpdateApplicationData();
+            //UpdateApplicationDataExample();
             //UpdateApplicationCategoryExample();
         }
     }

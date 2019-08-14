@@ -15,7 +15,7 @@ namespace OpenWater.ApiClient.Samples
                 new List<FieldValueModelBase>(new[]
                 {
                     new TextFieldValueModel("title", "Yet another application"),
-                }), 23006, 8001
+                }), programId: 23006, userId: 8001
             );
 
             ApiClient.CreateApplicationAsync(createRequest).Wait();
@@ -29,23 +29,23 @@ namespace OpenWater.ApiClient.Samples
             return applications;
         }
 
-        public static void UpdateApplicationData()
+        public static void UpdateApplicationDataExample()
         {
-            var applicationId = 18013;
+            const int applicationId = 18013;
             var submissionRequest = new SubmissionFormValuesRequest(new List<FieldValueModelBase>
             {
                 new TextFieldValueModel("title", "Updated Application")
-            }, 14004);
+            }, roundId: 14004);
 
             ApiClient.UpdateSubmissionFormAsync(applicationId, submissionRequest).Wait();
         }
 
         public static void UpdateApplicationCategoryExample()
         {
-            int id = 18014;
+            const int applicationId = 18014;
             var categoryRequest = new ApplicationCategoryRequest("cat1_1_2");
 
-            ApiClient.UpdateApplicationCategoryAsync(id, categoryRequest).Wait();
+            ApiClient.UpdateApplicationCategoryAsync(applicationId, categoryRequest).Wait();
         }
     }
 }

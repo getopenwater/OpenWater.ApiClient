@@ -55,17 +55,17 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.UserListAsync().Result;
         }
 
-        public static User.PagingResponseUserListItemModel GetUsersByName()
+        public static User.PagingResponseUserListItemModel GetUsersByNameExample()
         {
-            var name = "Submitter";
+            const string name = "Submitter";
 
             return ApiClient.UserListAsync(name).Result;
         }
 
         public static User.PagingResponseUserListItemModel GetUsersWithPaginationExample()
         {
-            var pageSize = 3;
-            var pageIndex = 1;
+            const int pageSize = 3;
+            const int pageIndex = 1;
 
             return ApiClient.UserListAsync(pageSize: pageSize, pageIndex: pageIndex).Result;
         }
@@ -103,9 +103,9 @@ namespace OpenWater.ApiClient.Samples
             }
         }
 
-        public static void UpdateProfile()
+        public static void UpdateProfileExample()
         {
-            var userId = 8009;
+            const int userId = 8009;
             var profileRequest = new ProfileFormValuesRequest(new List<FieldValueModelBase>
             {
                 new TextFieldValueModel("firstName", "Yet Another Submitter")
@@ -116,7 +116,7 @@ namespace OpenWater.ApiClient.Samples
 
         public static string GetSsoUrlByUserEmailExample()
         {
-            var email = "programbook@secure-platform.com";
+            const string email = "programbook@secure-platform.com";
             var ssoTokenRequest = new SsoTokenRequest("sample_url");
             var user = ApiClient.UserListAsync(email: email).Result.Items.First();
 
