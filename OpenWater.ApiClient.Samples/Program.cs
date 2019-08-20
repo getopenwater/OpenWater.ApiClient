@@ -4,7 +4,8 @@ namespace OpenWater.ApiClient.Samples
 {
     public partial class Program
     {
-        protected static OpenWaterApiClient ApiClient;
+
+        private static OpenWaterApiClient ApiClient;
 
         static void Main()
         {
@@ -29,6 +30,32 @@ namespace OpenWater.ApiClient.Samples
             //GetApplicationsCreatedInLast24HoursExample();
             //UpdateApplicationDataExample();
             //UpdateApplicationCategoryExample();
+
+            //UploadMediaViaUrlAndUpdateSubmissionMediaFieldExample();
+            //Already exists: UpdateApplicationCategoryExample();
+            //UpdateApplicationStatusFromPendingApprovalToComplete();
+            //UpdateApplicationToAllowUserToMakeEditsExample();
+            //AssignWinnerExample();
+            //ForwardToNextRoundExample();
+            //AddCollaboratorExample();
+            //RemoveCollaboratorFromSubmissionExample();
+            //ViewAllNewApplicationsCreatedOrModifiedLastWeekExample();
+            //ViewDeletedApplicationsInLastWeekExample();
+            //AssignJudgeToApplicationExample();
+            //RemoveJudgeFromApplicationExample();
+            //AddJudgeToTeamExample();
+            //RemoveJudgeFromTeamExample();
+            //GetAllJudgesOnTeamExample();
+            //GetAllCurrentJudgeAssignmentsForApplications();
+            //GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdExample();
+            //UpdateEvaluationExample();
+            //CreateSessionExample();
+            //UpdateSessionFieldsExample();
+            //DeleteSessionExample();
+            //GetSessionsCreatedOrModifiedInLastWeekExample();
+            //GetSessionDataByIdExample();
+            //AddSessionChairToSessionExample();
+            //RemoveSessionChairExample();
         }
     }
 }
