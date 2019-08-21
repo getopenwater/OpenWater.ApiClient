@@ -10,12 +10,12 @@ namespace OpenWater.ApiClient
         private readonly string _apiKey;
         private readonly string _organizationCode;
         private readonly bool? _suppressEmails;
-
-        public OpenWaterApiClient(string clientKey, string apiKey, string organizationCode = null, bool? suppressEmails = null, string baseUrl = "https://api.secure-platform.com") : this(clientKey, apiKey, organizationCode, suppressEmails, baseUrl, new HttpClient())
+        
+        public OpenWaterApiClient(string clientKey, string apiKey, string organizationCode = null, bool? suppressEmails = null, string baseUrl = "https://api.secure-platform.com") : this(clientKey, apiKey, organizationCode, suppressEmails, baseUrl, null)
         {
         }
 
-        public OpenWaterApiClient(string clientKey, string apiKey, string organizationCode, bool? suppressEmails, string baseUrl, HttpClient httpClient) : this(baseUrl, httpClient)
+        public OpenWaterApiClient(string clientKey, string apiKey, string organizationCode, bool? suppressEmails, string baseUrl, HttpClient httpClient) : this(baseUrl, new OpenWaterHttpClient(httpClient))
         {
             _clientKey = clientKey;
             _apiKey = apiKey;
@@ -23,7 +23,7 @@ namespace OpenWater.ApiClient
             _suppressEmails = suppressEmails;
         }
 
-        partial void PrepareRequest(HttpClient client, HttpRequestMessage request, StringBuilder urlBuilder)
+        partial void PrepareRequest(OpenWaterHttpClient client, HttpRequestMessage request, StringBuilder urlBuilder)
         {
             request.Headers.TryAddWithoutValidation("X-ClientKey", ConvertToString(_clientKey, System.Globalization.CultureInfo.InvariantCulture));
             request.Headers.TryAddWithoutValidation("X-ApiKey", ConvertToString(_apiKey, System.Globalization.CultureInfo.InvariantCulture));
@@ -33,6 +33,11 @@ namespace OpenWater.ApiClient
 
             if (_suppressEmails.HasValue)
                 request.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(_suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
+        }
+
+        public void Dispose()
+        {
+            _httpClient?.Dispose();
         }
     }
 }

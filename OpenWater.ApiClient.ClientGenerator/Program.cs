@@ -59,6 +59,7 @@ namespace OpenWater.ApiClient.ClientGenerator
             settings.GenerateDtoTypes = false;
             settings.GenerateClientClasses = true;
             settings.CSharpGeneratorSettings.TypeNameGenerator = modelWithNamespaceTypeNameGenerator;
+            settings.HttpClientType = "OpenWater.ApiClient.OpenWaterHttpClient";
 
             var generator = new CSharpClientGenerator(apiDocument, settings);
             var generatedClientFile = generator.GenerateFile();
