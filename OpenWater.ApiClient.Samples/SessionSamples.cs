@@ -26,12 +26,12 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.CreateSessionAsync(createSessionRequest);
         }
 
-        public static async Task UpdateSessionFieldsAsync()
+        public static Task UpdateSessionFieldsAsync()
         {
             const int sessionId = 53003;
             var model = new FormFieldsRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
 
-            await ApiClient.UpdateSessionFormFieldsAsync(sessionId, model);
+            return ApiClient.UpdateSessionFormFieldsAsync(sessionId, model);
         }
 
         public static Task DeleteSessionAsync()
