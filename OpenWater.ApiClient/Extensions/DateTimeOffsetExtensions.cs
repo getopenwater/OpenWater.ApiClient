@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace OpenWater.ApiClient.Utils.Extensions
+namespace OpenWater.ApiClient.Extensions
 {
     internal static class DateTimeOffsetExtensions
     {

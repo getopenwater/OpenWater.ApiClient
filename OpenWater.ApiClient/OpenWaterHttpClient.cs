@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using OpenWater.ApiClient.Utils.Extensions;
+using OpenWater.ApiClient.Extensions;
 
 namespace OpenWater.ApiClient
 {
@@ -11,7 +11,7 @@ namespace OpenWater.ApiClient
     {
         private readonly SemaphoreSlim _maxRequestsSemaphoreSlim;
         private readonly HttpClient _httpClient;
-        private readonly List<DateTimeOffset> _lastRequestOrWhenFinishedResponseDateTimeOffsets = new List<DateTimeOffset>();
+        private readonly List<DateTimeOffset> _latestRequestStartOrResponseFinishTimes = new List<DateTimeOffset>();
         private readonly bool _hasExternalHttpClient;
 
         public static int NumberOfRequestsPerSecond { get; set; } = 20;
@@ -37,14 +37,14 @@ namespace OpenWater.ApiClient
             try
             {
                 var requestStartedAt = DateTimeOffset.UtcNow;
-                _lastRequestOrWhenFinishedResponseDateTimeOffsets.Throttle(NumberOfRequestsPerSecond, requestStartedAt);
+                _latestRequestStartOrResponseFinishTimes.Throttle(NumberOfRequestsPerSecond, requestStartedAt);
 
                 return await _httpClient.SendAsync(request, token).ContinueWith(r =>
                 {
                     var response = r.Result;
 
                     // Calculate throttling time by using request start or response finish time.
-                    _lastRequestOrWhenFinishedResponseDateTimeOffsets.ReplaceLastIfAny(requestStartedAt, DateTimeOffset.UtcNow);
+                    _latestRequestStartOrResponseFinishTimes.ReplaceLastIfAny(requestStartedAt, DateTimeOffset.UtcNow);
                     return response;
                 }, token);
             }

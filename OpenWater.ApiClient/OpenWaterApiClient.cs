@@ -37,7 +37,7 @@ namespace OpenWater.ApiClient
 
         public void Dispose()
         {
-            _httpClient?.Dispose();
+            _httpClient.Dispose();
         }
     }
 }
