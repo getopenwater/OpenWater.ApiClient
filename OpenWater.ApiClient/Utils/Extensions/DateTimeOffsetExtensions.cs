@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace OpenWater.ApiClient.Utils
+namespace OpenWater.ApiClient.Utils.Extensions
 {
     internal static class DateTimeOffsetExtensions
     {
@@ -17,7 +17,7 @@ namespace OpenWater.ApiClient.Utils
                     return 0;
 
                 if (self.Count > 1)
-                    self.TryRemoveFirst();
+                    self.RemoveFirstIfAny();
 
                 var interval = currentDateTimeOffset.ToUnixTimeMilliseconds() - self.First().ToUnixTimeMilliseconds();
                 var throttleMs = checked((int)(interval < millisecondsInSecond ? millisecondsInSecond - interval : 0));
@@ -32,18 +32,19 @@ namespace OpenWater.ApiClient.Utils
             Thread.Sleep(self.GetThrottleTimeInMilliseconds(maxRequestsPerSecondCount, currentDateTimeOffset));
         }
 
-        internal static bool TryRemoveFirst(this List<DateTimeOffset> self)
+        internal static bool RemoveFirstIfAny(this List<DateTimeOffset> self)
         {
             lock (self)
             {
-                if (!self.Any()) return false;
+                if (!self.Any())
+                    return false;
 
                 self.RemoveAt(0);
                 return true;
             }
         }
 
-        internal static bool TryReplaceLast(this List<DateTimeOffset> self, DateTimeOffset oldValue, DateTimeOffset newValue)
+        internal static bool ReplaceLastIfAny(this List<DateTimeOffset> self, DateTimeOffset oldValue, DateTimeOffset newValue)
         {
             lock (self)
             {
