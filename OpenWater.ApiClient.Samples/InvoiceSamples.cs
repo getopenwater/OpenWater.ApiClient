@@ -10,9 +10,9 @@ namespace OpenWater.ApiClient.Samples
     {
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
-        public static async Task<IEnumerable<InvoiceListItemModel>> GetAllInvoicesLastWeekAsync()
+        public static Task<PagingResponseInvoiceListItemModel> GetAllInvoicesLastWeekAsync()
         {
-            return (await ApiClient.GetInvoicesAsync()).Items.Where(i => i.CreatedAtUtc >= DateTime.UtcNow.AddDays(-7));
+            return ApiClient.GetInvoicesAsync(mostRecentTransactionSinceUtc: DateTime.UtcNow.AddDays(-7));
         }
 
         public static Task<DetailsResponse> GetInvoiceByIdAsync()

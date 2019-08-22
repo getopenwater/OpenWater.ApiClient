@@ -20,9 +20,9 @@ namespace OpenWater.ApiClient.Samples
 
             while (true)
             {
-                var job = (await ApiClient.GetJobByIdAsync(jobId)).JobState;
+                var jobState = (await ApiClient.GetJobByIdAsync(jobId)).JobState;
 
-                if (job == DetailsResponseJobState.Succeeded || job == DetailsResponseJobState.Failed)
+                if (jobState == DetailsResponseJobState.Succeeded || jobState == DetailsResponseJobState.Failed)
                     return await ApiClient.GetJobByIdAsync(jobId);
 
                 Thread.Sleep(millisecondsTimeout: 1000);
