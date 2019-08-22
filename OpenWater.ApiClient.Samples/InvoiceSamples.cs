@@ -8,43 +8,33 @@ namespace OpenWater.ApiClient.Samples
 {
     public static class InvoiceSamples
     {
-        private static OpenWaterApiClient ApiClient = Program.ApiClient;
+        private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         public static async Task<IEnumerable<InvoiceListItemModel>> GetAllInvoicesLastWeekAsync()
         {
-            var invoices = (await ApiClient.GetInvoicesAsync()).Items.Where(i => i.CreatedAtUtc >= DateTime.UtcNow.AddDays(-7));
-
-            return invoices;
+            return (await ApiClient.GetInvoicesAsync()).Items.Where(i => i.CreatedAtUtc >= DateTime.UtcNow.AddDays(-7));
         }
 
-        public static async Task<DetailsResponse> GetInvoiceByIdAsync()
+        public static Task<DetailsResponse> GetInvoiceByIdAsync()
         {
             const int invoiceId = 1001;
 
-            var invoice = ApiClient.GetInvoiceByIdAsync(invoiceId);
-
-            return await invoice;
+            return ApiClient.GetInvoiceByIdAsync(invoiceId);
         }
 
-        public static async Task<PagingResponseBillingLineItemListItemModel> GetAllBillingLineItemsSinceLastWeekAsync()
+        public static Task<PagingResponseBillingLineItemListItemModel> GetAllBillingLineItemsSinceLastWeekAsync()
         {
-            var lineItems = ApiClient.GetBillingLineItemsAsync(DateTime.UtcNow.Date.AddDays(-7));
-
-            return await lineItems;
+            return ApiClient.GetBillingLineItemsAsync(DateTime.UtcNow.Date.AddDays(-7));
         }
 
-        public static async Task<PagingResponsePaymentListItemModel> GetAllPaymentsSinceLastWeekAsync()
+        public static Task<PagingResponsePaymentListItemModel> GetAllPaymentsSinceLastWeekAsync()
         {
-            var payments = ApiClient.GetPaymentsAsync(DateTime.UtcNow.AddDays(-7));
-
-            return await payments;
+            return ApiClient.GetPaymentsAsync(DateTime.UtcNow.AddDays(-7));
         }
 
-        public static async Task<PagingResponseRefundListItemModel> GetAllRefundsSinceLastWeek()
+        public static Task<PagingResponseRefundListItemModel> GetAllRefundsSinceLastWeek()
         {
-            var refunds = ApiClient.GetRefundsAsync(DateTimeOffset.UtcNow.AddDays(-7));
-
-            return await refunds;
+            return ApiClient.GetRefundsAsync(DateTimeOffset.UtcNow.AddDays(-7));
         }
     }
 }

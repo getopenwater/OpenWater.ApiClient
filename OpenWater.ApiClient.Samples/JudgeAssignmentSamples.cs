@@ -8,25 +8,21 @@ namespace OpenWater.ApiClient.Samples
 {
     public static class JudgeAssignmentSamples
     {
-        private static OpenWaterApiClient ApiClient = Program.ApiClient;
+        private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
-        public static async Task<PagingResponseJudgeListItemModel> GetAllCurrentJudgeAssignmentsForApplicationsAsync()
+        public static Task<PagingResponseJudgeListItemModel> GetAllCurrentJudgeAssignmentsForApplicationsAsync()
         {
             const int applicationId = 18022;
             const int roundId = 14010;
 
-            var judgeAssignments = ApiClient.GetAssignedToApplicationAssignmentsAsync(applicationId, roundId);
-
-            return await judgeAssignments;
+            return ApiClient.GetAssignedToApplicationAssignmentsAsync(applicationId, roundId);
         }
 
-        public static async Task<PagingResponseJudgeListItemModel> GetAllJudgesOnTeamAsync()
+        public static Task<PagingResponseJudgeListItemModel> GetAllJudgesOnTeamAsync()
         {
             const int judgeTeamId = 3001;
 
-            var judgeTeamAssignments = ApiClient.GetAssignedToJudgeTeamAssignmentsAsync(judgeTeamId);
-
-            return await judgeTeamAssignments;
+            return ApiClient.GetAssignedToJudgeTeamAssignmentsAsync(judgeTeamId);
         }
     }
 }

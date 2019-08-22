@@ -9,40 +9,40 @@ namespace OpenWater.ApiClient.Samples
 {
     public static class JudgeSamples
     {
-        private static OpenWaterApiClient ApiClient = Program.ApiClient;
+        private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
-        public static async Task AssignJudgeToApplicationAsync()
+        public static Task AssignJudgeToApplicationAsync()
         {
             const int userJudgeId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            await ApiClient.AssignJudgeToApplicationAsync(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId));
+            return ApiClient.AssignJudgeToApplicationAsync(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId));
         }
 
-        public static async Task RemoveJudgeFromApplicationAsync()
+        public static Task RemoveJudgeFromApplicationAsync()
         {
             const int userJudgeId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            await ApiClient.UnassignJudgeFromApplicationAsync(userJudgeId, applicationId, roundId);
+            return ApiClient.UnassignJudgeFromApplicationAsync(userJudgeId, applicationId, roundId);
         }
 
-        public static async Task AddJudgeToTeamAsync()
+        public static Task AddJudgeToTeamAsync()
         {
             const int judgeId = 8004;
             const int judgeTeamId = 30001;
 
-            await ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId));
+            return ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId));
         }
 
-        public static async Task RemoveJudgeFromTeamAsync()
+        public static Task RemoveJudgeFromTeamAsync()
         {
             const int judgeId = 8004;
             const int judgeTeamId = 30001;
 
-            await ApiClient.UnassignJudgeFromJudgeTeamAsync(judgeId, judgeTeamId);
+            return ApiClient.UnassignJudgeFromJudgeTeamAsync(judgeId, judgeTeamId);
         }
     }
 }

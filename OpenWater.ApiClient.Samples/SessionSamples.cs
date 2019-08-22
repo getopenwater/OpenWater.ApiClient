@@ -9,19 +9,21 @@ namespace OpenWater.ApiClient.Samples
 {
     public static class SessionSamples
     {
-        private static OpenWaterApiClient ApiClient = Program.ApiClient;
+        private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
-        public static async Task CreateSessionAsync()
+        public static Task CreateSessionAsync()
         {
-            const string sessionName = "session name";
+            const int programId = 23001;
+            const int typeId = 56001;
+
             var createSessionRequest = new CreateRequest(new List<int>(),
                 new List<FieldValueModelBase>
                 {
                     new TextFieldValueModel("title", "The best session in the world!")
-                }, sessionName, programId: 23001, typeId: 56001
+                }, "session name", programId, typeId
             );
 
-            await ApiClient.CreateSessionAsync(createSessionRequest);
+            return ApiClient.CreateSessionAsync(createSessionRequest);
         }
 
         public static async Task UpdateSessionFieldsAsync()
@@ -39,20 +41,16 @@ namespace OpenWater.ApiClient.Samples
             await ApiClient.DeleteSessionAsync(sessionId);
         }
 
-        public static async Task<PagingResponseSessionListItemModel> GetSessionsCreatedOrModifiedInLastWeekAsync()
+        public static Task<PagingResponseSessionListItemModel> GetSessionsCreatedOrModifiedInLastWeekAsync()
         {
-            var sessions = ApiClient.GetSessionsAsync(lastModifiedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
-
-            return await sessions;
+            return ApiClient.GetSessionsAsync(lastModifiedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
         }
 
-        public static async Task<DetailsResponse> GetSessionDataByIdAsync()
+        public static Task<DetailsResponse> GetSessionDataByIdAsync()
         {
             const int sessionId = 53003;
 
-            var sessionData = ApiClient.GetSessionByIdAsync(sessionId);
-
-            return await sessionData;
+            return ApiClient.GetSessionByIdAsync(sessionId);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace OpenWater.ApiClient.Samples
 {
     public static class EvaluationSample
     {
-        private static OpenWaterApiClient ApiClient = Program.ApiClient;
+        private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         public static async Task<JudgeScorecardListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
         {
@@ -18,12 +18,11 @@ namespace OpenWater.ApiClient.Samples
 
             var judgeId = (await ApiClient.UserListAsync(email: judgeEmail, isJudge: true)).Items.First().Id;
             var judgeScorecardList = await ApiClient.JudgeScorecardListAsync();
-            var evaluation = judgeScorecardList.Items.First(j => j.ApplicationId == applicationId && j.JudgeUserId == judgeId);
 
-            return evaluation;
+            return judgeScorecardList.Items.First(j => j.ApplicationId == applicationId && j.JudgeUserId == judgeId);
         }
 
-        public static async Task UpdateEvaluationAsync()
+        public static Task UpdateEvaluationAsync()
         {
             const int evaluationId = 41014;
             var formRequest = new EvaluationFormRequest(true,
@@ -33,7 +32,7 @@ namespace OpenWater.ApiClient.Samples
                 },
                 null);
 
-            await ApiClient.UpdateEvaluationFormAsync(evaluationId, formRequest);
+            return ApiClient.UpdateEvaluationFormAsync(evaluationId, formRequest);
         }
     }
 }

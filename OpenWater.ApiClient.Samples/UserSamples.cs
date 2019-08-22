@@ -9,9 +9,9 @@ namespace OpenWater.ApiClient.Samples
 {
     public static class UserSamples
     {
-        private static OpenWaterApiClient ApiClient = Program.ApiClient;
+        private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
-        public static async Task CreateUserAsync()
+        public static Task CreateUserAsync()
         {
             var createRequest = new User.CreateRequest(
                 email: "jodoe8@example.com",
@@ -29,7 +29,7 @@ namespace OpenWater.ApiClient.Samples
                 thirdPartyUniqueId: "31122222"
             );
 
-            await ApiClient.CreateUserAsync(createRequest);
+            return ApiClient.CreateUserAsync(createRequest);
         }
 
         public static Task<DetailsResponse> CreateUserAndGetThatUserAsync()
@@ -50,24 +50,22 @@ namespace OpenWater.ApiClient.Samples
                 thirdPartyUniqueId: "311222"
             );
 
-            var user = ApiClient.CreateUserAsync(createRequest);
-
-            return user;
+            return ApiClient.CreateUserAsync(createRequest);
         }
 
-        public static async Task<PagingResponseUserListItemModel> GetAllUsersAsync()
+        public static Task<PagingResponseUserListItemModel> GetAllUsersAsync()
         {
-            return await ApiClient.UserListAsync();
+            return ApiClient.UserListAsync();
         }
 
-        public static async Task<PagingResponseUserListItemModel> GetUsersByNameAsync()
+        public static Task<PagingResponseUserListItemModel> GetUsersByNameAsync()
         {
-            return await ApiClient.UserListAsync(firstName: "Submitter");
+            return ApiClient.UserListAsync(firstName: "Submitter");
         }
 
-        public static async Task<PagingResponseUserListItemModel> GetUsersWithPaginationAsync()
+        public static Task<PagingResponseUserListItemModel> GetUsersWithPaginationAsync()
         {
-            return await ApiClient.UserListAsync(pageSize: 3, pageIndex: 1);
+            return ApiClient.UserListAsync(pageSize: 3, pageIndex: 1);
         }
 
         public static async Task CreateUserAndUpdateProfileAsync()
@@ -103,7 +101,7 @@ namespace OpenWater.ApiClient.Samples
             }
         }
 
-        public static async Task UpdateProfileAsync()
+        public static Task UpdateProfileAsync()
         {
             const int userId = 8009;
 
@@ -112,18 +110,17 @@ namespace OpenWater.ApiClient.Samples
                 new TextFieldValueModel("firstName", "Yet Another Submitter")
             });
 
-            await ApiClient.UpdateProfileFormValuesAsync(userId, profileRequest);
+            return ApiClient.UpdateProfileFormValuesAsync(userId, profileRequest);
         }
 
-        public static async Task<string> GetSsoUrlByUserEmailAsync()
+        public static async Task<SsoTokenResponse> GetSsoUrlByUserEmailAsync()
         {
             const string email = "programbook@secure-platform.com";
             var ssoTokenRequest = new SsoTokenRequest("sample_url");
 
             var user = (await ApiClient.UserListAsync(email: email)).Items.First();
-            var ssoUrl = (await ApiClient.GenerateSsoTokenAsync(user.Id.Value, ssoTokenRequest)).SingleSignOnUrl;
 
-            return ssoUrl;
+            return await ApiClient.GenerateSsoTokenAsync(user.Id.Value, ssoTokenRequest);
         }
     }
 }
