@@ -7,36 +7,34 @@ using OpenWater.ApiClient.Utils;
 
 namespace OpenWater.ApiClient
 {
-    public class OpenWaterHttpClient
+    internal class OpenWaterHttpClient : IDisposable
     {
         private readonly SemaphoreSlim _maxRequestsSemaphoreSlim;
         private readonly HttpClient _httpClient;
         private readonly List<DateTimeOffset> _dateTimeList = new List<DateTimeOffset>();
-        private readonly bool _isHttpClientInjected;
+        private readonly bool _hasExternalHttpClient;
 
-        public static int RequestsPerSecond { get; set; } = 20;
-        public static int SimultaneousRequests { get; set; } = 2;
+        public static int NumberOfRequestsPerSecond { get; set; } = 20;
+        public static int NumberOfSimultaneousRequests { get; set; } = 2;
 
         internal OpenWaterHttpClient(HttpClient httpClient)
         {
             if (httpClient == null)
-            {
                 _httpClient = new HttpClient();
-            }
             else
             {
-                _isHttpClientInjected = true;
+                _hasExternalHttpClient = true;
                 _httpClient = httpClient;
             }
 
-            _maxRequestsSemaphoreSlim = new SemaphoreSlim(SimultaneousRequests, SimultaneousRequests);
+            _maxRequestsSemaphoreSlim = new SemaphoreSlim(NumberOfSimultaneousRequests, NumberOfSimultaneousRequests);
         }
 
-        internal void Dispose()
+        public void Dispose()
         {
             _maxRequestsSemaphoreSlim?.Dispose();
 
-            if(!_isHttpClientInjected)
+            if(!_hasExternalHttpClient)
                 _httpClient?.Dispose();
         }
 
@@ -46,13 +44,15 @@ namespace OpenWater.ApiClient
 
             try
             {
-                _dateTimeList.Throttle(RequestsPerSecond, DateTimeOffset.UtcNow);
-                var dateTimeOffsetStarted = _dateTimeList.AddUtcNow();
+                var requestStartedAt = DateTimeOffset.UtcNow;
+                _dateTimeList.Throttle(NumberOfRequestsPerSecond, requestStartedAt);
 
                 return await _httpClient.SendAsync(request, token).ContinueWith(r =>
                 {
-                    _dateTimeList.Replace(dateTimeOffsetStarted, DateTimeOffset.UtcNow);
-                    return r.Result;
+                    var response = r.Result;
+                    // Calculate throttling time after request finish instead request start
+                    _dateTimeList.TryReplaceLast(requestStartedAt, DateTimeOffset.UtcNow);
+                    return response;
                 }, token);
             }
             finally

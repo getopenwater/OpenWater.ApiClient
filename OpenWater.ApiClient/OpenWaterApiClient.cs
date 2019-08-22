@@ -4,13 +4,13 @@ using System.Text;
 
 namespace OpenWater.ApiClient
 {
-    public sealed partial class OpenWaterApiClient
+    public sealed partial class OpenWaterApiClient : IDisposable
     {
         private readonly string _clientKey;
         private readonly string _apiKey;
         private readonly string _organizationCode;
         private readonly bool? _suppressEmails;
-        
+
         public OpenWaterApiClient(string clientKey, string apiKey, string organizationCode = null, bool? suppressEmails = null, string baseUrl = "https://api.secure-platform.com") : this(clientKey, apiKey, organizationCode, suppressEmails, baseUrl, null)
         {
         }
