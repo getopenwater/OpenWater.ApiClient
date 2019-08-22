@@ -44,6 +44,20 @@ namespace OpenWater.ApiClient
         partial void PrepareRequest(OpenWater.ApiClient.OpenWaterHttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(OpenWater.ApiClient.OpenWaterHttpClient client, System.Net.Http.HttpResponseMessage response);
     
+        /// <summary>Gets list of applications</summary>
+        /// <param name="programId">Program Id</param>
+        /// <param name="startedAtUtc">Started at date (UTC)</param>
+        /// <param name="finalizedAtUtc">Finalized at date (UTC)</param>
+        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Application.PagingResponseApplicationListItemModel ApplicationList(int? programId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await ApplicationListAsync(programId, startedAtUtc, finalizedAtUtc, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets list of applications</summary>
         /// <param name="programId">Program Id</param>
@@ -136,6 +150,16 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Creates an application</summary>
+        /// <param name="model">Data for application creation</param>
+        /// <param name="suppressFormValidation">Suppress form validation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Application.DetailsResponse CreateApplication(Application.CreateRequest model = null, bool? suppressFormValidation = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await CreateApplicationAsync(model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Creates an application</summary>
         /// <param name="model">Data for application creation</param>
@@ -207,6 +231,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets a certain application by application id</summary>
+        /// <param name="id">Application Id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Application.DetailsResponse GetApplicationById(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetApplicationByIdAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets a certain application by application id</summary>
         /// <param name="id">Application Id</param>
@@ -271,6 +304,16 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Updates a certain application category</summary>
+        /// <param name="id">Application id</param>
+        /// <param name="model">Data to update from</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void UpdateApplicationCategory(int id, Application.ApplicationCategoryRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UpdateApplicationCategoryAsync(id, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -342,6 +385,17 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Updates a finalized submission status of a certain round</summary>
+        /// <param name="id">Application id</param>
+        /// <param name="roundId">Round id</param>
+        /// <param name="model">Data to update from</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void RoundSubmissionStatus(int id, int roundId, Application.RoundSubmissionStatusRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await RoundSubmissionStatusAsync(id, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -418,6 +472,17 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Finalizes a submission of a certain round</summary>
+        /// <param name="id">Application id</param>
+        /// <param name="roundId">Round id</param>
+        /// <param name="suppressFormValidation">Suppress form validation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void FinalizeRoundSubmission(int id, int roundId, bool? suppressFormValidation = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await FinalizeRoundSubmissionAsync(id, roundId, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -499,6 +564,17 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Allows a user to make edits for a certain round submission</summary>
+        /// <param name="id">Application id</param>
+        /// <param name="roundId">Round id</param>
+        /// <param name="model">Data to update from</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void AllowUserToMakeEdits(int id, int roundId, Application.AllowUserToMakeEditsRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await AllowUserToMakeEditsAsync(id, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Allows a user to make edits for a certain round submission</summary>
         /// <param name="id">Application id</param>
@@ -573,6 +649,17 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Updates winner assignment of an application in a certain round</summary>
+        /// <param name="id">Application id</param>
+        /// <param name="roundId">Round id</param>
+        /// <param name="model">Data to update winner assignment</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void WinnerAssignment(int id, int roundId, Application.WinnerAssignmentRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await WinnerAssignmentAsync(id, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -651,6 +738,17 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Updates forwarding state of an application in a certain round</summary>
+        /// <param name="id">Application id</param>
+        /// <param name="roundId">Round id</param>
+        /// <param name="model">Data to update winner assignment</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void Forwarding(int id, int roundId, Application.ForwardingRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await ForwardingAsync(id, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Updates forwarding state of an application in a certain round</summary>
         /// <param name="id">Application id</param>
@@ -725,6 +823,17 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Updates submission form field values in a certain round</summary>
+        /// <param name="id">Application id</param>
+        /// <param name="model">Data to update form</param>
+        /// <param name="suppressFormValidation">Suppress form validation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void UpdateSubmissionFormValues(int id, Application.SubmissionFormValuesRequest model = null, bool? suppressFormValidation = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UpdateSubmissionFormValuesAsync(id, model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -804,6 +913,16 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Creates a collaborator for a certain application</summary>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="model">Data to create from</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void CreateCollaborator(int applicationId, Collaborator.CreateRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await CreateCollaboratorAsync(applicationId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Creates a collaborator for a certain application</summary>
         /// <param name="applicationId">Application id</param>
@@ -873,6 +992,16 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Deletes a collaborator of a certain application</summary>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="id">Collaborator id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void DeleteCollaborator(int applicationId, int id)
+        {
+            System.Threading.Tasks.Task.Run(async () => await DeleteCollaboratorAsync(applicationId, id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -945,6 +1074,18 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Get list of deleted applications</summary>
+        /// <param name="programId">Program Id</param>
+        /// <param name="deletedSinceUtc">Deleted since date (UTC)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public DeletedApplication.PagingResponseDeletedApplicationListItem DeletedApplicationList(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await DeletedApplicationListAsync(programId, deletedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1029,6 +1170,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets job details</summary>
+        /// <param name="id">Job Id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public BackgroundJob.DetailsResponse GetJobById(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetJobByIdAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets job details</summary>
         /// <param name="id">Job Id</param>
@@ -1093,6 +1243,19 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets invoices</summary>
+        /// <param name="programId">Program id</param>
+        /// <param name="isPaid">Paid only (is 'true' by default)</param>
+        /// <param name="mostRecentTransactionSinceUtc">Most recent transaction since date (UTC)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Invoice.PagingResponseInvoiceListItemModel GetInvoices(int? programId = null, bool? isPaid = null, System.DateTimeOffset? mostRecentTransactionSinceUtc = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetInvoicesAsync(programId, isPaid, mostRecentTransactionSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1182,6 +1345,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets a certain invoice</summary>
+        /// <param name="id">Invoice Id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Invoice.DetailsResponse GetInvoiceById(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetInvoiceByIdAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets a certain invoice</summary>
         /// <param name="id">Invoice Id</param>
@@ -1246,6 +1418,17 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets billing line items</summary>
+        /// <param name="lastModifiedUtc">Last modified since date (UTC)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Invoice.PagingResponseBillingLineItemListItemModel GetBillingLineItems(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetBillingLineItemsAsync(lastModifiedUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1325,6 +1508,17 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets payments</summary>
+        /// <param name="lastModifiedUtc">Last modified since date (UTC)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Invoice.PagingResponsePaymentListItemModel GetPayments(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetPaymentsAsync(lastModifiedUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets payments</summary>
         /// <param name="lastModifiedUtc">Last modified since date (UTC)</param>
@@ -1402,6 +1596,17 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets refunds</summary>
+        /// <param name="lastModifiedUtc">Last modified since date (UTC)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Invoice.PagingResponseRefundListItemModel GetRefunds(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetRefundsAsync(lastModifiedUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets refunds</summary>
         /// <param name="lastModifiedUtc">Last modified since date (UTC)</param>
@@ -1477,6 +1682,20 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Get list of judges who are assigned to the round</summary>
+        /// <param name="roundId">Round Id</param>
+        /// <param name="judgeFirstName">Judge first name</param>
+        /// <param name="judgeLastName">Judge last name</param>
+        /// <param name="judgeEmail">Judge email</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public JudgeAssignment.PagingResponseJudgeListItemModel AssignedToRound(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await AssignedToRoundAsync(roundId, judgeFirstName, judgeLastName, judgeEmail, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1571,6 +1790,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Assigns a judge to an application in a certain round</summary>
+        /// <param name="model">Data for an assignment creation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void AssignJudgeToApplication(JudgeAssignment.AssignJudgeToApplicationRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await AssignJudgeToApplicationAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Assigns a judge to an application in a certain round</summary>
         /// <param name="model">Data for an assignment creation</param>
@@ -1635,6 +1863,17 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Deletes judge assignment on an application</summary>
+        /// <param name="judgeUserId">User id of a judge</param>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="roundId">Round id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void UnassignJudgeFromApplication(int judgeUserId, int applicationId, int roundId)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UnassignJudgeFromApplicationAsync(judgeUserId, applicationId, roundId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1715,6 +1954,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Assigns a judge to a certain judge team</summary>
+        /// <param name="model">Data for an assignment creation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void AssignJudgeToJudgeTeam(JudgeAssignment.AssignJudgeToJudgeTeamRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await AssignJudgeToJudgeTeamAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Assigns a judge to a certain judge team</summary>
         /// <param name="model">Data for an assignment creation</param>
@@ -1779,6 +2027,16 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Deletes judge assignment on a judge team</summary>
+        /// <param name="judgeUserId">User id of a judge</param>
+        /// <param name="judgeTeamId">Judge team id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void UnassignJudgeFromJudgeTeam(int? judgeUserId = null, int? judgeTeamId = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UnassignJudgeFromJudgeTeamAsync(judgeUserId, judgeTeamId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1854,6 +2112,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Begins a job to apply all judge assignment rules in a certain round</summary>
+        /// <param name="model">Data for an assignment creation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundResponse ApplyBulkJudgeAssignmentRulesInRound(JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundRequest model = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await ApplyBulkJudgeAssignmentRulesInRoundAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Begins a job to apply all judge assignment rules in a certain round</summary>
         /// <param name="model">Data for an assignment creation</param>
@@ -1917,6 +2184,17 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets all judges assigned to a judge team</summary>
+        /// <param name="judgeTeamId">Judge team id</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToJudgeTeamAssignments(int judgeTeamId, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetAssignedToJudgeTeamAssignmentsAsync(judgeTeamId, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1994,6 +2272,18 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets all judge assignments for a certain application in round</summary>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="roundId">Round id</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToApplicationAssignments(int applicationId, int roundId, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetAssignedToApplicationAssignmentsAsync(applicationId, roundId, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2078,6 +2368,16 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets a judge program profile</summary>
+        /// <param name="judgeUserId">Judge user id</param>
+        /// <param name="programId">Program id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Judge.ProgramProfileValuesResponse GetProgramProfileValues(int judgeUserId, int programId)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetProgramProfileValuesAsync(judgeUserId, programId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets a judge program profile</summary>
         /// <param name="judgeUserId">Judge user id</param>
@@ -2147,6 +2447,19 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets filtered evaluations</summary>
+        /// <param name="programId">Program id</param>
+        /// <param name="roundId">Round id</param>
+        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public JudgeScorecard.PagingResponseJudgeScorecardListItemModel JudgeScorecardList(int? programId = null, int? roundId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await JudgeScorecardListAsync(programId, roundId, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2236,6 +2549,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets evaluation by id</summary>
+        /// <param name="id">Evaluation id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public JudgeScorecard.DetailsResponse GetJudgeScorecardById(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetJudgeScorecardByIdAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets evaluation by id</summary>
         /// <param name="id">Evaluation id</param>
@@ -2300,6 +2622,16 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Updates a certain evaluation</summary>
+        /// <param name="id">Evaluation id</param>
+        /// <param name="model">Data to update from</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void UpdateEvaluationForm(int id, JudgeScorecard.EvaluationFormRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UpdateEvaluationFormAsync(id, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2373,6 +2705,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Creates a judge team for a certain round</summary>
+        /// <param name="model">Data for a judge team creation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public JudgeTeam.CreateResponse CreateJudgeTeam(JudgeTeam.CreateRequest model = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await CreateJudgeTeamAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Creates a judge team for a certain round</summary>
         /// <param name="model">Data for a judge team creation</param>
@@ -2436,6 +2777,15 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets media by url</summary>
+        /// <param name="id">Media id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Media.DetailsResponse GetMediaById(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetMediaByIdAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2504,6 +2854,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Creates media</summary>
+        /// <param name="model">Data to create from</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Media.CreateResponse CreateMedia(Media.CreateRequest model = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await CreateMediaAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Creates media</summary>
         /// <param name="model">Data to create from</param>
@@ -2567,6 +2926,15 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets organization timezone</summary>
+        /// <param name="id">Organization id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Organization.TimeZoneResponse GetOrganizationTimeZone(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetOrganizationTimeZoneAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2633,6 +3001,19 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets list of programs</summary>
+        /// <param name="createdSinceUtc">Created since date (UTC)</param>
+        /// <param name="tag">Program tag</param>
+        /// <param name="showArchived">Show archived programs (false by default)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Program.PagingResponseProgramListItemModel ProgramList(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await ProgramListAsync(createdSinceUtc, tag, showArchived, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2722,6 +3103,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Begins a program template json export job</summary>
+        /// <param name="id">Program id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Program.ExportResponse ExportProgramTemplate(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await ExportProgramTemplateAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Begins a program template json export job</summary>
         /// <param name="id">Program id</param>
@@ -2787,6 +3177,15 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Begins a program book json export job</summary>
+        /// <param name="id">Program id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Program.ExportResponse ExportToProgramBook(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await ExportToProgramBookAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2856,6 +3255,14 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets a session form template</summary>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Program.FormTemplateResponse GetSessionFormTemplate(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetSessionFormTemplateAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets a session form template</summary>
         /// <returns>Success</returns>
@@ -2921,6 +3328,14 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets a judge profile form template</summary>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Program.FormTemplateResponse GetJudgeProfileFormTemplate(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetJudgeProfileFormTemplateAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets a judge profile form template</summary>
         /// <returns>Success</returns>
@@ -2984,6 +3399,16 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Starts a report execution</summary>
+        /// <param name="reportId">Report id</param>
+        /// <param name="model">Report data</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public ReportRunner.RunResponse RunReport(int reportId, ReportRunner.RunRequest model = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await RunReportAsync(reportId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3056,6 +3481,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets an application form template of a certain round</summary>
+        /// <param name="id">Round id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Round.SubmissionFormTemplateResponse GetSubmissionFormTemplate(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetSubmissionFormTemplateAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets an application form template of a certain round</summary>
         /// <param name="id">Round id</param>
@@ -3120,6 +3554,15 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Creates a session chair</summary>
+        /// <param name="model">Data to create from</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void CreateSessionChair(SessionChair.CreateRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await CreateSessionChairAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3188,6 +3631,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Deletes a session chair</summary>
+        /// <param name="id">Session chair id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void DeleteSessionChair(int id)
+        {
+            System.Threading.Tasks.Task.Run(async () => await DeleteSessionChairAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Deletes a session chair</summary>
         /// <param name="id">Session chair id</param>
@@ -3253,6 +3705,19 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets sessions</summary>
+        /// <param name="programId">Program Id</param>
+        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
+        /// <param name="sessionChairEmail">Session chair email</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Session.PagingResponseSessionListItemModel GetSessions(int? programId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, string sessionChairEmail = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetSessionsAsync(programId, lastModifiedSinceUtc, sessionChairEmail, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3342,6 +3807,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Creates a session</summary>
+        /// <param name="model">Data for session creation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Session.DetailsResponse CreateSession(Session.CreateRequest model = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await CreateSessionAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Creates a session</summary>
         /// <param name="model">Data for session creation</param>
@@ -3405,6 +3879,15 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets a certain session</summary>
+        /// <param name="id">Session Id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Session.DetailsResponse GetSessionById(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetSessionByIdAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3473,6 +3956,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Deletes a certain session</summary>
+        /// <param name="id">Session id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void DeleteSession(int id)
+        {
+            System.Threading.Tasks.Task.Run(async () => await DeleteSessionAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Deletes a certain session</summary>
         /// <param name="id">Session id</param>
@@ -3538,6 +4030,17 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Updates a session form values</summary>
+        /// <param name="id">Session id</param>
+        /// <param name="model">Data to update form</param>
+        /// <param name="suppressFormValidation">Suppress form validation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void UpdateSessionFormFields(int id, Session.FormFieldsRequest model = null, bool? suppressFormValidation = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UpdateSessionFormFieldsAsync(id, model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3610,6 +4113,25 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets filtered users</summary>
+        /// <param name="firstName">User has a first name like</param>
+        /// <param name="lastName">User has a last name like</param>
+        /// <param name="company">User has a company like</param>
+        /// <param name="email">User has an email like</param>
+        /// <param name="thirdPartyId">User 3rd party id</param>
+        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
+        /// <param name="isApplicant">User is an applicant</param>
+        /// <param name="isJudge">User is a judge</param>
+        /// <param name="isSessionChair">User is a session chair</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public User.PagingResponseUserListItemModel UserList(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await UserListAsync(firstName, lastName, company, email, thirdPartyId, lastModifiedSinceUtc, isApplicant, isJudge, isSessionChair, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3729,6 +4251,16 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Creates a user</summary>
+        /// <param name="model">Data for user creation</param>
+        /// <param name="suppressFormValidation">Suppress form validation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public User.DetailsResponse CreateUser(User.CreateRequest model = null, bool? suppressFormValidation = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await CreateUserAsync(model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Creates a user</summary>
         /// <param name="model">Data for user creation</param>
@@ -3800,6 +4332,15 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets an existing user by id</summary>
+        /// <param name="id">User id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public User.DetailsResponse UserDetails(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await UserDetailsAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets an existing user by id</summary>
         /// <param name="id">User id</param>
@@ -3864,6 +4405,16 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Updates a certain user</summary>
+        /// <param name="id">User id</param>
+        /// <param name="model">User data to update</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void UpdateUser(int id, User.UpdateRequest model = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UpdateUserAsync(id, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3935,6 +4486,17 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Updates user profile form values</summary>
+        /// <param name="id">User id</param>
+        /// <param name="model">Data to update form</param>
+        /// <param name="suppressFormValidation">Suppress form validation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void UpdateProfileFormValues(int id, User.ProfileFormValuesRequest model = null, bool? suppressFormValidation = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UpdateProfileFormValuesAsync(id, model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -4014,6 +4576,16 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Generates sso token for a certain user</summary>
+        /// <param name="id">User id</param>
+        /// <param name="model">Optional data such as url to redirect after token generation</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public User.SsoTokenResponse GenerateSsoToken(int id, User.SsoTokenRequest model = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GenerateSsoTokenAsync(id, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Generates sso token for a certain user</summary>
         /// <param name="id">User id</param>
@@ -4082,6 +4654,14 @@ namespace OpenWater.ApiClient
             finally
             {
             }
+        }
+    
+        /// <summary>Gets a user profile form template</summary>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public User.ProfileFormTemplateResponse GetProfileFormTemplate()
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetProfileFormTemplateAsync(System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
