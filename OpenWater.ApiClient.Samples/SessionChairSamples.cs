@@ -1,24 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OpenWater.ApiClient.Samples
 {
-    public static partial class Program
+    public static class SessionChairSamples
     {
-        public static void AddSessionChairToSessionExample()
+        private static OpenWaterApiClient ApiClient = Program.ApiClient;
+
+        public static async Task AddSessionChairToSessionAsync()
         {
             const int userId = 8004;
             const int sessionId = 53003;
 
-            ApiClient.CreateSessionChairAsync(new SessionChair.CreateRequest(sessionId, userId)).Wait();
+            await ApiClient.CreateSessionChairAsync(new SessionChair.CreateRequest(sessionId, userId));
         }
 
-        public static void RemoveSessionChairExample()
+        public static async Task RemoveSessionChairAsync()
         {
             const int sessionChairId = 54003;
 
-            ApiClient.DeleteSessionChairAsync(sessionChairId).Wait();
+            await ApiClient.DeleteSessionChairAsync(sessionChairId);
         }
     }
 }

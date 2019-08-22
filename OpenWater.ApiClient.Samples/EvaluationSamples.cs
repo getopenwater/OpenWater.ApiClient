@@ -2,28 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using OpenWater.ApiClient.JudgeScorecard;
 
 namespace OpenWater.ApiClient.Samples
 {
-    public static partial class Program
+    public static class EvaluationSample
     {
-        public static JudgeScorecardListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdExample()
+        private static OpenWaterApiClient ApiClient = Program.ApiClient;
+
+        public static async Task<JudgeScorecardListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
         {
             const int applicationId = 18003;
             const string judgeEmail = "judge1@nonprofitcms.org";
 
-            var judgeId = ApiClient.UserListAsync(email: judgeEmail, isJudge: true).Result.Items.First().Id;
-            var evaluation = ApiClient.JudgeScorecardListAsync().Result.Items
-                .First(j => j.ApplicationId == applicationId &&  j.JudgeUserId == judgeId);
+            var judgeId = (await ApiClient.UserListAsync(email: judgeEmail, isJudge: true)).Items.First().Id;
+            var judgeScorecardList = await ApiClient.JudgeScorecardListAsync();
+            var evaluation = judgeScorecardList.Items.First(j => j.ApplicationId == applicationId && j.JudgeUserId == judgeId);
 
             return evaluation;
         }
 
-        public static void UpdateEvaluationExample()
+        public static async Task UpdateEvaluationAsync()
         {
             const int evaluationId = 41014;
-
             var formRequest = new EvaluationFormRequest(true,
                 new List<GeneralScoringAnswerModel>
                 {
@@ -31,7 +33,7 @@ namespace OpenWater.ApiClient.Samples
                 },
                 null);
 
-            ApiClient.UpdateEvaluationFormAsync(evaluationId, formRequest).Wait();
+            await ApiClient.UpdateEvaluationFormAsync(evaluationId, formRequest);
         }
     }
 }

@@ -2,44 +2,47 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using OpenWater.ApiClient.JudgeAssignment;
 
 namespace OpenWater.ApiClient.Samples
 {
-    public static partial class Program
+    public static class JudgeSamples
     {
-        public static void AssignJudgeToApplicationExample()
+        private static OpenWaterApiClient ApiClient = Program.ApiClient;
+
+        public static async Task AssignJudgeToApplicationAsync()
         {
             const int userJudgeId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            ApiClient.AssignJudgeToApplicationAsync(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId)).Wait();
+            await ApiClient.AssignJudgeToApplicationAsync(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId));
         }
 
-        public static void RemoveJudgeFromApplicationExample()
+        public static async Task RemoveJudgeFromApplicationAsync()
         {
             const int userJudgeId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            ApiClient.UnassignJudgeFromApplicationAsync(userJudgeId, applicationId, roundId).Wait();
+            await ApiClient.UnassignJudgeFromApplicationAsync(userJudgeId, applicationId, roundId);
         }
-        
-        public static void AddJudgeToTeamExample()
+
+        public static async Task AddJudgeToTeamAsync()
         {
             const int judgeId = 8004;
             const int judgeTeamId = 30001;
 
-            ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId)).Wait();
+            await ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId));
         }
 
-        public static void RemoveJudgeFromTeamExample()
+        public static async Task RemoveJudgeFromTeamAsync()
         {
             const int judgeId = 8004;
             const int judgeTeamId = 30001;
 
-            ApiClient.UnassignJudgeFromJudgeTeamAsync(judgeId, judgeTeamId).Wait();
+            await ApiClient.UnassignJudgeFromJudgeTeamAsync(judgeId, judgeTeamId);
         }
     }
 }
