@@ -22,6 +22,17 @@ namespace OpenWater.ApiClient.Samples
             return judgeScorecardList.Items.First(j => j.ApplicationId == applicationId && j.JudgeUserId == judgeId);
         }
 
+        public static JudgeScorecardListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
+        {
+            const int applicationId = 18003;
+            const string judgeEmail = "judge1@nonprofitcms.org";
+
+            var judgeId = ApiClient.UserList(email: judgeEmail, isJudge: true).Items.First().Id;
+            var judgeScorecardList = ApiClient.JudgeScorecardList();
+
+            return judgeScorecardList.Items.First(j => j.ApplicationId == applicationId && j.JudgeUserId == judgeId);
+        }
+
         public static Task UpdateEvaluationAsync()
         {
             const int evaluationId = 41014;
@@ -33,6 +44,19 @@ namespace OpenWater.ApiClient.Samples
                 null);
 
             return ApiClient.UpdateEvaluationFormAsync(evaluationId, formRequest);
+        }
+
+        public static void UpdateEvaluation()
+        {
+            const int evaluationId = 41014;
+            var formRequest = new EvaluationFormRequest(true,
+                new List<GeneralScoringAnswerModel>
+                {
+                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", null, null, "The best!")
+                },
+                null);
+
+            ApiClient.UpdateEvaluationForm(evaluationId, formRequest);
         }
     }
 }

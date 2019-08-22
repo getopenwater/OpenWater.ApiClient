@@ -28,5 +28,23 @@ namespace OpenWater.ApiClient.Samples
                 Thread.Sleep(millisecondsTimeout: 1000);
             }
         }
+
+        public static DetailsResponse RunReportBackgroundJob()
+        {
+            const int reportId = 83001;
+            var reportExportFormat = new RunRequest("xlsx");
+
+            var jobId = ApiClient.RunReport(reportId, reportExportFormat).JobId.Value;
+
+            while (true)
+            {
+                var jobState = ApiClient.GetJobById(jobId).JobState;
+
+                if (jobState == DetailsResponseJobState.Succeeded || jobState == DetailsResponseJobState.Failed)
+                    return ApiClient.GetJobById(jobId);
+
+                Thread.Sleep(millisecondsTimeout: 1000);
+            }
+        }
     }
 }

@@ -18,11 +18,26 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.GetAssignedToApplicationAssignmentsAsync(applicationId, roundId);
         }
 
+        public static PagingResponseJudgeListItemModel GetAllCurrentJudgeAssignmentsForApplications()
+        {
+            const int applicationId = 18022;
+            const int roundId = 14010;
+
+            return ApiClient.GetAssignedToApplicationAssignments(applicationId, roundId);
+        }
+
         public static Task<PagingResponseJudgeListItemModel> GetAllJudgesOnTeamAsync()
         {
             const int judgeTeamId = 3001;
 
             return ApiClient.GetAssignedToJudgeTeamAssignmentsAsync(judgeTeamId);
+        }
+
+        public static PagingResponseJudgeListItemModel GetAllJudgesOnTeam()
+        {
+            const int judgeTeamId = 3001;
+
+            return ApiClient.GetAssignedToJudgeTeamAssignments(judgeTeamId);
         }
     }
 }
