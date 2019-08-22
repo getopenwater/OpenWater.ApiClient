@@ -34,11 +34,11 @@ namespace OpenWater.ApiClient.Samples
             await ApiClient.UpdateSessionFormFieldsAsync(sessionId, model);
         }
 
-        public static async Task DeleteSessionAsync()
+        public static Task DeleteSessionAsync()
         {
             const int sessionId = 53003;
 
-            await ApiClient.DeleteSessionAsync(sessionId);
+            return ApiClient.DeleteSessionAsync(sessionId);
         }
 
         public static Task<PagingResponseSessionListItemModel> GetSessionsCreatedOrModifiedInLastWeekAsync()
