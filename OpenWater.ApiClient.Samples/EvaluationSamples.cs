@@ -14,17 +14,19 @@ namespace OpenWater.ApiClient.Samples
         public static Task<PagingResponseJudgeScorecardListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
         {
             const int applicationId = 18003;
+            const int roundId = 14001;
             const string judgeEmail = "judge1@nonprofitcms.org";
 
-            return ApiClient.JudgeScorecardListAsync(applicationId: applicationId, judgeEmail: judgeEmail);
+            return ApiClient.JudgeScorecardListAsync(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId);
         }
 
         public static PagingResponseJudgeScorecardListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
         {
             const int applicationId = 18003;
+            const int roundId = 14001;
             const string judgeEmail = "judge1@nonprofitcms.org";
 
-            return ApiClient.JudgeScorecardList(applicationId: applicationId, judgeEmail: judgeEmail);
+            return ApiClient.JudgeScorecardList(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId);
         }
 
         public static Task UpdateEvaluationAsync()
