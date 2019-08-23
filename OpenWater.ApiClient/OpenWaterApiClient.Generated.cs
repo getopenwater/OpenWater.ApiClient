@@ -2452,26 +2452,30 @@ namespace OpenWater.ApiClient
         /// <summary>Gets filtered evaluations</summary>
         /// <param name="programId">Program id</param>
         /// <param name="roundId">Round id</param>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="judgeEmail">Judge email</param>
         /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
         /// <param name="pageIndex">Page index (0 by default)</param>
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeScorecard.PagingResponseJudgeScorecardListItemModel JudgeScorecardList(int? programId = null, int? roundId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
+        public JudgeScorecard.PagingResponseJudgeScorecardListItemModel JudgeScorecardList(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await JudgeScorecardListAsync(programId, roundId, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await JudgeScorecardListAsync(programId, roundId, applicationId, judgeEmail, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets filtered evaluations</summary>
         /// <param name="programId">Program id</param>
         /// <param name="roundId">Round id</param>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="judgeEmail">Judge email</param>
         /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
         /// <param name="pageIndex">Page index (0 by default)</param>
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeScorecard.PagingResponseJudgeScorecardListItemModel> JudgeScorecardListAsync(int? programId = null, int? roundId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeScorecard.PagingResponseJudgeScorecardListItemModel> JudgeScorecardListAsync(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Evaluations?");
@@ -2482,6 +2486,14 @@ namespace OpenWater.ApiClient
             if (roundId != null) 
             {
                 urlBuilder_.Append("roundId=").Append(System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (applicationId != null) 
+            {
+                urlBuilder_.Append("applicationId=").Append(System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (judgeEmail != null) 
+            {
+                urlBuilder_.Append("judgeEmail=").Append(System.Uri.EscapeDataString(ConvertToString(judgeEmail, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (lastModifiedSinceUtc != null) 
             {
