@@ -11,26 +11,20 @@ namespace OpenWater.ApiClient.Samples
     {
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
-        public static async Task<JudgeScorecardListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
+        public static Task<PagingResponseJudgeScorecardListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
         {
             const int applicationId = 18003;
             const string judgeEmail = "judge1@nonprofitcms.org";
 
-            var judgeId = (await ApiClient.UserListAsync(email: judgeEmail, isJudge: true)).Items.First().Id;
-            var judgeScorecardList = await ApiClient.JudgeScorecardListAsync();
-
-            return judgeScorecardList.Items.First(j => j.ApplicationId == applicationId && j.JudgeUserId == judgeId);
+            return ApiClient.JudgeScorecardListAsync(applicationId: applicationId, judgeEmail: judgeEmail);
         }
 
-        public static JudgeScorecardListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
+        public static PagingResponseJudgeScorecardListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
         {
             const int applicationId = 18003;
             const string judgeEmail = "judge1@nonprofitcms.org";
 
-            var judgeId = ApiClient.UserList(email: judgeEmail, isJudge: true).Items.First().Id;
-            var judgeScorecardList = ApiClient.JudgeScorecardList();
-
-            return judgeScorecardList.Items.First(j => j.ApplicationId == applicationId && j.JudgeUserId == judgeId);
+            return ApiClient.JudgeScorecardList(applicationId: applicationId, judgeEmail: judgeEmail);
         }
 
         public static Task UpdateEvaluationAsync()
