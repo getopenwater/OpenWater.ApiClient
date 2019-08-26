@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.Extensions;
+[assembly: InternalsVisibleTo("OpenWater.ApiClient.Tests")]
 
 namespace OpenWater.ApiClient
 {
@@ -30,22 +33,20 @@ namespace OpenWater.ApiClient
             _maxRequestsSemaphoreSlim = new SemaphoreSlim(NumberOfSimultaneousRequests, NumberOfSimultaneousRequests);
         }
 
-        internal async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, HttpCompletionOption option, CancellationToken token)
+        internal Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, HttpCompletionOption option, CancellationToken token)
         {
-            await _maxRequestsSemaphoreSlim.WaitAsync(token);
+            _maxRequestsSemaphoreSlim.Wait(token);
 
             try
             {
                 var requestStartedAt = DateTimeOffset.UtcNow;
                 _latestRequestStartOrResponseFinishTimes.Throttle(NumberOfRequestsPerSecond, requestStartedAt);
 
-                return await _httpClient.SendAsync(request, token).ContinueWith(r =>
+                return _httpClient.SendAsync(request, token).ContinueWith(r =>
                 {
-                    var response = r.Result;
-
                     // Calculate throttling time by using request start or response finish time.
-                    _latestRequestStartOrResponseFinishTimes.ReplaceLastIfAny(requestStartedAt, DateTimeOffset.UtcNow);
-                    return response;
+                    _latestRequestStartOrResponseFinishTimes.ReplaceLastIfAnyOrInsert(requestStartedAt, DateTimeOffset.UtcNow);
+                    return r.Result;
                 }, token);
             }
             finally
@@ -56,7 +57,7 @@ namespace OpenWater.ApiClient
 
         public void Dispose()
         {
-            _maxRequestsSemaphoreSlim?.Dispose();
+            _maxRequestsSemaphoreSlim.Dispose();
 
             if (!_hasExternalHttpClient)
                 _httpClient.Dispose();

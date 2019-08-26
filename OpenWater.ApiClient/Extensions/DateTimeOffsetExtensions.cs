@@ -1,26 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
+[assembly: InternalsVisibleTo("OpenWater.ApiClient.Tests")]
 
 namespace OpenWater.ApiClient.Extensions
 {
     internal static class DateTimeOffsetExtensions
     {
+        const int MillisecondsInSecond = 1000;
+
         internal static int GetThrottleTimeInMilliseconds(this List<DateTimeOffset> self, int maxRequestPerSecondCount, DateTimeOffset currentDateTimeOffset)
         {
-            const int millisecondsInSecond = 1000;
+            const int minimumRequestPerSecondForSmartCalculation = 3;
 
             lock (self)
             {
-                if (self.Count < maxRequestPerSecondCount)
+                if (self.Count < maxRequestPerSecondCount || maxRequestPerSecondCount < minimumRequestPerSecondForSmartCalculation)
+                    return MillisecondsInSecond / maxRequestPerSecondCount;
+
+                CleanupIntervalOneSecond(self);
+
+                var interval = self.Last().ToUnixTimeMilliseconds() - self.First().ToUnixTimeMilliseconds();
+                var throttleMs = checked((int)(MillisecondsInSecond - interval));
+
+                if (throttleMs < 1)
                     return 0;
-
-                if (self.Count > 1)
-                    self.RemoveFirstIfAny();
-
-                var interval = currentDateTimeOffset.ToUnixTimeMilliseconds() - self.First().ToUnixTimeMilliseconds();
-                var throttleMs = checked((int)(interval < millisecondsInSecond ? millisecondsInSecond - interval : 0));
 
                 return throttleMs;
 
@@ -44,16 +50,34 @@ namespace OpenWater.ApiClient.Extensions
             }
         }
 
-        internal static bool ReplaceLastIfAny(this List<DateTimeOffset> self, DateTimeOffset oldValue, DateTimeOffset newValue)
+        internal static void CleanupIntervalOneSecond(List<DateTimeOffset> self)
+        {
+            const int avgLatency = 30;
+
+            lock (self)
+            {
+                if(self.Count < 2)
+                    return;
+
+                while (self.Last().Millisecond - self.First().Millisecond >= MillisecondsInSecond - avgLatency)
+                {
+                    self.RemoveFirstIfAny();
+                }
+            }
+        }
+
+        internal static void ReplaceLastIfAnyOrInsert(this List<DateTimeOffset> self, DateTimeOffset oldValue, DateTimeOffset newValue)
         {
             lock (self)
             {
                 var searchIndex = self.FindLastIndex(dt => dt == oldValue);
                 if (searchIndex == -1)
-                    return false;
+                {
+                    self.Add(newValue);
+                    return;
+                }
 
                 self[searchIndex] = newValue;
-                return true;
             }
         }
     }
