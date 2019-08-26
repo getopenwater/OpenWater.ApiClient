@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenWater.ApiClient.Tests", "OpenWater.ApiClient.Tests\OpenWater.ApiClient.Tests.csproj", "{7647FC3C-7261-472A-9BBA-D7E2A0F66927}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{938C8214-4607-4590-83F7-00CC0C985FCD}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
