@@ -10,7 +10,7 @@ using OpenWater.ApiClient.Extensions;
 
 namespace OpenWater.ApiClient
 {
-    internal class OpenWaterHttpClient : IDisposable
+    public class OpenWaterHttpClient : IDisposable
     {
         private readonly SemaphoreSlim _maxRequestsSemaphoreSlim;
         private readonly HttpClient _httpClient;
@@ -45,7 +45,7 @@ namespace OpenWater.ApiClient
                 return _httpClient.SendAsync(request, token).ContinueWith(r =>
                 {
                     // Calculate throttling time by using request start or response finish time.
-                    _latestRequestStartOrResponseFinishTimes.ReplaceLastIfAnyOrInsert(requestStartedAt, DateTimeOffset.UtcNow);
+                    _latestRequestStartOrResponseFinishTimes.AddOrUpdateLast(requestStartedAt, DateTimeOffset.UtcNow);
                     return r.Result;
                 }, token);
             }

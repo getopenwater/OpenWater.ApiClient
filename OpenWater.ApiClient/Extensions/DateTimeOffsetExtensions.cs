@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
+
 [assembly: InternalsVisibleTo("OpenWater.ApiClient.Tests")]
 
 namespace OpenWater.ApiClient.Extensions
 {
     internal static class DateTimeOffsetExtensions
     {
-        const int MillisecondsInSecond = 1000;
+        private const int MillisecondsInSecondCount = 1000;
 
         internal static int GetThrottleTimeInMilliseconds(this List<DateTimeOffset> self, int maxRequestPerSecondCount, DateTimeOffset currentDateTimeOffset)
         {
-            const int minimumRequestPerSecondForSmartCalculation = 3;
+            const int minimumRequestCountPerSecondForSmartCalculation = 3;
 
             lock (self)
             {
-                if (self.Count < maxRequestPerSecondCount || maxRequestPerSecondCount < minimumRequestPerSecondForSmartCalculation)
-                    return MillisecondsInSecond / maxRequestPerSecondCount;
+                if (self.Count < maxRequestPerSecondCount || maxRequestPerSecondCount < minimumRequestCountPerSecondForSmartCalculation)
+                    return MillisecondsInSecondCount / maxRequestPerSecondCount;
 
-                CleanupIntervalOneSecond(self);
+                RemoveOutdatedIntervals(self);
 
-                var interval = self.Last().ToUnixTimeMilliseconds() - self.First().ToUnixTimeMilliseconds();
-                var throttleMs = checked((int)(MillisecondsInSecond - interval));
+                var intervalMilliseconds = self.Last().ToUnixTimeMilliseconds() - self.First().ToUnixTimeMilliseconds();
+                var throttleMilliseconds = checked((int)(MillisecondsInSecondCount - intervalMilliseconds));
 
-                if (throttleMs < 1)
+                if (throttleMilliseconds < 1)
                     return 0;
 
-                return throttleMs;
+                return throttleMilliseconds;
 
             }
         }
@@ -50,23 +51,24 @@ namespace OpenWater.ApiClient.Extensions
             }
         }
 
-        internal static void CleanupIntervalOneSecond(List<DateTimeOffset> self)
+        internal static void RemoveOutdatedIntervals(List<DateTimeOffset> self)
         {
-            const int avgLatency = 30;
+            const int avgLatencyMilliseconds = 30;
+            const int intervalMinElementCount = 2;
 
             lock (self)
             {
-                if(self.Count < 2)
+                if (self.Count < intervalMinElementCount)
                     return;
 
-                while (self.Last().Millisecond - self.First().Millisecond >= MillisecondsInSecond - avgLatency)
+                while (self.Last().Millisecond - self.First().Millisecond >= MillisecondsInSecondCount - avgLatencyMilliseconds)
                 {
                     self.RemoveFirstIfAny();
                 }
             }
         }
 
-        internal static void ReplaceLastIfAnyOrInsert(this List<DateTimeOffset> self, DateTimeOffset oldValue, DateTimeOffset newValue)
+        internal static void AddOrUpdateLast(this List<DateTimeOffset> self, DateTimeOffset oldValue, DateTimeOffset newValue)
         {
             lock (self)
             {
