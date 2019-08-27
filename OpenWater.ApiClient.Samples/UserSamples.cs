@@ -18,10 +18,7 @@ namespace OpenWater.ApiClient.Samples
                 externalAccountData: "SampleData",
                 fieldValues: new List<FieldValueModelBase>
                 {
-                    new TextFieldValueModel("firstName", "John"),
-                    new TextFieldValueModel("lastName", "Doe"),
-                    new TextFieldValueModel("companyName", "Sample Company Name"),
-                    new TextFieldValueModel("emailAddress", "jodoe8@example.com"),
+                    new TextFieldValueModel("companyName", "Sample Company Name")
                 },
                 firstName: "John",
                 lastName: "Doe",
@@ -39,10 +36,7 @@ namespace OpenWater.ApiClient.Samples
                 externalAccountData: "SampleData",
                 fieldValues: new List<FieldValueModelBase>
                 {
-                    new TextFieldValueModel("firstName", "John"),
-                    new TextFieldValueModel("lastName", "Doe"),
-                    new TextFieldValueModel("companyName", "Sample Company Name"),
-                    new TextFieldValueModel("emailAddress", "jodoe8@example.com"),
+                    new TextFieldValueModel("companyName", "Sample Company Name")
                 },
                 firstName: "John",
                 lastName: "Doe",
