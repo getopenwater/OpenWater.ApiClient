@@ -54,11 +54,11 @@ namespace OpenWater.ApiClient.Extensions
         internal static void RemoveOutdatedIntervals(List<DateTimeOffset> self)
         {
             const int avgLatencyMilliseconds = 30;
-            const int intervalMinElementCount = 2;
+            const int minIntervalElementCount = 2;
 
             lock (self)
             {
-                if (self.Count < intervalMinElementCount)
+                if (self.Count < minIntervalElementCount)
                     return;
 
                 while (self.Last().Millisecond - self.First().Millisecond >= MillisecondsInSecondCount - avgLatencyMilliseconds)

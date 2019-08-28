@@ -31,7 +31,7 @@ namespace OpenWater.ApiClient.Tests
         private HttpClient _httpClient;
         private OpenWaterHttpClient _openWaterHttpClient;
 
-        private void ArrangeHttpClient(Task<HttpResponseMessage> responseMessage)
+        private void InitializeHttpClient(Task<HttpResponseMessage> responseMessage)
         {
             var mockedHttpMessageHandler = new MockHttpMessageHandler(responseMessage);
 
@@ -39,8 +39,39 @@ namespace OpenWater.ApiClient.Tests
             _openWaterHttpClient = new OpenWaterHttpClient(_httpClient);
         }
 
-        private long GetElapsedTimeByRequestsInMilliseconds(int requestCount)
+        [TearDown]
+        public void TearDown()
         {
+            _openWaterHttpClient?.Dispose();
+            _httpClient?.Dispose();
+        }
+
+        [Test]
+        [TestCase(1, 1, 5, 5, 0)]
+        [TestCase(1, 50, 5, 5, 0)]
+        [TestCase(50, 50, 5, 1, 0)]
+        [TestCase(50, 50, 50, 1, 0)]
+        [TestCase(50, 25, 50, 1, 0)]
+        [TestCase(1, 1, 5, 5, 42)]
+        [TestCase(1, 50, 5, 5, 84)]
+        [TestCase(1, 50, 5, 5, 21)]
+        [TestCase(50, 50, 50, 1, 99)]
+        [TestCase(50, 25, 50, 1, 42)]
+        public void SendAsync_RequestPassesWithExpectedAverageThrottle(int requestsPerSecondCount, int simultaneousRequestsPerSecondCount, int requestCount, int expectedAverageThrottleInSeconds, int clientBeforeRequestDelayInMilliseconds)
+        {
+            // arrange
+            var mockedResponseMessage = Task.Run(() =>
+            {
+                Thread.Sleep(clientBeforeRequestDelayInMilliseconds);
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            });
+
+            InitializeHttpClient(mockedResponseMessage);
+
+            OpenWaterHttpClient.NumberOfRequestsPerSecond = requestsPerSecondCount;
+            OpenWaterHttpClient.NumberOfSimultaneousRequests = simultaneousRequestsPerSecondCount;
+
+            // act
             var stopwatch = new Stopwatch();
             var runningRequests = new List<Task>();
 
@@ -57,63 +88,7 @@ namespace OpenWater.ApiClient.Tests
             Task.WhenAll(runningRequests).Wait();
             stopwatch.Stop();
 
-            return stopwatch.ElapsedMilliseconds;
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            _openWaterHttpClient?.Dispose();
-            _httpClient?.Dispose();
-        }
-
-        [Test]
-        [TestCase(1, 1, 5, 5)]
-        [TestCase(1, 50, 5, 5)]
-        [TestCase(50, 50, 5, 1)]
-        [TestCase(50, 50, 50, 1)]
-        [TestCase(50, 25, 50, 1)]
-        public void SendAsync_NoDelay_RequestPassesWithExpectedAverageThrottle(int requestsPerSecondCount, int simultaneousRequestCount, int requestCount, int expectedAverageThrottleInSeconds)
-        {
-            // arrange
-            var mockedResponseMessage = Task.Run(() => new HttpResponseMessage(HttpStatusCode.OK));
-
-            ArrangeHttpClient(mockedResponseMessage);
-
-            OpenWaterHttpClient.NumberOfRequestsPerSecond = requestsPerSecondCount;
-            OpenWaterHttpClient.NumberOfSimultaneousRequests = simultaneousRequestCount;
-
-            // act
-            var elapsedMillisecondCount = GetElapsedTimeByRequestsInMilliseconds(requestCount);
-
-            // assert
-
-            // -1 because we calculate time from 0, not 1
-            Assert.That(elapsedMillisecondCount >= (expectedAverageThrottleInSeconds - 1) * MillisecondsInSecond);
-            Assert.That(elapsedMillisecondCount <= (expectedAverageThrottleInSeconds + 1) * MillisecondsInSecond);
-        }
-
-        [TestCase(1, 1, 5, 5, 42)]
-        [TestCase(1, 50, 5, 5, 84)]
-        [TestCase(1, 50, 5, 5, 21)]
-        [TestCase(50, 50, 50, 1, 99)]
-        [TestCase(50, 25, 50, 1, 42)]
-        public void SendAsync_ClientServerDelay_RequestPassesWithExpectedAverageThrottle(int requestsPerSecondCount, int simultaneousRequestsPerSecondCount, int requestCount, int expectedAverageThrottleInSeconds, int clientBeforeRequestDelayInMilliseconds)
-        {
-            // arrange
-            var mockedResponseMessage = Task.Run(() =>
-            {
-                Thread.Sleep(clientBeforeRequestDelayInMilliseconds);
-                return new HttpResponseMessage(HttpStatusCode.OK);
-            });
-
-            ArrangeHttpClient(mockedResponseMessage);
-
-            OpenWaterHttpClient.NumberOfRequestsPerSecond = requestsPerSecondCount;
-            OpenWaterHttpClient.NumberOfSimultaneousRequests = simultaneousRequestsPerSecondCount;
-
-            // act
-            var elapsedMillisecondCount = GetElapsedTimeByRequestsInMilliseconds(requestCount);
+            var elapsedMillisecondCount = stopwatch.ElapsedMilliseconds;
 
             // assert
 
