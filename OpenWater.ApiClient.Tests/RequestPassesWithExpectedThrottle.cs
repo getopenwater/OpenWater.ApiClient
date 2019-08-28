@@ -57,12 +57,12 @@ namespace OpenWater.ApiClient.Tests
         [TestCase(1, 50, 5, 5, 21)]
         [TestCase(50, 50, 50, 1, 99)]
         [TestCase(50, 25, 50, 1, 42)]
-        public void SendAsync_RequestPassesWithExpectedAverageThrottle(int requestsPerSecondCount, int simultaneousRequestsPerSecondCount, int requestCount, int expectedAverageThrottleInSeconds, int clientBeforeRequestDelayInMilliseconds)
+        public void SendAsync_RequestPassesWithExpectedAverageThrottle(int requestsPerSecondCount, int simultaneousRequestsPerSecondCount, int requestCount, int expectedAverageThrottleInSeconds, int delayInMilliseconds)
         {
             // arrange
             var mockedResponseMessage = Task.Run(() =>
             {
-                Thread.Sleep(clientBeforeRequestDelayInMilliseconds);
+                Thread.Sleep(delayInMilliseconds);
                 return new HttpResponseMessage(HttpStatusCode.OK);
             });
 

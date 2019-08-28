@@ -37,12 +37,13 @@ namespace OpenWater.ApiClient.Program
     public partial class ProgramListItemModel 
     {
         [Newtonsoft.Json.JsonConstructor]
-        public ProgramListItemModel(string @code, System.DateTimeOffset? @createdAtUtc, bool? @enableScheduler, bool? @enableSessions, int? @id, string @name, System.Collections.Generic.ICollection<RoundModel> @rounds, string @tag)
+        public ProgramListItemModel(string @code, System.DateTimeOffset? @createdAtUtc, bool? @enableScheduler, bool? @enableSessions, int? @id, bool? @isArchived, string @name, System.Collections.Generic.ICollection<RoundModel> @rounds, string @tag)
         {
             this.Id = @id;
             this.Code = @code;
             this.Name = @name;
             this.Tag = @tag;
+            this.IsArchived = @isArchived;
             this.EnableSessions = @enableSessions;
             this.EnableScheduler = @enableScheduler;
             this.CreatedAtUtc = @createdAtUtc;
@@ -60,6 +61,9 @@ namespace OpenWater.ApiClient.Program
     
         [Newtonsoft.Json.JsonProperty("tag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Tag { get; }
+    
+        [Newtonsoft.Json.JsonProperty("isArchived", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsArchived { get; }
     
         [Newtonsoft.Json.JsonProperty("enableSessions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? EnableSessions { get; }
