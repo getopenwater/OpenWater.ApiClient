@@ -13,6 +13,9 @@ namespace OpenWater.ApiClient.Samples
     {
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
+        /// <summary>
+        /// Create application named "Application 42" async
+        /// </summary>
         public static Task<DetailsResponse> CreateNewApplicationAsync()
         {
             const int programId = 23006;
@@ -28,6 +31,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.CreateApplicationAsync(createRequest);
         }
 
+        /// <summary>
+        /// Create application named "Application 42"
+        /// </summary>
         public static DetailsResponse CreateNewApplication()
         {
             const int programId = 23006;
@@ -43,16 +49,25 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.CreateApplication(createRequest);
         }
 
+        /// <summary>
+        /// Get applications created in last 24 hours async
+        /// </summary>
         public static Task<PagingResponseApplicationListItemModel> GetApplicationsCreatedInLast24HoursAsync()
         {
             return ApiClient.ApplicationListAsync(startedAtUtc: DateTimeOffset.UtcNow.AddDays(-1));
         }
 
+        /// <summary>
+        /// Get applications created in last 24 hours
+        /// </summary>
         public static PagingResponseApplicationListItemModel GetApplicationsCreatedInLast24Hours()
         {
             return ApiClient.ApplicationList(startedAtUtc: DateTimeOffset.UtcNow.AddDays(-1));
         }
 
+        /// <summary>
+        /// Update application title async
+        /// </summary>
         public static Task UpdateApplicationDataAsync()
         {
             const int applicationId = 18013;
@@ -66,6 +81,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.UpdateSubmissionFormValuesAsync(applicationId, submissionRequest);
         }
 
+        /// <summary>
+        /// Update application title
+        /// </summary>
         public static void UpdateApplicationData()
         {
             const int applicationId = 18013;
@@ -79,6 +97,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.UpdateSubmissionFormValues(applicationId, submissionRequest);
         }
 
+        /// <summary>
+        /// Update application category async
+        /// </summary>
         public static Task UpdateApplicationCategoryAsync()
         {
             const int applicationId = 18014;
@@ -86,6 +107,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.UpdateApplicationCategoryAsync(applicationId, new ApplicationCategoryRequest("cat1_1_2"));
         }
 
+        /// <summary>
+        /// Update application category
+        /// </summary>
         public static void UpdateApplicationCategory()
         {
             const int applicationId = 18014;
@@ -93,6 +117,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.UpdateApplicationCategory(applicationId, new ApplicationCategoryRequest("cat1_1_2"));
         }
 
+        /// <summary>
+        /// Upload media via Url and update submission media field async
+        /// </summary>
         public static async Task UploadMediaViaUrlAndUpdateSubmissionMediaFieldAsync()
         {
             const int applicationId = 18028;
@@ -110,6 +137,9 @@ namespace OpenWater.ApiClient.Samples
             await ApiClient.UpdateSubmissionFormValuesAsync(applicationId, submissionForm);
         }
 
+        /// <summary>
+        /// Upload media via Url and update submission media field
+        /// </summary>
         public static void UploadMediaViaUrlAndUpdateSubmissionMediaField()
         {
             const int applicationId = 18028;
@@ -127,14 +157,21 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.UpdateSubmissionFormValues(applicationId, submissionForm);
         }
 
+        /// <summary>
+        /// Update application status from pending approval to complete async
+        /// </summary>
         public static Task UpdateApplicationStatusFromPendingApprovalToCompleteAsync()
         {
             const int applicationId = 18028;
             const int roundId = 14001;
 
-            return ApiClient.RoundSubmissionStatusAsync(applicationId, roundId, new RoundSubmissionStatusRequest(RoundSubmissionStatusRequestStatus.Complete));
+            return ApiClient.RoundSubmissionStatusAsync(applicationId, roundId,
+                new RoundSubmissionStatusRequest(RoundSubmissionStatusRequestStatus.Complete));
         }
 
+        /// <summary>
+        /// Update application status from pending approval to complete
+        /// </summary>
         public static void UpdateApplicationStatusFromPendingApprovalToComplete()
         {
             const int applicationId = 18028;
@@ -143,6 +180,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.RoundSubmissionStatus(applicationId, roundId, new RoundSubmissionStatusRequest(RoundSubmissionStatusRequestStatus.Complete));
         }
 
+        /// <summary>
+        /// Update application to allow user to make edits async
+        /// </summary>
         public static Task UpdateApplicationToAllowUserToMakeEditsAsync()
         {
             const int applicationId = 18015;
@@ -151,6 +191,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.AllowUserToMakeEditsAsync(applicationId, roundId, new AllowUserToMakeEditsRequest(true));
         }
 
+        /// <summary>
+        /// Update application to allow user to make edits
+        /// </summary>
         public static void UpdateApplicationToAllowUserToMakeEdits()
         {
             const int applicationId = 18015;
@@ -159,6 +202,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.AllowUserToMakeEdits(applicationId, roundId, new AllowUserToMakeEditsRequest(true));
         }
 
+        /// <summary>
+        /// Assign winner async
+        /// </summary>
         public static Task AssignWinnerAsync()
         {
             const int applicationId = 18013;
@@ -168,6 +214,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.WinnerAssignmentAsync(applicationId, roundId, winnerAssignmentRequest);
         }
 
+        /// <summary>
+        /// Assign winner
+        /// </summary>
         public static void AssignWinner()
         {
             const int applicationId = 18013;
@@ -177,6 +226,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.WinnerAssignment(applicationId, roundId, winnerAssignmentRequest);
         }
 
+        /// <summary>
+        /// Forward application to next round async
+        /// </summary>
         public static Task ForwardToNextRoundAsync()
         {
             const int applicationId = 18028;
@@ -185,6 +237,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.ForwardingAsync(applicationId, nextRoundId, new ForwardingRequest(true));
         }
 
+        /// <summary>
+        /// Forward application to next round
+        /// </summary>
         public static void ForwardToNextRound()
         {
             const int applicationId = 18028;
@@ -193,6 +248,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.Forwarding(applicationId, nextRoundId, new ForwardingRequest(true));
         }
 
+        /// <summary>
+        /// Add collaborator to application async
+        /// </summary>
         public static Task AddCollaboratorAsync()
         {
             const int applicationId = 18001;
@@ -201,6 +259,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.CreateCollaboratorAsync(applicationId, new Collaborator.CreateRequest(true, userId));
         }
 
+        /// <summary>
+        /// Add collaborator to application
+        /// </summary>
         public static void AddCollaborator()
         {
             const int applicationId = 18001;
@@ -209,6 +270,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.CreateCollaborator(applicationId, new Collaborator.CreateRequest(true, userId));
         }
 
+        /// <summary>
+        /// Remove collaborator from application async
+        /// </summary>
         public static Task RemoveCollaboratorFromSubmissionAsync()
         {
             const int applicationId = 18001;
@@ -217,6 +281,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.DeleteCollaboratorAsync(applicationId, collaboratorId);
         }
 
+        /// <summary>
+        /// Remove collaborator from application
+        /// </summary>
         public static void RemoveCollaboratorFromSubmission()
         {
             const int applicationId = 18001;
@@ -225,21 +292,34 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.DeleteCollaborator(applicationId, collaboratorId);
         }
 
+        /// <summary>
+        /// Get all new applications created or modified last week async
+        /// </summary>
         public static Task<PagingResponseApplicationListItemModel> GetAllNewApplicationsCreatedOrModifiedLastWeekAsync()
         {
             return ApiClient.ApplicationListAsync(lastModifiedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
         }
 
+        /// <summary>
+        /// Get all new applications created or modified last week
+        /// </summary>
         public static PagingResponseApplicationListItemModel GetAllNewApplicationsCreatedOrModifiedLastWeek()
         {
             return ApiClient.ApplicationList(lastModifiedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
         }
 
-        public static Task<DeletedApplication.PagingResponseDeletedApplicationListItem> ViewDeletedApplicationsInLastWeekAsync()
+        /// <summary>
+        /// Get deleted applications in last week async
+        /// </summary>
+        public static Task<DeletedApplication.PagingResponseDeletedApplicationListItem>
+            ViewDeletedApplicationsInLastWeekAsync()
         {
             return ApiClient.DeletedApplicationListAsync(deletedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
         }
 
+        /// <summary>
+        /// Get deleted applications in last week
+        /// </summary>
         public static DeletedApplication.PagingResponseDeletedApplicationListItem ViewDeletedApplicationsInLastWeek()
         {
             return ApiClient.DeletedApplicationList(deletedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));

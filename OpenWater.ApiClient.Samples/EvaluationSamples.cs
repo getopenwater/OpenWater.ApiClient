@@ -11,6 +11,9 @@ namespace OpenWater.ApiClient.Samples
     {
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
+        /// <summary>
+        /// Get evaluation by application id and judge email and round id async
+        /// </summary>
         public static Task<PagingResponseJudgeScorecardListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
         {
             const int applicationId = 18003;
@@ -20,6 +23,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.JudgeScorecardListAsync(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId);
         }
 
+        /// <summary>
+        /// Get evaluation by application id and judge email and round id
+        /// </summary>
         public static PagingResponseJudgeScorecardListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
         {
             const int applicationId = 18003;
@@ -29,6 +35,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.JudgeScorecardList(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId);
         }
 
+        /// <summary>
+        /// Update evaluation async
+        /// </summary>
         public static Task UpdateEvaluationAsync()
         {
             const int evaluationId = 41014;
@@ -42,6 +51,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.UpdateEvaluationFormAsync(evaluationId, formRequest);
         }
 
+        /// <summary>
+        /// Update evaluation
+        /// </summary>
         public static void UpdateEvaluation()
         {
             const int evaluationId = 41014;

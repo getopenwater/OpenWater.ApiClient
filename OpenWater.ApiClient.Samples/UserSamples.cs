@@ -11,6 +11,9 @@ namespace OpenWater.ApiClient.Samples
     {
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
+        /// <summary>
+        /// Create user async
+        /// </summary>
         public static Task<DetailsResponse> CreateUserAsync()
         {
             var createRequest = new User.CreateRequest(
@@ -29,6 +32,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.CreateUserAsync(createRequest);
         }
 
+        /// <summary>
+        /// Create user
+        /// </summary>
         public static DetailsResponse CreateUser()
         {
             var createRequest = new User.CreateRequest(
@@ -47,36 +53,57 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.CreateUser(createRequest);
         }
 
+        /// <summary>
+        /// Get all users async
+        /// </summary>
         public static Task<PagingResponseUserListItemModel> GetAllUsersAsync()
         {
             return ApiClient.UserListAsync();
         }
 
+        /// <summary>
+        /// Get all users
+        /// </summary>
         public static PagingResponseUserListItemModel GetAllUsers()
         {
             return ApiClient.UserList();
         }
 
+        /// <summary>
+        /// Get users by name async
+        /// </summary>
         public static Task<PagingResponseUserListItemModel> GetUsersByNameAsync()
         {
             return ApiClient.UserListAsync(firstName: "Submitter");
         }
 
+        /// <summary>
+        /// Get users by name
+        /// </summary>
         public static PagingResponseUserListItemModel GetUsersByName()
         {
             return ApiClient.UserList(firstName: "Submitter");
         }
 
+        /// <summary>
+        /// Get users with pagination async
+        /// </summary>
         public static Task<PagingResponseUserListItemModel> GetUsersWithPaginationAsync()
         {
             return ApiClient.UserListAsync(pageSize: 3, pageIndex: 1);
         }
 
+        /// <summary>
+        /// Get users with pagination
+        /// </summary>
         public static PagingResponseUserListItemModel GetUsersWithPagination()
         {
             return ApiClient.UserList(pageSize: 3, pageIndex: 1);
         }
 
+        /// <summary>
+        /// Create user and update profile async
+        /// </summary>
         public static async Task CreateUserAndUpdateProfileAsync()
         {
             var createRequest = new User.CreateRequest(
@@ -110,6 +137,9 @@ namespace OpenWater.ApiClient.Samples
             }
         }
 
+        /// <summary>
+        /// Create user and update profile
+        /// </summary>
         public static void CreateUserAndUpdateProfile()
         {
             var createRequest = new User.CreateRequest(
@@ -143,6 +173,9 @@ namespace OpenWater.ApiClient.Samples
             }
         }
 
+        /// <summary>
+        /// Update profile async
+        /// </summary>
         public static Task UpdateProfileAsync()
         {
             const int userId = 8009;
@@ -155,6 +188,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.UpdateProfileFormValuesAsync(userId, profileRequest);
         }
 
+        /// <summary>
+        /// Update profile
+        /// </summary>
         public static void UpdateProfile()
         {
             const int userId = 8009;
@@ -167,6 +203,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.UpdateProfileFormValues(userId, profileRequest);
         }
 
+        /// <summary>
+        /// Get SSO url by user id async
+        /// </summary>
         public static async Task<SsoTokenResponse> GetSsoUrlByUserEmailAsync()
         {
             const string email = "programbook@secure-platform.com";
@@ -177,6 +216,9 @@ namespace OpenWater.ApiClient.Samples
             return await ApiClient.GenerateSsoTokenAsync(user.Id.Value, ssoTokenRequest);
         }
 
+        /// <summary>
+        /// Get SSO url by user id
+        /// </summary>
         public static SsoTokenResponse GetSsoUrlByUserEmail()
         {
             const string email = "programbook@secure-platform.com";

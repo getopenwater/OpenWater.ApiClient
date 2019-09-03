@@ -11,6 +11,9 @@ namespace OpenWater.ApiClient.Samples
     {
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
+        /// <summary>
+        /// Assign judge to application async
+        /// </summary>
         public static Task AssignJudgeToApplicationAsync()
         {
             const int userJudgeId = 8004;
@@ -20,6 +23,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.AssignJudgeToApplicationAsync(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId));
         }
 
+        /// <summary>
+        /// Assign judge to application
+        /// </summary>
         public static void AssignJudgeToApplication()
         {
             const int userJudgeId = 8004;
@@ -29,6 +35,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.AssignJudgeToApplication(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId));
         }
 
+        /// <summary>
+        /// Remove judge from application async
+        /// </summary>
         public static Task RemoveJudgeFromApplicationAsync()
         {
             const int userJudgeId = 8004;
@@ -38,6 +47,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.UnassignJudgeFromApplicationAsync(userJudgeId, applicationId, roundId);
         }
 
+        /// <summary>
+        /// Remove judge from application
+        /// </summary>
         public static void RemoveJudgeFromApplication()
         {
             const int userJudgeId = 8004;
@@ -47,6 +59,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.UnassignJudgeFromApplication(userJudgeId, applicationId, roundId);
         }
 
+        /// <summary>
+        /// Add judge to team async
+        /// </summary>
         public static Task AddJudgeToTeamAsync()
         {
             const int judgeId = 8004;
@@ -55,6 +70,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId));
         }
 
+        /// <summary>
+        /// Add judge to team
+        /// </summary>
         public static void AddJudgeToTeam()
         {
             const int judgeId = 8004;
@@ -63,6 +81,9 @@ namespace OpenWater.ApiClient.Samples
             ApiClient.AssignJudgeToJudgeTeam(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId));
         }
 
+        /// <summary>
+        /// Remove judge from team async
+        /// </summary>
         public static Task RemoveJudgeFromTeamAsync()
         {
             const int judgeId = 8004;
@@ -71,6 +92,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.UnassignJudgeFromJudgeTeamAsync(judgeId, judgeTeamId);
         }
 
+        /// <summary>
+        /// Remove judge from team
+        /// </summary>
         public static void RemoveJudgeFromTeam()
         {
             const int judgeId = 8004;

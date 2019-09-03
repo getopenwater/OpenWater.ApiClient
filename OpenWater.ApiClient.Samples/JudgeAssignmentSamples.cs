@@ -10,6 +10,9 @@ namespace OpenWater.ApiClient.Samples
     {
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
+        /// <summary>
+        /// Get all current judge assignments for applications async
+        /// </summary>
         public static Task<PagingResponseJudgeListItemModel> GetAllCurrentJudgeAssignmentsForApplicationsAsync()
         {
             const int applicationId = 18022;
@@ -18,6 +21,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.GetAssignedToApplicationAssignmentsAsync(applicationId, roundId);
         }
 
+        /// <summary>
+        /// Get all current judge assignments for applications
+        /// </summary>
         public static PagingResponseJudgeListItemModel GetAllCurrentJudgeAssignmentsForApplications()
         {
             const int applicationId = 18022;
@@ -26,6 +32,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.GetAssignedToApplicationAssignments(applicationId, roundId);
         }
 
+        /// <summary>
+        /// Get all judges on team async
+        /// </summary>
         public static Task<PagingResponseJudgeListItemModel> GetAllJudgesOnTeamAsync()
         {
             const int judgeTeamId = 3001;
@@ -33,6 +42,9 @@ namespace OpenWater.ApiClient.Samples
             return ApiClient.GetAssignedToJudgeTeamAssignmentsAsync(judgeTeamId);
         }
 
+        /// <summary>
+        /// Get all judges on team
+        /// </summary>
         public static PagingResponseJudgeListItemModel GetAllJudgesOnTeam()
         {
             const int judgeTeamId = 3001;
