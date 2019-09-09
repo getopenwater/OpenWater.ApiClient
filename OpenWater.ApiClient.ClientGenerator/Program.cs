@@ -19,12 +19,13 @@ namespace OpenWater.ApiClient.ClientGenerator
             const string generatedClientFilePostfix = "Generated";
             const string apiClientNamespace = "OpenWater.ApiClient";
             var outputPath = GetApiClientProjectDirectoryPath();
+            var generatedModelsPath = Path.Combine(outputPath, "Models", "Generated");
 
             var apiDocument = OpenApiDocument.FromUrlAsync("https://api.secure-platform.com/swagger/v2/swagger.json").Result;
 
             GenerateClient(apiDocument, outputPath, apiClientClassName, generatedClientFilePostfix, CSharpClientGeneratorSettingsCreator, out var typeNameHintsModelWithNamespaceInfos);
 
-            GenerateModels(apiDocument, Path.Combine(outputPath, "Models"), apiClientNamespace, CSharpClientGeneratorSettingsCreator, typeNameHintsModelWithNamespaceInfos);
+            GenerateModels(apiDocument, generatedModelsPath, apiClientNamespace, CSharpClientGeneratorSettingsCreator, typeNameHintsModelWithNamespaceInfos);
 
             Console.Write("Press any key to exit...");
             Console.ReadKey(true);

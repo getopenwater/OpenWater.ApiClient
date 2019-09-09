@@ -14,7 +14,6 @@
 {% if HasInheritance -%}
     : base({% for property in sortedParentProperties -%}{% unless property.Name == "typeName" -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%}{{ property.Name | lowercamelcase }}{% endunless -%}{% endfor -%})
 {% endif -%}
-
 {
 {% for property in Properties -%}
     {% unless property.Name == "typeName" -%}
