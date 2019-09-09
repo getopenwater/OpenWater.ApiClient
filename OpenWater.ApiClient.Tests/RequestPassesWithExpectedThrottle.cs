@@ -31,21 +31,6 @@ namespace OpenWater.ApiClient.Tests
         private HttpClient _httpClient;
         private OpenWaterHttpClient _openWaterHttpClient;
 
-        private void InitializeHttpClient(Task<HttpResponseMessage> responseMessage)
-        {
-            var mockedHttpMessageHandler = new MockHttpMessageHandler(responseMessage);
-
-            _httpClient = new HttpClient(mockedHttpMessageHandler);
-            _openWaterHttpClient = new OpenWaterHttpClient(_httpClient);
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            _openWaterHttpClient?.Dispose();
-            _httpClient?.Dispose();
-        }
-
         [Test]
         [TestCase(1, 1, 5, 5, 0)]
         [TestCase(1, 50, 5, 5, 0)]
@@ -79,9 +64,7 @@ namespace OpenWater.ApiClient.Tests
 
             for (var i = 0; i < requestCount; i++)
             {
-                var currentRequestTask = _openWaterHttpClient.SendAsync(
-                    new HttpRequestMessage(HttpMethod.Get, $"http://localhost/{i}"), HttpCompletionOption.ResponseContentRead,
-                    CancellationToken.None);
+                var currentRequestTask = _openWaterHttpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, $"http://localhost/{i}"), HttpCompletionOption.ResponseContentRead, CancellationToken.None);
                 runningRequests.Add(currentRequestTask);
             }
 
@@ -95,6 +78,21 @@ namespace OpenWater.ApiClient.Tests
             // -1 because we calculate time from 0, not 1
             Assert.That(elapsedMillisecondCount >= (expectedAverageThrottleInSeconds - 1) * MillisecondsInSecond);
             Assert.That(elapsedMillisecondCount <= (expectedAverageThrottleInSeconds + 1) * MillisecondsInSecond);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            _openWaterHttpClient?.Dispose();
+            _httpClient?.Dispose();
+        }
+
+        private void InitializeHttpClient(Task<HttpResponseMessage> responseMessage)
+        {
+            var mockedHttpMessageHandler = new MockHttpMessageHandler(responseMessage);
+
+            _httpClient = new HttpClient(mockedHttpMessageHandler);
+            _openWaterHttpClient = new OpenWaterHttpClient(_httpClient);
         }
     }
 }
