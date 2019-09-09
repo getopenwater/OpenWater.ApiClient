@@ -10,195 +10,76 @@
 #pragma warning disable 1573 // Disable "CS1573 Parameter '...' has no matching param tag in the XML comment for ...
 #pragma warning disable 1591 // Disable "CS1591 Missing XML comment for publicly visible type or member ..."
 
-namespace OpenWater.ApiClient.Session
+namespace OpenWater.ApiClient.DeletedApplication
 {
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseSessionListItemModel 
+    public partial class PagingResponseDeletedApplicationListItem 
     {
+        internal PagingResponseDeletedApplicationListItem() { }
+    
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseSessionListItemModel(System.Collections.Generic.ICollection<SessionListItemModel> @items, Pagination.PagingInfo @pagingInfo)
+        public PagingResponseDeletedApplicationListItem(System.Collections.Generic.ICollection<DeletedApplicationListItem> items, Pagination.PagingInfo pagingInfo)
         {
-            this.PagingInfo = @pagingInfo;
-            this.Items = @items;
+              PagingInfo = @pagingInfo;
+              Items = @items;
         }
     
         [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pagination.PagingInfo PagingInfo { get; }
+        public Pagination.PagingInfo PagingInfo { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SessionListItemModel> Items { get; }
+        public System.Collections.Generic.ICollection<DeletedApplicationListItem> Items { get; internal set; }
     
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SessionListItemModel 
+    public partial class DeletedApplicationListItem 
     {
+        internal DeletedApplicationListItem() { }
+    
         [Newtonsoft.Json.JsonConstructor]
-        public SessionListItemModel(int? @id, string @name, int? @programId, string @typeName)
+        public DeletedApplicationListItem(string applicationCode, string applicationName, System.DateTimeOffset? deletedAtUtc, string email, string firstName, int? id, string lastName, int? programId, int? userId)
         {
-            this.Id = @id;
-            this.ProgramId = @programId;
-            this.Name = @name;
-            this.TypeName = @typeName;
+              Id = @id;
+              ProgramId = @programId;
+              ApplicationCode = @applicationCode;
+              ApplicationName = @applicationName;
+              UserId = @userId;
+              Email = @email;
+              FirstName = @firstName;
+              LastName = @lastName;
+              DeletedAtUtc = @deletedAtUtc;
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id { get; }
+        public int? Id { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ProgramId { get; }
+        public int? ProgramId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; }
+        [Newtonsoft.Json.JsonProperty("applicationCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApplicationCode { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TypeName { get; }
+        [Newtonsoft.Json.JsonProperty("applicationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApplicationName { get; internal set; }
     
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CreateRequest 
-    {
-        [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(System.Collections.Generic.ICollection<int> @chairUserIds, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> @fieldValues, string @name, int? @programId, int? @typeId)
-        {
-            this.ProgramId = @programId;
-            this.TypeId = @typeId;
-            this.Name = @name;
-            this.ChairUserIds = @chairUserIds;
-            this.FieldValues = @fieldValues;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ProgramId { get; }
-    
-        [Newtonsoft.Json.JsonProperty("typeId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? TypeId { get; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
-        public string Name { get; }
-    
-        [Newtonsoft.Json.JsonProperty("chairUserIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<int> ChairUserIds { get; }
-    
-        [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.Always)]
-        public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DetailsResponse 
-    {
-        [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(System.Collections.Generic.ICollection<SessionChairInfo> @chairs, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> @fieldValues, int? @id, System.Collections.Generic.ICollection<SessionItemInfo> @items, string @name, int? @programId, int? @typeId, string @typeName)
-        {
-            this.Id = @id;
-            this.ProgramId = @programId;
-            this.TypeId = @typeId;
-            this.TypeName = @typeName;
-            this.Name = @name;
-            this.Chairs = @chairs;
-            this.Items = @items;
-            this.FieldValues = @fieldValues;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id { get; }
-    
-        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ProgramId { get; }
-    
-        [Newtonsoft.Json.JsonProperty("typeId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? TypeId { get; }
-    
-        [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TypeName { get; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; }
-    
-        [Newtonsoft.Json.JsonProperty("chairs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SessionChairInfo> Chairs { get; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SessionItemInfo> Items { get; }
-    
-        [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SessionChairInfo 
-    {
-        [Newtonsoft.Json.JsonConstructor]
-        public SessionChairInfo(string @email, int? @id, bool? @isPrimary)
-        {
-            this.Id = @id;
-            this.Email = @email;
-            this.IsPrimary = @isPrimary;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id { get; }
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? UserId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email { get; }
+        public string Email { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("isPrimary", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? IsPrimary { get; }
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; internal set; }
     
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; internal set; }
     
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SessionItemInfo 
-    {
-        [Newtonsoft.Json.JsonConstructor]
-        public SessionItemInfo(int? @applicationId, string @customSessionItemTypeDescription, int? @customSessionItemTypeId, int? @durationInMinutes, int? @sortOrder)
-        {
-            this.ApplicationId = @applicationId;
-            this.CustomSessionItemTypeId = @customSessionItemTypeId;
-            this.CustomSessionItemTypeDescription = @customSessionItemTypeDescription;
-            this.SortOrder = @sortOrder;
-            this.DurationInMinutes = @durationInMinutes;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ApplicationId { get; }
-    
-        [Newtonsoft.Json.JsonProperty("customSessionItemTypeId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? CustomSessionItemTypeId { get; }
-    
-        [Newtonsoft.Json.JsonProperty("customSessionItemTypeDescription", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomSessionItemTypeDescription { get; }
-    
-        [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? SortOrder { get; }
-    
-        [Newtonsoft.Json.JsonProperty("durationInMinutes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? DurationInMinutes { get; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FormFieldsRequest 
-    {
-        [Newtonsoft.Json.JsonConstructor]
-        public FormFieldsRequest(System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> @fieldValues)
-        {
-            this.FieldValues = @fieldValues;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.Always)]
-        public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; }
+        [Newtonsoft.Json.JsonProperty("deletedAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? DeletedAtUtc { get; internal set; }
     
     
     }
@@ -404,6 +285,137 @@ namespace OpenWater.ApiClient.Session
     
         [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
         Complete = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ApplicationNameFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum DropDownListFieldModelPreFillType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
+        UsStates = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
+        CanadaProvinces = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
+        Countries = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
+        UsStatesAndCanadaProvinces = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum EmailFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum EmailFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum MultilineTextFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum MultilineTextFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum TextFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum TextFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum UrlFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum UrlFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
     
     }
 
