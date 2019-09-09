@@ -1,0 +1,24 @@
+﻿{% assign skipComma = true -%}
+{% if HasInheritance %}
+{% assign parentProperties = BaseClass.AllProperties -%}
+{% else %}
+{% assign parentProperties = "" | empty -%}
+{% endif %}
+
+{% assign sortedProperties = AllProperties | sort: "Name" -%}
+{% assign sortedParentProperties = parentProperties | sort: "Name" -%}
+
+[Newtonsoft.Json.JsonConstructor]
+{% if IsAbstract %}protected{% else %}public{% endif %} {{ClassName}}({% for property in sortedProperties -%}{% unless property.Name == "typeName" -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%} {{ property.Type }} {{ property.Name | lowercamelcase }}{% endunless -%}{% endfor -%})
+{% assign skipComma = true -%}
+{% if HasInheritance -%}
+    : base({% for property in sortedParentProperties -%}{% unless property.Name == "typeName" -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%}{{ property.Name | lowercamelcase }}{% endunless -%}{% endfor -%})
+{% endif -%}
+
+{
+{% for property in Properties -%}
+    {% unless property.Name == "typeName" -%}
+  {{property.PropertyName}} = @{{property.Name | lowercamelcase}};
+{% endunless -%}
+{% endfor -%}
+}

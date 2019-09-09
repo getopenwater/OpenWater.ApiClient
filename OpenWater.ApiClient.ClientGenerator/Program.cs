@@ -37,7 +37,8 @@ namespace OpenWater.ApiClient.ClientGenerator
                     {
                         Namespace = apiClientNamespace,
                         ClassStyle = CSharpClassStyle.Record,
-                        GenerateDataAnnotations = false
+                        GenerateDataAnnotations = false,
+                        TemplateDirectory = "Templates"
                     },
                     OperationNameGenerator = new SingleClientFromOperationIdOperationNameGenerator(),
                     ClientClassAccessModifier = "public sealed",
