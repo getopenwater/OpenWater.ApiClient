@@ -9,9 +9,9 @@ namespace OpenWater.ApiClient.Converters
 {
     internal abstract class DerivedClassJsonConverterBase<T> : JsonConverter
     {
-        private Dictionary<string, Type> _modelTypes;
-
         private readonly object _syncRoot = new object();
+
+        private Dictionary<string, Type> _modelTypes;
 
         private IReadOnlyDictionary<string, Type> ModelTypes => GetModelTypes();
 
