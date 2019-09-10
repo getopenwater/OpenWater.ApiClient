@@ -15,6 +15,8 @@ namespace OpenWater.ApiClient.Converters
 
         private IReadOnlyDictionary<string, Type> ModelTypes => GetModelTypes();
 
+        public override bool CanWrite { get; } = false;
+
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             throw new InvalidOperationException($"{GetType().Name} can be used only for json deserialization.");
