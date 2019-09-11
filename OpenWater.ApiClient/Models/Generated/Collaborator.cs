@@ -20,17 +20,17 @@ namespace OpenWater.ApiClient.Collaborator
         internal CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(bool? isPrimary, int? userId)
+        public CreateRequest(bool isPrimary, int userId)
         {
               UserId = @userId;
               IsPrimary = @isPrimary;
         }
     
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? UserId { get; internal set; }
+        public int UserId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("isPrimary", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? IsPrimary { get; internal set; }
+        public bool IsPrimary { get; internal set; }
     
     
     }

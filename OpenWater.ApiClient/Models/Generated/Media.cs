@@ -58,14 +58,14 @@ namespace OpenWater.ApiClient.Media
         internal CreateResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateResponse(int? mediaId, string url)
+        public CreateResponse(int mediaId, string url)
         {
               MediaId = @mediaId;
               Url = @url;
         }
     
         [Newtonsoft.Json.JsonProperty("mediaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MediaId { get; internal set; }
+        public int MediaId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; internal set; }

@@ -20,7 +20,7 @@ namespace OpenWater.ApiClient.BackgroundJob
         internal DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(DetailsResponseJobState? jobState, string resultUrl)
+        public DetailsResponse(DetailsResponseJobState jobState, string resultUrl)
         {
               JobState = @jobState;
               ResultUrl = @resultUrl;
@@ -28,7 +28,7 @@ namespace OpenWater.ApiClient.BackgroundJob
     
         [Newtonsoft.Json.JsonProperty("jobState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DetailsResponseJobState? JobState { get; internal set; }
+        public DetailsResponseJobState JobState { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("resultUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ResultUrl { get; internal set; }

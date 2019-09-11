@@ -20,7 +20,7 @@ namespace OpenWater.ApiClient.SubmissionForm
         internal Category() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public Category(System.Collections.Generic.ICollection<Category> categories, bool? closeCategoryForNewApplications, string code, string description, bool? hideIfNoSubcategories, int? id, string name, int? parentId, string path, System.DateTimeOffset? submissionEndDateUtc, System.DateTimeOffset? submissionStartDateUtc)
+        public Category(System.Collections.Generic.ICollection<Category> categories, bool closeCategoryForNewApplications, string code, string description, bool hideIfNoSubcategories, int id, string name, int parentId, string path, System.DateTimeOffset submissionEndDateUtc, System.DateTimeOffset submissionStartDateUtc)
         {
               Id = @id;
               Code = @code;
@@ -36,7 +36,7 @@ namespace OpenWater.ApiClient.SubmissionForm
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id { get; internal set; }
+        public int Id { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Code { get; internal set; }
@@ -48,22 +48,22 @@ namespace OpenWater.ApiClient.SubmissionForm
         public string Description { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("hideIfNoSubcategories", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? HideIfNoSubcategories { get; internal set; }
+        public bool HideIfNoSubcategories { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("closeCategoryForNewApplications", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? CloseCategoryForNewApplications { get; internal set; }
+        public bool CloseCategoryForNewApplications { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("parentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ParentId { get; internal set; }
+        public int ParentId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Path { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("submissionStartDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? SubmissionStartDateUtc { get; internal set; }
+        public System.DateTimeOffset SubmissionStartDateUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("submissionEndDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? SubmissionEndDateUtc { get; internal set; }
+        public System.DateTimeOffset SubmissionEndDateUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("categories", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Category> Categories { get; internal set; }

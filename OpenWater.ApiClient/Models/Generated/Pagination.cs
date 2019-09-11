@@ -20,7 +20,7 @@ namespace OpenWater.ApiClient.Pagination
         internal PagingInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingInfo(bool? hasNextPage, bool? hasPreviousPage, int? numberOfPages, int? pageIndex, int? pageSize, int? totalCount)
+        public PagingInfo(bool hasNextPage, bool hasPreviousPage, int numberOfPages, int pageIndex, int pageSize, int totalCount)
         {
               PageIndex = @pageIndex;
               PageSize = @pageSize;
@@ -31,22 +31,22 @@ namespace OpenWater.ApiClient.Pagination
         }
     
         [Newtonsoft.Json.JsonProperty("pageIndex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? PageIndex { get; internal set; }
+        public int PageIndex { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("pageSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? PageSize { get; internal set; }
+        public int PageSize { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("totalCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? TotalCount { get; internal set; }
+        public int TotalCount { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("numberOfPages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? NumberOfPages { get; internal set; }
+        public int NumberOfPages { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("hasPreviousPage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? HasPreviousPage { get; internal set; }
+        public bool HasPreviousPage { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("hasNextPage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? HasNextPage { get; internal set; }
+        public bool HasNextPage { get; internal set; }
     
     
     }

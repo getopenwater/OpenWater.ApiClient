@@ -20,17 +20,17 @@ namespace OpenWater.ApiClient.SessionChair
         internal CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(int? sessionId, int? userId)
+        public CreateRequest(int sessionId, int userId)
         {
               SessionId = @sessionId;
               UserId = @userId;
         }
     
         [Newtonsoft.Json.JsonProperty("sessionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? SessionId { get; internal set; }
+        public int SessionId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? UserId { get; internal set; }
+        public int UserId { get; internal set; }
     
     
     }

@@ -38,13 +38,13 @@ namespace OpenWater.ApiClient.ReportRunner
         internal RunResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RunResponse(int? jobId)
+        public RunResponse(int jobId)
         {
               JobId = @jobId;
         }
     
         [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? JobId { get; internal set; }
+        public int JobId { get; internal set; }
     
     
     }

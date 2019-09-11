@@ -20,14 +20,14 @@ namespace OpenWater.ApiClient.Form
         internal ListValue() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ListValue(System.Guid? id, string value)
+        public ListValue(System.Guid id, string value)
         {
               Id = @id;
               Value = @value;
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid? Id { get; internal set; }
+        public System.Guid Id { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Value { get; internal set; }

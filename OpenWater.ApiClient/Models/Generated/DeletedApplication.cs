@@ -41,7 +41,7 @@ namespace OpenWater.ApiClient.DeletedApplication
         internal DeletedApplicationListItem() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DeletedApplicationListItem(string applicationCode, string applicationName, System.DateTimeOffset? deletedAtUtc, string email, string firstName, int? id, string lastName, int? programId, int? userId)
+        public DeletedApplicationListItem(string applicationCode, string applicationName, System.DateTimeOffset deletedAtUtc, string email, string firstName, int id, string lastName, int programId, int userId)
         {
               Id = @id;
               ProgramId = @programId;
@@ -55,10 +55,10 @@ namespace OpenWater.ApiClient.DeletedApplication
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id { get; internal set; }
+        public int Id { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ProgramId { get; internal set; }
+        public int ProgramId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("applicationCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ApplicationCode { get; internal set; }
@@ -67,7 +67,7 @@ namespace OpenWater.ApiClient.DeletedApplication
         public string ApplicationName { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? UserId { get; internal set; }
+        public int UserId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; internal set; }
@@ -79,7 +79,7 @@ namespace OpenWater.ApiClient.DeletedApplication
         public string LastName { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("deletedAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? DeletedAtUtc { get; internal set; }
+        public System.DateTimeOffset DeletedAtUtc { get; internal set; }
     
     
     }
