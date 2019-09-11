@@ -3,9 +3,9 @@ using NJsonSchema.CodeGeneration.CSharp;
 
 namespace OpenWater.ApiClient.ClientGenerator
 {
-    public class CustomCSharpTypeResolver : CSharpTypeResolver
+    internal class CustomCSharpTypeResolver : CSharpTypeResolver
     {
-        public CustomCSharpTypeResolver(CSharpGeneratorSettings settings, JsonSchema exceptionSchema) : base(settings, exceptionSchema)
+        internal CustomCSharpTypeResolver(CSharpGeneratorSettings settings, JsonSchema exceptionSchema) : base(settings, exceptionSchema)
         {
         }
 

@@ -5,9 +5,9 @@ using NSwag.CodeGeneration.CSharp;
 
 namespace OpenWater.ApiClient.ClientGenerator
 {
-    class CustomCSharpClientGenerator : CSharpClientGenerator
+    internal class CustomCSharpClientGenerator : CSharpClientGenerator
     {
-        public new static CSharpTypeResolver CreateResolverWithExceptionSchema(CSharpGeneratorSettings settings, OpenApiDocument document)
+        internal new static CSharpTypeResolver CreateResolverWithExceptionSchema(CSharpGeneratorSettings settings, OpenApiDocument document)
         {
             var exceptionSchema = document.Definitions.ContainsKey("Exception") ? document.Definitions["Exception"] : null;
             var csharpTypeResolver = new CustomCSharpTypeResolver(settings, exceptionSchema);
@@ -17,11 +17,11 @@ namespace OpenWater.ApiClient.ClientGenerator
             return csharpTypeResolver;
         }
 
-        public CustomCSharpClientGenerator(OpenApiDocument document, CSharpClientGeneratorSettings settings) : this(document, settings, CreateResolverWithExceptionSchema(settings.CSharpGeneratorSettings, document))
+        internal CustomCSharpClientGenerator(OpenApiDocument document, CSharpClientGeneratorSettings settings) : this(document, settings, CreateResolverWithExceptionSchema(settings.CSharpGeneratorSettings, document))
         {
         }
 
-        public CustomCSharpClientGenerator(OpenApiDocument document, CSharpClientGeneratorSettings settings, CSharpTypeResolver resolver) : base(document, settings, resolver)
+        internal CustomCSharpClientGenerator(OpenApiDocument document, CSharpClientGeneratorSettings settings, CSharpTypeResolver resolver) : base(document, settings, resolver)
         {
         }
     }
