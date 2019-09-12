@@ -12,7 +12,7 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Assign judge to application async
+        /// Assign judge by id 8004 to application by id 18015 and round id 14004 async
         /// </summary>
         public static Task AssignJudgeToApplicationAsync()
         {
@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Assign judge to application
+        /// Assign judge by id 8004 to application by id 18015 and round id 14004
         /// </summary>
         public static void AssignJudgeToApplication()
         {
@@ -36,7 +36,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove judge from application async
+        /// Remove judge from application by id 8004 from application by id 18015 and round id 14004 async
         /// </summary>
         public static Task RemoveJudgeFromApplicationAsync()
         {
@@ -48,7 +48,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove judge from application
+        /// Remove judge from application by id 8004 from application by id 18015 and round id 14004
         /// </summary>
         public static void RemoveJudgeFromApplication()
         {
@@ -60,7 +60,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Add judge to team async
+        /// Add judge by id 8004 to team by id 30001 async
         /// </summary>
         public static Task AddJudgeToTeamAsync()
         {
@@ -71,7 +71,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Add judge to team
+        /// Add judge by id 8004 to team by id 30001
         /// </summary>
         public static void AddJudgeToTeam()
         {
@@ -82,7 +82,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove judge from team async
+        /// Remove judge by id 8004 from team by id 30001 async
         /// </summary>
         public static Task RemoveJudgeFromTeamAsync()
         {
@@ -93,7 +93,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove judge from team
+        /// Remove judge by id 8004 from team by id 30001
         /// </summary>
         public static void RemoveJudgeFromTeam()
         {

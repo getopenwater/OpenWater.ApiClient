@@ -48,29 +48,29 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update session fields async
+        /// Update session by id 53003 title field async
         /// </summary>
         public static Task UpdateSessionFieldsAsync()
         {
             const int sessionId = 53003;
-            var model = new FormFieldsRequest(new List<FieldValueModelBase> {new TextFieldValueModel("title", "Yet another session name")});
+            var model = new FormFieldsRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
 
             return ApiClient.UpdateSessionFormFieldsAsync(sessionId, model);
         }
 
         /// <summary>
-        /// Update session fields
+        /// Update session by id 53003 title field 
         /// </summary>
         public static void UpdateSessionFields()
         {
             const int sessionId = 53003;
-            var model = new FormFieldsRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name")});
+            var model = new FormFieldsRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
 
             ApiClient.UpdateSessionFormFields(sessionId, model);
         }
 
         /// <summary>
-        /// Delete session async
+        /// Delete session by id 53003 async
         /// </summary>
         public static Task DeleteSessionAsync()
         {
@@ -80,7 +80,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Delete session
+        /// Delete session by id 53003
         /// </summary>
         public static void DeleteSession()
         {
@@ -106,7 +106,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get session data by id async
+        /// Get session data by id 53003 async
         /// </summary>
         public static Task<DetailsResponse> GetSessionDataByIdAsync()
         {
@@ -116,7 +116,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get session data by id
+        /// Get session data by id 53003
         /// </summary>
         public static DetailsResponse GetSessionDataById()
         {

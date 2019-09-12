@@ -12,7 +12,7 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Run report background job and get result async
+        /// Run report background job by id 83001 and wait until job finished as succeed or failed and get result async
         /// </summary>
         public static async Task<DetailsResponse> RunReportBackgroundJobAsync()
         {
@@ -33,7 +33,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Run report background job and get result async
+        /// Run report background job by id 83001 and wait until job finished as succeed or failed and get result
         /// </summary>
         public static DetailsResponse RunReportBackgroundJob()
         {

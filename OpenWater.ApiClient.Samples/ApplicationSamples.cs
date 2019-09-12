@@ -66,7 +66,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application title async
+        /// Update application by id 18013 and round id 14004 title to "Updated Application" async
         /// </summary>
         public static Task UpdateApplicationDataAsync()
         {
@@ -82,7 +82,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application title
+        /// Update application by id 18013 and round id 14004 title to "Updated Application" 
         /// </summary>
         public static void UpdateApplicationData()
         {
@@ -98,7 +98,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application category async
+        /// Update application by id 14014 category to "cat1_1_2" async
         /// </summary>
         public static Task UpdateApplicationCategoryAsync()
         {
@@ -108,7 +108,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application category
+        /// Update application by id 14014 category to "cat1_1_2"
         /// </summary>
         public static void UpdateApplicationCategory()
         {
@@ -118,7 +118,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Upload media via Url and update submission media field async
+        /// Upload media via Url and update submission by application id 18028  and round id 14001 media field async
         /// </summary>
         public static async Task UploadMediaViaUrlAndUpdateSubmissionMediaFieldAsync()
         {
@@ -138,7 +138,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Upload media via Url and update submission media field
+        /// Upload media via Url and update submission by application id 18028  and round id 14001 media field
         /// </summary>
         public static void UploadMediaViaUrlAndUpdateSubmissionMediaField()
         {
@@ -158,7 +158,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application status from pending approval to complete async
+        /// Update application by id 18028 and round id 14001 and change status from pending approval to complete async
         /// </summary>
         public static Task UpdateApplicationStatusFromPendingApprovalToCompleteAsync()
         {
@@ -170,7 +170,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application status from pending approval to complete
+        /// Update application by id 18028 and round id 14001 and change status from pending approval to complete
         /// </summary>
         public static void UpdateApplicationStatusFromPendingApprovalToComplete()
         {
@@ -181,7 +181,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application to allow user to make edits async
+        /// Update application to allow user to make edits by id 18015 abd round id 14004 async
         /// </summary>
         public static Task UpdateApplicationToAllowUserToMakeEditsAsync()
         {
@@ -192,7 +192,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application to allow user to make edits
+        /// Update application to allow user to make edits by id 18015 abd round id 14004
         /// </summary>
         public static void UpdateApplicationToAllowUserToMakeEdits()
         {
@@ -203,7 +203,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Assign winner async
+        /// Assign winner to application by id 18013 and round id 14004 async
         /// </summary>
         public static Task AssignWinnerAsync()
         {
@@ -215,7 +215,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Assign winner
+        /// Assign winner to application by id 18013 and round id 14004
         /// </summary>
         public static void AssignWinner()
         {
@@ -227,7 +227,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Forward application to next round async
+        /// Forward application by id 18028 to next round by id 14006 async
         /// </summary>
         public static Task ForwardToNextRoundAsync()
         {
@@ -238,7 +238,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Forward application to next round
+        /// Forward application by id 18028 to next round by id 14006
         /// </summary>
         public static void ForwardToNextRound()
         {
@@ -249,7 +249,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Add collaborator to application async
+        /// Add collaborator by id 8001 to application by id 18001 async
         /// </summary>
         public static Task AddCollaboratorAsync()
         {
@@ -260,7 +260,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Add collaborator to application
+        /// Add collaborator by id 8001 to application by id 18001
         /// </summary>
         public static void AddCollaborator()
         {
@@ -271,7 +271,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove collaborator from application async
+        /// Remove collaborator by id 8001 from application by id 18001 async
         /// </summary>
         public static Task RemoveCollaboratorFromSubmissionAsync()
         {
@@ -282,7 +282,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove collaborator from application
+        /// Remove collaborator by id 8001 from application by id 18001
         /// </summary>
         public static void RemoveCollaboratorFromSubmission()
         {

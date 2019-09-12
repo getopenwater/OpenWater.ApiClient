@@ -27,7 +27,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get invoice by id async
+        /// Get invoice by id 1001 async
         /// </summary>
         public static Task<DetailsResponse> GetInvoiceByIdAsync()
         {
@@ -37,7 +37,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get invoice by id
+        /// Get invoice by id 1001
         /// </summary>
         public static DetailsResponse GetInvoiceById()
         {

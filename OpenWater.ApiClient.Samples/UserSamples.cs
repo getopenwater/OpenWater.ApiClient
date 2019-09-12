@@ -70,7 +70,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get users by name async
+        /// Get users by name Submitter async
         /// </summary>
         public static Task<PagingResponseUserListItemModel> GetUsersByNameAsync()
         {
@@ -78,7 +78,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get users by name
+        /// Get users by name Submitter
         /// </summary>
         public static PagingResponseUserListItemModel GetUsersByName()
         {
@@ -86,7 +86,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get users with pagination async
+        /// Get users on page 1 when page size is 3 async
         /// </summary>
         public static Task<PagingResponseUserListItemModel> GetUsersWithPaginationAsync()
         {
@@ -94,7 +94,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get users with pagination
+        /// Get users on page 1 when page size is 3
         /// </summary>
         public static PagingResponseUserListItemModel GetUsersWithPagination()
         {
@@ -174,7 +174,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update profile async
+        /// Update user profile by id 8009 and set first name "Yet Another Submitter" async
         /// </summary>
         public static Task UpdateProfileAsync()
         {
@@ -189,7 +189,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update profile
+        /// Update user profile by id 8009 and set first name "Yet Another Submitter"
         /// </summary>
         public static void UpdateProfile()
         {
@@ -204,7 +204,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get SSO url by user id async
+        /// Get SsoTokenRequest by user email "programbook@secure-platform.com" async
         /// </summary>
         public static async Task<SsoTokenResponse> GetSsoUrlByUserEmailAsync()
         {
@@ -217,7 +217,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get SSO url by user id
+        /// Get SsoTokenRequest by user email "programbook@secure-platform.com"
         /// </summary>
         public static SsoTokenResponse GetSsoUrlByUserEmail()
         {

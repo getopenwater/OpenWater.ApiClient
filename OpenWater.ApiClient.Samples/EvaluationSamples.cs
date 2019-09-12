@@ -12,7 +12,7 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Get evaluation by application id and judge email and round id async
+        /// Get evaluation by application id 14003, judge email "judge1@nonprofitcms.org" and round id 14003 async
         /// </summary>
         public static Task<PagingResponseJudgeScorecardListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
         {
@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get evaluation by application id and judge email and round id
+        /// Get evaluation by application id 14003, judge email "judge1@nonprofitcms.org" and round id 14003
         /// </summary>
         public static PagingResponseJudgeScorecardListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
         {
@@ -36,7 +36,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update evaluation async
+        /// Update evaluation by id 41014 and set scoring answer general score by alias "howWellDidThisApplicantPerform" text "The best!" async
         /// </summary>
         public static Task UpdateEvaluationAsync()
         {
@@ -52,7 +52,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update evaluation
+        /// Update evaluation by id 41014 and set scoring answer general score by alias "howWellDidThisApplicantPerform" text "The best!"
         /// </summary>
         public static void UpdateEvaluation()
         {
