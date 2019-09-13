@@ -90,7 +90,7 @@ namespace OpenWater.ApiClient.Program
         internal RoundModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundModel(int id, bool isJudgingOnly, System.DateTimeOffset judgingEndDateUtc, System.DateTimeOffset judgingStartDateUtc, string name, System.DateTimeOffset submissionEndDateUtc, System.DateTimeOffset submissionStartDateUtc)
+        public RoundModel(int id, bool isJudgingOnly, System.DateTimeOffset? judgingEndDateUtc, System.DateTimeOffset? judgingStartDateUtc, string name, System.DateTimeOffset? submissionEndDateUtc, System.DateTimeOffset? submissionStartDateUtc)
         {
               Id = @id;
               Name = @name;
@@ -111,16 +111,16 @@ namespace OpenWater.ApiClient.Program
         public bool IsJudgingOnly { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("submissionStartDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset SubmissionStartDateUtc { get; internal set; }
+        public System.DateTimeOffset? SubmissionStartDateUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("submissionEndDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset SubmissionEndDateUtc { get; internal set; }
+        public System.DateTimeOffset? SubmissionEndDateUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("judgingStartDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset JudgingStartDateUtc { get; internal set; }
+        public System.DateTimeOffset? JudgingStartDateUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("judgingEndDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset JudgingEndDateUtc { get; internal set; }
+        public System.DateTimeOffset? JudgingEndDateUtc { get; internal set; }
     
     
     }

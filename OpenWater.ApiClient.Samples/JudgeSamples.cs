@@ -36,7 +36,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove judge from application by id 8004 from application by id 18015 and round id 14004 async
+        /// Remove judge by id 8004 from application by id 18015 and round id 14004 async
         /// </summary>
         public static Task RemoveJudgeFromApplicationAsync()
         {

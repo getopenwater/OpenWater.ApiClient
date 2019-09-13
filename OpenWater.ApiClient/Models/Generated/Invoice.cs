@@ -131,7 +131,7 @@ namespace OpenWater.ApiClient.Invoice
         internal BillingLineItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemModel(double amount, string details, int id, bool isManualAdjustment, bool isVat, string notes, BillingLineItemModelTargetType targetType)
+        public BillingLineItemModel(double amount, string details, int id, bool isManualAdjustment, bool isVat, string notes, BillingLineItemModelTargetType? targetType)
         {
               Id = @id;
               Amount = @amount;
@@ -156,7 +156,7 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BillingLineItemModelTargetType TargetType { get; internal set; }
+        public BillingLineItemModelTargetType? TargetType { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("isVat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsVat { get; internal set; }
@@ -281,7 +281,7 @@ namespace OpenWater.ApiClient.Invoice
         internal BillingLineItemListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemListItemModel(double amount, System.DateTimeOffset createdAtUtc, string details, int id, int invoiceId, bool isManualAdjustment, bool isVat, string notes, BillingLineItemListItemModelTargetType targetType)
+        public BillingLineItemListItemModel(double amount, System.DateTimeOffset createdAtUtc, string details, int id, int invoiceId, bool isManualAdjustment, bool isVat, string notes, BillingLineItemListItemModelTargetType? targetType)
         {
               Id = @id;
               InvoiceId = @invoiceId;
@@ -311,7 +311,7 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BillingLineItemListItemModelTargetType TargetType { get; internal set; }
+        public BillingLineItemListItemModelTargetType? TargetType { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("isVat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsVat { get; internal set; }
