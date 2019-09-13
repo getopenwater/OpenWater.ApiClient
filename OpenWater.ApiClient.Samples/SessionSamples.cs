@@ -12,7 +12,7 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Create session async
+        /// Create session async.
         /// </summary>
         public static Task<DetailsResponse> CreateSessionAsync()
         {
@@ -30,7 +30,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Create session
+        /// Create session.
         /// </summary>
         public static DetailsResponse CreateSession()
         {
@@ -48,7 +48,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update session by id 53003 title field async
+        /// Update title field of session with id 53003 async.
         /// </summary>
         public static Task UpdateSessionFieldsAsync()
         {
@@ -59,7 +59,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update session by id 53003 title field 
+        /// Update title field of session with id 53003.
         /// </summary>
         public static void UpdateSessionFields()
         {
@@ -70,7 +70,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Delete session by id 53003 async
+        /// Delete session with id 53003 async.
         /// </summary>
         public static Task DeleteSessionAsync()
         {
@@ -80,7 +80,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Delete session by id 53003
+        /// Delete session with id 53003.
         /// </summary>
         public static void DeleteSession()
         {
@@ -90,7 +90,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get session created or modified in last week async
+        /// Get session created or modified in last week async.
         /// </summary>
         public static Task<PagingResponseSessionListItemModel> GetSessionsCreatedOrModifiedInLastWeekAsync()
         {
@@ -98,7 +98,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get session created or modified in last week 
+        /// Get session created or modified in last week.
         /// </summary>
         public static PagingResponseSessionListItemModel GetSessionsCreatedOrModifiedInLastWeek()
         {
@@ -106,7 +106,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get session data by id 53003 async
+        /// Get session data with id 53003 async.
         /// </summary>
         public static Task<DetailsResponse> GetSessionDataByIdAsync()
         {
@@ -116,7 +116,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get session data by id 53003
+        /// Get session data with id 53003.
         /// </summary>
         public static DetailsResponse GetSessionDataById()
         {

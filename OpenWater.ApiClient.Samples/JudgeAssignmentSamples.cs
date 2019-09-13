@@ -11,7 +11,7 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Get all current judge assignments for applications by id 18022 and round id 14010 async
+        /// Get all current judge assignments for application with id 18022 and round id 14010 async.
         /// </summary>
         public static Task<PagingResponseJudgeListItemModel> GetAllCurrentJudgeAssignmentsForApplicationsAsync()
         {
@@ -22,7 +22,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all current judge assignments for applications by id 18022 and round id 14010
+        /// Get all current judge assignments for application with id 18022 and round id 14010.
         /// </summary>
         public static PagingResponseJudgeListItemModel GetAllCurrentJudgeAssignmentsForApplications()
         {
@@ -33,7 +33,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all judges on team by id 3001 async
+        /// Get all judges from team with id 3001 async.
         /// </summary>
         public static Task<PagingResponseJudgeListItemModel> GetAllJudgesOnTeamAsync()
         {
@@ -43,7 +43,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all judges on team by id 3001
+        /// Get all judges from team with id 3001.
         /// </summary>
         public static PagingResponseJudgeListItemModel GetAllJudgesOnTeam()
         {

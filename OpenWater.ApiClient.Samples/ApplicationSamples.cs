@@ -14,7 +14,7 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Create application named "Application 42" async
+        /// Create application named "Application 42" async.
         /// </summary>
         public static Task<DetailsResponse> CreateNewApplicationAsync()
         {
@@ -32,7 +32,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Create application named "Application 42"
+        /// Create application named "Application 42".
         /// </summary>
         public static DetailsResponse CreateNewApplication()
         {
@@ -50,7 +50,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get applications created in last 24 hours async
+        /// Get applications created in last 24 hours async.
         /// </summary>
         public static Task<PagingResponseApplicationListItemModel> GetApplicationsCreatedInLast24HoursAsync()
         {
@@ -58,7 +58,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get applications created in last 24 hours
+        /// Get applications created in last 24 hours.
         /// </summary>
         public static PagingResponseApplicationListItemModel GetApplicationsCreatedInLast24Hours()
         {
@@ -66,7 +66,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application by id 18013 and round id 14004 title to "Updated Application" async
+        /// Update application with id 18013 and round 14004: set value for field with alias "title" async.
         /// </summary>
         public static Task UpdateApplicationDataAsync()
         {
@@ -82,7 +82,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application by id 18013 and round id 14004 title to "Updated Application" 
+        /// Update application with id 18013 and round 14004: set value for field with alias "title".
         /// </summary>
         public static void UpdateApplicationData()
         {
@@ -98,7 +98,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application by id 14014 category to "cat1_1_2" async
+        /// Change category of application with id 14014 to "cat1_1_2" async.
         /// </summary>
         public static Task UpdateApplicationCategoryAsync()
         {
@@ -108,7 +108,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application by id 14014 category to "cat1_1_2"
+        /// Change category of application with id 14014 to "cat1_1_2".
         /// </summary>
         public static void UpdateApplicationCategory()
         {
@@ -118,7 +118,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Upload media via Url and update submission by application id 18028  and round id 14001 media field async
+        /// Upload media via Url and update submission by application id 18028  and round id 14001 media field async.
         /// </summary>
         public static async Task UploadMediaViaUrlAndUpdateSubmissionMediaFieldAsync()
         {
@@ -138,7 +138,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Upload media via Url and update submission by application id 18028  and round id 14001 media field
+        /// Upload media via Url and update submission by application id 18028  and round id 14001 media field.
         /// </summary>
         public static void UploadMediaViaUrlAndUpdateSubmissionMediaField()
         {
@@ -158,7 +158,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application by id 18028 and round id 14001 and change status from pending approval to complete async
+        /// Update application with id 18028 and round id 14001 and change status from pending approval to complete async.
         /// </summary>
         public static Task UpdateApplicationStatusFromPendingApprovalToCompleteAsync()
         {
@@ -170,7 +170,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application by id 18028 and round id 14001 and change status from pending approval to complete
+        /// Update application with id 18028 and round id 14001 and change status from pending approval to complete.
         /// </summary>
         public static void UpdateApplicationStatusFromPendingApprovalToComplete()
         {
@@ -181,7 +181,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application to allow user to make edits by id 18015 abd round id 14004 async
+        /// Allow user to make edits on application with id 18015 and round id 14004 async.
         /// </summary>
         public static Task UpdateApplicationToAllowUserToMakeEditsAsync()
         {
@@ -192,7 +192,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Update application to allow user to make edits by id 18015 abd round id 14004
+        /// Allow user to make edits on application with id 18015 and round id 14004.
         /// </summary>
         public static void UpdateApplicationToAllowUserToMakeEdits()
         {
@@ -203,7 +203,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Assign winner to application by id 18013 and round id 14004 async
+        /// Assign winner to application with id 18013 and round id 14004 async.
         /// </summary>
         public static Task AssignWinnerAsync()
         {
@@ -215,7 +215,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Assign winner to application by id 18013 and round id 14004
+        /// Assign winner to application with id 18013 and round id 14004.
         /// </summary>
         public static void AssignWinner()
         {
@@ -227,7 +227,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Forward application by id 18028 to next round by id 14006 async
+        /// Forward application with id 18028 to next round with id 14006 async.
         /// </summary>
         public static Task ForwardToNextRoundAsync()
         {
@@ -238,7 +238,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Forward application by id 18028 to next round by id 14006
+        /// Forward application with id 18028 to next round with id 14006.
         /// </summary>
         public static void ForwardToNextRound()
         {
@@ -249,7 +249,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Add collaborator by id 8001 to application by id 18001 async
+        /// Add collaborator with id 8001 to application with id 18001 async.
         /// </summary>
         public static Task AddCollaboratorAsync()
         {
@@ -260,7 +260,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Add collaborator by id 8001 to application by id 18001
+        /// Add collaborator with id 8001 to application with id 18001.
         /// </summary>
         public static void AddCollaborator()
         {
@@ -271,7 +271,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove collaborator by id 8001 from application by id 18001 async
+        /// Remove collaborator with id 8001 from application with id 18001 async.
         /// </summary>
         public static Task RemoveCollaboratorFromSubmissionAsync()
         {
@@ -282,7 +282,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove collaborator by id 8001 from application by id 18001
+        /// Remove collaborator with id 8001 from application with id 18001.
         /// </summary>
         public static void RemoveCollaboratorFromSubmission()
         {
@@ -293,7 +293,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all new applications created or modified last week async
+        /// Get all new applications created or modified last week async.
         /// </summary>
         public static Task<PagingResponseApplicationListItemModel> GetAllNewApplicationsCreatedOrModifiedLastWeekAsync()
         {
@@ -301,7 +301,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all new applications created or modified last week
+        /// Get all new applications created or modified last week.
         /// </summary>
         public static PagingResponseApplicationListItemModel GetAllNewApplicationsCreatedOrModifiedLastWeek()
         {
@@ -309,7 +309,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get deleted applications in last week async
+        /// Get deleted applications in last week async.
         /// </summary>
         public static Task<DeletedApplication.PagingResponseDeletedApplicationListItem>
             ViewDeletedApplicationsInLastWeekAsync()
@@ -318,7 +318,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get deleted applications in last week
+        /// Get deleted applications in last week.
         /// </summary>
         public static DeletedApplication.PagingResponseDeletedApplicationListItem ViewDeletedApplicationsInLastWeek()
         {
