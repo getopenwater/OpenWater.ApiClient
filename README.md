@@ -35,9 +35,9 @@ Before using client, you should setup API throttling values. For example, you wa
 OpenWaterHttpClient.NumberOfRequestsPerSecond = 100;
 OpenWaterHttpClient.NumberOfSimultaneousRequests = 5;
 
-const string host = "localhost";
+const string host = "demo.secure-platform.com";
 const string apiKey = "some api key";
-const string baseUrl = "http://localhost:11100";
+const string baseUrl = "https://api.secure-platform.com";
 
 var api = new OpenWaterApiClient(host, apiKey, baseUrl: baseUrl);
 ```
@@ -45,7 +45,7 @@ var api = new OpenWaterApiClient(host, apiKey, baseUrl: baseUrl);
 You can also pass `HttpClient`, organizationCode and email suppressing flag as a constructor parameter.
 
 ```csharp
-const string orgCode = "base";
+const string orgCode = "main";
 const bool suppressEmails = true;
 
 var httpClient = new HttpClient();
