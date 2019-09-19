@@ -41,7 +41,7 @@ namespace OpenWater.ApiClient.User
         internal UserListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public UserListItemModel(System.DateTimeOffset createdAtUtc, string email, string externalAuthData, string firstName, int id, System.DateTimeOffset lastLoggedInUtc, System.DateTimeOffset lastModifiedAtUtc, string lastName, string thirdPartyUniqueId)
+        public UserListItemModel(System.DateTimeOffset? createdAtUtc, string email, string externalAuthData, string firstName, int? id, System.DateTimeOffset? lastLoggedInUtc, System.DateTimeOffset? lastModifiedAtUtc, string lastName, string thirdPartyUniqueId)
         {
               Id = @id;
               Email = @email;
@@ -55,7 +55,7 @@ namespace OpenWater.ApiClient.User
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; internal set; }
+        public int? Id { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; internal set; }
@@ -73,13 +73,13 @@ namespace OpenWater.ApiClient.User
         public string ExternalAuthData { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset CreatedAtUtc { get; internal set; }
+        public System.DateTimeOffset? CreatedAtUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("lastModifiedAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset LastModifiedAtUtc { get; internal set; }
+        public System.DateTimeOffset? LastModifiedAtUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("lastLoggedInUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset LastLoggedInUtc { get; internal set; }
+        public System.DateTimeOffset? LastLoggedInUtc { get; internal set; }
     
     
     }
@@ -101,13 +101,13 @@ namespace OpenWater.ApiClient.User
               FieldValues = @fieldValues;
         }
     
-        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Always)]
         public string FirstName { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Always)]
         public string LastName { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Always)]
         public string Email { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -131,7 +131,7 @@ namespace OpenWater.ApiClient.User
         internal DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(System.DateTimeOffset createdAtUtc, string email, string externalAuthData, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, int id, bool isApplicant, bool isJudge, bool isSessionChair, System.DateTimeOffset lastLoggedInUtc, System.DateTimeOffset lastModifiedAtUtc, string lastName, string thirdPartyUniqueId)
+        public DetailsResponse(System.DateTimeOffset? createdAtUtc, string email, string externalAuthData, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, int? id, bool? isApplicant, bool? isJudge, bool? isSessionChair, System.DateTimeOffset? lastLoggedInUtc, System.DateTimeOffset? lastModifiedAtUtc, string lastName, string thirdPartyUniqueId)
         {
               Id = @id;
               Email = @email;
@@ -149,7 +149,7 @@ namespace OpenWater.ApiClient.User
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; internal set; }
+        public int? Id { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; internal set; }
@@ -167,22 +167,22 @@ namespace OpenWater.ApiClient.User
         public string ExternalAuthData { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("isApplicant", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsApplicant { get; internal set; }
+        public bool? IsApplicant { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("isJudge", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsJudge { get; internal set; }
+        public bool? IsJudge { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("isSessionChair", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsSessionChair { get; internal set; }
+        public bool? IsSessionChair { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset CreatedAtUtc { get; internal set; }
+        public System.DateTimeOffset? CreatedAtUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("lastModifiedAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset LastModifiedAtUtc { get; internal set; }
+        public System.DateTimeOffset? LastModifiedAtUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("lastLoggedInUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset LastLoggedInUtc { get; internal set; }
+        public System.DateTimeOffset? LastLoggedInUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
@@ -267,14 +267,14 @@ namespace OpenWater.ApiClient.User
         internal SsoTokenResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SsoTokenResponse(string singleSignOnUrl, System.Guid ssoToken)
+        public SsoTokenResponse(string singleSignOnUrl, System.Guid? ssoToken)
         {
               SsoToken = @ssoToken;
               SingleSignOnUrl = @singleSignOnUrl;
         }
     
         [Newtonsoft.Json.JsonProperty("ssoToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid SsoToken { get; internal set; }
+        public System.Guid? SsoToken { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("singleSignOnUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SingleSignOnUrl { get; internal set; }
@@ -500,137 +500,6 @@ namespace OpenWater.ApiClient.User
     
         [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
         Complete = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ApplicationNameFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DropDownListFieldModelPreFillType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
-        UsStates = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
-        CanadaProvinces = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
-        Countries = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
-        UsStatesAndCanadaProvinces = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum EmailFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum EmailFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum MultilineTextFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum MultilineTextFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum TextFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum TextFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum UrlFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum UrlFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
     
     }
 

@@ -41,7 +41,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
         internal JudgeListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public JudgeListItemModel(string email, string firstName, string lastName, int userId)
+        public JudgeListItemModel(string email, string firstName, string lastName, int? userId)
         {
               UserId = @userId;
               FirstName = @firstName;
@@ -50,7 +50,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
         }
     
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int UserId { get; internal set; }
+        public int? UserId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; internal set; }
@@ -70,7 +70,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
         internal AssignJudgeToApplicationRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public AssignJudgeToApplicationRequest(int applicationId, int judgeUserId, int roundId)
+        public AssignJudgeToApplicationRequest(int? applicationId, int? judgeUserId, int? roundId)
         {
               ApplicationId = @applicationId;
               JudgeUserId = @judgeUserId;
@@ -78,13 +78,13 @@ namespace OpenWater.ApiClient.JudgeAssignment
         }
     
         [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int ApplicationId { get; internal set; }
+        public int? ApplicationId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("judgeUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JudgeUserId { get; internal set; }
+        public int? JudgeUserId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int RoundId { get; internal set; }
+        public int? RoundId { get; internal set; }
     
     
     }
@@ -95,17 +95,17 @@ namespace OpenWater.ApiClient.JudgeAssignment
         internal AssignJudgeToJudgeTeamRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public AssignJudgeToJudgeTeamRequest(int judgeTeamId, int judgeUserId)
+        public AssignJudgeToJudgeTeamRequest(int? judgeTeamId, int? judgeUserId)
         {
               JudgeUserId = @judgeUserId;
               JudgeTeamId = @judgeTeamId;
         }
     
         [Newtonsoft.Json.JsonProperty("judgeUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JudgeUserId { get; internal set; }
+        public int? JudgeUserId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("judgeTeamId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JudgeTeamId { get; internal set; }
+        public int? JudgeTeamId { get; internal set; }
     
     
     }
@@ -116,13 +116,13 @@ namespace OpenWater.ApiClient.JudgeAssignment
         internal ApplyAllBulkJudgeAssignmentRulesInRoundRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplyAllBulkJudgeAssignmentRulesInRoundRequest(int roundId)
+        public ApplyAllBulkJudgeAssignmentRulesInRoundRequest(int? roundId)
         {
               RoundId = @roundId;
         }
     
         [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int RoundId { get; internal set; }
+        public int? RoundId { get; internal set; }
     
     
     }
@@ -133,13 +133,13 @@ namespace OpenWater.ApiClient.JudgeAssignment
         internal ApplyAllBulkJudgeAssignmentRulesInRoundResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplyAllBulkJudgeAssignmentRulesInRoundResponse(int jobId)
+        public ApplyAllBulkJudgeAssignmentRulesInRoundResponse(int? jobId)
         {
               JobId = @jobId;
         }
     
         [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JobId { get; internal set; }
+        public int? JobId { get; internal set; }
     
     
     }
@@ -345,137 +345,6 @@ namespace OpenWater.ApiClient.JudgeAssignment
     
         [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
         Complete = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ApplicationNameFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DropDownListFieldModelPreFillType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
-        UsStates = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
-        CanadaProvinces = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
-        Countries = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
-        UsStatesAndCanadaProvinces = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum EmailFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum EmailFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum MultilineTextFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum MultilineTextFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum TextFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum TextFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum UrlFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum UrlFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
     
     }
 
