@@ -39,8 +39,7 @@ namespace OpenWater.ApiClient.ClientGenerator
                         Namespace = apiClientNamespace,
                         ClassStyle = CSharpClassStyle.Record,
                         GenerateDataAnnotations = false,
-                        TemplateDirectory = "Templates",
-                        RequiredPropertiesMustBeDefined = true
+                        TemplateDirectory = "Templates"
                     },
                     OperationNameGenerator = new SingleClientFromOperationIdOperationNameGenerator(),
                     ClientClassAccessModifier = "public sealed",
@@ -116,7 +115,7 @@ namespace OpenWater.ApiClient.ClientGenerator
             settings.CSharpGeneratorSettings.ExcludedTypeNames = typeNameHintsModelWithNamespaceInfos.Values.Where(i => i.ModelNamespace != currentNamespace).Select(i => i.FullName).ToArray();
             settings.CSharpGeneratorSettings.TypeNameGenerator = modelWithNamespaceTypeNameGenerator;
 
-            var generator = new CustomCSharpClientGenerator(apiDocument, settings);
+            var generator = new CSharpClientGenerator(apiDocument, settings);
 
             var generatedModelsFile = generator.GenerateFile();
            
