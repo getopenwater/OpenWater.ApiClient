@@ -20,7 +20,7 @@ namespace OpenWater.ApiClient.Fields
         internal FieldModelBase() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        protected FieldModelBase(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        protected FieldModelBase(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
         {
               Alias = @alias;
               Name = @name;
@@ -52,7 +52,7 @@ namespace OpenWater.ApiClient.Fields
         public bool Required { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? SortOrder { get; internal set; }
+        public int SortOrder { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("customCssClass", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomCssClass { get; internal set; }
@@ -93,7 +93,7 @@ namespace OpenWater.ApiClient.Fields
         internal AddressFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public AddressFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public AddressFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
         }
@@ -107,7 +107,7 @@ namespace OpenWater.ApiClient.Fields
         internal ApplicationCategoryFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationCategoryFieldModel(string alias, System.Collections.Generic.ICollection<SubmissionForm.Category> categories, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public ApplicationCategoryFieldModel(string alias, System.Collections.Generic.ICollection<SubmissionForm.Category> categories, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               Categories = @categories;
@@ -125,7 +125,7 @@ namespace OpenWater.ApiClient.Fields
         internal ApplicationNameFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationNameFieldModel(string alias, string customCssClass, string description, string firstTitle, bool hidden, bool isDescriptionWysiwyg, bool isOneTextField, int? maxLength, int? minLength, string name, bool required, string secondTitle, int? sortOrder, ApplicationNameFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
+        public ApplicationNameFieldModel(string alias, string customCssClass, string description, string firstTitle, bool hidden, bool isDescriptionWysiwyg, bool isOneTextField, int maxLength, int minLength, string name, bool required, string secondTitle, int sortOrder, ApplicationNameFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               IsOneTextField = @isOneTextField;
@@ -150,10 +150,10 @@ namespace OpenWater.ApiClient.Fields
         public ApplicationNameFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int MinLength { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int MaxLength { get; internal set; }
     
     
     }
@@ -164,7 +164,7 @@ namespace OpenWater.ApiClient.Fields
         internal CheckboxListFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CheckboxListFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, System.Collections.Generic.ICollection<Form.ListValue> listValues, int? maxSelectedValueCount, int? minSelectedValueCount, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public CheckboxListFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, System.Collections.Generic.ICollection<Form.ListValue> listValues, int maxSelectedValueCount, int minSelectedValueCount, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               MinSelectedValueCount = @minSelectedValueCount;
@@ -173,10 +173,10 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("minSelectedValueCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinSelectedValueCount { get; internal set; }
+        public int MinSelectedValueCount { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxSelectedValueCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxSelectedValueCount { get; internal set; }
+        public int MaxSelectedValueCount { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("listValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Form.ListValue> ListValues { get; internal set; }
@@ -190,7 +190,7 @@ namespace OpenWater.ApiClient.Fields
         internal DateFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DateFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, System.DateTimeOffset? maxValueUtc, System.DateTimeOffset? minValueUtc, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public DateFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, System.DateTimeOffset maxValueUtc, System.DateTimeOffset minValueUtc, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               MinValueUtc = @minValueUtc;
@@ -198,10 +198,10 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("minValueUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? MinValueUtc { get; internal set; }
+        public System.DateTimeOffset MinValueUtc { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxValueUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? MaxValueUtc { get; internal set; }
+        public System.DateTimeOffset MaxValueUtc { get; internal set; }
     
     
     }
@@ -212,7 +212,7 @@ namespace OpenWater.ApiClient.Fields
         internal DigitalSignatureFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DigitalSignatureFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public DigitalSignatureFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
         }
@@ -226,7 +226,7 @@ namespace OpenWater.ApiClient.Fields
         internal DropDownListFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DropDownListFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, System.Collections.Generic.ICollection<Form.ListValue> listValues, string name, DropDownListFieldModelPreFillType preFillType, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public DropDownListFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, System.Collections.Generic.ICollection<Form.ListValue> listValues, string name, DropDownListFieldModelPreFillType preFillType, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               PreFillType = @preFillType;
@@ -249,7 +249,7 @@ namespace OpenWater.ApiClient.Fields
         internal EmailFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public EmailFieldModel(string alias, bool confirmationRequired, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, int? maxLength, int? minLength, string name, bool required, EmailFieldModelSize size, int? sortOrder, EmailFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
+        public EmailFieldModel(string alias, bool confirmationRequired, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, int maxLength, int minLength, string name, bool required, EmailFieldModelSize size, int sortOrder, EmailFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               ConfirmationRequired = @confirmationRequired;
@@ -267,10 +267,10 @@ namespace OpenWater.ApiClient.Fields
         public EmailFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int MinLength { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int MaxLength { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -285,7 +285,7 @@ namespace OpenWater.ApiClient.Fields
         internal FileUploadFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public FileUploadFieldModel(string alias, string allowedFileExtensions, string captionLabel, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, int? maxFileSize, string name, bool required, bool showAudioPreview, bool showCaption, bool showDocumentPreview, bool showImagePreview, bool showVideoPreview, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public FileUploadFieldModel(string alias, string allowedFileExtensions, string captionLabel, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, int maxFileSize, string name, bool required, bool showAudioPreview, bool showCaption, bool showDocumentPreview, bool showImagePreview, bool showVideoPreview, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               ShowCaption = @showCaption;
@@ -314,7 +314,7 @@ namespace OpenWater.ApiClient.Fields
         public bool ShowDocumentPreview { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxFileSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxFileSize { get; internal set; }
+        public int MaxFileSize { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("allowedFileExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AllowedFileExtensions { get; internal set; }
@@ -331,7 +331,7 @@ namespace OpenWater.ApiClient.Fields
         internal ImisNumberFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ImisNumberFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public ImisNumberFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
         }
@@ -345,7 +345,7 @@ namespace OpenWater.ApiClient.Fields
         internal LetterOfRecommendationFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public LetterOfRecommendationFieldModel(string alias, bool allowReceiveRecommendationAfterSubmissionPeriodEnds, bool allowSubmitterToDeleteRecommendationOnIncompleteSubmission, bool allowSubmitterToViewCompletedRecommendation, bool allowToSendRequestPriorToFinalization, string confirmationPageHtml, string customCssClass, string description, System.Collections.Generic.ICollection<FieldModelBase> fields, bool hidden, string instructionsHtml, bool isDescriptionWysiwyg, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public LetterOfRecommendationFieldModel(string alias, bool allowReceiveRecommendationAfterSubmissionPeriodEnds, bool allowSubmitterToDeleteRecommendationOnIncompleteSubmission, bool allowSubmitterToViewCompletedRecommendation, bool allowToSendRequestPriorToFinalization, string confirmationPageHtml, string customCssClass, string description, System.Collections.Generic.ICollection<FieldModelBase> fields, bool hidden, string instructionsHtml, bool isDescriptionWysiwyg, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               AllowToSendRequestPriorToFinalization = @allowToSendRequestPriorToFinalization;
@@ -387,7 +387,7 @@ namespace OpenWater.ApiClient.Fields
         internal MultilineTextFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public MultilineTextFieldModel(string alias, string allowedHtmlTags, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, bool isWysiwyg, int? maxLength, int? minLength, string name, bool required, MultilineTextFieldModelSize size, int? sortOrder, MultilineTextFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
+        public MultilineTextFieldModel(string alias, string allowedHtmlTags, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, bool isWysiwyg, int maxLength, int minLength, string name, bool required, MultilineTextFieldModelSize size, int sortOrder, MultilineTextFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               IsWysiwyg = @isWysiwyg;
@@ -409,10 +409,10 @@ namespace OpenWater.ApiClient.Fields
         public MultilineTextFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int MinLength { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int MaxLength { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -427,7 +427,7 @@ namespace OpenWater.ApiClient.Fields
         internal NumberFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public NumberFieldModel(string alias, string customCssClass, string description, string format, bool hidden, bool isDescriptionWysiwyg, int? maxPrecision, double? maxValue, double? minValue, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public NumberFieldModel(string alias, string customCssClass, string description, string format, bool hidden, bool isDescriptionWysiwyg, int maxPrecision, double maxValue, double minValue, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               MinValue = @minValue;
@@ -437,13 +437,13 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("minValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? MinValue { get; internal set; }
+        public double MinValue { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? MaxValue { get; internal set; }
+        public double MaxValue { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxPrecision", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxPrecision { get; internal set; }
+        public int MaxPrecision { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Format { get; internal set; }
@@ -457,7 +457,7 @@ namespace OpenWater.ApiClient.Fields
         internal RadioListFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RadioListFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, System.Collections.Generic.ICollection<Form.ListValue> listValues, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public RadioListFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, System.Collections.Generic.ICollection<Form.ListValue> listValues, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               ListValues = @listValues;
@@ -475,7 +475,7 @@ namespace OpenWater.ApiClient.Fields
         internal SeparatorFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SeparatorFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public SeparatorFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
         }
@@ -489,7 +489,7 @@ namespace OpenWater.ApiClient.Fields
         internal SessionNameFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SessionNameFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public SessionNameFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, string name, bool required, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
         }
@@ -503,7 +503,7 @@ namespace OpenWater.ApiClient.Fields
         internal TableFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public TableFieldModel(string alias, string customCssClass, string description, System.Collections.Generic.ICollection<FieldModelBase> fields, bool hidden, bool isDescriptionWysiwyg, int maxRowCount, int minRowCount, string name, bool required, string rowName, string rowNamePlural, string rowTemplate, int? sortOrder, FieldVisibilityConditionModel visibilityCondition)
+        public TableFieldModel(string alias, string customCssClass, string description, System.Collections.Generic.ICollection<FieldModelBase> fields, bool hidden, bool isDescriptionWysiwyg, int maxRowCount, int minRowCount, string name, bool required, string rowName, string rowNamePlural, string rowTemplate, int sortOrder, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               RowName = @rowName;
@@ -541,7 +541,7 @@ namespace OpenWater.ApiClient.Fields
         internal TextFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public TextFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, int? maxLength, int? minLength, string name, bool required, TextFieldModelSize size, int? sortOrder, TextFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
+        public TextFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, int maxLength, int minLength, string name, bool required, TextFieldModelSize size, int sortOrder, TextFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               TextLengthCountMode = @textLengthCountMode;
@@ -555,10 +555,10 @@ namespace OpenWater.ApiClient.Fields
         public TextFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int MinLength { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int MaxLength { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -573,7 +573,7 @@ namespace OpenWater.ApiClient.Fields
         internal UrlFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public UrlFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, int? maxLength, int? minLength, string name, bool required, UrlFieldModelSize size, int? sortOrder, UrlFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
+        public UrlFieldModel(string alias, string customCssClass, string description, bool hidden, bool isDescriptionWysiwyg, int maxLength, int minLength, string name, bool required, UrlFieldModelSize size, int sortOrder, UrlFieldModelTextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition)
             : base(alias, customCssClass, description, hidden, isDescriptionWysiwyg, name, required, sortOrder, visibilityCondition)
         {
               TextLengthCountMode = @textLengthCountMode;
@@ -587,10 +587,10 @@ namespace OpenWater.ApiClient.Fields
         public UrlFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int MinLength { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int MaxLength { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]

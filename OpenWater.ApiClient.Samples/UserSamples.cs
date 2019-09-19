@@ -124,14 +124,17 @@ namespace OpenWater.ApiClient.Samples
 
             var user = await ApiClient.CreateUserAsync(createRequest);
 
-            var updateRequest = new ProfileFormValuesRequest(
-                new List<FieldValueModelBase>(new FieldValueModelBase[]
-                {
+            if (user.Id != null)
+            {
+                var updateRequest = new ProfileFormValuesRequest(
+                    new List<FieldValueModelBase>(new FieldValueModelBase[]
+                    {
                         new TextFieldValueModel("companyName", "Yet Another Company Name"),
-                })
-            );
+                    })
+                );
 
-            await ApiClient.UpdateProfileFormValuesAsync(user.Id, updateRequest);
+                await ApiClient.UpdateProfileFormValuesAsync(user.Id.Value, updateRequest);
+            }
         }
 
         /// <summary>
@@ -157,14 +160,17 @@ namespace OpenWater.ApiClient.Samples
 
             var user = ApiClient.CreateUser(createRequest);
 
-            var updateRequest = new ProfileFormValuesRequest(
-                new List<FieldValueModelBase>(new FieldValueModelBase[]
-                {
-                    new TextFieldValueModel("companyName", "Yet Another Company Name"),
-                })
-            );
+            if (user.Id != null)
+            {
+                var updateRequest = new ProfileFormValuesRequest(
+                    new List<FieldValueModelBase>(new FieldValueModelBase[]
+                    {
+                        new TextFieldValueModel("companyName", "Yet Another Company Name"),
+                    })
+                );
 
-            ApiClient.UpdateProfileFormValues(user.Id, updateRequest);
+                ApiClient.UpdateProfileFormValues(user.Id.Value, updateRequest);
+            }
         }
 
         /// <summary>
@@ -207,7 +213,7 @@ namespace OpenWater.ApiClient.Samples
 
             var user = (await ApiClient.UserListAsync(email: email)).Items.First();
 
-            return await ApiClient.GenerateSsoTokenAsync(user.Id, ssoTokenRequest);
+            return await ApiClient.GenerateSsoTokenAsync(user.Id.Value, ssoTokenRequest);
         }
 
         /// <summary>
@@ -220,7 +226,7 @@ namespace OpenWater.ApiClient.Samples
 
             var user = ApiClient.UserList(email: email).Items.First();
 
-            return ApiClient.GenerateSsoToken(user.Id, ssoTokenRequest);
+            return ApiClient.GenerateSsoToken(user.Id.Value, ssoTokenRequest);
         }
     }
 }

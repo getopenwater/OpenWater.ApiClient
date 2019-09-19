@@ -136,14 +136,14 @@ namespace OpenWater.ApiClient.FieldValues
         internal DateFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DateFieldValueModel(string alias, System.DateTimeOffset? valueUtc)
+        public DateFieldValueModel(string alias, System.DateTimeOffset valueUtc)
             : base(alias)
         {
               ValueUtc = @valueUtc;
         }
     
         [Newtonsoft.Json.JsonProperty("valueUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? ValueUtc { get; internal set; }
+        public System.DateTimeOffset ValueUtc { get; internal set; }
     
     
     }
@@ -172,7 +172,7 @@ namespace OpenWater.ApiClient.FieldValues
         internal FileUploadFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public FileUploadFieldValueModel(string alias, string caption, int? mediaId)
+        public FileUploadFieldValueModel(string alias, string caption, int mediaId)
             : base(alias)
         {
               MediaId = @mediaId;
@@ -180,7 +180,7 @@ namespace OpenWater.ApiClient.FieldValues
         }
     
         [Newtonsoft.Json.JsonProperty("mediaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MediaId { get; internal set; }
+        public int MediaId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("caption", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Caption { get; internal set; }
@@ -216,7 +216,7 @@ namespace OpenWater.ApiClient.FieldValues
         internal LetterOfRecommendationFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public LetterOfRecommendationFieldValueModel(string alias, string email, System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, string fullName, System.DateTimeOffset? receivedAt, System.DateTimeOffset? reminderEmailLastSentAt, System.Guid? sentHash)
+        public LetterOfRecommendationFieldValueModel(string alias, string email, System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, string fullName, System.DateTimeOffset receivedAt, System.DateTimeOffset reminderEmailLastSentAt, System.Guid sentHash)
             : base(alias)
         {
               FullName = @fullName;
@@ -234,13 +234,13 @@ namespace OpenWater.ApiClient.FieldValues
         public string Email { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("sentHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid? SentHash { get; internal set; }
+        public System.Guid SentHash { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("reminderEmailLastSentAt", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? ReminderEmailLastSentAt { get; internal set; }
+        public System.DateTimeOffset ReminderEmailLastSentAt { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("receivedAt", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? ReceivedAt { get; internal set; }
+        public System.DateTimeOffset ReceivedAt { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValueModelBase> FieldValues { get; internal set; }
@@ -272,14 +272,14 @@ namespace OpenWater.ApiClient.FieldValues
         internal NumberFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public NumberFieldValueModel(string alias, double? value)
+        public NumberFieldValueModel(string alias, double value)
             : base(alias)
         {
               Value = @value;
         }
     
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Value { get; internal set; }
+        public double Value { get; internal set; }
     
     
     }

@@ -171,7 +171,7 @@ namespace OpenWater.ApiClient.Session
         internal SessionItemInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SessionItemInfo(int? applicationId, string customSessionItemTypeDescription, int? customSessionItemTypeId, int? durationInMinutes, int sortOrder)
+        public SessionItemInfo(int applicationId, string customSessionItemTypeDescription, int customSessionItemTypeId, int durationInMinutes, int sortOrder)
         {
               ApplicationId = @applicationId;
               CustomSessionItemTypeId = @customSessionItemTypeId;
@@ -181,10 +181,10 @@ namespace OpenWater.ApiClient.Session
         }
     
         [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ApplicationId { get; internal set; }
+        public int ApplicationId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("customSessionItemTypeId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? CustomSessionItemTypeId { get; internal set; }
+        public int CustomSessionItemTypeId { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("customSessionItemTypeDescription", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomSessionItemTypeDescription { get; internal set; }
@@ -193,7 +193,7 @@ namespace OpenWater.ApiClient.Session
         public int SortOrder { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("durationInMinutes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? DurationInMinutes { get; internal set; }
+        public int DurationInMinutes { get; internal set; }
     
     
     }

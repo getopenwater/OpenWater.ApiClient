@@ -19,7 +19,7 @@ namespace OpenWater.ApiClient.Samples
             const int reportId = 83001;
             var reportExportFormat = new RunRequest("xlsx");
 
-            var jobId = (await ApiClient.RunReportAsync(reportId, reportExportFormat)).JobId;
+            var jobId = (await ApiClient.RunReportAsync(reportId, reportExportFormat)).JobId.Value;
 
             while (true)
             {
@@ -40,7 +40,7 @@ namespace OpenWater.ApiClient.Samples
             const int reportId = 83001;
             var reportExportFormat = new RunRequest("xlsx");
 
-            var jobId = ApiClient.RunReport(reportId, reportExportFormat).JobId;
+            var jobId = ApiClient.RunReport(reportId, reportExportFormat).JobId.Value;
 
             while (true)
             {
