@@ -17,18 +17,20 @@ namespace OpenWater.ApiClient.Form
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListValue 
     {
+        internal ListValue() { }
+    
         [Newtonsoft.Json.JsonConstructor]
-        public ListValue(System.Guid? @id, string @value)
+        public ListValue(System.Guid? id, string value)
         {
-            this.Id = @id;
-            this.Value = @value;
+              Id = @id;
+              Value = @value;
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid? Id { get; }
+        public System.Guid? Id { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Value { get; }
+        public string Value { get; internal set; }
     
     
     }
@@ -234,6 +236,137 @@ namespace OpenWater.ApiClient.Form
     
         [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
         Complete = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ApplicationNameFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum DropDownListFieldModelPreFillType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
+        UsStates = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
+        CanadaProvinces = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
+        Countries = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
+        UsStatesAndCanadaProvinces = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum EmailFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum EmailFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum MultilineTextFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum MultilineTextFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum TextFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum TextFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum UrlFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum UrlFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
     
     }
 

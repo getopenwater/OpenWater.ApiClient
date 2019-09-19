@@ -41,12 +41,13 @@ namespace OpenWater.ApiClient.Program
         internal ProgramListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ProgramListItemModel(string code, System.DateTimeOffset? createdAtUtc, bool? enableScheduler, bool? enableSessions, int? id, string name, System.Collections.Generic.ICollection<RoundModel> rounds, string tag)
+        public ProgramListItemModel(string code, System.DateTimeOffset? createdAtUtc, bool? enableScheduler, bool? enableSessions, int? id, bool? isArchived, string name, System.Collections.Generic.ICollection<RoundModel> rounds, string tag)
         {
               Id = @id;
               Code = @code;
               Name = @name;
               Tag = @tag;
+              IsArchived = @isArchived;
               EnableSessions = @enableSessions;
               EnableScheduler = @enableScheduler;
               CreatedAtUtc = @createdAtUtc;
@@ -64,6 +65,9 @@ namespace OpenWater.ApiClient.Program
     
         [Newtonsoft.Json.JsonProperty("tag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Tag { get; internal set; }
+    
+        [Newtonsoft.Json.JsonProperty("isArchived", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsArchived { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("enableSessions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? EnableSessions { get; internal set; }
@@ -356,6 +360,137 @@ namespace OpenWater.ApiClient.Program
     
         [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
         Complete = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ApplicationNameFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum DropDownListFieldModelPreFillType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
+        UsStates = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
+        CanadaProvinces = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
+        Countries = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
+        UsStatesAndCanadaProvinces = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum EmailFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum EmailFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum MultilineTextFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum MultilineTextFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum TextFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum TextFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum UrlFieldModelSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum UrlFieldModelTextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
     
     }
 

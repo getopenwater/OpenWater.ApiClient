@@ -10,76 +10,63 @@
 #pragma warning disable 1573 // Disable "CS1573 Parameter '...' has no matching param tag in the XML comment for ...
 #pragma warning disable 1591 // Disable "CS1591 Missing XML comment for publicly visible type or member ..."
 
-namespace OpenWater.ApiClient.DeletedApplication
+namespace OpenWater.ApiClient.SubmissionForm
 {
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseDeletedApplicationListItem 
+    public partial class Category 
     {
-        internal PagingResponseDeletedApplicationListItem() { }
+        internal Category() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseDeletedApplicationListItem(System.Collections.Generic.ICollection<DeletedApplicationListItem> items, Pagination.PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pagination.PagingInfo PagingInfo { get; internal set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<DeletedApplicationListItem> Items { get; internal set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DeletedApplicationListItem 
-    {
-        internal DeletedApplicationListItem() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public DeletedApplicationListItem(string applicationCode, string applicationName, System.DateTimeOffset? deletedAtUtc, string email, string firstName, int? id, string lastName, int? programId, int? userId)
+        public Category(System.Collections.Generic.ICollection<Category> categories, bool? closeCategoryForNewApplications, string code, string description, bool? hideIfNoSubcategories, int? id, string name, int? parentId, string path, System.DateTimeOffset? submissionEndDateUtc, System.DateTimeOffset? submissionStartDateUtc)
         {
               Id = @id;
-              ProgramId = @programId;
-              ApplicationCode = @applicationCode;
-              ApplicationName = @applicationName;
-              UserId = @userId;
-              Email = @email;
-              FirstName = @firstName;
-              LastName = @lastName;
-              DeletedAtUtc = @deletedAtUtc;
+              Code = @code;
+              Name = @name;
+              Description = @description;
+              HideIfNoSubcategories = @hideIfNoSubcategories;
+              CloseCategoryForNewApplications = @closeCategoryForNewApplications;
+              ParentId = @parentId;
+              Path = @path;
+              SubmissionStartDateUtc = @submissionStartDateUtc;
+              SubmissionEndDateUtc = @submissionEndDateUtc;
+              Categories = @categories;
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Id { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ProgramId { get; internal set; }
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Code { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("applicationCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationCode { get; internal set; }
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("applicationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationName { get; internal set; }
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? UserId { get; internal set; }
+        [Newtonsoft.Json.JsonProperty("hideIfNoSubcategories", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? HideIfNoSubcategories { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email { get; internal set; }
+        [Newtonsoft.Json.JsonProperty("closeCategoryForNewApplications", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? CloseCategoryForNewApplications { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; internal set; }
+        [Newtonsoft.Json.JsonProperty("parentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ParentId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; internal set; }
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("deletedAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? DeletedAtUtc { get; internal set; }
+        [Newtonsoft.Json.JsonProperty("submissionStartDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? SubmissionStartDateUtc { get; internal set; }
+    
+        [Newtonsoft.Json.JsonProperty("submissionEndDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? SubmissionEndDateUtc { get; internal set; }
+    
+        [Newtonsoft.Json.JsonProperty("categories", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Category> Categories { get; internal set; }
     
     
     }
