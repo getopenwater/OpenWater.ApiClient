@@ -118,7 +118,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Upload media via Url and update submission by application id 18028  and round id 14001 media field async.
+        /// Upload media via Url and attach it to media field of application with id 18028 into media field async.
         /// </summary>
         public static async Task UploadMediaViaUrlAndUpdateSubmissionMediaFieldAsync()
         {
@@ -138,7 +138,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Upload media via Url and update submission by application id 18028  and round id 14001 media field.
+        /// Upload media via Url and attach it to media field of application with id 18028 into media field.
         /// </summary>
         public static void UploadMediaViaUrlAndUpdateSubmissionMediaField()
         {
