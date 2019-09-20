@@ -9,13 +9,13 @@ namespace OpenWater.ApiClient
         private readonly string _clientKey;
         private readonly string _apiKey;
         private readonly string _organizationCode;
-        private readonly bool? _suppressEmails;
+        private readonly bool _suppressEmails;
 
-        public OpenWaterApiClient(string clientKey, string apiKey, string organizationCode = null, bool? suppressEmails = null, string baseUrl = "https://api.secure-platform.com") : this(clientKey, apiKey, organizationCode, suppressEmails, baseUrl, null)
+        public OpenWaterApiClient(string clientKey, string apiKey, string organizationCode = null, bool suppressEmails = false, string baseUrl = "https://api.secure-platform.com") : this(clientKey, apiKey, organizationCode, suppressEmails, baseUrl, null)
         {
         }
 
-        public OpenWaterApiClient(string clientKey, string apiKey, string organizationCode, bool? suppressEmails, string baseUrl, HttpClient httpClient) : this(baseUrl, new OpenWaterHttpClient(httpClient))
+        public OpenWaterApiClient(string clientKey, string apiKey, string organizationCode, bool suppressEmails, string baseUrl, HttpClient httpClient) : this(baseUrl, new OpenWaterHttpClient(httpClient))
         {
             _clientKey = clientKey;
             _apiKey = apiKey;
@@ -31,8 +31,7 @@ namespace OpenWater.ApiClient
             if (!string.IsNullOrEmpty(_organizationCode))
                 request.Headers.TryAddWithoutValidation("X-OrganizationCode", ConvertToString(_organizationCode, System.Globalization.CultureInfo.InvariantCulture));
 
-            if (_suppressEmails.HasValue)
-                request.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(_suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
+            request.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(_suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
         }
 
         protected override void DisposeCore()
