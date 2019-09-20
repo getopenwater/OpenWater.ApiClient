@@ -15,24 +15,7 @@ namespace OpenWater.ApiClient.Organization
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class TimeZoneResponse 
-    {
-        internal TimeZoneResponse() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public TimeZoneResponse(string timeZone)
-        {
-              TimeZone = @timeZone;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("timeZone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TimeZone { get; internal set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum RoundSubmissionStatus
+    public enum SubmissionStatus
     {
         [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
         NotStarted = 0,
@@ -55,7 +38,7 @@ namespace OpenWater.ApiClient.Organization
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum JudgeScorecardInfoStatus
+    public enum JudgeScorecardStatus
     {
         [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
         NotScored = 0,
@@ -69,30 +52,7 @@ namespace OpenWater.ApiClient.Organization
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum RoundSubmissionStatusRequestStatus
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
-        NotStarted = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Incomplete")]
-        Incomplete = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PendingApproval")]
-        PendingApproval = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Disapproved")]
-        Disapproved = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
-        InCart = 5,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DetailsResponseJobState
+    public enum StateType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Undefined")]
         Undefined = 0,
@@ -124,7 +84,7 @@ namespace OpenWater.ApiClient.Organization
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BillingLineItemModelTargetType
+    public enum BillingLineItemTargetType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"None")]
         None = 0,
@@ -141,7 +101,7 @@ namespace OpenWater.ApiClient.Organization
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum PaymentModelMethod
+    public enum PaymentMethod
     {
         [System.Runtime.Serialization.EnumMember(Value = @"None")]
         None = 0,
@@ -173,65 +133,19 @@ namespace OpenWater.ApiClient.Organization
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BillingLineItemListItemModelTargetType
+    public partial class TimeZoneResponse 
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
+        internal TimeZoneResponse() { }
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Coupon")]
-        Coupon = 1,
+        [Newtonsoft.Json.JsonConstructor]
+        public TimeZoneResponse(string timeZone)
+        {
+              TimeZone = @timeZone;
+        }
     
-        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationJudgement")]
-        ApplicationJudgement = 2,
+        [Newtonsoft.Json.JsonProperty("timeZone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TimeZone { get; internal set; }
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Submission")]
-        Submission = 3,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum PaymentListItemModelMethod
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Check")]
-        Check = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OnSite")]
-        OnSite = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CreditCard")]
-        CreditCard = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PayPalExpress")]
-        PayPalExpress = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"TouchNet")]
-        TouchNet = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ChasePaymentech")]
-        ChasePaymentech = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"StripeJs")]
-        StripeJs = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"QuickPay")]
-        QuickPay = 8,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum JudgeScorecardListItemModelStatus
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
-        NotScored = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Started")]
-        Started = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 2,
     
     }
     

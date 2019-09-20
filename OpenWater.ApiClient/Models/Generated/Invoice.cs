@@ -15,6 +15,75 @@ namespace OpenWater.ApiClient.Invoice
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum SubmissionStatus
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
+        NotStarted = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Incomplete")]
+        Incomplete = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"PendingApproval")]
+        PendingApproval = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
+        Complete = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Disapproved")]
+        Disapproved = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
+        InCart = 5,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum JudgeScorecardStatus
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
+        NotScored = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Started")]
+        Started = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
+        Complete = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum StateType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Undefined")]
+        Undefined = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Uncommited")]
+        Uncommited = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Awaiting")]
+        Awaiting = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Scheduled")]
+        Scheduled = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Enqueued")]
+        Enqueued = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Processing")]
+        Processing = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
+        Succeeded = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Deleted")]
+        Deleted = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
+        Failed = 8,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseInvoiceListItemModel 
     {
         internal PagingResponseInvoiceListItemModel() { }
@@ -131,7 +200,7 @@ namespace OpenWater.ApiClient.Invoice
         internal BillingLineItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemModel(double amount, string details, int id, bool isManualAdjustment, bool isVat, string notes, BillingLineItemModelTargetType? targetType)
+        public BillingLineItemModel(double amount, string details, int id, bool isManualAdjustment, bool isVat, string notes, BillingLineItemTargetType targetType)
         {
               Id = @id;
               Amount = @amount;
@@ -156,7 +225,7 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BillingLineItemModelTargetType? TargetType { get; internal set; }
+        public BillingLineItemTargetType TargetType { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("isVat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsVat { get; internal set; }
@@ -168,12 +237,29 @@ namespace OpenWater.ApiClient.Invoice
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BillingLineItemTargetType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Coupon")]
+        Coupon = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationJudgement")]
+        ApplicationJudgement = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Submission")]
+        Submission = 3,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PaymentModel 
     {
         internal PaymentModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PaymentModel(double amount, string billingName, bool canRefund, string details, string externalPaymentTransactionData, int id, bool isManualAdjustment, bool isPromissoryNote, PaymentModelMethod method, string notes, string referenceNumber)
+        public PaymentModel(double amount, string billingName, bool canRefund, string details, string externalPaymentTransactionData, int id, bool isManualAdjustment, bool isPromissoryNote, PaymentMethod method, string notes, string referenceNumber)
         {
               Id = @id;
               Amount = @amount;
@@ -217,11 +303,43 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("method", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentModelMethod Method { get; internal set; }
+        public PaymentMethod Method { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Details { get; internal set; }
     
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum PaymentMethod
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Check")]
+        Check = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OnSite")]
+        OnSite = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CreditCard")]
+        CreditCard = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"PayPalExpress")]
+        PayPalExpress = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"TouchNet")]
+        TouchNet = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ChasePaymentech")]
+        ChasePaymentech = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StripeJs")]
+        StripeJs = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"QuickPay")]
+        QuickPay = 8,
     
     }
     
@@ -281,7 +399,7 @@ namespace OpenWater.ApiClient.Invoice
         internal BillingLineItemListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemListItemModel(double amount, System.DateTimeOffset createdAtUtc, string details, int id, int invoiceId, bool isManualAdjustment, bool isVat, string notes, BillingLineItemListItemModelTargetType? targetType)
+        public BillingLineItemListItemModel(double amount, System.DateTimeOffset createdAtUtc, string details, int id, int invoiceId, bool isManualAdjustment, bool isVat, string notes, BillingLineItemTargetType targetType)
         {
               Id = @id;
               InvoiceId = @invoiceId;
@@ -311,7 +429,7 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BillingLineItemListItemModelTargetType? TargetType { get; internal set; }
+        public BillingLineItemTargetType TargetType { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("isVat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsVat { get; internal set; }
@@ -352,7 +470,7 @@ namespace OpenWater.ApiClient.Invoice
         internal PaymentListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PaymentListItemModel(double amount, string billingName, bool canRefund, System.DateTimeOffset createdAtUtc, string details, string externalPaymentTransactionData, int id, int invoiceId, bool isManualAdjustment, bool isPromissoryNote, PaymentListItemModelMethod method, string notes, string referenceNumber)
+        public PaymentListItemModel(double amount, string billingName, bool canRefund, System.DateTimeOffset createdAtUtc, string details, string externalPaymentTransactionData, int id, int invoiceId, bool isManualAdjustment, bool isPromissoryNote, PaymentMethod method, string notes, string referenceNumber)
         {
               Id = @id;
               InvoiceId = @invoiceId;
@@ -401,7 +519,7 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("method", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentListItemModelMethod Method { get; internal set; }
+        public PaymentMethod Method { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Details { get; internal set; }
@@ -467,210 +585,6 @@ namespace OpenWater.ApiClient.Invoice
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; internal set; }
     
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum RoundSubmissionStatus
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
-        NotStarted = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Incomplete")]
-        Incomplete = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PendingApproval")]
-        PendingApproval = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Disapproved")]
-        Disapproved = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
-        InCart = 5,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum JudgeScorecardInfoStatus
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
-        NotScored = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Started")]
-        Started = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum RoundSubmissionStatusRequestStatus
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
-        NotStarted = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Incomplete")]
-        Incomplete = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PendingApproval")]
-        PendingApproval = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Disapproved")]
-        Disapproved = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
-        InCart = 5,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DetailsResponseJobState
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Undefined")]
-        Undefined = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Uncommited")]
-        Uncommited = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Awaiting")]
-        Awaiting = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Scheduled")]
-        Scheduled = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Enqueued")]
-        Enqueued = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Processing")]
-        Processing = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
-        Succeeded = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Deleted")]
-        Deleted = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
-        Failed = 8,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BillingLineItemModelTargetType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Coupon")]
-        Coupon = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationJudgement")]
-        ApplicationJudgement = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Submission")]
-        Submission = 3,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum PaymentModelMethod
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Check")]
-        Check = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OnSite")]
-        OnSite = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CreditCard")]
-        CreditCard = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PayPalExpress")]
-        PayPalExpress = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"TouchNet")]
-        TouchNet = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ChasePaymentech")]
-        ChasePaymentech = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"StripeJs")]
-        StripeJs = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"QuickPay")]
-        QuickPay = 8,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BillingLineItemListItemModelTargetType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Coupon")]
-        Coupon = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationJudgement")]
-        ApplicationJudgement = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Submission")]
-        Submission = 3,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum PaymentListItemModelMethod
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Check")]
-        Check = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OnSite")]
-        OnSite = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CreditCard")]
-        CreditCard = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PayPalExpress")]
-        PayPalExpress = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"TouchNet")]
-        TouchNet = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ChasePaymentech")]
-        ChasePaymentech = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"StripeJs")]
-        StripeJs = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"QuickPay")]
-        QuickPay = 8,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum JudgeScorecardListItemModelStatus
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
-        NotScored = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Started")]
-        Started = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 2,
     
     }
     
