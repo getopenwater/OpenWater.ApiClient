@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OpenWater.ApiClient
 {
-    public sealed partial class OpenWaterApiClient : IDisposable
+    public sealed partial class OpenWaterApiClient : Disposable
     {
         private readonly string _clientKey;
         private readonly string _apiKey;
@@ -35,7 +35,7 @@ namespace OpenWater.ApiClient
                 request.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(_suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
         }
 
-        public void Dispose()
+        protected override void DisposeCore()
         {
             _httpClient.Dispose();
         }

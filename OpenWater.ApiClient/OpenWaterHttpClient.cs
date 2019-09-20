@@ -10,7 +10,7 @@ using OpenWater.ApiClient.Extensions;
 
 namespace OpenWater.ApiClient
 {
-    public class OpenWaterHttpClient : IDisposable
+    public class OpenWaterHttpClient : Disposable
     {
         private readonly SemaphoreSlim _maxRequestsSemaphoreSlim;
         private readonly HttpClient _httpClient;
@@ -55,7 +55,7 @@ namespace OpenWater.ApiClient
             }
         }
 
-        public void Dispose()
+        protected override void DisposeCore()
         {
             _maxRequestsSemaphoreSlim.Dispose();
 
