@@ -47,7 +47,8 @@ namespace OpenWater.ApiClient.ClientGenerator
                     ExcludedParameterNames = new[] { "X-ClientKey", "X-OrganizationCode", "X-ApiKey", "X-SuppressEmails" },
                     GenerateOptionalParameters = true,
                     ExceptionClass = apiExceptionClassName,
-                    GenerateSyncMethods = true
+                    GenerateSyncMethods = true,
+                    GenerateExceptionClasses = false
                 };
             }
         }
