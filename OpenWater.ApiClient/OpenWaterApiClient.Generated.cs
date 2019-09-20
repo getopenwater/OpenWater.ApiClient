@@ -46,6 +46,7 @@ namespace OpenWater.ApiClient
     
         /// <summary>Gets list of applications</summary>
         /// <param name="programId">Program Id</param>
+        /// <param name="userId">User Id</param>
         /// <param name="startedAtUtc">Started at date (UTC)</param>
         /// <param name="finalizedAtUtc">Finalized at date (UTC)</param>
         /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
@@ -53,14 +54,15 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Application.PagingResponseApplicationListItemModel ApplicationList(int? programId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
+        public Application.PagingResponseApplicationListItemModel ApplicationList(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ApplicationListAsync(programId, startedAtUtc, finalizedAtUtc, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await ApplicationListAsync(programId, userId, startedAtUtc, finalizedAtUtc, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets list of applications</summary>
         /// <param name="programId">Program Id</param>
+        /// <param name="userId">User Id</param>
         /// <param name="startedAtUtc">Started at date (UTC)</param>
         /// <param name="finalizedAtUtc">Finalized at date (UTC)</param>
         /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
@@ -68,13 +70,17 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Application.PagingResponseApplicationListItemModel> ApplicationListAsync(int? programId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Application.PagingResponseApplicationListItemModel> ApplicationListAsync(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications?");
             if (programId != null) 
             {
                 urlBuilder_.Append("programId=").Append(System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (userId != null) 
+            {
+                urlBuilder_.Append("userId=").Append(System.Uri.EscapeDataString(ConvertToString(userId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (startedAtUtc != null) 
             {
@@ -4831,41 +4837,6 @@ namespace OpenWater.ApiClient
     }
 
     
-
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial class OpenWaterApiException : System.Exception
-    {
-        public int StatusCode { get; private set; }
-
-        public string Response { get; private set; }
-
-        public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
-
-        public OpenWaterApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException) 
-            : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + response.Substring(0, response.Length >= 512 ? 512 : response.Length), innerException)
-        {
-            StatusCode = statusCode;
-            Response = response; 
-            Headers = headers;
-        }
-
-        public override string ToString()
-        {
-            return string.Format("HTTP Response: \n\n{0}\n\n{1}", Response, base.ToString());
-        }
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial class OpenWaterApiException<TResult> : OpenWaterApiException
-    {
-        public TResult Result { get; private set; }
-
-        public OpenWaterApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException) 
-            : base(message, statusCode, response, headers, innerException)
-        {
-            Result = result;
-        }
-    }
 
 }
 
