@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using NJsonSchema;
 using NJsonSchema.CodeGeneration.CSharp;
 using NSwag;
 using NSwag.CodeGeneration.CSharp;
@@ -22,6 +23,7 @@ namespace OpenWater.ApiClient.ClientGenerator
             var generatedModelsPath = Path.Combine(outputPath, "Models", "Generated");
 
             var apiDocument = OpenApiDocument.FromUrlAsync("https://api.secure-platform.com/swagger/v2/swagger.json").Result;
+            apiDocument.SchemaType = SchemaType.OpenApi3;
 
             GenerateClient(apiDocument, outputPath, apiClientClassName, generatedClientFilePostfix, CSharpClientGeneratorSettingsCreator, out var typeNameHintsModelWithNamespaceInfos);
 
@@ -63,6 +65,8 @@ namespace OpenWater.ApiClient.ClientGenerator
             settings.ClassName = apiClientClassName;
             settings.GenerateDtoTypes = false;
             settings.GenerateClientClasses = true;
+            settings.GenerateOptionalParameters = true;
+
             settings.CSharpGeneratorSettings.TypeNameGenerator = modelWithNamespaceTypeNameGenerator;
             settings.HttpClientType = "OpenWater.ApiClient.OpenWaterHttpClient";
 
@@ -88,7 +92,7 @@ namespace OpenWater.ApiClient.ClientGenerator
         {
             Console.WriteLine("Generating Api Models");
 
-            var modelNamespaces = typeNameHintsModelWithNamespaceInfos.Values.ToArray().Select(i => i.ModelNamespace).Distinct();
+            var modelNamespaces = typeNameHintsModelWithNamespaceInfos.Values.Select(i => i.ModelNamespace).Distinct().ToArray();
 
             foreach (var modelNamespace in modelNamespaces)
             {
@@ -117,10 +121,10 @@ namespace OpenWater.ApiClient.ClientGenerator
             settings.CSharpGeneratorSettings.ExcludedTypeNames = typeNameHintsModelWithNamespaceInfos.Values.Where(i => i.ModelNamespace != currentNamespace).Select(i => i.FullName).ToArray();
             settings.CSharpGeneratorSettings.TypeNameGenerator = modelWithNamespaceTypeNameGenerator;
 
-            var generator = new CustomCSharpClientGenerator(apiDocument, settings);
+            var generator = new CSharpClientGenerator(apiDocument, settings);
 
             var generatedModelsFile = generator.GenerateFile();
-           
+
             var path = Path.Combine(outputDirectory, $"{currentNamespace}.cs");
             File.WriteAllText(path, generatedModelsFile);
 

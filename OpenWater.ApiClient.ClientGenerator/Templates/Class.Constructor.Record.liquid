@@ -5,11 +5,11 @@
 {% assign parentProperties = "" | empty -%}
 {% endif %}
 
-{% assign sortedProperties = AllProperties | sort: "Name" -%}
-{% assign sortedParentProperties = parentProperties | sort: "Name" -%}
+{% assign sortedProperties = AllProperties | sort: "IsNullable" -%}
+{% assign sortedParentProperties = parentProperties | sort: "IsNullable" -%}
 
 [Newtonsoft.Json.JsonConstructor]
-{% if IsAbstract %}protected{% else %}public{% endif %} {{ClassName}}({% for property in sortedProperties -%}{% unless property.Name == "typeName" -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%} {{ property.Type }} {{ property.Name | lowercamelcase }}{% endunless -%}{% endfor -%})
+{% if IsAbstract %}protected{% else %}public{% endif %} {{ClassName}}({% for property in sortedProperties -%}{% unless property.Name == "typeName" -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%} {{ property.Type }} {{ property.Name | lowercamelcase }}{% if property.IsRequired == false and property.IsNullable == true -%} = null{% endif -%}{% endunless -%}{% endfor -%})
 {% assign skipComma = true -%}
 {% if HasInheritance -%}
     : base({% for property in sortedParentProperties -%}{% unless property.Name == "typeName" -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%}{{ property.Name | lowercamelcase }}{% endunless -%}{% endfor -%})
