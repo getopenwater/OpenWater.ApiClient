@@ -18,7 +18,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18022;
             const int roundId = 14010;
 
-            return ApiClient.GetAssignedToApplicationAssignmentsAsync(applicationId, roundId);
+            return ApiClient.GetAssignedToApplicationJudgesAsync(applicationId, roundId);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18022;
             const int roundId = 14010;
 
-            return ApiClient.GetAssignedToApplicationAssignments(applicationId, roundId);
+            return ApiClient.GetAssignedToApplicationJudges(applicationId, roundId);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace OpenWater.ApiClient.Samples
         {
             const int judgeTeamId = 3001;
 
-            return ApiClient.GetAssignedToJudgeTeamAssignmentsAsync(judgeTeamId);
+            return ApiClient.GetAssignedToJudgeTeamJudgesAsync(judgeTeamId);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace OpenWater.ApiClient.Samples
         {
             const int judgeTeamId = 3001;
 
-            return ApiClient.GetAssignedToJudgeTeamAssignments(judgeTeamId);
+            return ApiClient.GetAssignedToJudgeTeamJudges(judgeTeamId);
         }
     }
 }

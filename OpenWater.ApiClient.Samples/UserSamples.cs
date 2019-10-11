@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.FieldValues;
@@ -16,7 +15,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task<DetailsResponse> CreateUserAsync()
         {
-            var createRequest = new User.CreateRequest(
+            var createRequest = new CreateRequest(
                 email: "jodoe8@example.com",
                 externalAccountData: "SampleData",
                 fieldValues: new List<FieldValueModelBase>
@@ -37,7 +36,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static DetailsResponse CreateUser()
         {
-            var createRequest = new User.CreateRequest(
+            var createRequest = new CreateRequest(
                 email: "jodoe8@example.com",
                 externalAccountData: "SampleData",
                 fieldValues: new List<FieldValueModelBase>
@@ -58,7 +57,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task<PagingResponseUserListItemModel> GetAllUsersAsync()
         {
-            return ApiClient.UserListAsync();
+            return ApiClient.GetUsersAsync();
         }
 
         /// <summary>
@@ -66,7 +65,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static PagingResponseUserListItemModel GetAllUsers()
         {
-            return ApiClient.UserList();
+            return ApiClient.GetUsers();
         }
 
         /// <summary>
@@ -74,7 +73,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task<PagingResponseUserListItemModel> GetUsersByNameAsync()
         {
-            return ApiClient.UserListAsync(firstName: "Submitter");
+            return ApiClient.GetUsersAsync(firstName: "Submitter");
         }
 
         /// <summary>
@@ -82,7 +81,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static PagingResponseUserListItemModel GetUsersByName()
         {
-            return ApiClient.UserList(firstName: "Submitter");
+            return ApiClient.GetUsers(firstName: "Submitter");
         }
 
         /// <summary>
@@ -90,7 +89,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task<PagingResponseUserListItemModel> GetUsersWithPaginationAsync()
         {
-            return ApiClient.UserListAsync(pageSize: 3, pageIndex: 1);
+            return ApiClient.GetUsersAsync(pageSize: 3, pageIndex: 1);
         }
 
         /// <summary>
@@ -98,7 +97,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static PagingResponseUserListItemModel GetUsersWithPagination()
         {
-            return ApiClient.UserList(pageSize: 3, pageIndex: 1);
+            return ApiClient.GetUsers(pageSize: 3, pageIndex: 1);
         }
 
         /// <summary>
@@ -106,7 +105,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static async Task CreateUserAndUpdateProfileAsync()
         {
-            var createRequest = new User.CreateRequest(
+            var createRequest = new CreateRequest(
                 email: "jodoe2@example.com",
                 externalAccountData: "SampleData",
                 fieldValues: new List<FieldValueModelBase>
@@ -124,14 +123,14 @@ namespace OpenWater.ApiClient.Samples
 
             var user = await ApiClient.CreateUserAsync(createRequest);
 
-            var updateRequest = new ProfileFormValuesRequest(
+            var updateRequest = new UpdateUserProfileFormValuesRequest(
                 new List<FieldValueModelBase>(new FieldValueModelBase[]
                 {
                         new TextFieldValueModel("companyName", "Yet Another Company Name"),
                 })
             );
 
-            await ApiClient.UpdateProfileFormValuesAsync(user.Id, updateRequest);
+            await ApiClient.UpdateUserProfileFormValuesAsync(user.Id, updateRequest);
         }
 
         /// <summary>
@@ -139,7 +138,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static void CreateUserAndUpdateProfile()
         {
-            var createRequest = new User.CreateRequest(
+            var createRequest = new CreateRequest(
                 email: "jodoe2@example.com",
                 externalAccountData: "SampleData",
                 fieldValues: new List<FieldValueModelBase>
@@ -157,14 +156,14 @@ namespace OpenWater.ApiClient.Samples
 
             var user = ApiClient.CreateUser(createRequest);
 
-            var updateRequest = new ProfileFormValuesRequest(
+            var updateRequest = new UpdateUserProfileFormValuesRequest(
                 new List<FieldValueModelBase>(new FieldValueModelBase[]
                 {
                     new TextFieldValueModel("companyName", "Yet Another Company Name"),
                 })
             );
 
-            ApiClient.UpdateProfileFormValues(user.Id, updateRequest);
+            ApiClient.UpdateUserProfileFormValues(user.Id, updateRequest);
         }
 
         /// <summary>
@@ -174,12 +173,12 @@ namespace OpenWater.ApiClient.Samples
         {
             const int userId = 8009;
 
-            var profileRequest = new ProfileFormValuesRequest(new List<FieldValueModelBase>
+            var profileRequest = new UpdateUserProfileFormValuesRequest(new List<FieldValueModelBase>
             {
                 new TextFieldValueModel("firstName", "Yet Another Submitter")
             });
 
-            return ApiClient.UpdateProfileFormValuesAsync(userId, profileRequest);
+            return ApiClient.UpdateUserProfileFormValuesAsync(userId, profileRequest);
         }
 
         /// <summary>
@@ -189,38 +188,38 @@ namespace OpenWater.ApiClient.Samples
         {
             const int userId = 8009;
 
-            var profileRequest = new ProfileFormValuesRequest(new List<FieldValueModelBase>
+            var profileRequest = new UpdateUserProfileFormValuesRequest(new List<FieldValueModelBase>
             {
                 new TextFieldValueModel("firstName", "Yet Another Submitter")
             });
 
-            ApiClient.UpdateProfileFormValues(userId, profileRequest);
+            ApiClient.UpdateUserProfileFormValues(userId, profileRequest);
         }
 
         /// <summary>
         /// Get SsoTokenRequest by user email "programbook@secure-platform.com" async
         /// </summary>
-        public static async Task<SsoTokenResponse> GetSsoUrlByUserEmailAsync()
+        public static async Task<GenerateUserSsoTokenResponse> GetSsoUrlByUserEmailAsync()
         {
             const string email = "programbook@secure-platform.com";
-            var ssoTokenRequest = new SsoTokenRequest("sample_url");
+            var ssoTokenRequest = new GenerateUserSsoTokenRequest("sample_url");
 
-            var user = (await ApiClient.UserListAsync(email: email)).Items.First();
+            var user = (await ApiClient.GetUsersAsync(email: email)).Items.First();
 
-            return await ApiClient.GenerateSsoTokenAsync(user.Id, ssoTokenRequest);
+            return await ApiClient.GenerateUserSsoTokenAsync(user.Id, ssoTokenRequest);
         }
 
         /// <summary>
         /// Get SsoTokenRequest by user email "programbook@secure-platform.com"
         /// </summary>
-        public static SsoTokenResponse GetSsoUrlByUserEmail()
+        public static GenerateUserSsoTokenResponse GetSsoUrlByUserEmail()
         {
             const string email = "programbook@secure-platform.com";
-            var ssoTokenRequest = new SsoTokenRequest("sample_url");
+            var ssoTokenRequest = new GenerateUserSsoTokenRequest("sample_url");
 
-            var user = ApiClient.UserList(email: email).Items.First();
+            var user = ApiClient.GetUsers(email: email).Items.First();
 
-            return ApiClient.GenerateSsoToken(user.Id, ssoTokenRequest);
+            return ApiClient.GenerateUserSsoToken(user.Id, ssoTokenRequest);
         }
     }
 }

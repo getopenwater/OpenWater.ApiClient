@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.Application;
 using OpenWater.ApiClient.FieldValues;
@@ -20,8 +19,7 @@ namespace OpenWater.ApiClient.Samples
         {
             const int programId = 23006;
             const int userId = 8001;
-            var createRequest = new Application.CreateRequest(programId, userId,
-                "Application 42", string.Empty,
+            var createRequest = new CreateRequest(programId, userId, "Application 42", string.Empty,
                 new List<FieldValueModelBase>(new[]
                 {
                     new TextFieldValueModel("title", "Yet another application")
@@ -38,8 +36,7 @@ namespace OpenWater.ApiClient.Samples
         {
             const int programId = 23006;
             const int userId = 8001;
-            var createRequest = new Application.CreateRequest(
-                programId, userId, "Application 42", string.Empty,
+            var createRequest = new CreateRequest(programId, userId, "Application 42", string.Empty,
                 new List<FieldValueModelBase>(new[]
                 {
                     new TextFieldValueModel("title", "Yet another application")
@@ -54,7 +51,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task<PagingResponseApplicationListItemModel> GetApplicationsCreatedInLast24HoursAsync()
         {
-            return ApiClient.ApplicationListAsync(startedAtUtc: DateTimeOffset.UtcNow.AddDays(-1));
+            return ApiClient.GetApplicationsAsync(startedAtUtc: DateTimeOffset.UtcNow.AddDays(-1));
         }
 
         /// <summary>
@@ -62,7 +59,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static PagingResponseApplicationListItemModel GetApplicationsCreatedInLast24Hours()
         {
-            return ApiClient.ApplicationList(startedAtUtc: DateTimeOffset.UtcNow.AddDays(-1));
+            return ApiClient.GetApplications(startedAtUtc: DateTimeOffset.UtcNow.AddDays(-1));
         }
 
         /// <summary>
@@ -73,12 +70,12 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18013;
             const int roundId = 14004;
 
-            var submissionRequest = new SubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
+            var submissionRequest = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
             {
                 new TextFieldValueModel("title", "Updated Application")
             });
 
-            return ApiClient.UpdateSubmissionFormValuesAsync(applicationId, submissionRequest);
+            return ApiClient.UpdateRoundSubmissionFormValuesAsync(applicationId, submissionRequest);
         }
 
         /// <summary>
@@ -89,12 +86,12 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18013;
             const int roundId = 14004;
 
-            var submissionRequest = new SubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
+            var submissionRequest = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
             {
                 new TextFieldValueModel("title", "Updated Application")
             });
 
-            ApiClient.UpdateSubmissionFormValues(applicationId, submissionRequest);
+            ApiClient.UpdateRoundSubmissionFormValues(applicationId, submissionRequest);
         }
 
         /// <summary>
@@ -104,7 +101,7 @@ namespace OpenWater.ApiClient.Samples
         {
             const int applicationId = 18014;
 
-            return ApiClient.UpdateApplicationCategoryAsync(applicationId, new ApplicationCategoryRequest("cat1_1_2"));
+            return ApiClient.UpdateApplicationCategoryAsync(applicationId, new UpdateApplicationCategoryRequest("cat1_1_2"));
         }
 
         /// <summary>
@@ -114,7 +111,7 @@ namespace OpenWater.ApiClient.Samples
         {
             const int applicationId = 18014;
 
-            ApiClient.UpdateApplicationCategory(applicationId, new ApplicationCategoryRequest("cat1_1_2"));
+            ApiClient.UpdateApplicationCategory(applicationId, new UpdateApplicationCategoryRequest("cat1_1_2"));
         }
 
         /// <summary>
@@ -124,17 +121,16 @@ namespace OpenWater.ApiClient.Samples
         {
             const int applicationId = 18028;
             const int roundId = 14001;
-            const string mediaUrl =
-                "https://1xpmg62scz1o20xf79413zk4-wpengine.netdna-ssl.com/wp-content/uploads/2019/07/Mobile-Friendly-Abstract-Submissions.png";
+            const string mediaUrl = "https://1xpmg62scz1o20xf79413zk4-wpengine.netdna-ssl.com/wp-content/uploads/2019/07/Mobile-Friendly-Abstract-Submissions.png";
             var mediaName = Path.GetFileNameWithoutExtension(mediaUrl);
             var media = await ApiClient.CreateMediaAsync(new Media.CreateRequest(mediaName, mediaUrl));
 
-            var submissionForm = new SubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
+            var submissionForm = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
             {
                 new FileUploadFieldValueModel("sampleForm", "caption", media.MediaId)
             });
 
-            await ApiClient.UpdateSubmissionFormValuesAsync(applicationId, submissionForm);
+            await ApiClient.UpdateRoundSubmissionFormValuesAsync(applicationId, submissionForm);
         }
 
         /// <summary>
@@ -144,17 +140,16 @@ namespace OpenWater.ApiClient.Samples
         {
             const int applicationId = 18028;
             const int roundId = 14001;
-            const string mediaUrl =
-                "https://1xpmg62scz1o20xf79413zk4-wpengine.netdna-ssl.com/wp-content/uploads/2019/07/Mobile-Friendly-Abstract-Submissions.png";
+            const string mediaUrl = "https://1xpmg62scz1o20xf79413zk4-wpengine.netdna-ssl.com/wp-content/uploads/2019/07/Mobile-Friendly-Abstract-Submissions.png";
             var mediaName = Path.GetFileNameWithoutExtension(mediaUrl);
             var media = ApiClient.CreateMedia(new Media.CreateRequest(mediaName, mediaUrl));
 
-            var submissionForm = new SubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
+            var submissionForm = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
             {
                 new FileUploadFieldValueModel("caption","sampleForm", media.MediaId)
             });
 
-            ApiClient.UpdateSubmissionFormValues(applicationId, submissionForm);
+            ApiClient.UpdateRoundSubmissionFormValues(applicationId, submissionForm);
         }
 
         /// <summary>
@@ -165,8 +160,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18028;
             const int roundId = 14001;
 
-            return ApiClient.RoundSubmissionStatusAsync(applicationId, roundId,
-                new RoundSubmissionStatusRequest(SubmissionStatus.Complete));
+            return ApiClient.ChangeFinalizedRoundSubmissionStatusAsync(applicationId, roundId, new ChangeFinalizedRoundSubmissionStatusRequest(SubmissionStatus.Complete));
         }
 
         /// <summary>
@@ -177,7 +171,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18028;
             const int roundId = 14001;
 
-            ApiClient.RoundSubmissionStatus(applicationId, roundId, new RoundSubmissionStatusRequest(SubmissionStatus.Complete));
+            ApiClient.ChangeFinalizedRoundSubmissionStatus(applicationId, roundId, new ChangeFinalizedRoundSubmissionStatusRequest(SubmissionStatus.Complete));
         }
 
         /// <summary>
@@ -188,7 +182,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            return ApiClient.AllowUserToMakeEditsAsync(applicationId, roundId, new AllowUserToMakeEditsRequest(true));
+            return ApiClient.AllowUserToUpdateFinalizedRoundSubmissionAsync(applicationId, roundId, new AllowUserToUpdateFinalizedRoundSubmissionRequest(true));
         }
 
         /// <summary>
@@ -199,7 +193,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            ApiClient.AllowUserToMakeEdits(applicationId, roundId, new AllowUserToMakeEditsRequest(true));
+            ApiClient.AllowUserToUpdateFinalizedRoundSubmission(applicationId, roundId, new AllowUserToUpdateFinalizedRoundSubmissionRequest(true));
         }
 
         /// <summary>
@@ -209,9 +203,9 @@ namespace OpenWater.ApiClient.Samples
         {
             const int applicationId = 18013;
             const int roundId = 14004;
-            var winnerAssignmentRequest = new WinnerAssignmentRequest(true, "notes", new List<int>());
+            var winnerAssignmentRequest = new SetWinnerStatusForApplicationInRoundRequest(true, "notes", new List<int>());
 
-            return ApiClient.WinnerAssignmentAsync(applicationId, roundId, winnerAssignmentRequest);
+            return ApiClient.SetWinnerStatusForApplicationInRoundAsync(applicationId, roundId, winnerAssignmentRequest);
         }
 
         /// <summary>
@@ -221,9 +215,9 @@ namespace OpenWater.ApiClient.Samples
         {
             const int applicationId = 18013;
             const int roundId = 14004;
-            var winnerAssignmentRequest = new WinnerAssignmentRequest(true, "notes", new List<int>());
+            var winnerAssignmentRequest = new SetWinnerStatusForApplicationInRoundRequest(true, "notes", new List<int>());
 
-            ApiClient.WinnerAssignment(applicationId, roundId, winnerAssignmentRequest);
+            ApiClient.SetWinnerStatusForApplicationInRound(applicationId, roundId, winnerAssignmentRequest);
         }
 
         /// <summary>
@@ -234,7 +228,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18028;
             const int nextRoundId = 14006;
 
-            return ApiClient.ForwardingAsync(applicationId, nextRoundId, new ForwardingRequest(true));
+            return ApiClient.SetForwardingStatusForApplicationInRoundAsync(applicationId, nextRoundId, new SetForwardingStatusForApplicationInRoundRequest(true));
         }
 
         /// <summary>
@@ -245,7 +239,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18028;
             const int nextRoundId = 14006;
 
-            ApiClient.Forwarding(applicationId, nextRoundId, new ForwardingRequest(true));
+            ApiClient.SetForwardingStatusForApplicationInRound(applicationId, nextRoundId, new SetForwardingStatusForApplicationInRoundRequest(true));
         }
 
         /// <summary>
@@ -256,7 +250,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18001;
             const int userId = 8001;
 
-            return ApiClient.CreateCollaboratorAsync(applicationId, new Collaborator.CreateRequest(userId, true));
+            return ApiClient.CreateApplicationCollaboratorAsync(applicationId, new Collaborator.CreateRequest(userId, true));
         }
 
         /// <summary>
@@ -267,7 +261,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18001;
             const int userId = 8001;
 
-            ApiClient.CreateCollaborator(applicationId, new Collaborator.CreateRequest(userId, true));
+            ApiClient.CreateApplicationCollaborator(applicationId, new Collaborator.CreateRequest(userId, true));
         }
 
         /// <summary>
@@ -278,7 +272,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18001;
             const int collaboratorId = 19001;
 
-            return ApiClient.DeleteCollaboratorAsync(applicationId, collaboratorId);
+            return ApiClient.DeleteApplicationCollaboratorAsync(applicationId, collaboratorId);
         }
 
         /// <summary>
@@ -289,7 +283,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18001;
             const int collaboratorId = 19001;
 
-            ApiClient.DeleteCollaborator(applicationId, collaboratorId);
+            ApiClient.DeleteApplicationCollaborator(applicationId, collaboratorId);
         }
 
         /// <summary>
@@ -297,7 +291,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task<PagingResponseApplicationListItemModel> GetAllNewApplicationsCreatedOrModifiedLastWeekAsync()
         {
-            return ApiClient.ApplicationListAsync(lastModifiedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
+            return ApiClient.GetApplicationsAsync(lastModifiedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
         }
 
         /// <summary>
@@ -305,7 +299,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static PagingResponseApplicationListItemModel GetAllNewApplicationsCreatedOrModifiedLastWeek()
         {
-            return ApiClient.ApplicationList(lastModifiedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
+            return ApiClient.GetApplications(lastModifiedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
         }
 
         /// <summary>
@@ -314,7 +308,7 @@ namespace OpenWater.ApiClient.Samples
         public static Task<DeletedApplication.PagingResponseDeletedApplicationListItem>
             ViewDeletedApplicationsInLastWeekAsync()
         {
-            return ApiClient.DeletedApplicationListAsync(deletedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
+            return ApiClient.GetDeletedApplicationsAsync(deletedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
         }
 
         /// <summary>
@@ -322,7 +316,7 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static DeletedApplication.PagingResponseDeletedApplicationListItem ViewDeletedApplicationsInLastWeek()
         {
-            return ApiClient.DeletedApplicationList(deletedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
+            return ApiClient.GetDeletedApplications(deletedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
         }
     }
 }

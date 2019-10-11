@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.FieldValues;
 using OpenWater.ApiClient.Session;
@@ -53,7 +52,7 @@ namespace OpenWater.ApiClient.Samples
         public static Task UpdateSessionFieldsAsync()
         {
             const int sessionId = 53003;
-            var model = new FormValuesRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
+            var model = new UpdateSessionFormValuesRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
 
             return ApiClient.UpdateSessionFormValuesAsync(sessionId, model);
         }
@@ -64,7 +63,7 @@ namespace OpenWater.ApiClient.Samples
         public static void UpdateSessionFields()
         {
             const int sessionId = 53003;
-            var model = new FormValuesRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
+            var model = new UpdateSessionFormValuesRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
 
             ApiClient.UpdateSessionFormValues(sessionId, model);
         }

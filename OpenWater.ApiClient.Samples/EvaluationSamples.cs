@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using OpenWater.ApiClient.JudgeScorecard;
+using OpenWater.ApiClient.Evaluation;
 
 namespace OpenWater.ApiClient.Samples
 {
@@ -14,25 +12,25 @@ namespace OpenWater.ApiClient.Samples
         /// <summary>
         /// Get evaluation by application id 14003, judge email "judge1@nonprofitcms.org" and round id 14003 async
         /// </summary>
-        public static Task<PagingResponseJudgeScorecardListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
+        public static async Task<EvaluationListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
         {
             const int applicationId = 18003;
             const int roundId = 14001;
             const string judgeEmail = "judge1@nonprofitcms.org";
 
-            return ApiClient.JudgeScorecardListAsync(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId);
+            return (await ApiClient.GetEvaluationsAsync(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId)).Items.First();
         }
 
         /// <summary>
         /// Get evaluation by application id 14003, judge email "judge1@nonprofitcms.org" and round id 14003
         /// </summary>
-        public static PagingResponseJudgeScorecardListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
+        public static EvaluationListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
         {
             const int applicationId = 18003;
             const int roundId = 14001;
             const string judgeEmail = "judge1@nonprofitcms.org";
 
-            return ApiClient.JudgeScorecardList(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId);
+            return ApiClient.GetEvaluations(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId).Items.First();
         }
 
         /// <summary>
@@ -41,10 +39,10 @@ namespace OpenWater.ApiClient.Samples
         public static Task UpdateEvaluationAsync()
         {
             const int evaluationId = 41014;
-            var formRequest = new EvaluationFormRequest(true, null,
+            var formRequest = new UpdateEvaluationFormRequest(true, null,
                 new List<GeneralScoringAnswerModel>
                 {
-                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", "The best!")
+                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", text: "The best!")
                 });
 
             return ApiClient.UpdateEvaluationFormAsync(evaluationId, formRequest);
@@ -56,10 +54,10 @@ namespace OpenWater.ApiClient.Samples
         public static void UpdateEvaluation()
         {
             const int evaluationId = 41014;
-            var formRequest = new EvaluationFormRequest(true, null,
+            var formRequest = new UpdateEvaluationFormRequest(true, null,
                 new List<GeneralScoringAnswerModel>
                 {
-                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", "The best!")
+                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", text: "The best!")
                 });
 
             ApiClient.UpdateEvaluationForm(evaluationId, formRequest);
