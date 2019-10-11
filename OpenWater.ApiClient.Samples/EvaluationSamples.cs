@@ -41,12 +41,11 @@ namespace OpenWater.ApiClient.Samples
         public static Task UpdateEvaluationAsync()
         {
             const int evaluationId = 41014;
-            var formRequest = new EvaluationFormRequest(true,
+            var formRequest = new EvaluationFormRequest(true, null,
                 new List<GeneralScoringAnswerModel>
                 {
-                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", null, null, "The best!")
-                },
-                null);
+                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", "The best!")
+                });
 
             return ApiClient.UpdateEvaluationFormAsync(evaluationId, formRequest);
         }
@@ -57,12 +56,11 @@ namespace OpenWater.ApiClient.Samples
         public static void UpdateEvaluation()
         {
             const int evaluationId = 41014;
-            var formRequest = new EvaluationFormRequest(true,
+            var formRequest = new EvaluationFormRequest(true, null,
                 new List<GeneralScoringAnswerModel>
                 {
-                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", null, null, "The best!")
-                },
-                null);
+                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", "The best!")
+                });
 
             ApiClient.UpdateEvaluationForm(evaluationId, formRequest);
         }

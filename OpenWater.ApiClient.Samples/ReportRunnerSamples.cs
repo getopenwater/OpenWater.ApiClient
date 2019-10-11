@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.BackgroundJob;
 using OpenWater.ApiClient.ReportRunner;
-using DetailsResponseJobState = OpenWater.ApiClient.BackgroundJob.DetailsResponseJobState;
+using StateType = OpenWater.ApiClient.BackgroundJob.StateType;
 
 namespace OpenWater.ApiClient.Samples
 {
@@ -25,7 +25,7 @@ namespace OpenWater.ApiClient.Samples
             {
                 var jobState = (await ApiClient.GetJobByIdAsync(jobId)).JobState;
 
-                if (jobState == DetailsResponseJobState.Succeeded || jobState == DetailsResponseJobState.Failed)
+                if (jobState == StateType.Succeeded || jobState == StateType.Failed)
                     return await ApiClient.GetJobByIdAsync(jobId);
 
                 Thread.Sleep(millisecondsTimeout: 1000);
@@ -46,7 +46,7 @@ namespace OpenWater.ApiClient.Samples
             {
                 var jobState = ApiClient.GetJobById(jobId).JobState;
 
-                if (jobState == DetailsResponseJobState.Succeeded || jobState == DetailsResponseJobState.Failed)
+                if (jobState == StateType.Succeeded || jobState == StateType.Failed)
                     return ApiClient.GetJobById(jobId);
 
                 Thread.Sleep(millisecondsTimeout: 1000);

@@ -16,11 +16,11 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task AssignJudgeToApplicationAsync()
         {
-            const int userJudgeId = 8004;
+            const int judgeUserId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            return ApiClient.AssignJudgeToApplicationAsync(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId));
+            return ApiClient.AssignJudgeToApplicationAsync(new AssignJudgeToApplicationRequest(applicationId, judgeUserId, roundId));
         }
 
         /// <summary>
@@ -28,11 +28,11 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static void AssignJudgeToApplication()
         {
-            const int userJudgeId = 8004;
+            const int judgeUserId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            ApiClient.AssignJudgeToApplication(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId));
+            ApiClient.AssignJudgeToApplication(new AssignJudgeToApplicationRequest(applicationId, judgeUserId, roundId));
         }
 
         /// <summary>
@@ -40,11 +40,11 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task RemoveJudgeFromApplicationAsync()
         {
-            const int userJudgeId = 8004;
+            const int judgeUserId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            return ApiClient.UnassignJudgeFromApplicationAsync(userJudgeId, applicationId, roundId);
+            return ApiClient.UnassignJudgeFromApplicationAsync(judgeUserId, applicationId, roundId);
         }
 
         /// <summary>
@@ -52,11 +52,11 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static void RemoveJudgeFromApplication()
         {
-            const int userJudgeId = 8004;
+            const int judgeUserId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            ApiClient.UnassignJudgeFromApplication(userJudgeId, applicationId, roundId);
+            ApiClient.UnassignJudgeFromApplication(judgeUserId, applicationId, roundId);
         }
 
         /// <summary>
@@ -64,10 +64,10 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task AddJudgeToTeamAsync()
         {
-            const int judgeId = 8004;
+            const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            return ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId));
+            return ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeUserId, judgeTeamId));
         }
 
         /// <summary>
@@ -75,10 +75,10 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static void AddJudgeToTeam()
         {
-            const int judgeId = 8004;
+            const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            ApiClient.AssignJudgeToJudgeTeam(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId));
+            ApiClient.AssignJudgeToJudgeTeam(new AssignJudgeToJudgeTeamRequest(judgeUserId, judgeTeamId));
         }
 
         /// <summary>
@@ -86,10 +86,10 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static Task RemoveJudgeFromTeamAsync()
         {
-            const int judgeId = 8004;
+            const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            return ApiClient.UnassignJudgeFromJudgeTeamAsync(judgeId, judgeTeamId);
+            return ApiClient.UnassignJudgeFromJudgeTeamAsync(judgeUserId, judgeTeamId);
         }
 
         /// <summary>
@@ -97,10 +97,10 @@ namespace OpenWater.ApiClient.Samples
         /// </summary>
         public static void RemoveJudgeFromTeam()
         {
-            const int judgeId = 8004;
+            const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            ApiClient.UnassignJudgeFromJudgeTeam(judgeId, judgeTeamId);
+            ApiClient.UnassignJudgeFromJudgeTeam(judgeUserId, judgeTeamId);
         }
     }
 }

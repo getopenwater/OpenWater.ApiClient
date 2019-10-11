@@ -19,11 +19,11 @@ namespace OpenWater.ApiClient.Samples
             const int programId = 23001;
             const int typeId = 56001;
 
-            var createSessionRequest = new CreateRequest(new List<int>(),
+            var createSessionRequest = new CreateRequest(programId, typeId, "session name", new List<int>(),
                 new List<FieldValueModelBase>
                 {
                     new TextFieldValueModel("title", "The best session in the world!")
-                }, "session name", programId, typeId
+                }
             );
 
             return ApiClient.CreateSessionAsync(createSessionRequest);
@@ -37,11 +37,11 @@ namespace OpenWater.ApiClient.Samples
             const int programId = 23001;
             const int typeId = 56001;
 
-            var createSessionRequest = new CreateRequest(new List<int>(),
+            var createSessionRequest = new CreateRequest(programId, typeId, "session name", new List<int>(),
                 new List<FieldValueModelBase>
                 {
                     new TextFieldValueModel("title", "The best session in the world!")
-                }, "session name", programId, typeId
+                }
             );
 
             return ApiClient.CreateSession(createSessionRequest);
@@ -53,9 +53,9 @@ namespace OpenWater.ApiClient.Samples
         public static Task UpdateSessionFieldsAsync()
         {
             const int sessionId = 53003;
-            var model = new FormFieldsRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
+            var model = new FormValuesRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
 
-            return ApiClient.UpdateSessionFormFieldsAsync(sessionId, model);
+            return ApiClient.UpdateSessionFormValuesAsync(sessionId, model);
         }
 
         /// <summary>
@@ -64,9 +64,9 @@ namespace OpenWater.ApiClient.Samples
         public static void UpdateSessionFields()
         {
             const int sessionId = 53003;
-            var model = new FormFieldsRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
+            var model = new FormValuesRequest(new List<FieldValueModelBase> { new TextFieldValueModel("title", "Yet another session name") });
 
-            ApiClient.UpdateSessionFormFields(sessionId, model);
+            ApiClient.UpdateSessionFormValues(sessionId, model);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get session created or modified in last week 
+        /// Get session created or modified in last week
         /// </summary>
         public static PagingResponseSessionListItemModel GetSessionsCreatedOrModifiedInLastWeek()
         {
