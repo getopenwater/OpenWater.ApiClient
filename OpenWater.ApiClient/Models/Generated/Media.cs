@@ -145,6 +145,7 @@ namespace OpenWater.ApiClient.Media
               Url = @url;
         }
     
+        /// <summary>Media Url</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; internal set; }
     
@@ -163,9 +164,11 @@ namespace OpenWater.ApiClient.Media
               FileName = @fileName;
         }
     
+        /// <summary>File url</summary>
         [Newtonsoft.Json.JsonProperty("fileUrl", Required = Newtonsoft.Json.Required.Always)]
         public string FileUrl { get; internal set; }
     
+        /// <summary>File name</summary>
         [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Always)]
         public string FileName { get; internal set; }
     
@@ -184,9 +187,11 @@ namespace OpenWater.ApiClient.Media
               Url = @url;
         }
     
+        /// <summary>Media id</summary>
         [Newtonsoft.Json.JsonProperty("mediaId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int MediaId { get; internal set; }
     
+        /// <summary>Media Url</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; internal set; }
     
@@ -201,26 +206,6 @@ namespace OpenWater.ApiClient.Media
     
         [System.Runtime.Serialization.EnumMember(Value = @"Words")]
         Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DropDownListFieldModelPreFillType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
-        UsStates = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
-        CanadaProvinces = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
-        Countries = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
-        UsStatesAndCanadaProvinces = 4,
     
     }
     

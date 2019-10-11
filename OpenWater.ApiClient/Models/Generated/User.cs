@@ -161,7 +161,7 @@ namespace OpenWater.ApiClient.User
         internal UserListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public UserListItemModel(int id, string email, string firstName, string lastName, string thirdPartyUniqueId, string externalAuthData, System.DateTimeOffset createdAtUtc, System.DateTimeOffset lastModifiedAtUtc, System.DateTimeOffset? lastLoggedInUtc = null)
+        public UserListItemModel(int id, string email, string firstName, string lastName, System.DateTimeOffset createdAtUtc, System.DateTimeOffset lastModifiedAtUtc, string thirdPartyUniqueId = null, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null)
         {
               Id = @id;
               Email = @email;
@@ -174,30 +174,39 @@ namespace OpenWater.ApiClient.User
               LastLoggedInUtc = @lastLoggedInUtc;
         }
     
+        /// <summary>User id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>User email</summary>
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; internal set; }
     
+        /// <summary>User first name</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; internal set; }
     
+        /// <summary>User last name</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("thirdPartyUniqueId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>User 3rd party unique id</summary>
+        [Newtonsoft.Json.JsonProperty("thirdPartyUniqueId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThirdPartyUniqueId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("externalAuthData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>User external auth data</summary>
+        [Newtonsoft.Json.JsonProperty("externalAuthData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalAuthData { get; internal set; }
     
+        /// <summary>User created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; internal set; }
     
+        /// <summary>User last modified date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("lastModifiedAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset LastModifiedAtUtc { get; internal set; }
     
+        /// <summary>User last logged in date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("lastLoggedInUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? LastLoggedInUtc { get; internal set; }
     
@@ -221,24 +230,31 @@ namespace OpenWater.ApiClient.User
               FieldValues = @fieldValues;
         }
     
+        /// <summary>First name</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; internal set; }
     
+        /// <summary>Last name</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; internal set; }
     
+        /// <summary>Email</summary>
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; internal set; }
     
+        /// <summary>Password</summary>
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Password { get; internal set; }
     
+        /// <summary>3rd party unique id</summary>
         [Newtonsoft.Json.JsonProperty("thirdPartyUniqueId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThirdPartyUniqueId { get; internal set; }
     
+        /// <summary>External account data</summary>
         [Newtonsoft.Json.JsonProperty("externalAccountData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalAccountData { get; internal set; }
     
+        /// <summary>Profile form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
     
@@ -251,7 +267,7 @@ namespace OpenWater.ApiClient.User
         internal DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(int id, string email, string firstName, string lastName, string thirdPartyUniqueId, string externalAuthData, bool isApplicant, bool isJudge, bool isSessionChair, System.DateTimeOffset createdAtUtc, System.DateTimeOffset lastModifiedAtUtc, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, System.DateTimeOffset? lastLoggedInUtc = null)
+        public DetailsResponse(int id, string email, string firstName, string lastName, bool isApplicant, bool isJudge, bool isSessionChair, System.DateTimeOffset createdAtUtc, System.DateTimeOffset lastModifiedAtUtc, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string thirdPartyUniqueId = null, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null)
         {
               Id = @id;
               Email = @email;
@@ -268,42 +284,55 @@ namespace OpenWater.ApiClient.User
               FieldValues = @fieldValues;
         }
     
+        /// <summary>User id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>User Email</summary>
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; internal set; }
     
+        /// <summary>User first name</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; internal set; }
     
+        /// <summary>User last name</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("thirdPartyUniqueId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>User 3rd party unique id</summary>
+        [Newtonsoft.Json.JsonProperty("thirdPartyUniqueId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThirdPartyUniqueId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("externalAuthData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>User external auth data</summary>
+        [Newtonsoft.Json.JsonProperty("externalAuthData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalAuthData { get; internal set; }
     
+        /// <summary>Is user applicant</summary>
         [Newtonsoft.Json.JsonProperty("isApplicant", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsApplicant { get; internal set; }
     
+        /// <summary>Is user judge</summary>
         [Newtonsoft.Json.JsonProperty("isJudge", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsJudge { get; internal set; }
     
+        /// <summary>Is user session chair</summary>
         [Newtonsoft.Json.JsonProperty("isSessionChair", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSessionChair { get; internal set; }
     
+        /// <summary>User created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; internal set; }
     
+        /// <summary>User last modified date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("lastModifiedAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset LastModifiedAtUtc { get; internal set; }
     
+        /// <summary>User last logged in date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("lastLoggedInUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? LastLoggedInUtc { get; internal set; }
     
+        /// <summary>User profile form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
     
@@ -326,21 +355,27 @@ namespace OpenWater.ApiClient.User
               ExternalAuthData = @externalAuthData;
         }
     
+        /// <summary>First name</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; internal set; }
     
+        /// <summary>Last name</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; internal set; }
     
+        /// <summary>Email</summary>
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; internal set; }
     
+        /// <summary>Password</summary>
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Password { get; internal set; }
     
+        /// <summary>3rd party unique id</summary>
         [Newtonsoft.Json.JsonProperty("thirdPartyUniqueId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThirdPartyUniqueId { get; internal set; }
     
+        /// <summary>External auth data</summary>
         [Newtonsoft.Json.JsonProperty("externalAuthData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalAuthData { get; internal set; }
     
@@ -348,16 +383,17 @@ namespace OpenWater.ApiClient.User
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ProfileFormValuesRequest 
+    public partial class UpdateUserProfileFormValuesRequest 
     {
-        internal ProfileFormValuesRequest() { }
+        internal UpdateUserProfileFormValuesRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ProfileFormValuesRequest(System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
+        public UpdateUserProfileFormValuesRequest(System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
         {
               FieldValues = @fieldValues;
         }
     
+        /// <summary>Profile form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
     
@@ -365,16 +401,17 @@ namespace OpenWater.ApiClient.User
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SsoTokenRequest 
+    public partial class GenerateUserSsoTokenRequest 
     {
-        internal SsoTokenRequest() { }
+        internal GenerateUserSsoTokenRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SsoTokenRequest(string redirectUrl)
+        public GenerateUserSsoTokenRequest(string redirectUrl)
         {
               RedirectUrl = @redirectUrl;
         }
     
+        /// <summary>Redirect url</summary>
         [Newtonsoft.Json.JsonProperty("redirectUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RedirectUrl { get; internal set; }
     
@@ -382,20 +419,22 @@ namespace OpenWater.ApiClient.User
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SsoTokenResponse 
+    public partial class GenerateUserSsoTokenResponse 
     {
-        internal SsoTokenResponse() { }
+        internal GenerateUserSsoTokenResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SsoTokenResponse(System.Guid ssoToken, string singleSignOnUrl)
+        public GenerateUserSsoTokenResponse(System.Guid ssoToken, string singleSignOnUrl)
         {
               SsoToken = @ssoToken;
               SingleSignOnUrl = @singleSignOnUrl;
         }
     
+        /// <summary>Sso token</summary>
         [Newtonsoft.Json.JsonProperty("ssoToken", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid SsoToken { get; internal set; }
     
+        /// <summary>Single sign on url</summary>
         [Newtonsoft.Json.JsonProperty("singleSignOnUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SingleSignOnUrl { get; internal set; }
     
@@ -413,6 +452,7 @@ namespace OpenWater.ApiClient.User
               Fields = @fields;
         }
     
+        /// <summary>Profile form fields</summary>
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Fields.FieldModelBase> Fields { get; internal set; }
     
@@ -427,26 +467,6 @@ namespace OpenWater.ApiClient.User
     
         [System.Runtime.Serialization.EnumMember(Value = @"Words")]
         Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DropDownListFieldModelPreFillType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
-        UsStates = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
-        CanadaProvinces = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
-        Countries = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
-        UsStatesAndCanadaProvinces = 4,
     
     }
     

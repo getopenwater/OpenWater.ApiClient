@@ -168,15 +168,19 @@ namespace OpenWater.ApiClient.Session
               Name = @name;
             }
     
+        /// <summary>Session id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; internal set; }
     
+        /// <summary>Session name</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; internal set; }
     
+        /// <summary>Session type name</summary>
         [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TypeName { get; internal set; }
     
@@ -198,18 +202,23 @@ namespace OpenWater.ApiClient.Session
               FieldValues = @fieldValues;
         }
     
-        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Program id</summary>
+        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.Always)]
         public int ProgramId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("typeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Session type id</summary>
+        [Newtonsoft.Json.JsonProperty("typeId", Required = Newtonsoft.Json.Required.Always)]
         public int TypeId { get; internal set; }
     
+        /// <summary>Name</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         public string Name { get; internal set; }
     
+        /// <summary>Session chair user ids</summary>
         [Newtonsoft.Json.JsonProperty("chairUserIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<int> ChairUserIds { get; internal set; }
     
+        /// <summary>Session form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
     
@@ -233,27 +242,35 @@ namespace OpenWater.ApiClient.Session
               FieldValues = @fieldValues;
         }
     
+        /// <summary>Session id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; internal set; }
     
+        /// <summary>Session type id</summary>
         [Newtonsoft.Json.JsonProperty("typeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int TypeId { get; internal set; }
     
+        /// <summary>Session type name</summary>
         [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TypeName { get; internal set; }
     
+        /// <summary>Session Name</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; internal set; }
     
+        /// <summary>Session chairs</summary>
         [Newtonsoft.Json.JsonProperty("chairs", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SessionChairInfo> Chairs { get; internal set; }
     
+        /// <summary>Session items</summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SessionItemInfo> Items { get; internal set; }
     
+        /// <summary>Session form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
     
@@ -291,7 +308,7 @@ namespace OpenWater.ApiClient.Session
         internal SessionItemInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SessionItemInfo(string customSessionItemTypeDescription, int sortOrder, int? applicationId = null, int? customSessionItemTypeId = null, int? durationInMinutes = null)
+        public SessionItemInfo(int sortOrder, int? applicationId = null, int? customSessionItemTypeId = null, string customSessionItemTypeDescription = null, int? durationInMinutes = null)
         {
               ApplicationId = @applicationId;
               CustomSessionItemTypeId = @customSessionItemTypeId;
@@ -306,7 +323,7 @@ namespace OpenWater.ApiClient.Session
         [Newtonsoft.Json.JsonProperty("customSessionItemTypeId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? CustomSessionItemTypeId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("customSessionItemTypeDescription", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("customSessionItemTypeDescription", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomSessionItemTypeDescription { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -319,16 +336,17 @@ namespace OpenWater.ApiClient.Session
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FormValuesRequest 
+    public partial class UpdateSessionFormValuesRequest 
     {
-        internal FormValuesRequest() { }
+        internal UpdateSessionFormValuesRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public FormValuesRequest(System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
+        public UpdateSessionFormValuesRequest(System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
         {
               FieldValues = @fieldValues;
         }
     
+        /// <summary>Session form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
     
@@ -343,26 +361,6 @@ namespace OpenWater.ApiClient.Session
     
         [System.Runtime.Serialization.EnumMember(Value = @"Words")]
         Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DropDownListFieldModelPreFillType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
-        UsStates = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
-        CanadaProvinces = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
-        Countries = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
-        UsStatesAndCanadaProvinces = 4,
     
     }
     

@@ -161,7 +161,7 @@ namespace OpenWater.ApiClient.Program
         internal ProgramListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ProgramListItemModel(int id, string code, string name, string tag, bool isArchived, bool enableSessions, bool enableScheduler, System.DateTimeOffset createdAtUtc, System.Collections.Generic.ICollection<RoundModel> rounds)
+        public ProgramListItemModel(int id, string name, bool isArchived, bool enableSessions, bool enableScheduler, System.DateTimeOffset createdAtUtc, System.Collections.Generic.ICollection<RoundModel> rounds, string code = null, string tag = null)
         {
               Id = @id;
               Code = @code;
@@ -174,30 +174,39 @@ namespace OpenWater.ApiClient.Program
               Rounds = @rounds;
         }
     
+        /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Program Code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Code { get; internal set; }
     
+        /// <summary>Program Name</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("tag", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Program Tag</summary>
+        [Newtonsoft.Json.JsonProperty("tag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Tag { get; internal set; }
     
+        /// <summary>Is program archived</summary>
         [Newtonsoft.Json.JsonProperty("isArchived", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsArchived { get; internal set; }
     
+        /// <summary>Are sessions enabled in a program</summary>
         [Newtonsoft.Json.JsonProperty("enableSessions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool EnableSessions { get; internal set; }
     
+        /// <summary>Is scheduler enabled in a program</summary>
         [Newtonsoft.Json.JsonProperty("enableScheduler", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool EnableScheduler { get; internal set; }
     
+        /// <summary>Program created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; internal set; }
     
+        /// <summary>Program rounds</summary>
         [Newtonsoft.Json.JsonProperty("rounds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RoundModel> Rounds { get; internal set; }
     
@@ -256,6 +265,7 @@ namespace OpenWater.ApiClient.Program
               JobId = @jobId;
         }
     
+        /// <summary>Job id</summary>
         [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int JobId { get; internal set; }
     
@@ -273,6 +283,7 @@ namespace OpenWater.ApiClient.Program
               Fields = @fields;
         }
     
+        /// <summary>Form fields</summary>
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Fields.FieldModelBase> Fields { get; internal set; }
     
@@ -287,26 +298,6 @@ namespace OpenWater.ApiClient.Program
     
         [System.Runtime.Serialization.EnumMember(Value = @"Words")]
         Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DropDownListFieldModelPreFillType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
-        UsStates = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
-        CanadaProvinces = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
-        Countries = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
-        UsStatesAndCanadaProvinces = 4,
     
     }
     

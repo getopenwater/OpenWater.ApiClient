@@ -56,9 +56,9 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Application.PagingResponseApplicationListItemModel ApplicationList(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
+        public Application.PagingResponseApplicationListItemModel GetApplications(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ApplicationListAsync(programId, userId, startedAtUtc, finalizedAtUtc, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetApplicationsAsync(programId, userId, startedAtUtc, finalizedAtUtc, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -72,7 +72,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Application.PagingResponseApplicationListItemModel> ApplicationListAsync(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Application.PagingResponseApplicationListItemModel> GetApplicationsAsync(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications?");
@@ -163,7 +163,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Application.DetailsResponse CreateApplication(Application.CreateRequest model = null, bool? suppressFormValidation = null)
+        public Application.DetailsResponse CreateApplication(Application.CreateRequest model, bool? suppressFormValidation = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateApplicationAsync(model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -174,7 +174,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Application.DetailsResponse> CreateApplicationAsync(Application.CreateRequest model = null, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Application.DetailsResponse> CreateApplicationAsync(Application.CreateRequest model, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications?");
@@ -315,29 +315,29 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Updates a certain application category</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="model">Data to update from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateApplicationCategory(int id, Application.ApplicationCategoryRequest model = null)
+        public void UpdateApplicationCategory(int applicationId, Application.UpdateApplicationCategoryRequest model)
         {
-            System.Threading.Tasks.Task.Run(async () => await UpdateApplicationCategoryAsync(id, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await UpdateApplicationCategoryAsync(applicationId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Updates a certain application category</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="model">Data to update from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateApplicationCategoryAsync(int id, Application.ApplicationCategoryRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateApplicationCategoryAsync(int applicationId, Application.UpdateApplicationCategoryRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (applicationId == null)
+                throw new System.ArgumentNullException("applicationId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{id}/Category");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{applicationId}/Category");
+            urlBuilder_.Replace("{applicationId}", System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -395,35 +395,35 @@ namespace OpenWater.ApiClient
             }
         }
     
-        /// <summary>Updates a finalized submission status of a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <summary>Updates a finalized round submission status of a certain round</summary>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="model">Data to update from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void RoundSubmissionStatus(int id, int roundId, Application.RoundSubmissionStatusRequest model = null)
+        public void ChangeFinalizedRoundSubmissionStatus(int applicationId, int roundId, Application.ChangeFinalizedRoundSubmissionStatusRequest model)
         {
-            System.Threading.Tasks.Task.Run(async () => await RoundSubmissionStatusAsync(id, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await ChangeFinalizedRoundSubmissionStatusAsync(applicationId, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Updates a finalized submission status of a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <summary>Updates a finalized round submission status of a certain round</summary>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="model">Data to update from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task RoundSubmissionStatusAsync(int id, int roundId, Application.RoundSubmissionStatusRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ChangeFinalizedRoundSubmissionStatusAsync(int applicationId, int roundId, Application.ChangeFinalizedRoundSubmissionStatusRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (applicationId == null)
+                throw new System.ArgumentNullException("applicationId");
     
             if (roundId == null)
                 throw new System.ArgumentNullException("roundId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{id}/round/{roundId}/Status");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{applicationId}/round/{roundId}/Status");
+            urlBuilder_.Replace("{applicationId}", System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{roundId}", System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
@@ -483,34 +483,34 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Finalizes a submission of a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void FinalizeRoundSubmission(int id, int roundId, bool? suppressFormValidation = null)
+        public void FinalizeRoundSubmission(int applicationId, int roundId, bool? suppressFormValidation = null)
         {
-            System.Threading.Tasks.Task.Run(async () => await FinalizeRoundSubmissionAsync(id, roundId, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await FinalizeRoundSubmissionAsync(applicationId, roundId, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Finalizes a submission of a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task FinalizeRoundSubmissionAsync(int id, int roundId, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task FinalizeRoundSubmissionAsync(int applicationId, int roundId, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (applicationId == null)
+                throw new System.ArgumentNullException("applicationId");
     
             if (roundId == null)
                 throw new System.ArgumentNullException("roundId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{id}/round/{roundId}/Finalize?");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{applicationId}/round/{roundId}/Finalize?");
+            urlBuilder_.Replace("{applicationId}", System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{roundId}", System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture)));
             if (suppressFormValidation != null) 
             {
@@ -573,34 +573,34 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Allows a user to make edits for a certain round submission</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="model">Data to update from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void AllowUserToMakeEdits(int id, int roundId, Application.AllowUserToMakeEditsRequest model = null)
+        public void AllowUserToUpdateFinalizedRoundSubmission(int applicationId, int roundId, Application.AllowUserToUpdateFinalizedRoundSubmissionRequest model)
         {
-            System.Threading.Tasks.Task.Run(async () => await AllowUserToMakeEditsAsync(id, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await AllowUserToUpdateFinalizedRoundSubmissionAsync(applicationId, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Allows a user to make edits for a certain round submission</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="model">Data to update from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task AllowUserToMakeEditsAsync(int id, int roundId, Application.AllowUserToMakeEditsRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AllowUserToUpdateFinalizedRoundSubmissionAsync(int applicationId, int roundId, Application.AllowUserToUpdateFinalizedRoundSubmissionRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (applicationId == null)
+                throw new System.ArgumentNullException("applicationId");
     
             if (roundId == null)
                 throw new System.ArgumentNullException("roundId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{id}/round/{roundId}/AllowEdits");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{applicationId}/round/{roundId}/AllowEdits");
+            urlBuilder_.Replace("{applicationId}", System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{roundId}", System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
@@ -660,34 +660,34 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Updates winner assignment of an application in a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="model">Data to update winner assignment</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void WinnerAssignment(int id, int roundId, Application.WinnerAssignmentRequest model = null)
+        public void SetWinnerStatusForApplicationInRound(int applicationId, int roundId, Application.SetWinnerStatusForApplicationInRoundRequest model)
         {
-            System.Threading.Tasks.Task.Run(async () => await WinnerAssignmentAsync(id, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await SetWinnerStatusForApplicationInRoundAsync(applicationId, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Updates winner assignment of an application in a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="model">Data to update winner assignment</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task WinnerAssignmentAsync(int id, int roundId, Application.WinnerAssignmentRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SetWinnerStatusForApplicationInRoundAsync(int applicationId, int roundId, Application.SetWinnerStatusForApplicationInRoundRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (applicationId == null)
+                throw new System.ArgumentNullException("applicationId");
     
             if (roundId == null)
                 throw new System.ArgumentNullException("roundId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{id}/round/{roundId}/WinnerAssignment");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{applicationId}/round/{roundId}/WinnerAssignment");
+            urlBuilder_.Replace("{applicationId}", System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{roundId}", System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
@@ -747,34 +747,34 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Updates forwarding state of an application in a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="model">Data to update winner assignment</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void Forwarding(int id, int roundId, Application.ForwardingRequest model = null)
+        public void SetForwardingStatusForApplicationInRound(int applicationId, int roundId, Application.SetForwardingStatusForApplicationInRoundRequest model)
         {
-            System.Threading.Tasks.Task.Run(async () => await ForwardingAsync(id, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await SetForwardingStatusForApplicationInRoundAsync(applicationId, roundId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Updates forwarding state of an application in a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <param name="applicationId">Application id</param>
         /// <param name="roundId">Round id</param>
         /// <param name="model">Data to update winner assignment</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task ForwardingAsync(int id, int roundId, Application.ForwardingRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SetForwardingStatusForApplicationInRoundAsync(int applicationId, int roundId, Application.SetForwardingStatusForApplicationInRoundRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (applicationId == null)
+                throw new System.ArgumentNullException("applicationId");
     
             if (roundId == null)
                 throw new System.ArgumentNullException("roundId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{id}/round/{roundId}/Forwarding");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{applicationId}/round/{roundId}/Forwarding");
+            urlBuilder_.Replace("{applicationId}", System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{roundId}", System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
@@ -833,32 +833,32 @@ namespace OpenWater.ApiClient
             }
         }
     
-        /// <summary>Updates submission form field values in a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <summary>Updates round submission form field values</summary>
+        /// <param name="applicationId">Application id</param>
         /// <param name="model">Data to update form</param>
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateSubmissionFormValues(int id, Application.SubmissionFormValuesRequest model = null, bool? suppressFormValidation = null)
+        public void UpdateRoundSubmissionFormValues(int applicationId, Application.UpdateRoundSubmissionFormValuesRequest model, bool? suppressFormValidation = null)
         {
-            System.Threading.Tasks.Task.Run(async () => await UpdateSubmissionFormValuesAsync(id, model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await UpdateRoundSubmissionFormValuesAsync(applicationId, model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Updates submission form field values in a certain round</summary>
-        /// <param name="id">Application id</param>
+        /// <summary>Updates round submission form field values</summary>
+        /// <param name="applicationId">Application id</param>
         /// <param name="model">Data to update form</param>
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateSubmissionFormValuesAsync(int id, Application.SubmissionFormValuesRequest model = null, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateRoundSubmissionFormValuesAsync(int applicationId, Application.UpdateRoundSubmissionFormValuesRequest model, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (applicationId == null)
+                throw new System.ArgumentNullException("applicationId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{id}/SubmissionFormValues?");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/{applicationId}/SubmissionFormValues?");
+            urlBuilder_.Replace("{applicationId}", System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture)));
             if (suppressFormValidation != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("suppressFormValidation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(suppressFormValidation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -926,9 +926,9 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data to create from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void CreateCollaborator(int applicationId, Collaborator.CreateRequest model = null)
+        public void CreateApplicationCollaborator(int applicationId, Collaborator.CreateRequest model)
         {
-            System.Threading.Tasks.Task.Run(async () => await CreateCollaboratorAsync(applicationId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await CreateApplicationCollaboratorAsync(applicationId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -937,7 +937,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data to create from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task CreateCollaboratorAsync(int applicationId, Collaborator.CreateRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CreateApplicationCollaboratorAsync(int applicationId, Collaborator.CreateRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -1007,9 +1007,9 @@ namespace OpenWater.ApiClient
         /// <param name="id">Collaborator id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void DeleteCollaborator(int applicationId, int id)
+        public void DeleteApplicationCollaborator(int applicationId, int id)
         {
-            System.Threading.Tasks.Task.Run(async () => await DeleteCollaboratorAsync(applicationId, id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await DeleteApplicationCollaboratorAsync(applicationId, id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1018,7 +1018,7 @@ namespace OpenWater.ApiClient
         /// <param name="id">Collaborator id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task DeleteCollaboratorAsync(int applicationId, int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteApplicationCollaboratorAsync(int applicationId, int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -1091,9 +1091,9 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public DeletedApplication.PagingResponseDeletedApplicationListItem DeletedApplicationList(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
+        public DeletedApplication.PagingResponseDeletedApplicationListItem GetDeletedApplications(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await DeletedApplicationListAsync(programId, deletedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetDeletedApplicationsAsync(programId, deletedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1104,7 +1104,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<DeletedApplication.PagingResponseDeletedApplicationListItem> DeletedApplicationListAsync(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedApplication.PagingResponseDeletedApplicationListItem> GetDeletedApplicationsAsync(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/DeletedData?");
@@ -1240,6 +1240,274 @@ namespace OpenWater.ApiClient
                         }
             
                         return default(BackgroundJob.DetailsResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Gets filtered evaluations</summary>
+        /// <param name="programId">Program id</param>
+        /// <param name="roundId">Round id</param>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="judgeEmail">Judge email</param>
+        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Evaluation.PagingResponseEvaluationListItemModel GetEvaluations(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetEvaluationsAsync(programId, roundId, applicationId, judgeEmail, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Gets filtered evaluations</summary>
+        /// <param name="programId">Program id</param>
+        /// <param name="roundId">Round id</param>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="judgeEmail">Judge email</param>
+        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Evaluation.PagingResponseEvaluationListItemModel> GetEvaluationsAsync(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Evaluations?");
+            if (programId != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("programId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (roundId != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("roundId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (applicationId != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("applicationId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (judgeEmail != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("judgeEmail") + "=").Append(System.Uri.EscapeDataString(ConvertToString(judgeEmail, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (lastModifiedSinceUtc != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (pageIndex != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("pageIndex") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageIndex, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (pageSize != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("pageSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Evaluation.PagingResponseEvaluationListItemModel>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(Evaluation.PagingResponseEvaluationListItemModel);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Gets evaluation by id</summary>
+        /// <param name="id">Evaluation id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Evaluation.DetailsResponse GetEvaluationById(int id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetEvaluationByIdAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Gets evaluation by id</summary>
+        /// <param name="id">Evaluation id</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Evaluation.DetailsResponse> GetEvaluationByIdAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Evaluations/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Evaluation.DetailsResponse>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(Evaluation.DetailsResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Updates a certain evaluation</summary>
+        /// <param name="id">Evaluation id</param>
+        /// <param name="model">Data to update from</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void UpdateEvaluationForm(int id, Evaluation.UpdateEvaluationFormRequest model)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UpdateEvaluationFormAsync(id, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Updates a certain evaluation</summary>
+        /// <param name="id">Evaluation id</param>
+        /// <param name="model">Data to update from</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task UpdateEvaluationFormAsync(int id, Evaluation.UpdateEvaluationFormRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Evaluations/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(model, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PATCH");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == "204") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
                     }
                     finally
                     {
@@ -1701,9 +1969,9 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeAssignment.PagingResponseJudgeListItemModel AssignedToRound(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null)
+        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToRoundJudges(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await AssignedToRoundAsync(roundId, judgeFirstName, judgeLastName, judgeEmail, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAssignedToRoundJudgesAsync(roundId, judgeFirstName, judgeLastName, judgeEmail, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1716,7 +1984,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> AssignedToRoundAsync(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> GetAssignedToRoundJudgesAsync(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (roundId == null)
                 throw new System.ArgumentNullException("roundId");
@@ -1802,7 +2070,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data for an assignment creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void AssignJudgeToApplication(JudgeAssignment.AssignJudgeToApplicationRequest model = null)
+        public void AssignJudgeToApplication(JudgeAssignment.AssignJudgeToApplicationRequest model)
         {
             System.Threading.Tasks.Task.Run(async () => await AssignJudgeToApplicationAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -1812,7 +2080,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data for an assignment creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task AssignJudgeToApplicationAsync(JudgeAssignment.AssignJudgeToApplicationRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AssignJudgeToApplicationAsync(JudgeAssignment.AssignJudgeToApplicationRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/JudgeAssignments/Application");
@@ -1966,7 +2234,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data for an assignment creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void AssignJudgeToJudgeTeam(JudgeAssignment.AssignJudgeToJudgeTeamRequest model = null)
+        public void AssignJudgeToJudgeTeam(JudgeAssignment.AssignJudgeToJudgeTeamRequest model)
         {
             System.Threading.Tasks.Task.Run(async () => await AssignJudgeToJudgeTeamAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -1976,7 +2244,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data for an assignment creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task AssignJudgeToJudgeTeamAsync(JudgeAssignment.AssignJudgeToJudgeTeamRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AssignJudgeToJudgeTeamAsync(JudgeAssignment.AssignJudgeToJudgeTeamRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/JudgeAssignments/JudgeTeam");
@@ -2124,7 +2392,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data for an assignment creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundResponse ApplyBulkJudgeAssignmentRulesInRound(JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundRequest model = null)
+        public JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundResponse ApplyBulkJudgeAssignmentRulesInRound(JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundRequest model)
         {
             return System.Threading.Tasks.Task.Run(async () => await ApplyBulkJudgeAssignmentRulesInRoundAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2134,7 +2402,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data for an assignment creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundResponse> ApplyBulkJudgeAssignmentRulesInRoundAsync(JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundResponse> ApplyBulkJudgeAssignmentRulesInRoundAsync(JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/JudgeAssignments/AssignmentRules");
@@ -2200,9 +2468,9 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToJudgeTeamAssignments(int judgeTeamId, int? pageIndex = null, int? pageSize = null)
+        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToJudgeTeamJudges(int judgeTeamId, int? pageIndex = null, int? pageSize = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetAssignedToJudgeTeamAssignmentsAsync(judgeTeamId, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAssignedToJudgeTeamJudgesAsync(judgeTeamId, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2212,7 +2480,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> GetAssignedToJudgeTeamAssignmentsAsync(int judgeTeamId, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> GetAssignedToJudgeTeamJudgesAsync(int judgeTeamId, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (judgeTeamId == null)
                 throw new System.ArgumentNullException("judgeTeamId");
@@ -2289,9 +2557,9 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToApplicationAssignments(int applicationId, int roundId, int? pageIndex = null, int? pageSize = null)
+        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToApplicationJudges(int applicationId, int roundId, int? pageIndex = null, int? pageSize = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetAssignedToApplicationAssignmentsAsync(applicationId, roundId, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAssignedToApplicationJudgesAsync(applicationId, roundId, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2302,7 +2570,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> GetAssignedToApplicationAssignmentsAsync(int applicationId, int roundId, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> GetAssignedToApplicationJudgesAsync(int applicationId, int roundId, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -2381,9 +2649,9 @@ namespace OpenWater.ApiClient
         /// <param name="programId">Program id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Judge.ProgramProfileValuesResponse GetProgramProfileValues(int judgeUserId, int programId)
+        public Judge.ProgramProfileValuesResponse GetJudgeProgramProfileValues(int judgeUserId, int programId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetProgramProfileValuesAsync(judgeUserId, programId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetJudgeProgramProfileValuesAsync(judgeUserId, programId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2392,7 +2660,7 @@ namespace OpenWater.ApiClient
         /// <param name="programId">Program id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Judge.ProgramProfileValuesResponse> GetProgramProfileValuesAsync(int judgeUserId, int programId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Judge.ProgramProfileValuesResponse> GetJudgeProgramProfileValuesAsync(int judgeUserId, int programId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (judgeUserId == null)
                 throw new System.ArgumentNullException("judgeUserId");
@@ -2457,279 +2725,11 @@ namespace OpenWater.ApiClient
             }
         }
     
-        /// <summary>Gets filtered evaluations</summary>
-        /// <param name="programId">Program id</param>
-        /// <param name="roundId">Round id</param>
-        /// <param name="applicationId">Application id</param>
-        /// <param name="judgeEmail">Judge email</param>
-        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
-        /// <param name="pageIndex">Page index (0 by default)</param>
-        /// <param name="pageSize">Page size (10 by default)</param>
-        /// <returns>Success</returns>
-        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeScorecard.PagingResponseJudgeScorecardListItemModel JudgeScorecardList(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await JudgeScorecardListAsync(programId, roundId, applicationId, judgeEmail, lastModifiedSinceUtc, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Gets filtered evaluations</summary>
-        /// <param name="programId">Program id</param>
-        /// <param name="roundId">Round id</param>
-        /// <param name="applicationId">Application id</param>
-        /// <param name="judgeEmail">Judge email</param>
-        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
-        /// <param name="pageIndex">Page index (0 by default)</param>
-        /// <param name="pageSize">Page size (10 by default)</param>
-        /// <returns>Success</returns>
-        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeScorecard.PagingResponseJudgeScorecardListItemModel> JudgeScorecardListAsync(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Evaluations?");
-            if (programId != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("programId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (roundId != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("roundId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (applicationId != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("applicationId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (judgeEmail != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("judgeEmail") + "=").Append(System.Uri.EscapeDataString(ConvertToString(judgeEmail, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (lastModifiedSinceUtc != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (pageIndex != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("pageIndex") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageIndex, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (pageSize != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("pageSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            urlBuilder_.Length--;
-    
-            var client_ = _httpClient;
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        if (response_.Content != null && response_.Content.Headers != null)
-                        {
-                            foreach (var item_ in response_.Content.Headers)
-                                headers_[item_.Key] = item_.Value;
-                        }
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<JudgeScorecard.PagingResponseJudgeScorecardListItemModel>(response_, headers_).ConfigureAwait(false);
-                            return objectResponse_.Object;
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
-                        }
-            
-                        return default(JudgeScorecard.PagingResponseJudgeScorecardListItemModel);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-            }
-        }
-    
-        /// <summary>Gets evaluation by id</summary>
-        /// <param name="id">Evaluation id</param>
-        /// <returns>Success</returns>
-        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeScorecard.DetailsResponse GetJudgeScorecardById(int id)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetJudgeScorecardByIdAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Gets evaluation by id</summary>
-        /// <param name="id">Evaluation id</param>
-        /// <returns>Success</returns>
-        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeScorecard.DetailsResponse> GetJudgeScorecardByIdAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Evaluations/{id}");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = _httpClient;
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        if (response_.Content != null && response_.Content.Headers != null)
-                        {
-                            foreach (var item_ in response_.Content.Headers)
-                                headers_[item_.Key] = item_.Value;
-                        }
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<JudgeScorecard.DetailsResponse>(response_, headers_).ConfigureAwait(false);
-                            return objectResponse_.Object;
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
-                        }
-            
-                        return default(JudgeScorecard.DetailsResponse);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-            }
-        }
-    
-        /// <summary>Updates a certain evaluation</summary>
-        /// <param name="id">Evaluation id</param>
-        /// <param name="model">Data to update from</param>
-        /// <returns>Success</returns>
-        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateEvaluationForm(int id, JudgeScorecard.EvaluationFormRequest model = null)
-        {
-            System.Threading.Tasks.Task.Run(async () => await UpdateEvaluationFormAsync(id, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Updates a certain evaluation</summary>
-        /// <param name="id">Evaluation id</param>
-        /// <param name="model">Data to update from</param>
-        /// <returns>Success</returns>
-        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateEvaluationFormAsync(int id, JudgeScorecard.EvaluationFormRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Evaluations/{id}");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = _httpClient;
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(model, _settings.Value));
-                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("PATCH");
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        if (response_.Content != null && response_.Content.Headers != null)
-                        {
-                            foreach (var item_ in response_.Content.Headers)
-                                headers_[item_.Key] = item_.Value;
-                        }
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            return;
-                        }
-                        else
-                        if (status_ == "204") 
-                        {
-                            return;
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
-                        }
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-            }
-        }
-    
         /// <summary>Creates a judge team for a certain round</summary>
         /// <param name="model">Data for a judge team creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeTeam.CreateResponse CreateJudgeTeam(JudgeTeam.CreateRequest model = null)
+        public JudgeTeam.CreateResponse CreateJudgeTeam(JudgeTeam.CreateRequest model)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateJudgeTeamAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2739,7 +2739,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data for a judge team creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeTeam.CreateResponse> CreateJudgeTeamAsync(JudgeTeam.CreateRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeTeam.CreateResponse> CreateJudgeTeamAsync(JudgeTeam.CreateRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/JudgeTeams");
@@ -2878,7 +2878,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data to create from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Media.CreateResponse CreateMedia(Media.CreateRequest model = null)
+        public Media.CreateResponse CreateMedia(Media.CreateRequest model)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateMediaAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2888,7 +2888,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data to create from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Media.CreateResponse> CreateMediaAsync(Media.CreateRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Media.CreateResponse> CreateMediaAsync(Media.CreateRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Media");
@@ -2949,27 +2949,27 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Gets organization timezone</summary>
-        /// <param name="id">Organization id</param>
+        /// <param name="organizationId">Organization id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Organization.TimeZoneResponse GetOrganizationTimeZone(int id)
+        public Organization.TimeZoneResponse GetOrganizationTimeZone(int organizationId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetOrganizationTimeZoneAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetOrganizationTimeZoneAsync(organizationId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets organization timezone</summary>
-        /// <param name="id">Organization id</param>
+        /// <param name="organizationId">Organization id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Organization.TimeZoneResponse> GetOrganizationTimeZoneAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Organization.TimeZoneResponse> GetOrganizationTimeZoneAsync(int organizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (organizationId == null)
+                throw new System.ArgumentNullException("organizationId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Organizations/{id}/TimeZone");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Organizations/{organizationId}/TimeZone");
+            urlBuilder_.Replace("{organizationId}", System.Uri.EscapeDataString(ConvertToString(organizationId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -3024,28 +3024,28 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Gets list of programs</summary>
-        /// <param name="createdSinceUtc">Created since date (UTC)</param>
+        /// <param name="createdSinceUtc">Program created since date (UTC)</param>
         /// <param name="tag">Program tag</param>
         /// <param name="showArchived">Show archived programs (false by default)</param>
         /// <param name="pageIndex">Page index (0 by default)</param>
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Program.PagingResponseProgramListItemModel ProgramList(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null)
+        public Program.PagingResponseProgramListItemModel GetPrograms(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ProgramListAsync(createdSinceUtc, tag, showArchived, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetProgramsAsync(createdSinceUtc, tag, showArchived, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets list of programs</summary>
-        /// <param name="createdSinceUtc">Created since date (UTC)</param>
+        /// <param name="createdSinceUtc">Program created since date (UTC)</param>
         /// <param name="tag">Program tag</param>
         /// <param name="showArchived">Show archived programs (false by default)</param>
         /// <param name="pageIndex">Page index (0 by default)</param>
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Program.PagingResponseProgramListItemModel> ProgramListAsync(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Program.PagingResponseProgramListItemModel> GetProgramsAsync(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs?");
@@ -3124,27 +3124,27 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Begins a program template json export job</summary>
-        /// <param name="id">Program id</param>
+        /// <param name="programId">Program id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Program.ExportResponse ExportProgramTemplate(int id)
+        public Program.ExportResponse ExportProgramTemplate(int programId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ExportProgramTemplateAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await ExportProgramTemplateAsync(programId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Begins a program template json export job</summary>
-        /// <param name="id">Program id</param>
+        /// <param name="programId">Program id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Program.ExportResponse> ExportProgramTemplateAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Program.ExportResponse> ExportProgramTemplateAsync(int programId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (programId == null)
+                throw new System.ArgumentNullException("programId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Export/Program/{id}");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Export/Program/{programId}");
+            urlBuilder_.Replace("{programId}", System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -3200,27 +3200,27 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Begins a program book json export job</summary>
-        /// <param name="id">Program id</param>
+        /// <param name="programId">Program id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Program.ExportResponse ExportToProgramBook(int id)
+        public Program.ExportResponse ExportProgramToProgramBook(int programId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ExportToProgramBookAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await ExportProgramToProgramBookAsync(programId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Begins a program book json export job</summary>
-        /// <param name="id">Program id</param>
+        /// <param name="programId">Program id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Program.ExportResponse> ExportToProgramBookAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Program.ExportResponse> ExportProgramToProgramBookAsync(int programId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (programId == null)
+                throw new System.ArgumentNullException("programId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Export/ProgramBook/{id}");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Export/ProgramBook/{programId}");
+            urlBuilder_.Replace("{programId}", System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -3278,23 +3278,23 @@ namespace OpenWater.ApiClient
         /// <summary>Gets a session form template</summary>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Program.FormTemplateResponse GetSessionFormTemplate(int id)
+        public Program.FormTemplateResponse GetSessionFormTemplate(int programId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetSessionFormTemplateAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetSessionFormTemplateAsync(programId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets a session form template</summary>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Program.FormTemplateResponse> GetSessionFormTemplateAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Program.FormTemplateResponse> GetSessionFormTemplateAsync(int programId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (programId == null)
+                throw new System.ArgumentNullException("programId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs/{id}/SessionFormTemplate");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs/{programId}/SessionFormTemplate");
+            urlBuilder_.Replace("{programId}", System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -3351,23 +3351,23 @@ namespace OpenWater.ApiClient
         /// <summary>Gets a judge profile form template</summary>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Program.FormTemplateResponse GetJudgeProfileFormTemplate(int id)
+        public Program.FormTemplateResponse GetJudgeProfileFormTemplate(int programId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetJudgeProfileFormTemplateAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetJudgeProfileFormTemplateAsync(programId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets a judge profile form template</summary>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Program.FormTemplateResponse> GetJudgeProfileFormTemplateAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Program.FormTemplateResponse> GetJudgeProfileFormTemplateAsync(int programId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (programId == null)
+                throw new System.ArgumentNullException("programId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs/{id}/JudgeProfileFormTemplate");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs/{programId}/JudgeProfileFormTemplate");
+            urlBuilder_.Replace("{programId}", System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -3426,7 +3426,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Report data</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public ReportRunner.RunResponse RunReport(int reportId, ReportRunner.RunRequest model = null)
+        public ReportRunner.RunResponse RunReport(int reportId, ReportRunner.RunRequest model)
         {
             return System.Threading.Tasks.Task.Run(async () => await RunReportAsync(reportId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -3437,7 +3437,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Report data</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<ReportRunner.RunResponse> RunReportAsync(int reportId, ReportRunner.RunRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReportRunner.RunResponse> RunReportAsync(int reportId, ReportRunner.RunRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (reportId == null)
                 throw new System.ArgumentNullException("reportId");
@@ -3502,27 +3502,27 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Gets an application form template of a certain round</summary>
-        /// <param name="id">Round id</param>
+        /// <param name="roundId">Round id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Round.SubmissionFormTemplateResponse GetSubmissionFormTemplate(int id)
+        public Round.SubmissionFormTemplateResponse GetSubmissionFormTemplate(int roundId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetSubmissionFormTemplateAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetSubmissionFormTemplateAsync(roundId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets an application form template of a certain round</summary>
-        /// <param name="id">Round id</param>
+        /// <param name="roundId">Round id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Round.SubmissionFormTemplateResponse> GetSubmissionFormTemplateAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Round.SubmissionFormTemplateResponse> GetSubmissionFormTemplateAsync(int roundId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (roundId == null)
+                throw new System.ArgumentNullException("roundId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Rounds/{id}/SubmissionFormTemplate");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Rounds/{roundId}/SubmissionFormTemplate");
+            urlBuilder_.Replace("{roundId}", System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -3580,7 +3580,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data to create from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void CreateSessionChair(SessionChair.CreateRequest model = null)
+        public void CreateSessionChair(SessionChair.CreateRequest model)
         {
             System.Threading.Tasks.Task.Run(async () => await CreateSessionChairAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -3590,7 +3590,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data to create from</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task CreateSessionChairAsync(SessionChair.CreateRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CreateSessionChairAsync(SessionChair.CreateRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/SessionChairs");
@@ -3729,7 +3729,7 @@ namespace OpenWater.ApiClient
     
         /// <summary>Gets sessions</summary>
         /// <param name="programId">Program Id</param>
-        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
+        /// <param name="lastModifiedSinceUtc">Session last modified since date (UTC)</param>
         /// <param name="sessionChairEmail">Session chair email</param>
         /// <param name="pageIndex">Page index (0 by default)</param>
         /// <param name="pageSize">Page size (10 by default)</param>
@@ -3743,7 +3743,7 @@ namespace OpenWater.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets sessions</summary>
         /// <param name="programId">Program Id</param>
-        /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
+        /// <param name="lastModifiedSinceUtc">Session last modified since date (UTC)</param>
         /// <param name="sessionChairEmail">Session chair email</param>
         /// <param name="pageIndex">Page index (0 by default)</param>
         /// <param name="pageSize">Page size (10 by default)</param>
@@ -3831,7 +3831,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data for session creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Session.DetailsResponse CreateSession(Session.CreateRequest model = null)
+        public Session.DetailsResponse CreateSession(Session.CreateRequest model)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateSessionAsync(model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -3841,7 +3841,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">Data for session creation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Session.DetailsResponse> CreateSessionAsync(Session.CreateRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Session.DetailsResponse> CreateSessionAsync(Session.CreateRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Sessions");
@@ -4053,31 +4053,31 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Updates a session form values</summary>
-        /// <param name="id">Session id</param>
+        /// <param name="sessionId">Session id</param>
         /// <param name="model">Data to update form</param>
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateSessionFormValues(int id, Session.FormValuesRequest model = null, bool? suppressFormValidation = null)
+        public void UpdateSessionFormValues(int sessionId, Session.UpdateSessionFormValuesRequest model, bool? suppressFormValidation = null)
         {
-            System.Threading.Tasks.Task.Run(async () => await UpdateSessionFormValuesAsync(id, model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await UpdateSessionFormValuesAsync(sessionId, model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Updates a session form values</summary>
-        /// <param name="id">Session id</param>
+        /// <param name="sessionId">Session id</param>
         /// <param name="model">Data to update form</param>
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateSessionFormValuesAsync(int id, Session.FormValuesRequest model = null, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateSessionFormValuesAsync(int sessionId, Session.UpdateSessionFormValuesRequest model, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (sessionId == null)
+                throw new System.ArgumentNullException("sessionId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Sessions/{id}/FormFields?");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Sessions/{sessionId}/FormFields?");
+            urlBuilder_.Replace("{sessionId}", System.Uri.EscapeDataString(ConvertToString(sessionId, System.Globalization.CultureInfo.InvariantCulture)));
             if (suppressFormValidation != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("suppressFormValidation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(suppressFormValidation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -4149,9 +4149,9 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public User.PagingResponseUserListItemModel UserList(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null)
+        public User.PagingResponseUserListItemModel GetUsers(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UserListAsync(firstName, lastName, company, email, thirdPartyId, lastModifiedSinceUtc, isApplicant, isJudge, isSessionChair, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetUsersAsync(firstName, lastName, company, email, thirdPartyId, lastModifiedSinceUtc, isApplicant, isJudge, isSessionChair, pageIndex, pageSize, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -4169,7 +4169,7 @@ namespace OpenWater.ApiClient
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User.PagingResponseUserListItemModel> UserListAsync(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User.PagingResponseUserListItemModel> GetUsersAsync(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users?");
@@ -4276,7 +4276,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public User.DetailsResponse CreateUser(User.CreateRequest model = null, bool? suppressFormValidation = null)
+        public User.DetailsResponse CreateUser(User.CreateRequest model, bool? suppressFormValidation = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateUserAsync(model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4287,7 +4287,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User.DetailsResponse> CreateUserAsync(User.CreateRequest model = null, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User.DetailsResponse> CreateUserAsync(User.CreateRequest model, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users?");
@@ -4356,9 +4356,9 @@ namespace OpenWater.ApiClient
         /// <param name="id">User id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public User.DetailsResponse UserDetails(int id)
+        public User.DetailsResponse GetUserById(int id)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UserDetailsAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetUserByIdAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -4366,7 +4366,7 @@ namespace OpenWater.ApiClient
         /// <param name="id">User id</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User.DetailsResponse> UserDetailsAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User.DetailsResponse> GetUserByIdAsync(int id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4432,7 +4432,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">User data to update</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateUser(int id, User.UpdateRequest model = null)
+        public void UpdateUser(int id, User.UpdateRequest model)
         {
             System.Threading.Tasks.Task.Run(async () => await UpdateUserAsync(id, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4443,7 +4443,7 @@ namespace OpenWater.ApiClient
         /// <param name="model">User data to update</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateUserAsync(int id, User.UpdateRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateUserAsync(int id, User.UpdateRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4509,31 +4509,31 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Updates user profile form values</summary>
-        /// <param name="id">User id</param>
+        /// <param name="userId">User id</param>
         /// <param name="model">Data to update form</param>
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateProfileFormValues(int id, User.ProfileFormValuesRequest model = null, bool? suppressFormValidation = null)
+        public void UpdateUserProfileFormValues(int userId, User.UpdateUserProfileFormValuesRequest model, bool? suppressFormValidation = null)
         {
-            System.Threading.Tasks.Task.Run(async () => await UpdateProfileFormValuesAsync(id, model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await UpdateUserProfileFormValuesAsync(userId, model, suppressFormValidation, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Updates user profile form values</summary>
-        /// <param name="id">User id</param>
+        /// <param name="userId">User id</param>
         /// <param name="model">Data to update form</param>
         /// <param name="suppressFormValidation">Suppress form validation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateProfileFormValuesAsync(int id, User.ProfileFormValuesRequest model = null, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateUserProfileFormValuesAsync(int userId, User.UpdateUserProfileFormValuesRequest model, bool? suppressFormValidation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (userId == null)
+                throw new System.ArgumentNullException("userId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users/{id}/ProfileFormValues?");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users/{userId}/ProfileFormValues?");
+            urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(ConvertToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
             if (suppressFormValidation != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("suppressFormValidation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(suppressFormValidation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -4597,29 +4597,29 @@ namespace OpenWater.ApiClient
         }
     
         /// <summary>Generates sso token for a certain user</summary>
-        /// <param name="id">User id</param>
+        /// <param name="userId">User id</param>
         /// <param name="model">Optional data such as url to redirect after token generation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public User.SsoTokenResponse GenerateSsoToken(int id, User.SsoTokenRequest model = null)
+        public User.GenerateUserSsoTokenResponse GenerateUserSsoToken(int userId, User.GenerateUserSsoTokenRequest model)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GenerateSsoTokenAsync(id, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GenerateUserSsoTokenAsync(userId, model, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Generates sso token for a certain user</summary>
-        /// <param name="id">User id</param>
+        /// <param name="userId">User id</param>
         /// <param name="model">Optional data such as url to redirect after token generation</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User.SsoTokenResponse> GenerateSsoTokenAsync(int id, User.SsoTokenRequest model = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User.GenerateUserSsoTokenResponse> GenerateUserSsoTokenAsync(int userId, User.GenerateUserSsoTokenRequest model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (userId == null)
+                throw new System.ArgumentNullException("userId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users/{id}/SsoToken");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users/{userId}/SsoToken");
+            urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(ConvertToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
@@ -4652,7 +4652,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<User.SsoTokenResponse>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<User.GenerateUserSsoTokenResponse>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -4662,7 +4662,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(User.SsoTokenResponse);
+                        return default(User.GenerateUserSsoTokenResponse);
                     }
                     finally
                     {
@@ -4679,16 +4679,16 @@ namespace OpenWater.ApiClient
         /// <summary>Gets a user profile form template</summary>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public User.ProfileFormTemplateResponse GetProfileFormTemplate()
+        public User.ProfileFormTemplateResponse GetUserProfileFormTemplate()
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetProfileFormTemplateAsync(System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetUserProfileFormTemplateAsync(System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets a user profile form template</summary>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User.ProfileFormTemplateResponse> GetProfileFormTemplateAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User.ProfileFormTemplateResponse> GetUserProfileFormTemplateAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users/ProfileFormTemplate");

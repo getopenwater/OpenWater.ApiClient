@@ -112,7 +112,7 @@ namespace OpenWater.ApiClient.Invoice
         internal InvoiceListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public InvoiceListItemModel(int id, int programId, string programCode, string thirdPartyCorporateId, System.DateTimeOffset createdAtUtc, System.DateTimeOffset mostRecentTransactionDateUtc)
+        public InvoiceListItemModel(int id, int programId, System.DateTimeOffset createdAtUtc, System.DateTimeOffset mostRecentTransactionDateUtc, string programCode = null, string thirdPartyCorporateId = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -122,21 +122,27 @@ namespace OpenWater.ApiClient.Invoice
               MostRecentTransactionDateUtc = @mostRecentTransactionDateUtc;
         }
     
+        /// <summary>Invoice id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("programCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Program code</summary>
+        [Newtonsoft.Json.JsonProperty("programCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProgramCode { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("thirdPartyCorporateId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>User 3rd party unique id</summary>
+        [Newtonsoft.Json.JsonProperty("thirdPartyCorporateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThirdPartyCorporateId { get; internal set; }
     
+        /// <summary>Invoice created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; internal set; }
     
+        /// <summary>Invoice most recent transaction date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("mostRecentTransactionDateUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset MostRecentTransactionDateUtc { get; internal set; }
     
@@ -149,7 +155,7 @@ namespace OpenWater.ApiClient.Invoice
         internal DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(int id, int programId, string programCode, int userId, string thirdPartyCorporateId, System.DateTimeOffset createdAtUtc, System.DateTimeOffset mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<BillingLineItemModel> billingLineItems, System.Collections.Generic.ICollection<PaymentModel> payments, System.Collections.Generic.ICollection<RefundModel> refunds)
+        public DetailsResponse(int id, int programId, int userId, System.DateTimeOffset createdAtUtc, System.DateTimeOffset mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<BillingLineItemModel> billingLineItems, System.Collections.Generic.ICollection<PaymentModel> payments, System.Collections.Generic.ICollection<RefundModel> refunds, string programCode = null, string thirdPartyCorporateId = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -163,33 +169,43 @@ namespace OpenWater.ApiClient.Invoice
               Refunds = @refunds;
         }
     
+        /// <summary>Invoice id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("programCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Program code</summary>
+        [Newtonsoft.Json.JsonProperty("programCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProgramCode { get; internal set; }
     
+        /// <summary>User id</summary>
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int UserId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("thirdPartyCorporateId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>User 3rd party unique id</summary>
+        [Newtonsoft.Json.JsonProperty("thirdPartyCorporateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThirdPartyCorporateId { get; internal set; }
     
+        /// <summary>Invoice created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; internal set; }
     
+        /// <summary>Invoice most recent transaction date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("mostRecentTransactionDateUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset MostRecentTransactionDateUtc { get; internal set; }
     
+        /// <summary>Invoice billing line items</summary>
         [Newtonsoft.Json.JsonProperty("billingLineItems", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BillingLineItemModel> BillingLineItems { get; internal set; }
     
+        /// <summary>Invoice payments</summary>
         [Newtonsoft.Json.JsonProperty("payments", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PaymentModel> Payments { get; internal set; }
     
+        /// <summary>Invoice refunds</summary>
         [Newtonsoft.Json.JsonProperty("refunds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RefundModel> Refunds { get; internal set; }
     
@@ -202,7 +218,7 @@ namespace OpenWater.ApiClient.Invoice
         internal BillingLineItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemModel(int id, double amount, string notes, string details, bool isVat, bool isManualAdjustment, BillingLineItemTargetType? targetType = null)
+        public BillingLineItemModel(int id, double amount, bool isVat, bool isManualAdjustment, string notes = null, string details = null, BillingLineItemTargetType? targetType = null)
         {
               Id = @id;
               Amount = @amount;
@@ -219,10 +235,10 @@ namespace OpenWater.ApiClient.Invoice
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Amount { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Notes { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Details { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -261,7 +277,7 @@ namespace OpenWater.ApiClient.Invoice
         internal PaymentModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PaymentModel(int id, double amount, bool isManualAdjustment, bool isPromissoryNote, bool canRefund, string externalPaymentTransactionData, string billingName, string referenceNumber, string notes, PaymentMethod method, string details)
+        public PaymentModel(int id, double amount, bool isManualAdjustment, bool isPromissoryNote, bool canRefund, PaymentMethod method, string externalPaymentTransactionData = null, string billingName = null, string referenceNumber = null, string notes = null, string details = null)
         {
               Id = @id;
               Amount = @amount;
@@ -291,23 +307,23 @@ namespace OpenWater.ApiClient.Invoice
         [Newtonsoft.Json.JsonProperty("canRefund", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool CanRefund { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("externalPaymentTransactionData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("externalPaymentTransactionData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalPaymentTransactionData { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("billingName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("billingName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BillingName { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("referenceNumber", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("referenceNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceNumber { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Notes { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("method", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PaymentMethod Method { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Details { get; internal set; }
     
     
@@ -351,7 +367,7 @@ namespace OpenWater.ApiClient.Invoice
         internal RefundModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RefundModel(int id, double amount, string notes, string details)
+        public RefundModel(int id, double amount, string notes = null, string details = null)
         {
               Id = @id;
               Amount = @amount;
@@ -365,10 +381,10 @@ namespace OpenWater.ApiClient.Invoice
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Amount { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Notes { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Details { get; internal set; }
     
     
@@ -401,7 +417,7 @@ namespace OpenWater.ApiClient.Invoice
         internal BillingLineItemListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemListItemModel(int id, int invoiceId, double amount, string notes, string details, bool isVat, bool isManualAdjustment, System.DateTimeOffset createdAtUtc, BillingLineItemTargetType? targetType = null)
+        public BillingLineItemListItemModel(int id, int invoiceId, double amount, bool isVat, bool isManualAdjustment, System.DateTimeOffset createdAtUtc, string notes = null, string details = null, BillingLineItemTargetType? targetType = null)
         {
               Id = @id;
               InvoiceId = @invoiceId;
@@ -414,31 +430,40 @@ namespace OpenWater.ApiClient.Invoice
               CreatedAtUtc = @createdAtUtc;
         }
     
+        /// <summary>Billing line item id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>Invoice id</summary>
         [Newtonsoft.Json.JsonProperty("invoiceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int InvoiceId { get; internal set; }
     
+        /// <summary>Billing line item Amount</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Amount { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Billing line item Notes</summary>
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Notes { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Billing line item Details</summary>
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Details { get; internal set; }
     
+        /// <summary>Billing line item target</summary>
         [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BillingLineItemTargetType? TargetType { get; internal set; }
     
+        /// <summary>Is billing line item related to VAT</summary>
         [Newtonsoft.Json.JsonProperty("isVat", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsVat { get; internal set; }
     
+        /// <summary>Is billing line item related to manual adjustment</summary>
         [Newtonsoft.Json.JsonProperty("isManualAdjustment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsManualAdjustment { get; internal set; }
     
+        /// <summary>Billing line item created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; internal set; }
     
@@ -472,7 +497,7 @@ namespace OpenWater.ApiClient.Invoice
         internal PaymentListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PaymentListItemModel(int id, int invoiceId, double amount, bool isManualAdjustment, bool isPromissoryNote, bool canRefund, string externalPaymentTransactionData, string billingName, string referenceNumber, string notes, PaymentMethod method, string details, System.DateTimeOffset createdAtUtc)
+        public PaymentListItemModel(int id, int invoiceId, double amount, bool isManualAdjustment, bool isPromissoryNote, bool canRefund, PaymentMethod method, System.DateTimeOffset createdAtUtc, string externalPaymentTransactionData = null, string billingName = null, string referenceNumber = null, string notes = null, string details = null)
         {
               Id = @id;
               InvoiceId = @invoiceId;
@@ -489,43 +514,56 @@ namespace OpenWater.ApiClient.Invoice
               CreatedAtUtc = @createdAtUtc;
         }
     
+        /// <summary>Payment id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>Invoice id</summary>
         [Newtonsoft.Json.JsonProperty("invoiceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int InvoiceId { get; internal set; }
     
+        /// <summary>Payment amount</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Amount { get; internal set; }
     
+        /// <summary>Is payment related to manual adjustment</summary>
         [Newtonsoft.Json.JsonProperty("isManualAdjustment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsManualAdjustment { get; internal set; }
     
+        /// <summary>Is payment related to promissory note</summary>
         [Newtonsoft.Json.JsonProperty("isPromissoryNote", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsPromissoryNote { get; internal set; }
     
+        /// <summary>Can payment be refund</summary>
         [Newtonsoft.Json.JsonProperty("canRefund", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool CanRefund { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("externalPaymentTransactionData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>External payment transaction data</summary>
+        [Newtonsoft.Json.JsonProperty("externalPaymentTransactionData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalPaymentTransactionData { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("billingName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Payment billing name</summary>
+        [Newtonsoft.Json.JsonProperty("billingName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BillingName { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("referenceNumber", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Payment reference number</summary>
+        [Newtonsoft.Json.JsonProperty("referenceNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceNumber { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Payment notes</summary>
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Notes { get; internal set; }
     
+        /// <summary>Payment method</summary>
         [Newtonsoft.Json.JsonProperty("method", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PaymentMethod Method { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Payment details</summary>
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Details { get; internal set; }
     
+        /// <summary>Payment created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; internal set; }
     
@@ -559,7 +597,7 @@ namespace OpenWater.ApiClient.Invoice
         internal RefundListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RefundListItemModel(int id, int invoiceId, double amount, string notes, string details, System.DateTimeOffset createdAtUtc)
+        public RefundListItemModel(int id, int invoiceId, double amount, System.DateTimeOffset createdAtUtc, string notes = null, string details = null)
         {
               Id = @id;
               InvoiceId = @invoiceId;
@@ -569,21 +607,27 @@ namespace OpenWater.ApiClient.Invoice
               CreatedAtUtc = @createdAtUtc;
         }
     
+        /// <summary>Refund id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>Invoice id</summary>
         [Newtonsoft.Json.JsonProperty("invoiceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int InvoiceId { get; internal set; }
     
+        /// <summary>Refund amount</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Amount { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Refund notes</summary>
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Notes { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Refund details</summary>
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Details { get; internal set; }
     
+        /// <summary>Refund created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; internal set; }
     
@@ -598,26 +642,6 @@ namespace OpenWater.ApiClient.Invoice
     
         [System.Runtime.Serialization.EnumMember(Value = @"Words")]
         Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DropDownListFieldModelPreFillType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
-        UsStates = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
-        CanadaProvinces = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
-        Countries = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
-        UsStatesAndCanadaProvinces = 4,
     
     }
     

@@ -43,7 +43,7 @@ namespace OpenWater.ApiClient.Application
         internal ApplicationListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationListItemModel(int id, int programId, string code, string name, string categoryName, string categoryFriendlyPath, System.DateTimeOffset lastModifiedUtc)
+        public ApplicationListItemModel(int id, int programId, System.DateTimeOffset lastModifiedUtc, string code = null, string name = null, string categoryName = null, string categoryFriendlyPath = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -54,24 +54,31 @@ namespace OpenWater.ApiClient.Application
               LastModifiedUtc = @lastModifiedUtc;
         }
     
+        /// <summary>Application id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Application code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Code { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Application name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("categoryName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Application category name</summary>
+        [Newtonsoft.Json.JsonProperty("categoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CategoryName { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("categoryFriendlyPath", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Application category friendly path</summary>
+        [Newtonsoft.Json.JsonProperty("categoryFriendlyPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CategoryFriendlyPath { get; internal set; }
     
+        /// <summary>Application last modified since date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("lastModifiedUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset LastModifiedUtc { get; internal set; }
     
@@ -93,18 +100,23 @@ namespace OpenWater.ApiClient.Application
               FieldValues = @fieldValues;
         }
     
-        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Program id</summary>
+        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.Always)]
         public int ProgramId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>User id</summary>
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Always)]
         public int UserId { get; internal set; }
     
+        /// <summary>Application name</summary>
         [Newtonsoft.Json.JsonProperty("applicationName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ApplicationName { get; internal set; }
     
+        /// <summary>Application category code</summary>
         [Newtonsoft.Json.JsonProperty("categoryCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CategoryCode { get; internal set; }
     
+        /// <summary>Round submission form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
     
@@ -117,7 +129,7 @@ namespace OpenWater.ApiClient.Application
         internal DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(int id, int programId, int userId, string name, string code, string categoryCode, string categoryName, string categoryPath, string downloadPdfAsApplicantUrl, string downloadPdfAsJudgeUrl, SchedulerInfo scheduler, System.Collections.Generic.ICollection<CollaboratorInfo> collaborators, System.Collections.Generic.ICollection<RoundSubmission> roundSubmissions, int? sessionId = null)
+        public DetailsResponse(int id, int programId, int userId, string downloadPdfAsApplicantUrl, string downloadPdfAsJudgeUrl, SchedulerInfo scheduler, System.Collections.Generic.ICollection<CollaboratorInfo> collaborators, System.Collections.Generic.ICollection<RoundSubmission> roundSubmissions, int? sessionId = null, string name = null, string code = null, string categoryCode = null, string categoryName = null, string categoryPath = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -135,45 +147,59 @@ namespace OpenWater.ApiClient.Application
               RoundSubmissions = @roundSubmissions;
         }
     
+        /// <summary>Application id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; internal set; }
     
+        /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; internal set; }
     
+        /// <summary>User id</summary>
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int UserId { get; internal set; }
     
+        /// <summary>Session id</summary>
         [Newtonsoft.Json.JsonProperty("sessionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? SessionId { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Application name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Application code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Code { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("categoryCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Application category code</summary>
+        [Newtonsoft.Json.JsonProperty("categoryCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CategoryCode { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("categoryName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Application category name</summary>
+        [Newtonsoft.Json.JsonProperty("categoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CategoryName { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("categoryPath", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Application category path</summary>
+        [Newtonsoft.Json.JsonProperty("categoryPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CategoryPath { get; internal set; }
     
+        /// <summary>Application as Applicant PDF url</summary>
         [Newtonsoft.Json.JsonProperty("downloadPdfAsApplicantUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DownloadPdfAsApplicantUrl { get; internal set; }
     
+        /// <summary>Application as Judge PDF url</summary>
         [Newtonsoft.Json.JsonProperty("downloadPdfAsJudgeUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DownloadPdfAsJudgeUrl { get; internal set; }
     
+        /// <summary>Application scheduler info</summary>
         [Newtonsoft.Json.JsonProperty("scheduler", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchedulerInfo Scheduler { get; internal set; }
     
+        /// <summary>Application collaborators</summary>
         [Newtonsoft.Json.JsonProperty("collaborators", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<CollaboratorInfo> Collaborators { get; internal set; }
     
+        /// <summary>Application round submissions</summary>
         [Newtonsoft.Json.JsonProperty("roundSubmissions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RoundSubmission> RoundSubmissions { get; internal set; }
     
@@ -236,7 +262,7 @@ namespace OpenWater.ApiClient.Application
         internal RoundSubmission() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundSubmission(int roundId, int numberOfTimesJudged, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues, System.Collections.Generic.ICollection<string> winnerTypes, string publicGalleryUrl, string adminUrlToSubmission, string winnerNotes, int numberOfAssignedJudges, bool isForwarded, System.DateTimeOffset startedAtUtc, string roundName, bool isWinner, bool? isPaid = null, bool? allowUserToMakeEdits = null, SubmissionStatus? status = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? updatedAtUtc = null, double? averageScore = null)
+        public RoundSubmission(int roundId, int numberOfTimesJudged, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues, System.Collections.Generic.ICollection<string> winnerTypes, string publicGalleryUrl, string adminUrlToSubmission, int numberOfAssignedJudges, bool isForwarded, System.DateTimeOffset startedAtUtc, string roundName, bool isWinner, bool? isPaid = null, string winnerNotes = null, bool? allowUserToMakeEdits = null, SubmissionStatus? status = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? updatedAtUtc = null, double? averageScore = null)
         {
               RoundId = @roundId;
               RoundName = @roundName;
@@ -290,7 +316,7 @@ namespace OpenWater.ApiClient.Application
         [Newtonsoft.Json.JsonProperty("isForwarded", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsForwarded { get; internal set; }
     
-        [Newtonsoft.Json.JsonProperty("winnerNotes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("winnerNotes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WinnerNotes { get; internal set; }
     
         [Newtonsoft.Json.JsonProperty("adminUrlToSubmission", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -384,16 +410,17 @@ namespace OpenWater.ApiClient.Application
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ApplicationCategoryRequest 
+    public partial class UpdateApplicationCategoryRequest 
     {
-        internal ApplicationCategoryRequest() { }
+        internal UpdateApplicationCategoryRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationCategoryRequest(string categoryCode)
+        public UpdateApplicationCategoryRequest(string categoryCode)
         {
               CategoryCode = @categoryCode;
         }
     
+        /// <summary>Category code</summary>
         [Newtonsoft.Json.JsonProperty("categoryCode", Required = Newtonsoft.Json.Required.Always)]
         public string CategoryCode { get; internal set; }
     
@@ -401,17 +428,18 @@ namespace OpenWater.ApiClient.Application
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class RoundSubmissionStatusRequest 
+    public partial class ChangeFinalizedRoundSubmissionStatusRequest 
     {
-        internal RoundSubmissionStatusRequest() { }
+        internal ChangeFinalizedRoundSubmissionStatusRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundSubmissionStatusRequest(SubmissionStatus? status = null)
+        public ChangeFinalizedRoundSubmissionStatusRequest(SubmissionStatus? status)
         {
               Status = @status;
         }
     
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Round submission status</summary>
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SubmissionStatus? Status { get; internal set; }
     
@@ -419,41 +447,45 @@ namespace OpenWater.ApiClient.Application
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class AllowUserToMakeEditsRequest 
+    public partial class AllowUserToUpdateFinalizedRoundSubmissionRequest 
     {
-        internal AllowUserToMakeEditsRequest() { }
+        internal AllowUserToUpdateFinalizedRoundSubmissionRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public AllowUserToMakeEditsRequest(bool allowUserToMakeEdits)
+        public AllowUserToUpdateFinalizedRoundSubmissionRequest(bool allowUserToMakeEdits)
         {
               AllowUserToMakeEdits = @allowUserToMakeEdits;
         }
     
-        [Newtonsoft.Json.JsonProperty("allowUserToMakeEdits", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Allow user to edit a round submission</summary>
+        [Newtonsoft.Json.JsonProperty("allowUserToMakeEdits", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowUserToMakeEdits { get; internal set; }
     
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class WinnerAssignmentRequest 
+    public partial class SetWinnerStatusForApplicationInRoundRequest 
     {
-        internal WinnerAssignmentRequest() { }
+        internal SetWinnerStatusForApplicationInRoundRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public WinnerAssignmentRequest(bool isWinner, string winnerNotes, System.Collections.Generic.ICollection<int> winnerTypeIds)
+        public SetWinnerStatusForApplicationInRoundRequest(bool isWinner, string winnerNotes, System.Collections.Generic.ICollection<int> winnerTypeIds)
         {
               IsWinner = @isWinner;
               WinnerNotes = @winnerNotes;
               WinnerTypeIds = @winnerTypeIds;
         }
     
-        [Newtonsoft.Json.JsonProperty("isWinner", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Is winner</summary>
+        [Newtonsoft.Json.JsonProperty("isWinner", Required = Newtonsoft.Json.Required.Always)]
         public bool IsWinner { get; internal set; }
     
+        /// <summary>Winner notes</summary>
         [Newtonsoft.Json.JsonProperty("winnerNotes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WinnerNotes { get; internal set; }
     
+        /// <summary>Winner type ids</summary>
         [Newtonsoft.Json.JsonProperty("winnerTypeIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<int> WinnerTypeIds { get; internal set; }
     
@@ -461,37 +493,40 @@ namespace OpenWater.ApiClient.Application
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ForwardingRequest 
+    public partial class SetForwardingStatusForApplicationInRoundRequest 
     {
-        internal ForwardingRequest() { }
+        internal SetForwardingStatusForApplicationInRoundRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ForwardingRequest(bool isForwarded)
+        public SetForwardingStatusForApplicationInRoundRequest(bool isForwarded)
         {
               IsForwarded = @isForwarded;
         }
     
-        [Newtonsoft.Json.JsonProperty("isForwarded", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Is forwarded</summary>
+        [Newtonsoft.Json.JsonProperty("isForwarded", Required = Newtonsoft.Json.Required.Always)]
         public bool IsForwarded { get; internal set; }
     
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SubmissionFormValuesRequest 
+    public partial class UpdateRoundSubmissionFormValuesRequest 
     {
-        internal SubmissionFormValuesRequest() { }
+        internal UpdateRoundSubmissionFormValuesRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SubmissionFormValuesRequest(int roundId, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
+        public UpdateRoundSubmissionFormValuesRequest(int roundId, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
         {
               RoundId = @roundId;
               FieldValues = @fieldValues;
         }
     
-        [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Round id</summary>
+        [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Always)]
         public int RoundId { get; internal set; }
     
+        /// <summary>Round submission form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
     
@@ -587,26 +622,6 @@ namespace OpenWater.ApiClient.Application
     
         [System.Runtime.Serialization.EnumMember(Value = @"Words")]
         Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DropDownListFieldModelPreFillType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStates")]
-        UsStates = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CanadaProvinces")]
-        CanadaProvinces = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Countries")]
-        Countries = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UsStatesAndCanadaProvinces")]
-        UsStatesAndCanadaProvinces = 4,
     
     }
     
