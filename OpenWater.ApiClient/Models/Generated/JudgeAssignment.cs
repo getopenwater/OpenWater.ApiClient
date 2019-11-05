@@ -137,7 +137,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseJudgeListItemModel 
     {
-        internal PagingResponseJudgeListItemModel() { }
+        public PagingResponseJudgeListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public PagingResponseJudgeListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<JudgeListItemModel> items)
@@ -147,10 +147,10 @@ namespace OpenWater.ApiClient.JudgeAssignment
         }
     
         [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pagination.PagingInfo PagingInfo { get; internal set; }
+        public Pagination.PagingInfo PagingInfo { get; set; }
     
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<JudgeListItemModel> Items { get; internal set; }
+        public System.Collections.Generic.ICollection<JudgeListItemModel> Items { get; set; }
     
     
     }
@@ -158,7 +158,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class JudgeListItemModel 
     {
-        internal JudgeListItemModel() { }
+        public JudgeListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public JudgeListItemModel(int userId, string firstName, string lastName, string email)
@@ -171,19 +171,19 @@ namespace OpenWater.ApiClient.JudgeAssignment
     
         /// <summary>User id</summary>
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int UserId { get; internal set; }
+        public int UserId { get; set; }
     
         /// <summary>User first name</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; internal set; }
+        public string FirstName { get; set; }
     
         /// <summary>User last name</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; internal set; }
+        public string LastName { get; set; }
     
         /// <summary>User email</summary>
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email { get; internal set; }
+        public string Email { get; set; }
     
     
     }
@@ -191,7 +191,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AssignJudgeToApplicationRequest 
     {
-        internal AssignJudgeToApplicationRequest() { }
+        public AssignJudgeToApplicationRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public AssignJudgeToApplicationRequest(int applicationId, int judgeUserId, int roundId)
@@ -203,15 +203,15 @@ namespace OpenWater.ApiClient.JudgeAssignment
     
         /// <summary>Application id</summary>
         [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Always)]
-        public int ApplicationId { get; internal set; }
+        public int ApplicationId { get; set; }
     
         /// <summary>Judge user id</summary>
         [Newtonsoft.Json.JsonProperty("judgeUserId", Required = Newtonsoft.Json.Required.Always)]
-        public int JudgeUserId { get; internal set; }
+        public int JudgeUserId { get; set; }
     
         /// <summary>Round id</summary>
         [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Always)]
-        public int RoundId { get; internal set; }
+        public int RoundId { get; set; }
     
     
     }
@@ -219,7 +219,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AssignJudgeToJudgeTeamRequest 
     {
-        internal AssignJudgeToJudgeTeamRequest() { }
+        public AssignJudgeToJudgeTeamRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public AssignJudgeToJudgeTeamRequest(int judgeUserId, int judgeTeamId)
@@ -230,11 +230,11 @@ namespace OpenWater.ApiClient.JudgeAssignment
     
         /// <summary>Judge user id</summary>
         [Newtonsoft.Json.JsonProperty("judgeUserId", Required = Newtonsoft.Json.Required.Always)]
-        public int JudgeUserId { get; internal set; }
+        public int JudgeUserId { get; set; }
     
         /// <summary>Judge team id</summary>
         [Newtonsoft.Json.JsonProperty("judgeTeamId", Required = Newtonsoft.Json.Required.Always)]
-        public int JudgeTeamId { get; internal set; }
+        public int JudgeTeamId { get; set; }
     
     
     }
@@ -242,7 +242,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplyAllBulkJudgeAssignmentRulesInRoundRequest 
     {
-        internal ApplyAllBulkJudgeAssignmentRulesInRoundRequest() { }
+        public ApplyAllBulkJudgeAssignmentRulesInRoundRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public ApplyAllBulkJudgeAssignmentRulesInRoundRequest(int roundId)
@@ -252,7 +252,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
     
         /// <summary>Round id</summary>
         [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Always)]
-        public int RoundId { get; internal set; }
+        public int RoundId { get; set; }
     
     
     }
@@ -260,7 +260,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplyAllBulkJudgeAssignmentRulesInRoundResponse 
     {
-        internal ApplyAllBulkJudgeAssignmentRulesInRoundResponse() { }
+        public ApplyAllBulkJudgeAssignmentRulesInRoundResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public ApplyAllBulkJudgeAssignmentRulesInRoundResponse(int jobId)
@@ -270,7 +270,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
     
         /// <summary>Bulk judge assignment job id</summary>
         [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JobId { get; internal set; }
+        public int JobId { get; set; }
     
     
     }

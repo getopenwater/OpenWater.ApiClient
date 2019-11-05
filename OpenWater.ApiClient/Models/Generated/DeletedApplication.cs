@@ -56,7 +56,7 @@ namespace OpenWater.ApiClient.DeletedApplication
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseDeletedApplicationListItem 
     {
-        internal PagingResponseDeletedApplicationListItem() { }
+        public PagingResponseDeletedApplicationListItem() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public PagingResponseDeletedApplicationListItem(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<DeletedApplicationListItem> items)
@@ -66,10 +66,10 @@ namespace OpenWater.ApiClient.DeletedApplication
         }
     
         [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pagination.PagingInfo PagingInfo { get; internal set; }
+        public Pagination.PagingInfo PagingInfo { get; set; }
     
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<DeletedApplicationListItem> Items { get; internal set; }
+        public System.Collections.Generic.ICollection<DeletedApplicationListItem> Items { get; set; }
     
     
     }
@@ -77,7 +77,7 @@ namespace OpenWater.ApiClient.DeletedApplication
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DeletedApplicationListItem 
     {
-        internal DeletedApplicationListItem() { }
+        public DeletedApplicationListItem() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public DeletedApplicationListItem(int id, int programId, int userId, string email, string firstName, string lastName, System.DateTimeOffset deletedAtUtc, string applicationCode = null, string applicationName = null)
@@ -95,39 +95,39 @@ namespace OpenWater.ApiClient.DeletedApplication
     
         /// <summary>Deleted application id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; internal set; }
+        public int Id { get; set; }
     
         /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int ProgramId { get; internal set; }
+        public int ProgramId { get; set; }
     
         /// <summary>Application code</summary>
         [Newtonsoft.Json.JsonProperty("applicationCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationCode { get; internal set; }
+        public string ApplicationCode { get; set; }
     
         /// <summary>Application name</summary>
         [Newtonsoft.Json.JsonProperty("applicationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationName { get; internal set; }
+        public string ApplicationName { get; set; }
     
         /// <summary>User id</summary>
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int UserId { get; internal set; }
+        public int UserId { get; set; }
     
         /// <summary>User email</summary>
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email { get; internal set; }
+        public string Email { get; set; }
     
         /// <summary>User first name</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; internal set; }
+        public string FirstName { get; set; }
     
         /// <summary>User last name</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; internal set; }
+        public string LastName { get; set; }
     
         /// <summary>Deleted since date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("deletedAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset DeletedAtUtc { get; internal set; }
+        public System.DateTimeOffset DeletedAtUtc { get; set; }
     
     
     }

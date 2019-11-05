@@ -137,7 +137,7 @@ namespace OpenWater.ApiClient.Form
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListValue 
     {
-        internal ListValue() { }
+        public ListValue() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public ListValue(System.Guid id, string value)
@@ -147,10 +147,10 @@ namespace OpenWater.ApiClient.Form
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid Id { get; internal set; }
+        public System.Guid Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Value { get; internal set; }
+        public string Value { get; set; }
     
     
     }

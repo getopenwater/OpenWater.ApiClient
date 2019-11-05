@@ -137,7 +137,7 @@ namespace OpenWater.ApiClient.Organization
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TimeZoneResponse 
     {
-        internal TimeZoneResponse() { }
+        public TimeZoneResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public TimeZoneResponse(string timeZone)
@@ -147,7 +147,7 @@ namespace OpenWater.ApiClient.Organization
     
         /// <summary>Organization time zone</summary>
         [Newtonsoft.Json.JsonProperty("timeZone", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TimeZone { get; internal set; }
+        public string TimeZone { get; set; }
     
     
     }

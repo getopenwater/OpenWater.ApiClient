@@ -19,7 +19,7 @@ namespace OpenWater.ApiClient.Pagination
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingInfo 
     {
-        internal PagingInfo() { }
+        public PagingInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public PagingInfo(int pageIndex, int pageSize, int totalCount, int numberOfPages, bool hasPreviousPage, bool hasNextPage)
@@ -33,22 +33,22 @@ namespace OpenWater.ApiClient.Pagination
         }
     
         [Newtonsoft.Json.JsonProperty("pageIndex", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int PageIndex { get; internal set; }
+        public int PageIndex { get; set; }
     
         [Newtonsoft.Json.JsonProperty("pageSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int PageSize { get; internal set; }
+        public int PageSize { get; set; }
     
         [Newtonsoft.Json.JsonProperty("totalCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int TotalCount { get; internal set; }
+        public int TotalCount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("numberOfPages", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int NumberOfPages { get; internal set; }
+        public int NumberOfPages { get; set; }
     
         [Newtonsoft.Json.JsonProperty("hasPreviousPage", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool HasPreviousPage { get; internal set; }
+        public bool HasPreviousPage { get; set; }
     
         [Newtonsoft.Json.JsonProperty("hasNextPage", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool HasNextPage { get; internal set; }
+        public bool HasNextPage { get; set; }
     
     
     }

@@ -56,7 +56,7 @@ namespace OpenWater.ApiClient.Collaborator
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateRequest 
     {
-        internal CreateRequest() { }
+        public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public CreateRequest(int userId, bool isPrimary)
@@ -67,11 +67,11 @@ namespace OpenWater.ApiClient.Collaborator
     
         /// <summary>User id</summary>
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId { get; internal set; }
+        public int UserId { get; set; }
     
         /// <summary>Is primary</summary>
         [Newtonsoft.Json.JsonProperty("isPrimary", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsPrimary { get; internal set; }
+        public bool IsPrimary { get; set; }
     
     
     }

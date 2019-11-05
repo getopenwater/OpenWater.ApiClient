@@ -137,7 +137,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class FieldModelBase 
     {
-        internal FieldModelBase() { }
+        public FieldModelBase() { }
     
         [Newtonsoft.Json.JsonConstructor]
         protected FieldModelBase(string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -154,34 +154,34 @@ namespace OpenWater.ApiClient.Fields
             }
     
         [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Alias { get; internal set; }
+        public string Alias { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; internal set; }
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("isDescriptionWysiwyg", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsDescriptionWysiwyg { get; internal set; }
+        public bool IsDescriptionWysiwyg { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Description { get; internal set; }
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("hidden", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Hidden { get; internal set; }
+        public bool Hidden { get; set; }
     
         [Newtonsoft.Json.JsonProperty("required", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Required { get; internal set; }
+        public bool Required { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? SortOrder { get; internal set; }
+        public int? SortOrder { get; set; }
     
         [Newtonsoft.Json.JsonProperty("customCssClass", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomCssClass { get; internal set; }
+        public string CustomCssClass { get; set; }
     
         [Newtonsoft.Json.JsonProperty("visibilityCondition", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FieldVisibilityConditionModel VisibilityCondition { get; internal set; }
+        public FieldVisibilityConditionModel VisibilityCondition { get; set; }
     
         [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TypeName { get; internal set; }
+        public string TypeName { get; set; }
     
     
     }
@@ -189,7 +189,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldVisibilityConditionModel 
     {
-        internal FieldVisibilityConditionModel() { }
+        public FieldVisibilityConditionModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public FieldVisibilityConditionModel(string fieldAlias, System.Guid selectedListValueId)
@@ -199,10 +199,10 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("fieldAlias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldAlias { get; internal set; }
+        public string FieldAlias { get; set; }
     
         [Newtonsoft.Json.JsonProperty("selectedListValueId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid SelectedListValueId { get; internal set; }
+        public System.Guid SelectedListValueId { get; set; }
     
     
     }
@@ -210,7 +210,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AddressFieldModel : FieldModelBase
     {
-        internal AddressFieldModel() { }
+        public AddressFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public AddressFieldModel(string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -224,7 +224,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplicationCategoryFieldModel : FieldModelBase
     {
-        internal ApplicationCategoryFieldModel() { }
+        public ApplicationCategoryFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public ApplicationCategoryFieldModel(System.Collections.Generic.ICollection<SubmissionForm.Category> categories, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -234,7 +234,7 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("categories", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SubmissionForm.Category> Categories { get; internal set; }
+        public System.Collections.Generic.ICollection<SubmissionForm.Category> Categories { get; set; }
     
     
     }
@@ -242,7 +242,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplicationNameFieldModel : FieldModelBase
     {
-        internal ApplicationNameFieldModel() { }
+        public ApplicationNameFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public ApplicationNameFieldModel(bool isOneTextField, string firstTitle, string secondTitle, ApplicationNameFieldModelTextLengthCountMode textLengthCountMode, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -257,23 +257,23 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("isOneTextField", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsOneTextField { get; internal set; }
+        public bool IsOneTextField { get; set; }
     
         [Newtonsoft.Json.JsonProperty("firstTitle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstTitle { get; internal set; }
+        public string FirstTitle { get; set; }
     
         [Newtonsoft.Json.JsonProperty("secondTitle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SecondTitle { get; internal set; }
+        public string SecondTitle { get; set; }
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ApplicationNameFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
+        public ApplicationNameFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int? MinLength { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int? MaxLength { get; set; }
     
     
     }
@@ -281,7 +281,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CheckboxListFieldModel : FieldModelBase
     {
-        internal CheckboxListFieldModel() { }
+        public CheckboxListFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public CheckboxListFieldModel(System.Collections.Generic.ICollection<Form.ListValue> listValues, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minSelectedValueCount = null, int? maxSelectedValueCount = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -293,13 +293,13 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("minSelectedValueCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinSelectedValueCount { get; internal set; }
+        public int? MinSelectedValueCount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxSelectedValueCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxSelectedValueCount { get; internal set; }
+        public int? MaxSelectedValueCount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("listValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Form.ListValue> ListValues { get; internal set; }
+        public System.Collections.Generic.ICollection<Form.ListValue> ListValues { get; set; }
     
     
     }
@@ -307,7 +307,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DateFieldModel : FieldModelBase
     {
-        internal DateFieldModel() { }
+        public DateFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public DateFieldModel(string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, System.DateTimeOffset? minValueUtc = null, System.DateTimeOffset? maxValueUtc = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -318,10 +318,10 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("minValueUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? MinValueUtc { get; internal set; }
+        public System.DateTimeOffset? MinValueUtc { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxValueUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? MaxValueUtc { get; internal set; }
+        public System.DateTimeOffset? MaxValueUtc { get; set; }
     
     
     }
@@ -329,7 +329,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DigitalSignatureFieldModel : FieldModelBase
     {
-        internal DigitalSignatureFieldModel() { }
+        public DigitalSignatureFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public DigitalSignatureFieldModel(string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -343,7 +343,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DropDownListFieldModel : FieldModelBase
     {
-        internal DropDownListFieldModel() { }
+        public DropDownListFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public DropDownListFieldModel(System.Collections.Generic.ICollection<Form.ListValue> listValues, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -353,7 +353,7 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("listValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Form.ListValue> ListValues { get; internal set; }
+        public System.Collections.Generic.ICollection<Form.ListValue> ListValues { get; set; }
     
     
     }
@@ -361,7 +361,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class EmailFieldModel : FieldModelBase
     {
-        internal EmailFieldModel() { }
+        public EmailFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public EmailFieldModel(bool confirmationRequired, EmailFieldModelTextLengthCountMode textLengthCountMode, EmailFieldModelSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -375,21 +375,21 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("confirmationRequired", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool ConfirmationRequired { get; internal set; }
+        public bool ConfirmationRequired { get; set; }
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EmailFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
+        public EmailFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int? MinLength { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int? MaxLength { get; set; }
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EmailFieldModelSize Size { get; internal set; }
+        public EmailFieldModelSize Size { get; set; }
     
     
     }
@@ -397,7 +397,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FileUploadFieldModel : FieldModelBase
     {
-        internal FileUploadFieldModel() { }
+        public FileUploadFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public FileUploadFieldModel(bool showCaption, bool required, bool hidden, bool isDescriptionWysiwyg, FieldVisibilityConditionModel visibilityCondition, string captionLabel, string alias, bool showDocumentPreview, bool showVideoPreview, bool showImagePreview, bool showAudioPreview, string allowedFileExtensions, int? maxFileSize = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -414,28 +414,28 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("showCaption", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool ShowCaption { get; internal set; }
+        public bool ShowCaption { get; set; }
     
         [Newtonsoft.Json.JsonProperty("showAudioPreview", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool ShowAudioPreview { get; internal set; }
+        public bool ShowAudioPreview { get; set; }
     
         [Newtonsoft.Json.JsonProperty("showImagePreview", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool ShowImagePreview { get; internal set; }
+        public bool ShowImagePreview { get; set; }
     
         [Newtonsoft.Json.JsonProperty("showVideoPreview", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool ShowVideoPreview { get; internal set; }
+        public bool ShowVideoPreview { get; set; }
     
         [Newtonsoft.Json.JsonProperty("showDocumentPreview", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool ShowDocumentPreview { get; internal set; }
+        public bool ShowDocumentPreview { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxFileSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxFileSize { get; internal set; }
+        public int? MaxFileSize { get; set; }
     
         [Newtonsoft.Json.JsonProperty("allowedFileExtensions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AllowedFileExtensions { get; internal set; }
+        public string AllowedFileExtensions { get; set; }
     
         [Newtonsoft.Json.JsonProperty("captionLabel", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CaptionLabel { get; internal set; }
+        public string CaptionLabel { get; set; }
     
     
     }
@@ -443,7 +443,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ImisNumberFieldModel : FieldModelBase
     {
-        internal ImisNumberFieldModel() { }
+        public ImisNumberFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public ImisNumberFieldModel(string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -457,7 +457,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class LetterOfRecommendationFieldModel : FieldModelBase
     {
-        internal LetterOfRecommendationFieldModel() { }
+        public LetterOfRecommendationFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public LetterOfRecommendationFieldModel(bool allowToSendRequestPriorToFinalization, bool required, bool hidden, bool isDescriptionWysiwyg, FieldVisibilityConditionModel visibilityCondition, string alias, string confirmationPageHtml, string instructionsHtml, bool allowReceiveRecommendationAfterSubmissionPeriodEnds, bool allowSubmitterToDeleteRecommendationOnIncompleteSubmission, bool allowSubmitterToViewCompletedRecommendation, System.Collections.Generic.ICollection<FieldModelBase> fields, string description = null, int? sortOrder = null, string customCssClass = null, string name = null)
@@ -473,25 +473,25 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("allowToSendRequestPriorToFinalization", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowToSendRequestPriorToFinalization { get; internal set; }
+        public bool AllowToSendRequestPriorToFinalization { get; set; }
     
         [Newtonsoft.Json.JsonProperty("allowSubmitterToViewCompletedRecommendation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowSubmitterToViewCompletedRecommendation { get; internal set; }
+        public bool AllowSubmitterToViewCompletedRecommendation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("allowSubmitterToDeleteRecommendationOnIncompleteSubmission", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowSubmitterToDeleteRecommendationOnIncompleteSubmission { get; internal set; }
+        public bool AllowSubmitterToDeleteRecommendationOnIncompleteSubmission { get; set; }
     
         [Newtonsoft.Json.JsonProperty("allowReceiveRecommendationAfterSubmissionPeriodEnds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowReceiveRecommendationAfterSubmissionPeriodEnds { get; internal set; }
+        public bool AllowReceiveRecommendationAfterSubmissionPeriodEnds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("instructionsHtml", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string InstructionsHtml { get; internal set; }
+        public string InstructionsHtml { get; set; }
     
         [Newtonsoft.Json.JsonProperty("confirmationPageHtml", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ConfirmationPageHtml { get; internal set; }
+        public string ConfirmationPageHtml { get; set; }
     
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<FieldModelBase> Fields { get; internal set; }
+        public System.Collections.Generic.ICollection<FieldModelBase> Fields { get; set; }
     
     
     }
@@ -499,7 +499,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MultilineTextFieldModel : FieldModelBase
     {
-        internal MultilineTextFieldModel() { }
+        public MultilineTextFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public MultilineTextFieldModel(bool isWysiwyg, string allowedHtmlTags, MultilineTextFieldModelTextLengthCountMode textLengthCountMode, MultilineTextFieldModelSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -514,24 +514,24 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("isWysiwyg", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsWysiwyg { get; internal set; }
+        public bool IsWysiwyg { get; set; }
     
         [Newtonsoft.Json.JsonProperty("allowedHtmlTags", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AllowedHtmlTags { get; internal set; }
+        public string AllowedHtmlTags { get; set; }
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public MultilineTextFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
+        public MultilineTextFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int? MinLength { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int? MaxLength { get; set; }
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public MultilineTextFieldModelSize Size { get; internal set; }
+        public MultilineTextFieldModelSize Size { get; set; }
     
     
     }
@@ -539,7 +539,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NumberFieldModel : FieldModelBase
     {
-        internal NumberFieldModel() { }
+        public NumberFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public NumberFieldModel(string format, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, double? minValue = null, double? maxValue = null, int? maxPrecision = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -552,16 +552,16 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("minValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? MinValue { get; internal set; }
+        public double? MinValue { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? MaxValue { get; internal set; }
+        public double? MaxValue { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxPrecision", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxPrecision { get; internal set; }
+        public int? MaxPrecision { get; set; }
     
         [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Format { get; internal set; }
+        public string Format { get; set; }
     
     
     }
@@ -569,7 +569,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class RadioListFieldModel : FieldModelBase
     {
-        internal RadioListFieldModel() { }
+        public RadioListFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public RadioListFieldModel(System.Collections.Generic.ICollection<Form.ListValue> listValues, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -579,7 +579,7 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("listValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Form.ListValue> ListValues { get; internal set; }
+        public System.Collections.Generic.ICollection<Form.ListValue> ListValues { get; set; }
     
     
     }
@@ -587,7 +587,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SeparatorFieldModel : FieldModelBase
     {
-        internal SeparatorFieldModel() { }
+        public SeparatorFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public SeparatorFieldModel(string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -601,7 +601,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SessionNameFieldModel : FieldModelBase
     {
-        internal SessionNameFieldModel() { }
+        public SessionNameFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public SessionNameFieldModel(string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -615,7 +615,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TableFieldModel : FieldModelBase
     {
-        internal TableFieldModel() { }
+        public TableFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public TableFieldModel(string rowName, string rowNamePlural, string rowTemplate, int minRowCount, int maxRowCount, System.Collections.Generic.ICollection<FieldModelBase> fields, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -630,22 +630,22 @@ namespace OpenWater.ApiClient.Fields
         }
     
         [Newtonsoft.Json.JsonProperty("rowName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RowName { get; internal set; }
+        public string RowName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rowNamePlural", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RowNamePlural { get; internal set; }
+        public string RowNamePlural { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rowTemplate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RowTemplate { get; internal set; }
+        public string RowTemplate { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minRowCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int MinRowCount { get; internal set; }
+        public int MinRowCount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxRowCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int MaxRowCount { get; internal set; }
+        public int MaxRowCount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<FieldModelBase> Fields { get; internal set; }
+        public System.Collections.Generic.ICollection<FieldModelBase> Fields { get; set; }
     
     
     }
@@ -653,7 +653,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TextFieldModel : FieldModelBase
     {
-        internal TextFieldModel() { }
+        public TextFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public TextFieldModel(TextFieldModelTextLengthCountMode textLengthCountMode, TextFieldModelSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -667,17 +667,17 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TextFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
+        public TextFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int? MinLength { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int? MaxLength { get; set; }
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TextFieldModelSize Size { get; internal set; }
+        public TextFieldModelSize Size { get; set; }
     
     
     }
@@ -685,7 +685,7 @@ namespace OpenWater.ApiClient.Fields
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UrlFieldModel : FieldModelBase
     {
-        internal UrlFieldModel() { }
+        public UrlFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public UrlFieldModel(UrlFieldModelTextLengthCountMode textLengthCountMode, UrlFieldModelSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
@@ -699,17 +699,17 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public UrlFieldModelTextLengthCountMode TextLengthCountMode { get; internal set; }
+        public UrlFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinLength { get; internal set; }
+        public int? MinLength { get; set; }
     
         [Newtonsoft.Json.JsonProperty("maxLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaxLength { get; internal set; }
+        public int? MaxLength { get; set; }
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public UrlFieldModelSize Size { get; internal set; }
+        public UrlFieldModelSize Size { get; set; }
     
     
     }

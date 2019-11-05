@@ -137,7 +137,7 @@ namespace OpenWater.ApiClient.Round
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SubmissionFormTemplateResponse 
     {
-        internal SubmissionFormTemplateResponse() { }
+        public SubmissionFormTemplateResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public SubmissionFormTemplateResponse(System.Collections.Generic.ICollection<Fields.FieldModelBase> fields)
@@ -147,7 +147,7 @@ namespace OpenWater.ApiClient.Round
     
         /// <summary>Round submission form fields</summary>
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Fields.FieldModelBase> Fields { get; internal set; }
+        public System.Collections.Generic.ICollection<Fields.FieldModelBase> Fields { get; set; }
     
     
     }

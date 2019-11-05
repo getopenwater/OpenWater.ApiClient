@@ -137,7 +137,7 @@ namespace OpenWater.ApiClient.Media
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DetailsResponse 
     {
-        internal DetailsResponse() { }
+        public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public DetailsResponse(string url)
@@ -147,7 +147,7 @@ namespace OpenWater.ApiClient.Media
     
         /// <summary>Media Url</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; internal set; }
+        public string Url { get; set; }
     
     
     }
@@ -155,7 +155,7 @@ namespace OpenWater.ApiClient.Media
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateRequest 
     {
-        internal CreateRequest() { }
+        public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public CreateRequest(string fileUrl, string fileName)
@@ -166,11 +166,11 @@ namespace OpenWater.ApiClient.Media
     
         /// <summary>File url</summary>
         [Newtonsoft.Json.JsonProperty("fileUrl", Required = Newtonsoft.Json.Required.Always)]
-        public string FileUrl { get; internal set; }
+        public string FileUrl { get; set; }
     
         /// <summary>File name</summary>
         [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Always)]
-        public string FileName { get; internal set; }
+        public string FileName { get; set; }
     
     
     }
@@ -178,7 +178,7 @@ namespace OpenWater.ApiClient.Media
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateResponse 
     {
-        internal CreateResponse() { }
+        public CreateResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public CreateResponse(int mediaId, string url)
@@ -189,11 +189,11 @@ namespace OpenWater.ApiClient.Media
     
         /// <summary>Media id</summary>
         [Newtonsoft.Json.JsonProperty("mediaId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int MediaId { get; internal set; }
+        public int MediaId { get; set; }
     
         /// <summary>Media Url</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; internal set; }
+        public string Url { get; set; }
     
     
     }

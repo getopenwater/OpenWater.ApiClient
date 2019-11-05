@@ -137,7 +137,7 @@ namespace OpenWater.ApiClient.Judge
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ProgramProfileValuesResponse 
     {
-        internal ProgramProfileValuesResponse() { }
+        public ProgramProfileValuesResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public ProgramProfileValuesResponse(System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
@@ -147,7 +147,7 @@ namespace OpenWater.ApiClient.Judge
     
         /// <summary>Judge program profile form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; internal set; }
+        public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; set; }
     
     
     }

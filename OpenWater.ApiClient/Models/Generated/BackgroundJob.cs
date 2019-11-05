@@ -56,7 +56,7 @@ namespace OpenWater.ApiClient.BackgroundJob
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DetailsResponse 
     {
-        internal DetailsResponse() { }
+        public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public DetailsResponse(StateType jobState, string resultUrl = null)
@@ -68,11 +68,11 @@ namespace OpenWater.ApiClient.BackgroundJob
         /// <summary>Job state</summary>
         [Newtonsoft.Json.JsonProperty("jobState", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public StateType JobState { get; internal set; }
+        public StateType JobState { get; set; }
     
         /// <summary>Job result url</summary>
         [Newtonsoft.Json.JsonProperty("resultUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ResultUrl { get; internal set; }
+        public string ResultUrl { get; set; }
     
     
     }

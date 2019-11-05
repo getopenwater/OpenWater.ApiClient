@@ -137,7 +137,7 @@ namespace OpenWater.ApiClient.JudgeTeam
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateRequest 
     {
-        internal CreateRequest() { }
+        public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public CreateRequest(int roundId, string name)
@@ -148,11 +148,11 @@ namespace OpenWater.ApiClient.JudgeTeam
     
         /// <summary>Round id</summary>
         [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Always)]
-        public int RoundId { get; internal set; }
+        public int RoundId { get; set; }
     
         /// <summary>Name</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
-        public string Name { get; internal set; }
+        public string Name { get; set; }
     
     
     }
@@ -160,7 +160,7 @@ namespace OpenWater.ApiClient.JudgeTeam
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateResponse 
     {
-        internal CreateResponse() { }
+        public CreateResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public CreateResponse(int id)
@@ -170,7 +170,7 @@ namespace OpenWater.ApiClient.JudgeTeam
     
         /// <summary>Judge team id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; internal set; }
+        public int Id { get; set; }
     
     
     }

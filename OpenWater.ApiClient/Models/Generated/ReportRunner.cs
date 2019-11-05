@@ -137,7 +137,7 @@ namespace OpenWater.ApiClient.ReportRunner
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class RunRequest 
     {
-        internal RunRequest() { }
+        public RunRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public RunRequest(string outputFormat)
@@ -147,7 +147,7 @@ namespace OpenWater.ApiClient.ReportRunner
     
         /// <summary>Report output format (csv, xlsx, json)</summary>
         [Newtonsoft.Json.JsonProperty("outputFormat", Required = Newtonsoft.Json.Required.Always)]
-        public string OutputFormat { get; internal set; }
+        public string OutputFormat { get; set; }
     
     
     }
@@ -155,7 +155,7 @@ namespace OpenWater.ApiClient.ReportRunner
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class RunResponse 
     {
-        internal RunResponse() { }
+        public RunResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public RunResponse(int jobId)
@@ -165,7 +165,7 @@ namespace OpenWater.ApiClient.ReportRunner
     
         /// <summary>Report job id</summary>
         [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JobId { get; internal set; }
+        public int JobId { get; set; }
     
     
     }
