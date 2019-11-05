@@ -7,7 +7,6 @@ using NJsonSchema;
 using NJsonSchema.CodeGeneration.CSharp;
 using NSwag;
 using NSwag.CodeGeneration.CSharp;
-using NSwag.CodeGeneration.OperationNameGenerators;
 
 namespace OpenWater.ApiClient.ClientGenerator
 {
@@ -44,9 +43,9 @@ namespace OpenWater.ApiClient.ClientGenerator
                         TemplateDirectory = "Templates",
                         RequiredPropertiesMustBeDefined = true
                     },
-                    OperationNameGenerator = new SingleClientFromOperationIdOperationNameGenerator(),
+                    ParameterNameGenerator = new ParameterNameGenerator(),
                     ClientClassAccessModifier = "public sealed",
-                    ExcludedParameterNames = new[] { "X-ClientKey", "X-OrganizationCode", "X-ApiKey", "X-SuppressEmails" },
+                    ExcludedParameterNames = new[] { "X-ClientKey", "X-ApiKey" },
                     GenerateOptionalParameters = true,
                     ExceptionClass = apiExceptionClassName,
                     GenerateSyncMethods = true,
