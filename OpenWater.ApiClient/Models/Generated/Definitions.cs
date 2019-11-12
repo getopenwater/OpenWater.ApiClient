@@ -12,46 +12,130 @@ using OpenWater.ApiClient.Definitions;
 #pragma warning disable 1573 // Disable "CS1573 Parameter '...' has no matching param tag in the XML comment for ...
 #pragma warning disable 1591 // Disable "CS1591 Missing XML comment for publicly visible type or member ..."
 
-namespace OpenWater.ApiClient.Pagination
+namespace OpenWater.ApiClient.Definitions
 {
     using System = global::System;
     
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingInfo 
+    public enum SubmissionStatus
     {
-        public PagingInfo() { }
+        [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
+        NotStarted = 0,
     
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingInfo(int pageIndex, int pageSize, int totalCount, int numberOfPages, bool hasPreviousPage, bool hasNextPage)
-        {
-              PageIndex = @pageIndex;
-              PageSize = @pageSize;
-              TotalCount = @totalCount;
-              NumberOfPages = @numberOfPages;
-              HasPreviousPage = @hasPreviousPage;
-              HasNextPage = @hasNextPage;
-        }
+        [System.Runtime.Serialization.EnumMember(Value = @"Incomplete")]
+        Incomplete = 1,
     
-        [Newtonsoft.Json.JsonProperty("pageIndex", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int PageIndex { get; set; }
+        [System.Runtime.Serialization.EnumMember(Value = @"PendingApproval")]
+        PendingApproval = 2,
     
-        [Newtonsoft.Json.JsonProperty("pageSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int PageSize { get; set; }
+        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
+        Complete = 3,
     
-        [Newtonsoft.Json.JsonProperty("totalCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int TotalCount { get; set; }
+        [System.Runtime.Serialization.EnumMember(Value = @"Disapproved")]
+        Disapproved = 4,
     
-        [Newtonsoft.Json.JsonProperty("numberOfPages", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int NumberOfPages { get; set; }
+        [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
+        InCart = 5,
     
-        [Newtonsoft.Json.JsonProperty("hasPreviousPage", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool HasPreviousPage { get; set; }
+    }
     
-        [Newtonsoft.Json.JsonProperty("hasNextPage", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool HasNextPage { get; set; }
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum JudgeScorecardStatus
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
+        NotScored = 0,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"Started")]
+        Started = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
+        Complete = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum StateType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Undefined")]
+        Undefined = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Uncommited")]
+        Uncommited = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Awaiting")]
+        Awaiting = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Scheduled")]
+        Scheduled = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Enqueued")]
+        Enqueued = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Processing")]
+        Processing = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
+        Succeeded = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Deleted")]
+        Deleted = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
+        Failed = 8,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BillingLineItemTargetType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Coupon")]
+        Coupon = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationJudgement")]
+        ApplicationJudgement = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Submission")]
+        Submission = 3,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum PaymentMethod
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Check")]
+        Check = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OnSite")]
+        OnSite = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CreditCard")]
+        CreditCard = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"PayPalExpress")]
+        PayPalExpress = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"TouchNet")]
+        TouchNet = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ChasePaymentech")]
+        ChasePaymentech = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StripeJs")]
+        StripeJs = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"QuickPay")]
+        QuickPay = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"GlobalPay")]
+        GlobalPay = 9,
     
     }
     

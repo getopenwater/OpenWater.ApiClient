@@ -4,6 +4,8 @@
 // </auto-generated>
 //----------------------
 
+using OpenWater.ApiClient.Definitions;
+
 #pragma warning disable 108 // Disable "CS0108 '{derivedDto}.ToJson()' hides inherited member '{dtoBase}.ToJson()'. Use the new keyword if hiding was intended."
 #pragma warning disable 114 // Disable "CS0114 '{derivedDto}.RaisePropertyChanged(String)' hides inherited member 'dtoBase.RaisePropertyChanged(String)'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword."
 #pragma warning disable 472 // Disable "CS0472 The result of the expression is always 'false' since a value of type 'Int32' is never equal to 'null' of type 'Int32?'
@@ -173,7 +175,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Application.DetailsResponse CreateApplication(Application.CreateRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
+        public Application.DetailsResponse CreateApplication(Application.CreateRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateApplicationAsync(model, suppressFormValidation, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -186,7 +188,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Application.DetailsResponse> CreateApplicationAsync(Application.CreateRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Application.DetailsResponse> CreateApplicationAsync(Application.CreateRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications?");
@@ -345,7 +347,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateApplicationCategory(int applicationId, Application.UpdateApplicationCategoryRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void UpdateApplicationCategory(int applicationId, Application.UpdateApplicationCategoryRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await UpdateApplicationCategoryAsync(applicationId, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -358,7 +360,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateApplicationCategoryAsync(int applicationId, Application.UpdateApplicationCategoryRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateApplicationCategoryAsync(int applicationId, Application.UpdateApplicationCategoryRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -435,7 +437,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void ChangeFinalizedRoundSubmissionStatus(int applicationId, int roundId, Application.ChangeFinalizedRoundSubmissionStatusRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void ChangeFinalizedRoundSubmissionStatus(int applicationId, int roundId, Application.ChangeFinalizedRoundSubmissionStatusRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await ChangeFinalizedRoundSubmissionStatusAsync(applicationId, roundId, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -449,7 +451,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task ChangeFinalizedRoundSubmissionStatusAsync(int applicationId, int roundId, Application.ChangeFinalizedRoundSubmissionStatusRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ChangeFinalizedRoundSubmissionStatusAsync(int applicationId, int roundId, Application.ChangeFinalizedRoundSubmissionStatusRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -628,7 +630,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void AllowUserToUpdateFinalizedRoundSubmission(int applicationId, int roundId, Application.AllowUserToUpdateFinalizedRoundSubmissionRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void AllowUserToUpdateFinalizedRoundSubmission(int applicationId, int roundId, Application.AllowUserToUpdateFinalizedRoundSubmissionRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await AllowUserToUpdateFinalizedRoundSubmissionAsync(applicationId, roundId, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -642,7 +644,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task AllowUserToUpdateFinalizedRoundSubmissionAsync(int applicationId, int roundId, Application.AllowUserToUpdateFinalizedRoundSubmissionRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AllowUserToUpdateFinalizedRoundSubmissionAsync(int applicationId, int roundId, Application.AllowUserToUpdateFinalizedRoundSubmissionRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -723,7 +725,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void SetWinnerStatusForApplicationInRound(int applicationId, int roundId, Application.SetWinnerStatusForApplicationInRoundRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void SetWinnerStatusForApplicationInRound(int applicationId, int roundId, Application.SetWinnerStatusForApplicationInRoundRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await SetWinnerStatusForApplicationInRoundAsync(applicationId, roundId, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -737,7 +739,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task SetWinnerStatusForApplicationInRoundAsync(int applicationId, int roundId, Application.SetWinnerStatusForApplicationInRoundRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SetWinnerStatusForApplicationInRoundAsync(int applicationId, int roundId, Application.SetWinnerStatusForApplicationInRoundRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -818,7 +820,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void SetForwardingStatusForApplicationInRound(int applicationId, int roundId, Application.SetForwardingStatusForApplicationInRoundRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void SetForwardingStatusForApplicationInRound(int applicationId, int roundId, Application.SetForwardingStatusForApplicationInRoundRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await SetForwardingStatusForApplicationInRoundAsync(applicationId, roundId, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -832,7 +834,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task SetForwardingStatusForApplicationInRoundAsync(int applicationId, int roundId, Application.SetForwardingStatusForApplicationInRoundRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SetForwardingStatusForApplicationInRoundAsync(int applicationId, int roundId, Application.SetForwardingStatusForApplicationInRoundRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -913,7 +915,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateRoundSubmissionFormValues(int applicationId, Application.UpdateRoundSubmissionFormValuesRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
+        public void UpdateRoundSubmissionFormValues(int applicationId, Application.UpdateRoundSubmissionFormValuesRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await UpdateRoundSubmissionFormValuesAsync(applicationId, model, suppressFormValidation, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -927,7 +929,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateRoundSubmissionFormValuesAsync(int applicationId, Application.UpdateRoundSubmissionFormValuesRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateRoundSubmissionFormValuesAsync(int applicationId, Application.UpdateRoundSubmissionFormValuesRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -1008,7 +1010,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void CreateApplicationCollaborator(int applicationId, Collaborator.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void CreateApplicationCollaborator(int applicationId, Collaborator.CreateRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await CreateApplicationCollaboratorAsync(applicationId, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -1021,7 +1023,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task CreateApplicationCollaboratorAsync(int applicationId, Collaborator.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CreateApplicationCollaboratorAsync(int applicationId, Collaborator.CreateRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -1575,7 +1577,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateEvaluationForm(int id, Evaluation.UpdateEvaluationFormRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void UpdateEvaluationForm(int id, Evaluation.UpdateEvaluationFormRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await UpdateEvaluationFormAsync(id, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -1588,7 +1590,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateEvaluationFormAsync(int id, Evaluation.UpdateEvaluationFormRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateEvaluationFormAsync(int id, Evaluation.UpdateEvaluationFormRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -2136,6 +2138,96 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Processes a payment by check</summary>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Invoice.PayByCheckResponse ProcessPaymentByCheck(int invoiceId, Invoice.PayByCheckRequest model, string organizationCode = null, bool? suppressEmails = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await ProcessPaymentByCheckAsync(invoiceId, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Processes a payment by check</summary>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Invoice.PayByCheckResponse> ProcessPaymentByCheckAsync(int invoiceId, Invoice.PayByCheckRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (invoiceId == null)
+                throw new System.ArgumentNullException("invoiceId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/{invoiceId}/PayByCheck");
+            urlBuilder_.Replace("{invoiceId}", System.Uri.EscapeDataString(ConvertToString(invoiceId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    if (organizationCode != null)
+                        request_.Headers.TryAddWithoutValidation("X-OrganizationCode", ConvertToString(organizationCode, System.Globalization.CultureInfo.InvariantCulture));
+                    if (suppressEmails != null)
+                        request_.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(model, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PayByCheckResponse>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "") 
+                        {
+                            string responseText_ = ( response_.Content == null ) ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new OpenWaterApiException("A server side error occurred.", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(Invoice.PayByCheckResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
         /// <summary>Get list of judges who are assigned to the round</summary>
         /// <param name="roundId">Round Id</param>
         /// <param name="judgeFirstName">Judge first name</param>
@@ -2256,7 +2348,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void AssignJudgeToApplication(JudgeAssignment.AssignJudgeToApplicationRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void AssignJudgeToApplication(JudgeAssignment.AssignJudgeToApplicationRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await AssignJudgeToApplicationAsync(model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2268,7 +2360,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task AssignJudgeToApplicationAsync(JudgeAssignment.AssignJudgeToApplicationRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AssignJudgeToApplicationAsync(JudgeAssignment.AssignJudgeToApplicationRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/JudgeAssignments/Application");
@@ -2436,7 +2528,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void AssignJudgeToJudgeTeam(JudgeAssignment.AssignJudgeToJudgeTeamRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void AssignJudgeToJudgeTeam(JudgeAssignment.AssignJudgeToJudgeTeamRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await AssignJudgeToJudgeTeamAsync(model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2448,7 +2540,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task AssignJudgeToJudgeTeamAsync(JudgeAssignment.AssignJudgeToJudgeTeamRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AssignJudgeToJudgeTeamAsync(JudgeAssignment.AssignJudgeToJudgeTeamRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/JudgeAssignments/JudgeTeam");
@@ -2610,7 +2702,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundResponse ApplyBulkJudgeAssignmentRulesInRound(JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundResponse ApplyBulkJudgeAssignmentRulesInRound(JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await ApplyBulkJudgeAssignmentRulesInRoundAsync(model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2622,7 +2714,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundResponse> ApplyBulkJudgeAssignmentRulesInRoundAsync(JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundResponse> ApplyBulkJudgeAssignmentRulesInRoundAsync(JudgeAssignment.ApplyAllBulkJudgeAssignmentRulesInRoundRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/JudgeAssignments/AssignmentRules");
@@ -2979,7 +3071,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeTeam.CreateResponse CreateJudgeTeam(JudgeTeam.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public JudgeTeam.CreateResponse CreateJudgeTeam(JudgeTeam.CreateRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateJudgeTeamAsync(model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2991,7 +3083,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeTeam.CreateResponse> CreateJudgeTeamAsync(JudgeTeam.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JudgeTeam.CreateResponse> CreateJudgeTeamAsync(JudgeTeam.CreateRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/JudgeTeams");
@@ -3144,7 +3236,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Media.CreateResponse CreateMedia(Media.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public Media.CreateResponse CreateMedia(Media.CreateRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateMediaAsync(model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -3156,7 +3248,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Media.CreateResponse> CreateMediaAsync(Media.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Media.CreateResponse> CreateMediaAsync(Media.CreateRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Media");
@@ -3748,7 +3840,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public ReportRunner.RunResponse RunReport(int reportId, ReportRunner.RunRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public ReportRunner.RunResponse RunReport(int reportId, ReportRunner.RunRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await RunReportAsync(reportId, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -3761,7 +3853,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<ReportRunner.RunResponse> RunReportAsync(int reportId, ReportRunner.RunRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReportRunner.RunResponse> RunReportAsync(int reportId, ReportRunner.RunRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (reportId == null)
                 throw new System.ArgumentNullException("reportId");
@@ -3918,7 +4010,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void CreateSessionChair(SessionChair.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void CreateSessionChair(SessionChair.CreateRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await CreateSessionChairAsync(model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -3930,7 +4022,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task CreateSessionChairAsync(SessionChair.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CreateSessionChairAsync(SessionChair.CreateRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/SessionChairs");
@@ -4193,7 +4285,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Session.DetailsResponse CreateSession(Session.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public Session.DetailsResponse CreateSession(Session.CreateRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateSessionAsync(model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4205,7 +4297,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Session.DetailsResponse> CreateSessionAsync(Session.CreateRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Session.DetailsResponse> CreateSessionAsync(Session.CreateRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Sessions");
@@ -4444,7 +4536,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateSessionFormValues(int sessionId, Session.UpdateSessionFormValuesRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
+        public void UpdateSessionFormValues(int sessionId, Session.UpdateSessionFormValuesRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await UpdateSessionFormValuesAsync(sessionId, model, suppressFormValidation, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4458,7 +4550,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateSessionFormValuesAsync(int sessionId, Session.UpdateSessionFormValuesRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateSessionFormValuesAsync(int sessionId, Session.UpdateSessionFormValuesRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (sessionId == null)
                 throw new System.ArgumentNullException("sessionId");
@@ -4678,7 +4770,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public User.DetailsResponse CreateUser(User.CreateRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
+        public User.DetailsResponse CreateUser(User.CreateRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateUserAsync(model, suppressFormValidation, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4691,7 +4783,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User.DetailsResponse> CreateUserAsync(User.CreateRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User.DetailsResponse> CreateUserAsync(User.CreateRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users?");
@@ -4850,7 +4942,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateUser(int id, User.UpdateRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public void UpdateUser(int id, User.UpdateRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await UpdateUserAsync(id, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4863,7 +4955,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateUserAsync(int id, User.UpdateRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateUserAsync(int id, User.UpdateRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4940,7 +5032,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public void UpdateUserProfileFormValues(int userId, User.UpdateUserProfileFormValuesRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
+        public void UpdateUserProfileFormValues(int userId, User.UpdateUserProfileFormValuesRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null)
         {
             System.Threading.Tasks.Task.Run(async () => await UpdateUserProfileFormValuesAsync(userId, model, suppressFormValidation, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4954,7 +5046,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateUserProfileFormValuesAsync(int userId, User.UpdateUserProfileFormValuesRequest model = null, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateUserProfileFormValuesAsync(int userId, User.UpdateUserProfileFormValuesRequest model, bool? suppressFormValidation = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (userId == null)
                 throw new System.ArgumentNullException("userId");
@@ -5035,7 +5127,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public User.GenerateUserSsoTokenResponse GenerateUserSsoToken(int userId, User.GenerateUserSsoTokenRequest model = null, string organizationCode = null, bool? suppressEmails = null)
+        public User.GenerateUserSsoTokenResponse GenerateUserSsoToken(int userId, User.GenerateUserSsoTokenRequest model, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GenerateUserSsoTokenAsync(userId, model, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -5048,7 +5140,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User.GenerateUserSsoTokenResponse> GenerateUserSsoTokenAsync(int userId, User.GenerateUserSsoTokenRequest model = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<User.GenerateUserSsoTokenResponse> GenerateUserSsoTokenAsync(int userId, User.GenerateUserSsoTokenRequest model, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (userId == null)
                 throw new System.ArgumentNullException("userId");
