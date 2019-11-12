@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using NJsonSchema;
 using NJsonSchema.CodeGeneration.CSharp;
 using NSwag;
 using NSwag.CodeGeneration.CSharp;
+using NSwag.CodeGeneration.OperationNameGenerators;
 
 namespace OpenWater.ApiClient.ClientGenerator
 {
@@ -28,6 +30,8 @@ namespace OpenWater.ApiClient.ClientGenerator
 
             GenerateModels(apiDocument, generatedModelsPath, apiClientNamespace, CSharpClientGeneratorSettingsCreator, typeNameHintsModelWithNamespaceInfos);
 
+            GenerateDefinitions(apiDocument, generatedModelsPath, apiClientNamespace, CSharpClientGeneratorSettingsCreator, typeNameHintsModelWithNamespaceInfos);
+
             Console.Write("Press any key to exit...");
             Console.ReadKey(true);
 
@@ -43,7 +47,8 @@ namespace OpenWater.ApiClient.ClientGenerator
                         TemplateDirectory = "Templates",
                         RequiredPropertiesMustBeDefined = true
                     },
-                    ParameterNameGenerator = new ParameterNameGenerator(),
+                    AdditionalNamespaceUsages = new[] { "OpenWater.ApiClient.Definitions" },
+                    OperationNameGenerator = new SingleClientFromOperationIdOperationNameGenerator(),
                     ClientClassAccessModifier = "public sealed",
                     ExcludedParameterNames = new[] { "X-ClientKey", "X-ApiKey" },
                     GenerateOptionalParameters = true,
@@ -56,7 +61,7 @@ namespace OpenWater.ApiClient.ClientGenerator
 
         private static void GenerateClient(OpenApiDocument apiDocument, string outputDirectory, string apiClientClassName, string generatedClientFilePostfix, Func<CSharpClientGeneratorSettings> cSharpClientGeneratorSettingsCreator, out IReadOnlyDictionary<string, ModelNameWithNamespaceInfo> typeNameHintsModelWithNamespaceInfos)
         {
-            Console.Write("Generating Api Client...");
+            Console.Write(InsertSpaces("Generating Api Client..."));
 
             var modelWithNamespaceTypeNameGenerator = new ModelWithNamespaceTypeNameGenerator();
 
@@ -111,13 +116,21 @@ namespace OpenWater.ApiClient.ClientGenerator
 
         private static void GenerateModelsForNamespace(OpenApiDocument apiDocument, string outputDirectory, string rootNamespace, string currentNamespace, Func<CSharpClientGeneratorSettings> cSharpClientGeneratorSettingsCreator, IReadOnlyDictionary<string, ModelNameWithNamespaceInfo> typeNameHintsModelWithNamespaceInfos)
         {
-            Console.Write($"{currentNamespace}... ");
+            if (string.IsNullOrEmpty(currentNamespace))
+                currentNamespace = "Definitions";
+
+            Console.Write(InsertSpaces($"{currentNamespace}... "));
+
+            var excludedTypeModelList = typeNameHintsModelWithNamespaceInfos.Values.Where(i => i.ModelNamespace != currentNamespace).Select(i => i.FullName).ToList();
+
+            if (currentNamespace != "Definitions")
+                excludedTypeModelList.AddRange(apiDocument.Definitions.Select(x => x.Key));
 
             var modelWithNamespaceTypeNameGenerator = new NamespaceRelatedModelTypeNameGenerator(typeNameHintsModelWithNamespaceInfos, currentNamespace);
 
             var settings = cSharpClientGeneratorSettingsCreator();
             settings.CSharpGeneratorSettings.Namespace = $"{rootNamespace}.{currentNamespace}";
-            settings.CSharpGeneratorSettings.ExcludedTypeNames = typeNameHintsModelWithNamespaceInfos.Values.Where(i => i.ModelNamespace != currentNamespace).Select(i => i.FullName).ToArray();
+            settings.CSharpGeneratorSettings.ExcludedTypeNames = excludedTypeModelList.ToArray();
             settings.CSharpGeneratorSettings.TypeNameGenerator = modelWithNamespaceTypeNameGenerator;
 
             var generator = new CSharpClientGenerator(apiDocument, settings);
@@ -143,6 +156,52 @@ namespace OpenWater.ApiClient.ClientGenerator
                 throw new DirectoryNotFoundException("Failed to resolve api client project directory.");
 
             return apiClientProjectPath;
+        }
+
+        private static void GenerateDefinitions(OpenApiDocument apiDocument, string outputDirectory, string rootNamespace, Func<CSharpClientGeneratorSettings> cSharpClientGeneratorSettingsCreator, IReadOnlyDictionary<string, ModelNameWithNamespaceInfo> typeNameHintsModelWithNamespaceInfos)
+        {
+            var excluded = typeNameHintsModelWithNamespaceInfos.Values.Select(m => m.FullName).ToList();
+            excluded.AddRange(apiDocument.Paths.Select(p => p.Key));
+
+            var settings = cSharpClientGeneratorSettingsCreator();
+            settings.CSharpGeneratorSettings.Namespace = $"{rootNamespace}.Definitions";
+            settings.CSharpGeneratorSettings.ExcludedTypeNames = excluded.ToArray();
+
+            var generator = new CSharpClientGenerator(apiDocument, settings);
+
+            File.WriteAllText(Path.Combine(outputDirectory, "Definitions.cs"), generator.GenerateFile());
+
+            Console.WriteLine("Done");
+
+            Console.WriteLine("Generating Api Definitions");
+
+            GenerateModelsForNamespace(apiDocument, outputDirectory, rootNamespace, "", ModelInNamespaceSettingsCreator, typeNameHintsModelWithNamespaceInfos);
+
+            CSharpClientGeneratorSettings ModelInNamespaceSettingsCreator()
+            {
+                var cSharpClientGeneratorSettings = cSharpClientGeneratorSettingsCreator();
+
+                cSharpClientGeneratorSettings.GenerateDtoTypes = true;
+                cSharpClientGeneratorSettings.GenerateClientClasses = false;
+
+                return cSharpClientGeneratorSettings;
+            }
+        }
+
+        private static string InsertSpaces(string text)
+        {
+            const int spaceCount = 30;
+
+            var y = spaceCount - text.Length;
+
+            var sb = new StringBuilder(text);
+
+            for (var i = 0; i < y; i++)
+            {
+                sb.Append(" ");
+            }
+
+            return sb.ToString();
         }
     }
 }
