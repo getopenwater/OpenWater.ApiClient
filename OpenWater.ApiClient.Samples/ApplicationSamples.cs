@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.Application;
+using OpenWater.ApiClient.Definitions;
 using OpenWater.ApiClient.FieldValues;
-using SubmissionStatus = OpenWater.ApiClient.Application.SubmissionStatus;
 
 namespace OpenWater.ApiClient.Samples
 {

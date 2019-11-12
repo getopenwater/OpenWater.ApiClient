@@ -2,8 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.BackgroundJob;
+using OpenWater.ApiClient.Definitions;
 using OpenWater.ApiClient.ReportRunner;
-using StateType = OpenWater.ApiClient.BackgroundJob.StateType;
 
 namespace OpenWater.ApiClient.Samples
 {
