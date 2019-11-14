@@ -47,6 +47,7 @@ namespace OpenWater.ApiClient.ClientGenerator
                         TemplateDirectory = "Templates",
                         RequiredPropertiesMustBeDefined = true
                     },
+                    ParameterNameGenerator = new ParameterNameGenerator(),
                     AdditionalNamespaceUsages = new[] { "OpenWater.ApiClient.Definitions" },
                     OperationNameGenerator = new SingleClientFromOperationIdOperationNameGenerator(),
                     ClientClassAccessModifier = "public sealed",
@@ -116,15 +117,17 @@ namespace OpenWater.ApiClient.ClientGenerator
 
         private static void GenerateModelsForNamespace(OpenApiDocument apiDocument, string outputDirectory, string rootNamespace, string currentNamespace, Func<CSharpClientGeneratorSettings> cSharpClientGeneratorSettingsCreator, IReadOnlyDictionary<string, ModelNameWithNamespaceInfo> typeNameHintsModelWithNamespaceInfos)
         {
+            const string definitions = "Definitions";
+
             if (string.IsNullOrEmpty(currentNamespace))
-                currentNamespace = "Definitions";
+                currentNamespace = definitions;
 
             Console.Write(InsertSpaces($"{currentNamespace}... "));
 
             var excludedTypeModelList = typeNameHintsModelWithNamespaceInfos.Values.Where(i => i.ModelNamespace != currentNamespace).Select(i => i.FullName).ToList();
 
-            if (currentNamespace != "Definitions")
-                excludedTypeModelList.AddRange(apiDocument.Definitions.Select(x => x.Key));
+            if (currentNamespace != definitions)
+                excludedTypeModelList.AddRange(apiDocument.Definitions.Select(x => x.Key).ToArray());
 
             var modelWithNamespaceTypeNameGenerator = new NamespaceRelatedModelTypeNameGenerator(typeNameHintsModelWithNamespaceInfos, currentNamespace);
 
