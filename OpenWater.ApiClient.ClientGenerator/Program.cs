@@ -23,7 +23,12 @@ namespace OpenWater.ApiClient.ClientGenerator
             var outputPath = GetApiClientProjectDirectoryPath();
             var generatedModelsPath = Path.Combine(outputPath, "Models", "Generated");
 
+#if DEBUG
+            var apiDocument = OpenApiDocument.FromUrlAsync("http://localhost:11100/swagger/v2/swagger.json").Result;
+#else
             var apiDocument = OpenApiDocument.FromUrlAsync("https://api.secure-platform.com/swagger/v2/swagger.json").Result;
+#endif
+
             apiDocument.SchemaType = SchemaType.OpenApi3;
 
             GenerateClient(apiDocument, outputPath, apiClientClassName, generatedClientFilePostfix, CSharpClientGeneratorSettingsCreator, out var typeNameHintsModelWithNamespaceInfos);
@@ -136,7 +141,7 @@ namespace OpenWater.ApiClient.ClientGenerator
             settings.CSharpGeneratorSettings.ExcludedTypeNames = excludedTypeModelList.ToArray();
             settings.CSharpGeneratorSettings.TypeNameGenerator = modelWithNamespaceTypeNameGenerator;
 
-            var generator = new CSharpClientGenerator(apiDocument, settings);
+            var generator = new CustomCSharpClientGenerator(apiDocument, settings) { IsDefinitionGeneration = currentNamespace == definitions };
 
             var generatedModelsFile = generator.GenerateFile();
 
@@ -149,10 +154,10 @@ namespace OpenWater.ApiClient.ClientGenerator
         private static string GetApiClientProjectDirectoryPath()
         {
             var executingAssembly = Assembly.GetExecutingAssembly();
-            var projectRootDirectoryName = executingAssembly.EntryPoint.DeclaringType.Namespace;
+            var projectRootDirectoryName = executingAssembly.EntryPoint.DeclaringType?.Namespace;
             var executingAssemblyPath = executingAssembly.Location;
 
-            var solutionRootDirectoryPath = executingAssemblyPath.Substring(0, executingAssemblyPath.IndexOf($@"{Path.DirectorySeparatorChar}{projectRootDirectoryName}{Path.DirectorySeparatorChar}"));
+            var solutionRootDirectoryPath = executingAssemblyPath.Substring(0, executingAssemblyPath.IndexOf($@"{Path.DirectorySeparatorChar}{projectRootDirectoryName}{Path.DirectorySeparatorChar}", StringComparison.Ordinal));
             var apiClientProjectPath = Path.Combine(solutionRootDirectoryPath, "OpenWater.ApiClient");
 
             if (!Directory.Exists(apiClientProjectPath))
@@ -170,14 +175,9 @@ namespace OpenWater.ApiClient.ClientGenerator
             settings.CSharpGeneratorSettings.Namespace = $"{rootNamespace}.Definitions";
             settings.CSharpGeneratorSettings.ExcludedTypeNames = excluded.ToArray();
 
-            var generator = new CSharpClientGenerator(apiDocument, settings);
-
-            File.WriteAllText(Path.Combine(outputDirectory, "Definitions.cs"), generator.GenerateFile());
-
             Console.WriteLine("Done");
 
             Console.WriteLine("Generating Api Definitions");
-
             GenerateModelsForNamespace(apiDocument, outputDirectory, rootNamespace, "", ModelInNamespaceSettingsCreator, typeNameHintsModelWithNamespaceInfos);
 
             CSharpClientGeneratorSettings ModelInNamespaceSettingsCreator()
