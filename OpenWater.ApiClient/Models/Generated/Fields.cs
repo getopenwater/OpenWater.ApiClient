@@ -129,7 +129,7 @@ namespace OpenWater.ApiClient.Fields
         public ApplicationNameFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationNameFieldModel(bool isOneTextField, string firstTitle, string secondTitle, ApplicationNameFieldModelTextLengthCountMode textLengthCountMode, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
+        public ApplicationNameFieldModel(bool isOneTextField, string firstTitle, string secondTitle, TextLengthCountMode textLengthCountMode, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
             : base(alias, isDescriptionWysiwyg, hidden, required, visibilityCondition, name, description, sortOrder, customCssClass)
         {
               IsOneTextField = @isOneTextField;
@@ -151,7 +151,7 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ApplicationNameFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
+        public TextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinLength { get; set; }
@@ -248,7 +248,7 @@ namespace OpenWater.ApiClient.Fields
         public EmailFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public EmailFieldModel(bool confirmationRequired, EmailFieldModelTextLengthCountMode textLengthCountMode, EmailFieldModelSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
+        public EmailFieldModel(bool confirmationRequired, TextLengthCountMode textLengthCountMode, FieldSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
             : base(alias, isDescriptionWysiwyg, hidden, required, visibilityCondition, name, description, sortOrder, customCssClass)
         {
               ConfirmationRequired = @confirmationRequired;
@@ -263,7 +263,7 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EmailFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
+        public TextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinLength { get; set; }
@@ -273,7 +273,7 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EmailFieldModelSize Size { get; set; }
+        public FieldSize Size { get; set; }
     
     
     }
@@ -386,7 +386,7 @@ namespace OpenWater.ApiClient.Fields
         public MultilineTextFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public MultilineTextFieldModel(bool isWysiwyg, string allowedHtmlTags, MultilineTextFieldModelTextLengthCountMode textLengthCountMode, MultilineTextFieldModelSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
+        public MultilineTextFieldModel(bool isWysiwyg, string allowedHtmlTags, TextLengthCountMode textLengthCountMode, FieldSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
             : base(alias, isDescriptionWysiwyg, hidden, required, visibilityCondition, name, description, sortOrder, customCssClass)
         {
               IsWysiwyg = @isWysiwyg;
@@ -405,7 +405,7 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public MultilineTextFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
+        public TextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinLength { get; set; }
@@ -415,7 +415,7 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public MultilineTextFieldModelSize Size { get; set; }
+        public FieldSize Size { get; set; }
     
     
     }
@@ -540,7 +540,7 @@ namespace OpenWater.ApiClient.Fields
         public TextFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public TextFieldModel(string externalValidationUrl, bool required, bool hidden, bool isDescriptionWysiwyg, FieldVisibilityConditionModel visibilityCondition, TextFieldModelSize size, string alias, TextFieldModelTextLengthCountMode textLengthCountMode, string externalAutocompleteSourceUrl, bool allowAutocompleteFromExternalSource, int? minLength = null, string name = null, string description = null, bool? areOnlyExternalSourceValuesAllowed = null, int? sortOrder = null, string customCssClass = null, int? maxLength = null)
+        public TextFieldModel(string externalValidationUrl, bool required, bool hidden, bool isDescriptionWysiwyg, FieldVisibilityConditionModel visibilityCondition, FieldSize size, string alias, TextLengthCountMode textLengthCountMode, string externalAutocompleteSourceUrl, bool allowAutocompleteFromExternalSource, int? minLength = null, string name = null, string description = null, bool? areOnlyExternalSourceValuesAllowed = null, int? sortOrder = null, string customCssClass = null, int? maxLength = null)
             : base(alias, isDescriptionWysiwyg, hidden, required, visibilityCondition, name, description, sortOrder, customCssClass)
         {
               ExternalValidationUrl = @externalValidationUrl;
@@ -567,7 +567,7 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TextFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
+        public TextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinLength { get; set; }
@@ -577,7 +577,7 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TextFieldModelSize Size { get; set; }
+        public FieldSize Size { get; set; }
     
     
     }
@@ -588,7 +588,7 @@ namespace OpenWater.ApiClient.Fields
         public UrlFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public UrlFieldModel(UrlFieldModelTextLengthCountMode textLengthCountMode, UrlFieldModelSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
+        public UrlFieldModel(TextLengthCountMode textLengthCountMode, FieldSize size, string alias, bool isDescriptionWysiwyg, bool hidden, bool required, FieldVisibilityConditionModel visibilityCondition, int? minLength = null, int? maxLength = null, string name = null, string description = null, int? sortOrder = null, string customCssClass = null)
             : base(alias, isDescriptionWysiwyg, hidden, required, visibilityCondition, name, description, sortOrder, customCssClass)
         {
               TextLengthCountMode = @textLengthCountMode;
@@ -599,7 +599,7 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public UrlFieldModelTextLengthCountMode TextLengthCountMode { get; set; }
+        public TextLengthCountMode TextLengthCountMode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinLength { get; set; }
@@ -609,119 +609,8 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public UrlFieldModelSize Size { get; set; }
+        public FieldSize Size { get; set; }
     
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ApplicationNameFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum EmailFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum EmailFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum MultilineTextFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum MultilineTextFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum TextFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum TextFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum UrlFieldModelTextLengthCountMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum UrlFieldModelSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
     
     }
 
