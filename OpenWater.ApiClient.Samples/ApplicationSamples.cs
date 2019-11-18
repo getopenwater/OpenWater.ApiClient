@@ -39,7 +39,7 @@ namespace OpenWater.ApiClient.Samples
             var createRequest = new CreateRequest(programId, userId, "Application 42", string.Empty,
                 new List<FieldValueModelBase>(new[]
                 {
-                    new TextFieldValueModel("title", "Yet another application")
+                    new TextFieldValueModel("Yet another application", "title")
                 })
             );
 
@@ -72,7 +72,7 @@ namespace OpenWater.ApiClient.Samples
 
             var submissionRequest = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
             {
-                new TextFieldValueModel("title", "Updated Application")
+                new TextFieldValueModel("Updated Application", "title")
             });
 
             return ApiClient.UpdateRoundSubmissionFormValuesAsync(applicationId, submissionRequest);
@@ -88,7 +88,7 @@ namespace OpenWater.ApiClient.Samples
 
             var submissionRequest = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
             {
-                new TextFieldValueModel("title", "Updated Application")
+                new TextFieldValueModel("Updated Application", "title")
             });
 
             ApiClient.UpdateRoundSubmissionFormValues(applicationId, submissionRequest);
@@ -123,11 +123,11 @@ namespace OpenWater.ApiClient.Samples
             const int roundId = 14001;
             const string mediaUrl = "https://1xpmg62scz1o20xf79413zk4-wpengine.netdna-ssl.com/wp-content/uploads/2019/07/Mobile-Friendly-Abstract-Submissions.png";
             var mediaName = Path.GetFileNameWithoutExtension(mediaUrl);
-            var media = await ApiClient.CreateMediaAsync(new Media.CreateRequest(mediaName, mediaUrl));
+            var media = await ApiClient.CreateMediaAsync(new Media.CreateRequest(mediaUrl, mediaName));
 
             var submissionForm = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
             {
-                new FileUploadFieldValueModel("sampleForm", "caption", media.MediaId)
+                new FileUploadFieldValueModel("caption", "sampleForm", media.MediaId)
             });
 
             await ApiClient.UpdateRoundSubmissionFormValuesAsync(applicationId, submissionForm);

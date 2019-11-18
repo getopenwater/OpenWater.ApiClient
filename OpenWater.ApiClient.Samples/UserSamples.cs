@@ -41,7 +41,7 @@ namespace OpenWater.ApiClient.Samples
                 externalAccountData: "SampleData",
                 fieldValues: new List<FieldValueModelBase>
                 {
-                    new TextFieldValueModel("companyName", "Sample Company Name")
+                    new TextFieldValueModel("Sample Company Name", "companyName")
                 },
                 firstName: "John",
                 lastName: "Doe",
@@ -110,10 +110,10 @@ namespace OpenWater.ApiClient.Samples
                 externalAccountData: "SampleData",
                 fieldValues: new List<FieldValueModelBase>
                 {
-                    new TextFieldValueModel("firstName", "Dohn"),
-                    new TextFieldValueModel("lastName", "Jonny"),
-                    new TextFieldValueModel("companyName", "Sample Company Name"),
-                    new TextFieldValueModel("emailAddress", "jodoeV@example.com"),
+                    new TextFieldValueModel("Dohn","firstName"),
+                    new TextFieldValueModel("Jonny", "lastName"),
+                    new TextFieldValueModel("Sample Company Name", "companyName"),
+                    new TextFieldValueModel("jodoeV@example.com", "emailAddress")
                 },
                 firstName: "Dohn",
                 lastName: "Jonny",
@@ -126,7 +126,7 @@ namespace OpenWater.ApiClient.Samples
             var updateRequest = new UpdateUserProfileFormValuesRequest(
                 new List<FieldValueModelBase>(new FieldValueModelBase[]
                 {
-                        new TextFieldValueModel("companyName", "Yet Another Company Name"),
+                        new TextFieldValueModel("Yet Another Company Name", "companyName"),
                 })
             );
 
@@ -143,10 +143,10 @@ namespace OpenWater.ApiClient.Samples
                 externalAccountData: "SampleData",
                 fieldValues: new List<FieldValueModelBase>
                 {
-                    new TextFieldValueModel("firstName", "Dohn"),
-                    new TextFieldValueModel("lastName", "Jonny"),
-                    new TextFieldValueModel("companyName", "Sample Company Name"),
-                    new TextFieldValueModel("emailAddress", "jodoeV@example.com"),
+                    new TextFieldValueModel("Dohn", "firstName"),
+                    new TextFieldValueModel("Jonny", "lastName"),
+                    new TextFieldValueModel("Sample Company Name", "companyName"),
+                    new TextFieldValueModel("jodoeV@example.com", "emailAddress"),
                 },
                 firstName: "Dohn",
                 lastName: "Jonny",
@@ -159,7 +159,7 @@ namespace OpenWater.ApiClient.Samples
             var updateRequest = new UpdateUserProfileFormValuesRequest(
                 new List<FieldValueModelBase>(new FieldValueModelBase[]
                 {
-                    new TextFieldValueModel("companyName", "Yet Another Company Name"),
+                    new TextFieldValueModel("Yet Another Company Name", "companyName"),
                 })
             );
 
@@ -175,7 +175,7 @@ namespace OpenWater.ApiClient.Samples
 
             var profileRequest = new UpdateUserProfileFormValuesRequest(new List<FieldValueModelBase>
             {
-                new TextFieldValueModel("firstName", "Yet Another Submitter")
+                new TextFieldValueModel("Yet Another Submitter", "firstName")
             });
 
             return ApiClient.UpdateUserProfileFormValuesAsync(userId, profileRequest);
@@ -190,7 +190,7 @@ namespace OpenWater.ApiClient.Samples
 
             var profileRequest = new UpdateUserProfileFormValuesRequest(new List<FieldValueModelBase>
             {
-                new TextFieldValueModel("firstName", "Yet Another Submitter")
+                new TextFieldValueModel("Yet Another Submitter", "firstName")
             });
 
             ApiClient.UpdateUserProfileFormValues(userId, profileRequest);
