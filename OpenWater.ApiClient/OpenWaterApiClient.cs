@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Net.Http;
 using System.Text;
+using Newtonsoft.Json;
+using OpenWater.ApiClient.ContractResolvers;
 
 namespace OpenWater.ApiClient
 {
@@ -39,6 +41,11 @@ namespace OpenWater.ApiClient
                 if (!request.Headers.Contains("X-SuppressEmails"))
                     request.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(_suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
             }
+        }
+
+        partial void UpdateJsonSerializerSettings(JsonSerializerSettings settings)
+        {
+            settings.ContractResolver = new SafeContractResolver();
         }
 
         protected override void DisposeCore()
