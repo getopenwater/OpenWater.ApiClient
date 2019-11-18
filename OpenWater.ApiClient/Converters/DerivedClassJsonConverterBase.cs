@@ -40,7 +40,7 @@ namespace OpenWater.ApiClient.Converters
 
         public T Create(Type objectType)
         {
-            var objectConstructor = objectType.GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic).First();
+            var objectConstructor = objectType.GetConstructors(BindingFlags.Instance | BindingFlags.Public).First(c => !c.GetParameters().Any());
 
             return (T)objectConstructor.Invoke(null);
         }
