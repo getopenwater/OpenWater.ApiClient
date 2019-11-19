@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Evaluation
         public PagingResponseEvaluationListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseEvaluationListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<EvaluationListItemModel> items)
+        public PagingResponseEvaluationListItemModel(System.Collections.Generic.ICollection<EvaluationListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -45,7 +45,7 @@ namespace OpenWater.ApiClient.Evaluation
         public EvaluationListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public EvaluationListItemModel(int id, int programId, int roundId, int judgeUserId, int applicationId, string applicationCode, JudgeScorecardStatus status, double totalScore, System.DateTimeOffset startedAtUtc, System.DateTimeOffset evaluationDateUtc, System.DateTimeOffset? updatedAtUtc = null)
+        public EvaluationListItemModel(string applicationCode, int applicationId, System.DateTimeOffset evaluationDateUtc, int id, int judgeUserId, int programId, int roundId, System.DateTimeOffset startedAtUtc, JudgeScorecardStatus status, double totalScore, System.DateTimeOffset? updatedAtUtc = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -114,7 +114,7 @@ namespace OpenWater.ApiClient.Evaluation
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(int programId, int roundId, int judgeUserId, int applicationId, string applicationCode, double computedScore, System.DateTimeOffset evaluationDateUtc, System.Collections.Generic.ICollection<JudgeScoreFieldValueModel> inlineScoreFieldValues, System.Collections.Generic.ICollection<GeneralScoringAnswerModel> generalScoringAnswers, System.Collections.Generic.ICollection<JudgeTeamInfo> judgeTeams, int? rankScore = null, int? rankPosition = null)
+        public DetailsResponse(string applicationCode, int applicationId, double computedScore, System.DateTimeOffset evaluationDateUtc, System.Collections.Generic.ICollection<GeneralScoringAnswerModel> generalScoringAnswers, System.Collections.Generic.ICollection<JudgeScoreFieldValueModel> inlineScoreFieldValues, System.Collections.Generic.ICollection<JudgeTeamInfo> judgeTeams, int judgeUserId, int programId, int roundId, int? rankPosition = null, int? rankScore = null)
         {
               ProgramId = @programId;
               RoundId = @roundId;
@@ -269,7 +269,7 @@ namespace OpenWater.ApiClient.Evaluation
         public UpdateEvaluationFormRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public UpdateEvaluationFormRequest(bool finalizeScore, System.Collections.Generic.ICollection<JudgeScoreFieldValueModel> inlineScoreFieldValues, System.Collections.Generic.ICollection<GeneralScoringAnswerModel> generalScoringAnswers)
+        public UpdateEvaluationFormRequest(bool finalizeScore, System.Collections.Generic.ICollection<GeneralScoringAnswerModel> generalScoringAnswers, System.Collections.Generic.ICollection<JudgeScoreFieldValueModel> inlineScoreFieldValues)
         {
               FinalizeScore = @finalizeScore;
               InlineScoreFieldValues = @inlineScoreFieldValues;

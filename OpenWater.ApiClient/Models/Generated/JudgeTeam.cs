@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.JudgeTeam
         public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(int roundId, string name)
+        public CreateRequest(string name, int roundId)
         {
               RoundId = @roundId;
               Name = @name;

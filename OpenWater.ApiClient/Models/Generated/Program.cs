@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Program
         public PagingResponseProgramListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseProgramListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<ProgramListItemModel> items)
+        public PagingResponseProgramListItemModel(System.Collections.Generic.ICollection<ProgramListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -45,7 +45,7 @@ namespace OpenWater.ApiClient.Program
         public ProgramListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ProgramListItemModel(int id, string name, bool isArchived, bool enableSessions, bool enableScheduler, System.DateTimeOffset createdAtUtc, System.Collections.Generic.ICollection<RoundModel> rounds, string code = null, string tag = null)
+        public ProgramListItemModel(System.DateTimeOffset createdAtUtc, bool enableScheduler, bool enableSessions, int id, bool isArchived, string name, System.Collections.Generic.ICollection<RoundModel> rounds, string code = null, string tag = null)
         {
               Id = @id;
               Code = @code;
@@ -103,7 +103,7 @@ namespace OpenWater.ApiClient.Program
         public RoundModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundModel(int id, string name, bool isJudgingOnly, System.DateTimeOffset? submissionStartDateUtc = null, System.DateTimeOffset? submissionEndDateUtc = null, System.DateTimeOffset? judgingStartDateUtc = null, System.DateTimeOffset? judgingEndDateUtc = null)
+        public RoundModel(int id, bool isJudgingOnly, string name, System.DateTimeOffset? judgingEndDateUtc = null, System.DateTimeOffset? judgingStartDateUtc = null, System.DateTimeOffset? submissionEndDateUtc = null, System.DateTimeOffset? submissionStartDateUtc = null)
         {
               Id = @id;
               Name = @name;

@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Application
         public PagingResponseApplicationListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseApplicationListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<ApplicationListItemModel> items)
+        public PagingResponseApplicationListItemModel(System.Collections.Generic.ICollection<ApplicationListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -45,7 +45,7 @@ namespace OpenWater.ApiClient.Application
         public ApplicationListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationListItemModel(int id, int programId, System.DateTimeOffset lastModifiedUtc, string code = null, string name = null, string categoryName = null, string categoryFriendlyPath = null)
+        public ApplicationListItemModel(int id, System.DateTimeOffset lastModifiedUtc, int programId, string categoryFriendlyPath = null, string categoryName = null, string code = null, string name = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -93,7 +93,7 @@ namespace OpenWater.ApiClient.Application
         public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(int programId, int userId, string applicationName, string categoryCode, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
+        public CreateRequest(string applicationName, string categoryCode, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, int programId, int userId)
         {
               ProgramId = @programId;
               UserId = @userId;
@@ -131,7 +131,7 @@ namespace OpenWater.ApiClient.Application
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(int id, int programId, int userId, string downloadPdfAsApplicantUrl, string downloadPdfAsJudgeUrl, SchedulerInfo scheduler, System.Collections.Generic.ICollection<CollaboratorInfo> collaborators, System.Collections.Generic.ICollection<RoundSubmission> roundSubmissions, int? sessionId = null, string name = null, string code = null, string categoryCode = null, string categoryName = null, string categoryPath = null)
+        public DetailsResponse(System.Collections.Generic.ICollection<CollaboratorInfo> collaborators, string downloadPdfAsApplicantUrl, string downloadPdfAsJudgeUrl, int id, int programId, System.Collections.Generic.ICollection<RoundSubmission> roundSubmissions, SchedulerInfo scheduler, int userId, string categoryCode = null, string categoryName = null, string categoryPath = null, string code = null, string name = null, int? sessionId = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -214,7 +214,7 @@ namespace OpenWater.ApiClient.Application
         public SchedulerInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SchedulerInfo(System.DateTimeOffset applicationStartTimeUtc, System.DateTimeOffset applicationEndTimeUtc, int roomId, int timeSlotId)
+        public SchedulerInfo(System.DateTimeOffset applicationEndTimeUtc, System.DateTimeOffset applicationStartTimeUtc, int roomId, int timeSlotId)
         {
               ApplicationStartTimeUtc = @applicationStartTimeUtc;
               ApplicationEndTimeUtc = @applicationEndTimeUtc;
@@ -264,7 +264,7 @@ namespace OpenWater.ApiClient.Application
         public RoundSubmission() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundSubmission(int roundId, int numberOfTimesJudged, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues, System.Collections.Generic.ICollection<string> winnerTypes, string publicGalleryUrl, string adminUrlToSubmission, int numberOfAssignedJudges, bool isForwarded, System.DateTimeOffset startedAtUtc, string roundName, bool isWinner, bool? isPaid = null, string winnerNotes = null, bool? allowUserToMakeEdits = null, SubmissionStatus? status = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? updatedAtUtc = null, double? averageScore = null)
+        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, bool? isPaid = null, SubmissionStatus? status = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
         {
               RoundId = @roundId;
               RoundName = @roundName;
@@ -398,7 +398,7 @@ namespace OpenWater.ApiClient.Application
         public ChangeFinalizedRoundSubmissionStatusRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ChangeFinalizedRoundSubmissionStatusRequest(SubmissionStatus? status)
+        public ChangeFinalizedRoundSubmissionStatusRequest(SubmissionStatus? status = null)
         {
               Status = @status;
         }
@@ -481,7 +481,7 @@ namespace OpenWater.ApiClient.Application
         public UpdateRoundSubmissionFormValuesRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public UpdateRoundSubmissionFormValuesRequest(int roundId, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
+        public UpdateRoundSubmissionFormValuesRequest(System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, int roundId)
         {
               RoundId = @roundId;
               FieldValues = @fieldValues;

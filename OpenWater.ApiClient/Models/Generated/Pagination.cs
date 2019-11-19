@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Pagination
         public PagingInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingInfo(int pageIndex, int pageSize, int totalCount, int numberOfPages, bool hasPreviousPage, bool hasNextPage)
+        public PagingInfo(bool hasNextPage, bool hasPreviousPage, int numberOfPages, int pageIndex, int pageSize, int totalCount)
         {
               PageIndex = @pageIndex;
               PageSize = @pageSize;

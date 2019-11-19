@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.User
         public PagingResponseUserListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseUserListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<UserListItemModel> items)
+        public PagingResponseUserListItemModel(System.Collections.Generic.ICollection<UserListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -45,7 +45,7 @@ namespace OpenWater.ApiClient.User
         public UserListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public UserListItemModel(int id, string email, string firstName, string lastName, System.DateTimeOffset createdAtUtc, System.DateTimeOffset lastModifiedAtUtc, string thirdPartyUniqueId = null, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null)
+        public UserListItemModel(System.DateTimeOffset createdAtUtc, string email, string firstName, int id, System.DateTimeOffset lastModifiedAtUtc, string lastName, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null, string thirdPartyUniqueId = null)
         {
               Id = @id;
               Email = @email;
@@ -103,7 +103,7 @@ namespace OpenWater.ApiClient.User
         public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(string firstName, string lastName, string email, string password, string thirdPartyUniqueId, string externalAccountData, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
+        public CreateRequest(string email, string externalAccountData, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, string lastName, string password, string thirdPartyUniqueId)
         {
               FirstName = @firstName;
               LastName = @lastName;
@@ -151,7 +151,7 @@ namespace OpenWater.ApiClient.User
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(int id, string email, string firstName, string lastName, bool isApplicant, bool isJudge, bool isSessionChair, System.DateTimeOffset createdAtUtc, System.DateTimeOffset lastModifiedAtUtc, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string thirdPartyUniqueId = null, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null)
+        public DetailsResponse(System.DateTimeOffset createdAtUtc, string email, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, int id, bool isApplicant, bool isJudge, bool isSessionChair, System.DateTimeOffset lastModifiedAtUtc, string lastName, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null, string thirdPartyUniqueId = null)
         {
               Id = @id;
               Email = @email;
@@ -229,7 +229,7 @@ namespace OpenWater.ApiClient.User
         public UpdateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public UpdateRequest(string firstName, string lastName, string email, string password, string thirdPartyUniqueId, string externalAuthData)
+        public UpdateRequest(string email, string externalAuthData, string firstName, string lastName, string password, string thirdPartyUniqueId)
         {
               FirstName = @firstName;
               LastName = @lastName;
@@ -308,7 +308,7 @@ namespace OpenWater.ApiClient.User
         public GenerateUserSsoTokenResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public GenerateUserSsoTokenResponse(System.Guid ssoToken, string singleSignOnUrl)
+        public GenerateUserSsoTokenResponse(string singleSignOnUrl, System.Guid ssoToken)
         {
               SsoToken = @ssoToken;
               SingleSignOnUrl = @singleSignOnUrl;

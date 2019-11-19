@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.DeletedApplication
         public PagingResponseDeletedApplicationListItem() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseDeletedApplicationListItem(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<DeletedApplicationListItem> items)
+        public PagingResponseDeletedApplicationListItem(System.Collections.Generic.ICollection<DeletedApplicationListItem> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -45,7 +45,7 @@ namespace OpenWater.ApiClient.DeletedApplication
         public DeletedApplicationListItem() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DeletedApplicationListItem(int id, int programId, int userId, string email, string firstName, string lastName, System.DateTimeOffset deletedAtUtc, string applicationCode = null, string applicationName = null)
+        public DeletedApplicationListItem(System.DateTimeOffset deletedAtUtc, string email, string firstName, int id, string lastName, int programId, int userId, string applicationCode = null, string applicationName = null)
         {
               Id = @id;
               ProgramId = @programId;

@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Session
         public PagingResponseSessionListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseSessionListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<SessionListItemModel> items)
+        public PagingResponseSessionListItemModel(System.Collections.Generic.ICollection<SessionListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -45,7 +45,7 @@ namespace OpenWater.ApiClient.Session
         public SessionListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SessionListItemModel(int id, int programId, string name, int applicationItemCount, int otherTimeItemCount, int totalSessionItemCount)
+        public SessionListItemModel(int applicationItemCount, int id, string name, int otherTimeItemCount, int programId, int totalSessionItemCount)
         {
               Id = @id;
               ProgramId = @programId;
@@ -89,7 +89,7 @@ namespace OpenWater.ApiClient.Session
         public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(int programId, int typeId, string name, System.Collections.Generic.ICollection<int> chairUserIds, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
+        public CreateRequest(System.Collections.Generic.ICollection<int> chairUserIds, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string name, int programId, int typeId)
         {
               ProgramId = @programId;
               TypeId = @typeId;
@@ -127,7 +127,7 @@ namespace OpenWater.ApiClient.Session
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(int id, int programId, int typeId, string name, System.Collections.Generic.ICollection<SessionChairInfo> chairs, System.Collections.Generic.ICollection<SessionItemInfo> items, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues)
+        public DetailsResponse(System.Collections.Generic.ICollection<SessionChairInfo> chairs, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, int id, System.Collections.Generic.ICollection<SessionItemInfo> items, string name, int programId, int typeId)
         {
               Id = @id;
               ProgramId = @programId;
@@ -179,7 +179,7 @@ namespace OpenWater.ApiClient.Session
         public SessionChairInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SessionChairInfo(int id, string email, bool isPrimary)
+        public SessionChairInfo(string email, int id, bool isPrimary)
         {
               Id = @id;
               Email = @email;
@@ -204,7 +204,7 @@ namespace OpenWater.ApiClient.Session
         public SessionItemInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SessionItemInfo(int sortOrder, int? applicationId = null, int? customSessionItemTypeId = null, string customSessionItemTypeDescription = null, int? durationInMinutes = null)
+        public SessionItemInfo(int sortOrder, int? applicationId = null, string customSessionItemTypeDescription = null, int? customSessionItemTypeId = null, int? durationInMinutes = null)
         {
               ApplicationId = @applicationId;
               CustomSessionItemTypeId = @customSessionItemTypeId;

@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Collaborator
         public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(int userId, bool isPrimary)
+        public CreateRequest(bool isPrimary, int userId)
         {
               UserId = @userId;
               IsPrimary = @isPrimary;

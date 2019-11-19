@@ -44,7 +44,7 @@ namespace OpenWater.ApiClient.FieldValues
         public AddressFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public AddressFieldValueModel(string countryCode, string city, string state, string zip, string street, string line2, string alias)
+        public AddressFieldValueModel(string alias, string city, string countryCode, string line2, string state, string street, string zip)
             : base(alias)
         {
               CountryCode = @countryCode;
@@ -82,7 +82,7 @@ namespace OpenWater.ApiClient.FieldValues
         public ApplicationCategoryFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationCategoryFieldValueModel(System.Collections.Generic.ICollection<int> selectedPath, string alias)
+        public ApplicationCategoryFieldValueModel(string alias, System.Collections.Generic.ICollection<int> selectedPath)
             : base(alias)
         {
               SelectedPath = @selectedPath;
@@ -100,7 +100,7 @@ namespace OpenWater.ApiClient.FieldValues
         public ApplicationNameFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationNameFieldValueModel(string firstValue, string secondValue, string alias)
+        public ApplicationNameFieldValueModel(string alias, string firstValue, string secondValue)
             : base(alias)
         {
               FirstValue = @firstValue;
@@ -122,7 +122,7 @@ namespace OpenWater.ApiClient.FieldValues
         public CheckboxListFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CheckboxListFieldValueModel(System.Collections.Generic.ICollection<Form.ListValue> selectedValues, string alias)
+        public CheckboxListFieldValueModel(string alias, System.Collections.Generic.ICollection<Form.ListValue> selectedValues)
             : base(alias)
         {
               SelectedValues = @selectedValues;
@@ -158,7 +158,7 @@ namespace OpenWater.ApiClient.FieldValues
         public DigitalSignatureFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DigitalSignatureFieldValueModel(string value, string alias)
+        public DigitalSignatureFieldValueModel(string alias, string value)
             : base(alias)
         {
               Value = @value;
@@ -176,7 +176,7 @@ namespace OpenWater.ApiClient.FieldValues
         public FileUploadFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public FileUploadFieldValueModel(string caption, string alias, int? mediaId = null)
+        public FileUploadFieldValueModel(string alias, string caption, int? mediaId = null)
             : base(alias)
         {
               MediaId = @mediaId;
@@ -198,7 +198,7 @@ namespace OpenWater.ApiClient.FieldValues
         public ImisNumberFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ImisNumberFieldValueModel(string value, string result, string alias)
+        public ImisNumberFieldValueModel(string alias, string result, string value)
             : base(alias)
         {
               Value = @value;
@@ -220,7 +220,7 @@ namespace OpenWater.ApiClient.FieldValues
         public LetterOfRecommendationFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public LetterOfRecommendationFieldValueModel(string fullName, string email, System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, string alias, System.Guid? sentHash = null, System.DateTimeOffset? reminderEmailLastSentAt = null, System.DateTimeOffset? receivedAt = null)
+        public LetterOfRecommendationFieldValueModel(string alias, string email, System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, string fullName, System.DateTimeOffset? receivedAt = null, System.DateTimeOffset? reminderEmailLastSentAt = null, System.Guid? sentHash = null)
             : base(alias)
         {
               FullName = @fullName;
@@ -258,7 +258,7 @@ namespace OpenWater.ApiClient.FieldValues
         public ListFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ListFieldValueModel(Form.ListValue selectedValue, string alias)
+        public ListFieldValueModel(string alias, Form.ListValue selectedValue)
             : base(alias)
         {
               SelectedValue = @selectedValue;
@@ -294,7 +294,7 @@ namespace OpenWater.ApiClient.FieldValues
         public SessionNameFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SessionNameFieldValueModel(string value, string alias)
+        public SessionNameFieldValueModel(string alias, string value)
             : base(alias)
         {
               Value = @value;
@@ -312,7 +312,7 @@ namespace OpenWater.ApiClient.FieldValues
         public TableFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public TableFieldValueModel(System.Collections.Generic.ICollection<RowModel> rows, string alias)
+        public TableFieldValueModel(string alias, System.Collections.Generic.ICollection<RowModel> rows)
             : base(alias)
         {
               Rows = @rows;
@@ -330,7 +330,7 @@ namespace OpenWater.ApiClient.FieldValues
         public RowModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RowModel(int sortOrder, System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues)
+        public RowModel(System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, int sortOrder)
         {
               SortOrder = @sortOrder;
               FieldValues = @fieldValues;
@@ -351,7 +351,7 @@ namespace OpenWater.ApiClient.FieldValues
         public TextFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public TextFieldValueModel(string value, string alias)
+        public TextFieldValueModel(string alias, string value)
             : base(alias)
         {
               Value = @value;
@@ -369,7 +369,7 @@ namespace OpenWater.ApiClient.FieldValues
         public WysiwygFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public WysiwygFieldValueModel(string value, string alias)
+        public WysiwygFieldValueModel(string alias, string value)
             : base(alias)
         {
               Value = @value;

@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
         public PagingResponseJudgeListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseJudgeListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<JudgeListItemModel> items)
+        public PagingResponseJudgeListItemModel(System.Collections.Generic.ICollection<JudgeListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -45,7 +45,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
         public JudgeListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public JudgeListItemModel(int userId, string firstName, string lastName, string email)
+        public JudgeListItemModel(string email, string firstName, string lastName, int userId)
         {
               UserId = @userId;
               FirstName = @firstName;
@@ -106,7 +106,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
         public AssignJudgeToJudgeTeamRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public AssignJudgeToJudgeTeamRequest(int judgeUserId, int judgeTeamId)
+        public AssignJudgeToJudgeTeamRequest(int judgeTeamId, int judgeUserId)
         {
               JudgeUserId = @judgeUserId;
               JudgeTeamId = @judgeTeamId;

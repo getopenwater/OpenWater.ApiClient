@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Invoice
         public PagingResponseInvoiceListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseInvoiceListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<InvoiceListItemModel> items)
+        public PagingResponseInvoiceListItemModel(System.Collections.Generic.ICollection<InvoiceListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -45,7 +45,7 @@ namespace OpenWater.ApiClient.Invoice
         public InvoiceListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public InvoiceListItemModel(int id, int programId, System.DateTimeOffset createdAtUtc, System.DateTimeOffset mostRecentTransactionDateUtc, string programCode = null, string thirdPartyCorporateId = null)
+        public InvoiceListItemModel(System.DateTimeOffset createdAtUtc, int id, System.DateTimeOffset mostRecentTransactionDateUtc, int programId, string programCode = null, string thirdPartyCorporateId = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -88,7 +88,7 @@ namespace OpenWater.ApiClient.Invoice
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(int id, int programId, int userId, System.DateTimeOffset createdAtUtc, System.DateTimeOffset mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<BillingLineItemModel> billingLineItems, System.Collections.Generic.ICollection<PaymentModel> payments, System.Collections.Generic.ICollection<RefundModel> refunds, string programCode = null, string thirdPartyCorporateId = null)
+        public DetailsResponse(System.Collections.Generic.ICollection<BillingLineItemModel> billingLineItems, System.DateTimeOffset createdAtUtc, int id, System.DateTimeOffset mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<PaymentModel> payments, int programId, System.Collections.Generic.ICollection<RefundModel> refunds, int userId, string programCode = null, string thirdPartyCorporateId = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -151,7 +151,7 @@ namespace OpenWater.ApiClient.Invoice
         public BillingLineItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemModel(int id, double amount, bool isVat, bool isManualAdjustment, string notes = null, string details = null, BillingLineItemTargetType? targetType = null)
+        public BillingLineItemModel(double amount, int id, bool isManualAdjustment, bool isVat, string details = null, string notes = null, BillingLineItemTargetType? targetType = null)
         {
               Id = @id;
               Amount = @amount;
@@ -193,7 +193,7 @@ namespace OpenWater.ApiClient.Invoice
         public PaymentModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PaymentModel(int id, double amount, bool isManualAdjustment, bool isPromissoryNote, bool canRefund, PaymentMethod method, string externalPaymentTransactionData = null, string billingName = null, string referenceNumber = null, string notes = null, string details = null)
+        public PaymentModel(double amount, bool canRefund, int id, bool isManualAdjustment, bool isPromissoryNote, PaymentMethod method, string billingName = null, string details = null, string externalPaymentTransactionData = null, string notes = null, string referenceNumber = null)
         {
               Id = @id;
               Amount = @amount;
@@ -251,7 +251,7 @@ namespace OpenWater.ApiClient.Invoice
         public RefundModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RefundModel(int id, double amount, string notes = null, string details = null)
+        public RefundModel(double amount, int id, string details = null, string notes = null)
         {
               Id = @id;
               Amount = @amount;
@@ -280,7 +280,7 @@ namespace OpenWater.ApiClient.Invoice
         public PagingResponseBillingLineItemListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseBillingLineItemListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<BillingLineItemListItemModel> items)
+        public PagingResponseBillingLineItemListItemModel(System.Collections.Generic.ICollection<BillingLineItemListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -301,7 +301,7 @@ namespace OpenWater.ApiClient.Invoice
         public BillingLineItemListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemListItemModel(int id, int invoiceId, double amount, bool isVat, bool isManualAdjustment, System.DateTimeOffset createdAtUtc, string notes = null, string details = null, BillingLineItemTargetType? targetType = null)
+        public BillingLineItemListItemModel(double amount, System.DateTimeOffset createdAtUtc, int id, int invoiceId, bool isManualAdjustment, bool isVat, string details = null, string notes = null, BillingLineItemTargetType? targetType = null)
         {
               Id = @id;
               InvoiceId = @invoiceId;
@@ -360,7 +360,7 @@ namespace OpenWater.ApiClient.Invoice
         public PagingResponsePaymentListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponsePaymentListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<PaymentListItemModel> items)
+        public PagingResponsePaymentListItemModel(System.Collections.Generic.ICollection<PaymentListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -381,7 +381,7 @@ namespace OpenWater.ApiClient.Invoice
         public PaymentListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PaymentListItemModel(int id, int invoiceId, double amount, bool isManualAdjustment, bool isPromissoryNote, bool canRefund, PaymentMethod method, System.DateTimeOffset createdAtUtc, string externalPaymentTransactionData = null, string billingName = null, string referenceNumber = null, string notes = null, string details = null)
+        public PaymentListItemModel(double amount, bool canRefund, System.DateTimeOffset createdAtUtc, int id, int invoiceId, bool isManualAdjustment, bool isPromissoryNote, PaymentMethod method, string billingName = null, string details = null, string externalPaymentTransactionData = null, string notes = null, string referenceNumber = null)
         {
               Id = @id;
               InvoiceId = @invoiceId;
@@ -460,7 +460,7 @@ namespace OpenWater.ApiClient.Invoice
         public PagingResponseRefundListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseRefundListItemModel(Pagination.PagingInfo pagingInfo, System.Collections.Generic.ICollection<RefundListItemModel> items)
+        public PagingResponseRefundListItemModel(System.Collections.Generic.ICollection<RefundListItemModel> items, Pagination.PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -481,7 +481,7 @@ namespace OpenWater.ApiClient.Invoice
         public RefundListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RefundListItemModel(int id, int invoiceId, double amount, System.DateTimeOffset createdAtUtc, string notes = null, string details = null)
+        public RefundListItemModel(double amount, System.DateTimeOffset createdAtUtc, int id, int invoiceId, string details = null, string notes = null)
         {
               Id = @id;
               InvoiceId = @invoiceId;

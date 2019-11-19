@@ -42,7 +42,7 @@ namespace OpenWater.ApiClient.Media
         public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(string fileUrl, string fileName)
+        public CreateRequest(string fileName, string fileUrl)
         {
               FileUrl = @fileUrl;
               FileName = @fileName;

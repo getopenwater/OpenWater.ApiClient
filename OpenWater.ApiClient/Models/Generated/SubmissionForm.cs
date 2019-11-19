@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.SubmissionForm
         public Category() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public Category(int id, string code, string name, string description, bool hideIfNoSubcategories, bool closeCategoryForNewApplications, string path, System.Collections.Generic.ICollection<Category> categories, int? parentId = null, System.DateTimeOffset? submissionStartDateUtc = null, System.DateTimeOffset? submissionEndDateUtc = null)
+        public Category(System.Collections.Generic.ICollection<Category> categories, bool closeCategoryForNewApplications, string code, string description, bool hideIfNoSubcategories, int id, string name, string path, int? parentId = null, System.DateTimeOffset? submissionEndDateUtc = null, System.DateTimeOffset? submissionStartDateUtc = null)
         {
               Id = @id;
               Code = @code;
