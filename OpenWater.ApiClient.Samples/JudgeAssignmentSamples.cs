@@ -11,45 +11,45 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Get all current judge assignments for application with id 18022 and round id 14010 async.
+        /// Get all current judge assignments for applications by id 18022 and round id 14010 async
         /// </summary>
         public static Task<PagingResponseJudgeListItemModel> GetAllCurrentJudgeAssignmentsForApplicationsAsync()
         {
             const int applicationId = 18022;
             const int roundId = 14010;
 
-            return ApiClient.GetAssignedToApplicationAssignmentsAsync(applicationId, roundId);
+            return ApiClient.GetAssignedToApplicationJudgesAsync(applicationId, roundId);
         }
 
         /// <summary>
-        /// Get all current judge assignments for application with id 18022 and round id 14010.
+        /// Get all current judge assignments for applications by id 18022 and round id 14010
         /// </summary>
         public static PagingResponseJudgeListItemModel GetAllCurrentJudgeAssignmentsForApplications()
         {
             const int applicationId = 18022;
             const int roundId = 14010;
 
-            return ApiClient.GetAssignedToApplicationAssignments(applicationId, roundId);
+            return ApiClient.GetAssignedToApplicationJudges(applicationId, roundId);
         }
 
         /// <summary>
-        /// Get all judges from team with id 3001 async.
+        /// Get all judges on team by id 3001 async
         /// </summary>
         public static Task<PagingResponseJudgeListItemModel> GetAllJudgesOnTeamAsync()
         {
             const int judgeTeamId = 3001;
 
-            return ApiClient.GetAssignedToJudgeTeamAssignmentsAsync(judgeTeamId);
+            return ApiClient.GetAssignedToJudgeTeamJudgesAsync(judgeTeamId);
         }
 
         /// <summary>
-        /// Get all judges from team with id 3001.
+        /// Get all judges on team by id 3001
         /// </summary>
         public static PagingResponseJudgeListItemModel GetAllJudgesOnTeam()
         {
             const int judgeTeamId = 3001;
 
-            return ApiClient.GetAssignedToJudgeTeamAssignments(judgeTeamId);
+            return ApiClient.GetAssignedToJudgeTeamJudges(judgeTeamId);
         }
     }
 }

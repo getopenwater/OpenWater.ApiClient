@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using OpenWater.ApiClient.JudgeScorecard;
+using OpenWater.ApiClient.Evaluation;
 
 namespace OpenWater.ApiClient.Samples
 {
@@ -12,57 +10,54 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Get evaluation by judge email, application and round ids async.
+        /// Get evaluation by application id 14003, judge email "judge1@nonprofitcms.org" and round id 14003 async
         /// </summary>
-        public static Task<PagingResponseJudgeScorecardListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
+        public static async Task<EvaluationListItemModel> GetEvaluationByApplicationIdAndJudgeEmailAndRoundIdAsync()
         {
             const int applicationId = 18003;
             const int roundId = 14001;
             const string judgeEmail = "judge1@nonprofitcms.org";
 
-            return ApiClient.JudgeScorecardListAsync(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId);
+            return (await ApiClient.GetEvaluationsAsync(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId)).Items.First();
         }
 
         /// <summary>
-        /// Get evaluation by judge email, application and round ids.
+        /// Get evaluation by application id 14003, judge email "judge1@nonprofitcms.org" and round id 14003
         /// </summary>
-        public static PagingResponseJudgeScorecardListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
+        public static EvaluationListItemModel GetEvaluationByApplicationIdAndJudgeEmailAndRoundId()
         {
             const int applicationId = 18003;
             const int roundId = 14001;
             const string judgeEmail = "judge1@nonprofitcms.org";
 
-            return ApiClient.JudgeScorecardList(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId);
+            return ApiClient.GetEvaluations(applicationId: applicationId, judgeEmail: judgeEmail, roundId: roundId).Items.First();
         }
 
         /// <summary>
-        /// Update evaluation with id 41014 and set scoring answer general score by alias "howWellDidThisApplicantPerform" text async.
+        /// Update evaluation by id 41014 and set scoring answer general score by alias "howWellDidThisApplicantPerform" text "The best!" async
         /// </summary>
         public static Task UpdateEvaluationAsync()
         {
             const int evaluationId = 41014;
-            var formRequest = new EvaluationFormRequest(true,
+            var formRequest = new UpdateEvaluationFormRequest(true,
                 new List<GeneralScoringAnswerModel>
                 {
-                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", null, null, "The best!")
-                },
-                null);
+                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", text: "The best!")
+                }, null);
 
             return ApiClient.UpdateEvaluationFormAsync(evaluationId, formRequest);
         }
 
         /// <summary>
-        /// Update evaluation with id 41014 and set scoring answer general score by alias "howWellDidThisApplicantPerform" text.
+        /// Update evaluation by id 41014 and set scoring answer general score by alias "howWellDidThisApplicantPerform" text "The best!"
         /// </summary>
         public static void UpdateEvaluation()
         {
             const int evaluationId = 41014;
-            var formRequest = new EvaluationFormRequest(true,
-                new List<GeneralScoringAnswerModel>
+            var formRequest = new UpdateEvaluationFormRequest(true, new List<GeneralScoringAnswerModel>
                 {
-                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", null, null, "The best!")
-                },
-                null);
+                    new GeneralScoringAnswerModel("howWellDidThisApplicantPerform", text: "The best!")
+                }, null);
 
             ApiClient.UpdateEvaluationForm(evaluationId, formRequest);
         }

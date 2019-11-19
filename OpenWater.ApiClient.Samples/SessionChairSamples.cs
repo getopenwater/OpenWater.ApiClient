@@ -10,7 +10,7 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Add session chair with user with id 8004 to session with id 53003 async.
+        /// Add session chair with user by id 8004 to session by id 53003 async
         /// </summary>
         public static Task AddSessionChairToSessionAsync()
         {
@@ -21,7 +21,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Add session chair with user with id 8004 to session with id 53003.
+        /// Add session chair with user by id 8004 to session by id 53003
         /// </summary>
         public static void AddSessionChairToSession()
         {
@@ -32,7 +32,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove session chair with id 54003 async.
+        /// Remove session chair by id 54003 async
         /// </summary>
         public static Task RemoveSessionChairAsync()
         {
@@ -42,7 +42,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Remove session chair with id 54003.
+        /// Remove session chair by id 54003
         /// </summary>
         public static void RemoveSessionChair()
         {

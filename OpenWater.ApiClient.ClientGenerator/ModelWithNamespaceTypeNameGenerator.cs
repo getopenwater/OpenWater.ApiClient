@@ -66,7 +66,7 @@ namespace OpenWater.ApiClient.ClientGenerator
             return typeNameInfo.FullName;
         }
 
-        private bool IsSubclassTypeNameHint(string typeNameHint)
+        private static bool IsSubclassTypeNameHint(string typeNameHint)
         {
             return typeNameHint.Contains("+");
         }

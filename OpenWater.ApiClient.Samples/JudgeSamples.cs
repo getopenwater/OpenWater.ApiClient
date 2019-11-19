@@ -12,95 +12,95 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Assign judge with id 8004 to application with id 18015 and round id 14004 async.
+        /// Assign judge by id 8004 to application by id 18015 and round id 14004 async
         /// </summary>
         public static Task AssignJudgeToApplicationAsync()
         {
-            const int userJudgeId = 8004;
+            const int judgeUserId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            return ApiClient.AssignJudgeToApplicationAsync(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId));
+            return ApiClient.AssignJudgeToApplicationAsync(new AssignJudgeToApplicationRequest(applicationId, judgeUserId, roundId));
         }
 
         /// <summary>
-        /// Assign judge with id 8004 to application with id 18015 and round id 14004.
+        /// Assign judge by id 8004 to application by id 18015 and round id 14004
         /// </summary>
         public static void AssignJudgeToApplication()
         {
-            const int userJudgeId = 8004;
+            const int judgeUserId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            ApiClient.AssignJudgeToApplication(new AssignJudgeToApplicationRequest(applicationId, userJudgeId, roundId));
+            ApiClient.AssignJudgeToApplication(new AssignJudgeToApplicationRequest(applicationId, judgeUserId, roundId));
         }
 
         /// <summary>
-        /// Remove judge with id 8004 from application with id 18015 and round id 14004 async.
+        /// Remove judge by id 8004 from application by id 18015 and round id 14004 async
         /// </summary>
         public static Task RemoveJudgeFromApplicationAsync()
         {
-            const int userJudgeId = 8004;
+            const int judgeUserId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            return ApiClient.UnassignJudgeFromApplicationAsync(userJudgeId, applicationId, roundId);
+            return ApiClient.UnassignJudgeFromApplicationAsync(judgeUserId, applicationId, roundId);
         }
 
         /// <summary>
-        /// Remove judge with id 8004 from application with id 18015 and round id 14004.
+        /// Remove judge from application by id 8004 from application by id 18015 and round id 14004
         /// </summary>
         public static void RemoveJudgeFromApplication()
         {
-            const int userJudgeId = 8004;
+            const int judgeUserId = 8004;
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            ApiClient.UnassignJudgeFromApplication(userJudgeId, applicationId, roundId);
+            ApiClient.UnassignJudgeFromApplication(judgeUserId, applicationId, roundId);
         }
 
         /// <summary>
-        /// Add judge with id 8004 to team with id 30001 async.
+        /// Add judge by id 8004 to team by id 30001 async
         /// </summary>
         public static Task AddJudgeToTeamAsync()
         {
-            const int judgeId = 8004;
+            const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            return ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId));
+            return ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeUserId));
         }
 
         /// <summary>
-        /// Add judge with id 8004 to team with id 30001.
+        /// Add judge by id 8004 to team by id 30001
         /// </summary>
         public static void AddJudgeToTeam()
         {
-            const int judgeId = 8004;
+            const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            ApiClient.AssignJudgeToJudgeTeam(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeId));
+            ApiClient.AssignJudgeToJudgeTeam(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeUserId));
         }
 
         /// <summary>
-        /// Remove judge with id 8004 from team with id 30001 async.
+        /// Remove judge by id 8004 from team by id 30001 async
         /// </summary>
         public static Task RemoveJudgeFromTeamAsync()
         {
-            const int judgeId = 8004;
+            const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            return ApiClient.UnassignJudgeFromJudgeTeamAsync(judgeId, judgeTeamId);
+            return ApiClient.UnassignJudgeFromJudgeTeamAsync(judgeUserId, judgeTeamId);
         }
 
         /// <summary>
-        /// Remove judge with id 8004 from team with id 30001.
+        /// Remove judge by id 8004 from team by id 30001
         /// </summary>
         public static void RemoveJudgeFromTeam()
         {
-            const int judgeId = 8004;
+            const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            ApiClient.UnassignJudgeFromJudgeTeam(judgeId, judgeTeamId);
+            ApiClient.UnassignJudgeFromJudgeTeam(judgeUserId, judgeTeamId);
         }
     }
 }

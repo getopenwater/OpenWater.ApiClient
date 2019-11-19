@@ -11,7 +11,7 @@ namespace OpenWater.ApiClient.Samples
         private static readonly OpenWaterApiClient ApiClient = Program.ApiClient;
 
         /// <summary>
-        /// Get invoices in last week async.
+        /// Get invoices in last week async
         /// </summary>
         public static Task<PagingResponseInvoiceListItemModel> GetAllInvoicesLastWeekAsync()
         {
@@ -19,7 +19,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get invoices in last week.
+        /// Get invoices in last week
         /// </summary>
         public static PagingResponseInvoiceListItemModel GetAllInvoicesLastWeek()
         {
@@ -27,7 +27,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get invoice with id 1001 async.
+        /// Get invoice by id 1001 async
         /// </summary>
         public static Task<DetailsResponse> GetInvoiceByIdAsync()
         {
@@ -37,7 +37,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get invoice with id 1001.
+        /// Get invoice by id 1001
         /// </summary>
         public static DetailsResponse GetInvoiceById()
         {
@@ -47,7 +47,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all billing line items since last week async.
+        /// Get all billing line items since last week async
         /// </summary>
         public static Task<PagingResponseBillingLineItemListItemModel> GetAllBillingLineItemsSinceLastWeekAsync()
         {
@@ -55,7 +55,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all billing line items since last week.
+        /// Get all billing line items since last week
         /// </summary>
         public static PagingResponseBillingLineItemListItemModel GetAllBillingLineItemsSinceLastWeek()
         {
@@ -63,7 +63,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all payments since last week async.
+        /// Get all payments since last week async
         /// </summary>
         public static Task<PagingResponsePaymentListItemModel> GetAllPaymentsSinceLastWeekAsync()
         {
@@ -72,7 +72,7 @@ namespace OpenWater.ApiClient.Samples
 
 
         /// <summary>
-        /// Get all payments since last week.
+        /// Get all payments since last week
         /// </summary>
         public static PagingResponsePaymentListItemModel GetAllPaymentsSinceLastWeek()
         {
@@ -80,7 +80,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all refunds since last week async.
+        /// Get all refunds since last week async
         /// </summary>
         public static Task<PagingResponseRefundListItemModel> GetAllRefundsSinceLastWeekAsync()
         {
@@ -88,7 +88,7 @@ namespace OpenWater.ApiClient.Samples
         }
 
         /// <summary>
-        /// Get all refunds since last week.
+        /// Get all refunds since last week
         /// </summary>
         public static PagingResponseRefundListItemModel GetAllRefundsSinceLastWeek()
         {

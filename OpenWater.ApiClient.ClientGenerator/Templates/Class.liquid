@@ -62,7 +62,7 @@
     [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
 {%   endif -%}
     {% template Class.Property.Annotations %}
-    public {{ property.Type }} {{ property.PropertyName }}{% if RenderPrism == false %} { get; internal set; }{% if property.HasDefaultValue and RenderRecord == false %} = {{ property.DefaultValue }};{% endif %}
+    public {{ property.Type }} {{ property.PropertyName }}{% if RenderPrism == false %} { get; set; }{% if property.HasDefaultValue and RenderRecord == false %} = {{ property.DefaultValue }};{% endif %}
 {% else %}
     {
         get { return {{ property.FieldName }}; }
