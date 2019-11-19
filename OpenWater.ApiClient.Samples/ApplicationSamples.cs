@@ -19,11 +19,11 @@ namespace OpenWater.ApiClient.Samples
         {
             const int programId = 23006;
             const int userId = 8001;
-            var createRequest = new CreateRequest(programId, userId, "Application 42", string.Empty,
+            var createRequest = new CreateRequest("Application 42", string.Empty,
                 new List<FieldValueModelBase>(new[]
                 {
                     new TextFieldValueModel("title", "Yet another application")
-                })
+                }), programId, userId
             );
 
             return ApiClient.CreateApplicationAsync(createRequest);
@@ -36,11 +36,12 @@ namespace OpenWater.ApiClient.Samples
         {
             const int programId = 23006;
             const int userId = 8001;
-            var createRequest = new CreateRequest(programId, userId, "Application 42", string.Empty,
+            var createRequest = new CreateRequest(
+                "Application 42", string.Empty,
                 new List<FieldValueModelBase>(new[]
                 {
-                    new TextFieldValueModel("Yet another application", "title")
-                })
+                    new TextFieldValueModel("title", "Yet another application")
+                }), programId, userId
             );
 
             return ApiClient.CreateApplication(createRequest);
@@ -70,10 +71,10 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18013;
             const int roundId = 14004;
 
-            var submissionRequest = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
+            var submissionRequest = new UpdateRoundSubmissionFormValuesRequest(new List<FieldValueModelBase>
             {
-                new TextFieldValueModel("Updated Application", "title")
-            });
+                new TextFieldValueModel("title", "Updated Application")
+            }, roundId);
 
             return ApiClient.UpdateRoundSubmissionFormValuesAsync(applicationId, submissionRequest);
         }
@@ -86,10 +87,10 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18013;
             const int roundId = 14004;
 
-            var submissionRequest = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
+            var submissionRequest = new UpdateRoundSubmissionFormValuesRequest(new List<FieldValueModelBase>
             {
-                new TextFieldValueModel("Updated Application", "title")
-            });
+                new TextFieldValueModel("title", "Updated Application")
+            }, roundId);
 
             ApiClient.UpdateRoundSubmissionFormValues(applicationId, submissionRequest);
         }
@@ -125,10 +126,10 @@ namespace OpenWater.ApiClient.Samples
             var mediaName = Path.GetFileNameWithoutExtension(mediaUrl);
             var media = await ApiClient.CreateMediaAsync(new Media.CreateRequest(mediaUrl, mediaName));
 
-            var submissionForm = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
+            var submissionForm = new UpdateRoundSubmissionFormValuesRequest(new List<FieldValueModelBase>
             {
-                new FileUploadFieldValueModel("caption", "sampleForm", media.MediaId)
-            });
+                new FileUploadFieldValueModel("sampleForm", "caption", media.MediaId)
+            }, roundId);
 
             await ApiClient.UpdateRoundSubmissionFormValuesAsync(applicationId, submissionForm);
         }
@@ -144,10 +145,10 @@ namespace OpenWater.ApiClient.Samples
             var mediaName = Path.GetFileNameWithoutExtension(mediaUrl);
             var media = ApiClient.CreateMedia(new Media.CreateRequest(mediaName, mediaUrl));
 
-            var submissionForm = new UpdateRoundSubmissionFormValuesRequest(roundId, new List<FieldValueModelBase>
+            var submissionForm = new UpdateRoundSubmissionFormValuesRequest(new List<FieldValueModelBase>
             {
-                new FileUploadFieldValueModel("caption","sampleForm", media.MediaId)
-            });
+                new FileUploadFieldValueModel("sampleForm", "caption", media.MediaId)
+            }, roundId);
 
             ApiClient.UpdateRoundSubmissionFormValues(applicationId, submissionForm);
         }
@@ -250,7 +251,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18001;
             const int userId = 8001;
 
-            return ApiClient.CreateApplicationCollaboratorAsync(applicationId, new Collaborator.CreateRequest(userId, true));
+            return ApiClient.CreateApplicationCollaboratorAsync(applicationId, new Collaborator.CreateRequest(true, userId));
         }
 
         /// <summary>
@@ -261,7 +262,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18001;
             const int userId = 8001;
 
-            ApiClient.CreateApplicationCollaborator(applicationId, new Collaborator.CreateRequest(userId, true));
+            ApiClient.CreateApplicationCollaborator(applicationId, new Collaborator.CreateRequest(true, userId));
         }
 
         /// <summary>

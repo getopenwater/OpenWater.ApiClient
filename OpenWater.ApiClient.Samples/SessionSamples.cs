@@ -18,11 +18,10 @@ namespace OpenWater.ApiClient.Samples
             const int programId = 23001;
             const int typeId = 56001;
 
-            var createSessionRequest = new CreateRequest(programId, typeId, "session name", new List<int>(),
-                new List<FieldValueModelBase>
+            var createSessionRequest = new CreateRequest(new List<int> { 8001 }, new List<FieldValueModelBase>
                 {
                     new TextFieldValueModel("title", "The best session in the world!")
-                }
+                }, "session name", programId, typeId
             );
 
             return ApiClient.CreateSessionAsync(createSessionRequest);
@@ -36,11 +35,10 @@ namespace OpenWater.ApiClient.Samples
             const int programId = 23001;
             const int typeId = 56001;
 
-            var createSessionRequest = new CreateRequest(programId, typeId, "session name", new List<int>(),
-                new List<FieldValueModelBase>
+            var createSessionRequest = new CreateRequest(new List<int> { 8001 }, new List<FieldValueModelBase>
                 {
                     new TextFieldValueModel("title", "The best session in the world!")
-                }
+                }, "session name", programId, typeId
             );
 
             return ApiClient.CreateSession(createSessionRequest);

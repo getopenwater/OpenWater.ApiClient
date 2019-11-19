@@ -67,7 +67,7 @@ namespace OpenWater.ApiClient.Samples
             const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            return ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeUserId, judgeTeamId));
+            return ApiClient.AssignJudgeToJudgeTeamAsync(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeUserId));
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace OpenWater.ApiClient.Samples
             const int judgeUserId = 8004;
             const int judgeTeamId = 30001;
 
-            ApiClient.AssignJudgeToJudgeTeam(new AssignJudgeToJudgeTeamRequest(judgeUserId, judgeTeamId));
+            ApiClient.AssignJudgeToJudgeTeam(new AssignJudgeToJudgeTeamRequest(judgeTeamId, judgeUserId));
         }
 
         /// <summary>
