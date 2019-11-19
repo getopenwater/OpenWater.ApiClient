@@ -5,14 +5,18 @@
 {% assign parentProperties = "" | empty -%}
 {% endif %}
 
-{% assign sortedProperties = AllProperties | sort: "IsNullable" -%}
-{% assign sortedParentProperties = parentProperties | sort: "IsNullable" -%}
+{% assign addLastComma = false %}
+
+{% assign sortedProperties = AllProperties | sort: "Name" -%}
+{% assign sortedParentProperties = parentProperties | sort: "Name" -%}
 
 [Newtonsoft.Json.JsonConstructor]
-{% if IsAbstract %}protected{% else %}public{% endif %} {{ClassName}}({% for property in sortedProperties -%}{% unless property.Name == "typeName" -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%} {{ property.Type }} {{ property.Name | lowercamelcase }}{% if property.IsRequired == false and property.IsNullable == true -%} = null{% endif -%}{% endunless -%}{% endfor -%})
+{% if IsAbstract %}protected{% else %}public{% endif %} {{ClassName}}({% for property in sortedProperties -%}{% unless property.Name == "typeName" -%}{% unless property.IsNullable == false -%}{% assign addLastComma = true %}{% endunless -%}{% if property.IsNullable == false -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%} {{ property.Type }} {{ property.Name | lowercamelcase }}{% endif -%}{% endunless -%}{% endfor -%}
+{% for property in sortedProperties -%}{% unless property.Name == "typeName" -%}{% if property.IsNullable == true -%}{% assign addLastComma = false %}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%} {{ property.Type }} {{ property.Name | lowercamelcase }} = null{% endif -%}{% endunless -%}{% endfor -%}
+)
 {% assign skipComma = true -%}
 {% if HasInheritance -%}
-    : base({% for property in sortedParentProperties -%}{% unless property.Name == "typeName" -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%}{{ property.Name | lowercamelcase }}{% endunless -%}{% endfor -%})
+    : base({% for property in sortedParentProperties -%}{% unless property.Name == "typeName" -%}{% if property.IsNullable == false -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%}{{ property.Name | lowercamelcase }}{% endif -%}{% endunless -%}{% endfor -%}{% for property in sortedParentProperties -%}{% unless property.Name == "typeName" -%}{% if property.IsNullable == true -%}{% if skipComma -%}{% assign skipComma = false %}{% else %}, {% endif -%}{{ property.Name | lowercamelcase }}{% endif -%}{% endunless -%}{% endfor -%})
 {% endif -%}
 {
 {% for property in Properties -%}
