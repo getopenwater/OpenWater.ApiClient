@@ -25,6 +25,7 @@ namespace OpenWater.ApiClient
             _suppressEmails = suppressEmails;
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
         partial void PrepareRequest(OpenWaterHttpClient client, HttpRequestMessage request, StringBuilder urlBuilder)
         {
             request.Headers.TryAddWithoutValidation("X-ClientKey", ConvertToString(_clientKey, System.Globalization.CultureInfo.InvariantCulture));
