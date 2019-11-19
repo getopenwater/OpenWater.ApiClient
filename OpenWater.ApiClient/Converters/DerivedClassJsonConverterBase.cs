@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
+using OpenWater.ApiClient.ContractResolvers;
 
 namespace OpenWater.ApiClient.Converters
 {
@@ -15,7 +17,14 @@ namespace OpenWater.ApiClient.Converters
 
         private IReadOnlyDictionary<string, Type> ModelTypes => GetModelTypes();
 
+        private readonly IContractResolver _contractResolver;
+
         public override bool CanWrite { get; } = false;
+
+        internal DerivedClassJsonConverterBase()
+        {
+            _contractResolver = new SafeContractResolver();
+        }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
@@ -33,7 +42,7 @@ namespace OpenWater.ApiClient.Converters
             var fieldValuesModelType = ModelTypes[GetTypeConcreteNamespace(typeName.ToString())];
 
             var concreteValueModel = Create(fieldValuesModelType);
-            JsonConvert.PopulateObject(jObject.ToString(), concreteValueModel);
+            JsonConvert.PopulateObject(jObject.ToString(), concreteValueModel, new JsonSerializerSettings { ContractResolver = _contractResolver });
 
             return concreteValueModel;
         }

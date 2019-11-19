@@ -102,7 +102,7 @@ namespace OpenWater.ApiClient.ClientGenerator
         {
             Console.WriteLine("Generating Api Models");
 
-            var modelNamespaces = typeNameHintsModelWithNamespaceInfos.Values.Select(i => i.ModelNamespace).Distinct().ToArray();
+            var modelNamespaces = typeNameHintsModelWithNamespaceInfos.Values.Select(i => i.ModelNamespace).Distinct().OrderBy(n => n).ToArray();
 
             foreach (var modelNamespace in modelNamespaces)
             {
