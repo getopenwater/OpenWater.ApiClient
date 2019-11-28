@@ -8,7 +8,7 @@ Wrapper for getopenwater.com REST APIs. Full featured read/write API for the mos
 Install-Package OpenWater
 ```
 
-If you need more info about package managment, you can read it [here](https://docs.microsoft.com/ru-ru/nuget/consume-packages/install-use-packages-powershell).
+If you need more info about package managment, you can read it [here](https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-powershell).
 
 ## Getting Started
 
