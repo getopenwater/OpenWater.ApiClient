@@ -45,10 +45,11 @@ namespace OpenWater.ApiClient.DeletedApplication
         public DeletedApplicationListItem() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DeletedApplicationListItem(System.DateTimeOffset deletedAtUtc, string email, string firstName, int id, string lastName, int programId, int userId, string applicationCode = null, string applicationName = null)
+        public DeletedApplicationListItem(int applicationId, System.DateTimeOffset deletedAtUtc, string email, string firstName, int id, string lastName, int programId, int userId, string applicationCode = null, string applicationName = null)
         {
               Id = @id;
               ProgramId = @programId;
+              ApplicationId = @applicationId;
               ApplicationCode = @applicationCode;
               ApplicationName = @applicationName;
               UserId = @userId;
@@ -65,6 +66,10 @@ namespace OpenWater.ApiClient.DeletedApplication
         /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; set; }
+    
+        /// <summary>Application id</summary>
+        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ApplicationId { get; set; }
     
         /// <summary>Application code</summary>
         [Newtonsoft.Json.JsonProperty("applicationCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

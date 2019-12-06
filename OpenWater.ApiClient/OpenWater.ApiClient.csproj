@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.4.0</Version>
+    <Version>2.4.1</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,14 +12,7 @@
     <Product>OpenWater</Product>
     <PackageIconUrl>https://openwater-public.s3.amazonaws.com/sonar-uploads/V2bVzAfhRmuJbyv9nudc_Cirlce only.png</PackageIconUrl>
     <PackageReleaseNotes>Changelog:
-* Request models for actions are always required
-* Added optional arguments `organizationCode`, `suppressEmails` to each action
-* Model properties are now free to set
-* Added empty constructor to each model
-* Updated samples
-* Minor improvements
-Breaking changes:
-* Sligtly changed action signatures (f.e. ApplicationList -&gt; GetApplications)</PackageReleaseNotes>
+* Added `applicationId` to `DeletedApplicationListItem`.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
