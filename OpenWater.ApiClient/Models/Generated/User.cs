@@ -19,27 +19,6 @@ namespace OpenWater.ApiClient.User
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseUserListItemModel 
-    {
-        public PagingResponseUserListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseUserListItemModel(System.Collections.Generic.ICollection<UserListItemModel> items, Pagination.PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pagination.PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<UserListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserListItemModel 
     {
         public UserListItemModel() { }

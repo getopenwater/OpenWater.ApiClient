@@ -48,6 +48,84 @@ namespace OpenWater.ApiClient
         partial void PrepareRequest(OpenWater.ApiClient.OpenWaterHttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(OpenWater.ApiClient.OpenWaterHttpClient client, System.Net.Http.HttpResponseMessage response);
     
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Account.AuthenticateResponse Authenticate(Account.AuthenticateRequest request, string organizationCode = null, bool? suppressEmails = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await AuthenticateAsync(request, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Account.AuthenticateResponse> AuthenticateAsync(Account.AuthenticateRequest request, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Account/Authenticate");
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    if (organizationCode != null)
+                        request_.Headers.TryAddWithoutValidation("X-OrganizationCode", ConvertToString(organizationCode, System.Globalization.CultureInfo.InvariantCulture));
+                    if (suppressEmails != null)
+                        request_.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Account.AuthenticateResponse>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(Account.AuthenticateResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
         /// <summary>Gets list of applications</summary>
         /// <param name="programId">Program Id</param>
         /// <param name="userId">User Id</param>
@@ -60,7 +138,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Application.PagingResponseApplicationListItemModel GetApplications(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseApplicationListItemModel GetApplications(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetApplicationsAsync(programId, userId, startedAtUtc, finalizedAtUtc, lastModifiedSinceUtc, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -78,7 +156,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Application.PagingResponseApplicationListItemModel> GetApplicationsAsync(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseApplicationListItemModel> GetApplicationsAsync(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications?");
@@ -144,7 +222,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Application.PagingResponseApplicationListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseApplicationListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -154,7 +232,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Application.PagingResponseApplicationListItemModel);
+                        return default(Pagination.PagingResponseApplicationListItemModel);
                     }
                     finally
                     {
@@ -1191,7 +1269,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public DeletedApplication.PagingResponseDeletedApplicationListItem GetDeletedApplications(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseDeletedApplicationListItem GetDeletedApplications(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetDeletedApplicationsAsync(programId, deletedSinceUtc, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -1206,7 +1284,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<DeletedApplication.PagingResponseDeletedApplicationListItem> GetDeletedApplicationsAsync(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseDeletedApplicationListItem> GetDeletedApplicationsAsync(int? programId = null, System.DateTimeOffset? deletedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications/DeletedData?");
@@ -1260,7 +1338,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<DeletedApplication.PagingResponseDeletedApplicationListItem>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseDeletedApplicationListItem>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1270,7 +1348,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(DeletedApplication.PagingResponseDeletedApplicationListItem);
+                        return default(Pagination.PagingResponseDeletedApplicationListItem);
                     }
                     finally
                     {
@@ -1379,7 +1457,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Evaluation.PagingResponseEvaluationListItemModel GetEvaluations(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseEvaluationListItemModel GetEvaluations(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetEvaluationsAsync(programId, roundId, applicationId, judgeEmail, lastModifiedSinceUtc, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -1397,7 +1475,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Evaluation.PagingResponseEvaluationListItemModel> GetEvaluationsAsync(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseEvaluationListItemModel> GetEvaluationsAsync(int? programId = null, int? roundId = null, int? applicationId = null, string judgeEmail = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Evaluations?");
@@ -1463,7 +1541,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Evaluation.PagingResponseEvaluationListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseEvaluationListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1473,7 +1551,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Evaluation.PagingResponseEvaluationListItemModel);
+                        return default(Pagination.PagingResponseEvaluationListItemModel);
                     }
                     finally
                     {
@@ -1669,7 +1747,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Invoice.PagingResponseInvoiceListItemModel GetInvoices(int? programId = null, bool? isPaid = null, System.DateTimeOffset? mostRecentTransactionSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseInvoiceListItemModel GetInvoices(int? programId = null, bool? isPaid = null, System.DateTimeOffset? mostRecentTransactionSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetInvoicesAsync(programId, isPaid, mostRecentTransactionSinceUtc, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -1685,7 +1763,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Invoice.PagingResponseInvoiceListItemModel> GetInvoicesAsync(int? programId = null, bool? isPaid = null, System.DateTimeOffset? mostRecentTransactionSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseInvoiceListItemModel> GetInvoicesAsync(int? programId = null, bool? isPaid = null, System.DateTimeOffset? mostRecentTransactionSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices?");
@@ -1743,7 +1821,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponseInvoiceListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseInvoiceListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1753,7 +1831,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Invoice.PagingResponseInvoiceListItemModel);
+                        return default(Pagination.PagingResponseInvoiceListItemModel);
                     }
                     finally
                     {
@@ -1858,7 +1936,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Invoice.PagingResponseBillingLineItemListItemModel GetBillingLineItems(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseBillingLineItemListItemModel GetBillingLineItems(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetBillingLineItemsAsync(lastModifiedUtc, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -1872,7 +1950,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Invoice.PagingResponseBillingLineItemListItemModel> GetBillingLineItemsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseBillingLineItemListItemModel> GetBillingLineItemsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/BillingLineItems?");
@@ -1922,7 +2000,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponseBillingLineItemListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseBillingLineItemListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -1932,7 +2010,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Invoice.PagingResponseBillingLineItemListItemModel);
+                        return default(Pagination.PagingResponseBillingLineItemListItemModel);
                     }
                     finally
                     {
@@ -1954,7 +2032,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Invoice.PagingResponsePaymentListItemModel GetPayments(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponsePaymentListItemModel GetPayments(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetPaymentsAsync(lastModifiedUtc, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -1968,7 +2046,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Invoice.PagingResponsePaymentListItemModel> GetPaymentsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponsePaymentListItemModel> GetPaymentsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/Payments?");
@@ -2018,7 +2096,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponsePaymentListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponsePaymentListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -2028,7 +2106,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Invoice.PagingResponsePaymentListItemModel);
+                        return default(Pagination.PagingResponsePaymentListItemModel);
                     }
                     finally
                     {
@@ -2050,7 +2128,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Invoice.PagingResponseRefundListItemModel GetRefunds(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseRefundListItemModel GetRefunds(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetRefundsAsync(lastModifiedUtc, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2064,7 +2142,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Invoice.PagingResponseRefundListItemModel> GetRefundsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseRefundListItemModel> GetRefundsAsync(System.DateTimeOffset? lastModifiedUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/Refunds?");
@@ -2114,7 +2192,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PagingResponseRefundListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseRefundListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -2124,7 +2202,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Invoice.PagingResponseRefundListItemModel);
+                        return default(Pagination.PagingResponseRefundListItemModel);
                     }
                     finally
                     {
@@ -2202,12 +2280,6 @@ namespace OpenWater.ApiClient
                             return objectResponse_.Object;
                         }
                         else
-                        if (status_ == "") 
-                        {
-                            string responseText_ = ( response_.Content == null ) ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new OpenWaterApiException("A server side error occurred.", (int)response_.StatusCode, responseText_, headers_, null);
-                        }
-                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2239,7 +2311,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToRoundJudges(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseJudgeListItemModel GetAssignedToRoundJudges(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetAssignedToRoundJudgesAsync(roundId, judgeFirstName, judgeLastName, judgeEmail, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2256,7 +2328,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> GetAssignedToRoundJudgesAsync(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseJudgeListItemModel> GetAssignedToRoundJudgesAsync(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (roundId == null)
                 throw new System.ArgumentNullException("roundId");
@@ -2318,7 +2390,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<JudgeAssignment.PagingResponseJudgeListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseJudgeListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -2328,7 +2400,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(JudgeAssignment.PagingResponseJudgeListItemModel);
+                        return default(Pagination.PagingResponseJudgeListItemModel);
                     }
                     finally
                     {
@@ -2786,7 +2858,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToJudgeTeamJudges(int judgeTeamId, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseJudgeListItemModel GetAssignedToJudgeTeamJudges(int judgeTeamId, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetAssignedToJudgeTeamJudgesAsync(judgeTeamId, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2800,7 +2872,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> GetAssignedToJudgeTeamJudgesAsync(int judgeTeamId, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseJudgeListItemModel> GetAssignedToJudgeTeamJudgesAsync(int judgeTeamId, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (judgeTeamId == null)
                 throw new System.ArgumentNullException("judgeTeamId");
@@ -2850,7 +2922,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<JudgeAssignment.PagingResponseJudgeListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseJudgeListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -2860,7 +2932,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(JudgeAssignment.PagingResponseJudgeListItemModel);
+                        return default(Pagination.PagingResponseJudgeListItemModel);
                     }
                     finally
                     {
@@ -2883,7 +2955,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public JudgeAssignment.PagingResponseJudgeListItemModel GetAssignedToApplicationJudges(int applicationId, int roundId, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseJudgeListItemModel GetAssignedToApplicationJudges(int applicationId, int roundId, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetAssignedToApplicationJudgesAsync(applicationId, roundId, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -2898,7 +2970,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<JudgeAssignment.PagingResponseJudgeListItemModel> GetAssignedToApplicationJudgesAsync(int applicationId, int roundId, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseJudgeListItemModel> GetAssignedToApplicationJudgesAsync(int applicationId, int roundId, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (applicationId == null)
                 throw new System.ArgumentNullException("applicationId");
@@ -2952,7 +3024,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<JudgeAssignment.PagingResponseJudgeListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseJudgeListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -2962,7 +3034,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(JudgeAssignment.PagingResponseJudgeListItemModel);
+                        return default(Pagination.PagingResponseJudgeListItemModel);
                     }
                     finally
                     {
@@ -3405,7 +3477,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Program.PagingResponseProgramListItemModel GetPrograms(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseProgramListItemModel GetPrograms(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetProgramsAsync(createdSinceUtc, tag, showArchived, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -3421,7 +3493,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Program.PagingResponseProgramListItemModel> GetProgramsAsync(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseProgramListItemModel> GetProgramsAsync(System.DateTimeOffset? createdSinceUtc = null, string tag = null, bool? showArchived = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs?");
@@ -3479,7 +3551,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Program.PagingResponseProgramListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseProgramListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -3489,7 +3561,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Program.PagingResponseProgramListItemModel);
+                        return default(Pagination.PagingResponseProgramListItemModel);
                     }
                     finally
                     {
@@ -4181,7 +4253,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Session.PagingResponseSessionListItemModel GetSessions(int? programId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, string sessionChairEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseSessionListItemModel GetSessions(int? programId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, string sessionChairEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetSessionsAsync(programId, lastModifiedSinceUtc, sessionChairEmail, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4197,7 +4269,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Session.PagingResponseSessionListItemModel> GetSessionsAsync(int? programId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, string sessionChairEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseSessionListItemModel> GetSessionsAsync(int? programId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, string sessionChairEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Sessions?");
@@ -4255,7 +4327,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Session.PagingResponseSessionListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseSessionListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -4265,7 +4337,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(Session.PagingResponseSessionListItemModel);
+                        return default(Pagination.PagingResponseSessionListItemModel);
                     }
                     finally
                     {
@@ -4635,7 +4707,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public User.PagingResponseUserListItemModel GetUsers(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseUserListItemModel GetUsers(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetUsersAsync(firstName, lastName, company, email, thirdPartyId, lastModifiedSinceUtc, isApplicant, isJudge, isSessionChair, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4657,7 +4729,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User.PagingResponseUserListItemModel> GetUsersAsync(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseUserListItemModel> GetUsersAsync(string firstName = null, string lastName = null, string company = null, string email = null, string thirdPartyId = null, System.DateTimeOffset? lastModifiedSinceUtc = null, bool? isApplicant = null, bool? isJudge = null, bool? isSessionChair = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Users?");
@@ -4739,7 +4811,7 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<User.PagingResponseUserListItemModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseUserListItemModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -4749,7 +4821,7 @@ namespace OpenWater.ApiClient
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(User.PagingResponseUserListItemModel);
+                        return default(Pagination.PagingResponseUserListItemModel);
                     }
                     finally
                     {

@@ -19,27 +19,6 @@ namespace OpenWater.ApiClient.Invoice
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseInvoiceListItemModel 
-    {
-        public PagingResponseInvoiceListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseInvoiceListItemModel(System.Collections.Generic.ICollection<InvoiceListItemModel> items, Pagination.PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pagination.PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<InvoiceListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class InvoiceListItemModel 
     {
         public InvoiceListItemModel() { }
@@ -275,27 +254,6 @@ namespace OpenWater.ApiClient.Invoice
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseBillingLineItemListItemModel 
-    {
-        public PagingResponseBillingLineItemListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseBillingLineItemListItemModel(System.Collections.Generic.ICollection<BillingLineItemListItemModel> items, Pagination.PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pagination.PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BillingLineItemListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BillingLineItemListItemModel 
     {
         public BillingLineItemListItemModel() { }
@@ -350,27 +308,6 @@ namespace OpenWater.ApiClient.Invoice
         /// <summary>Billing line item created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponsePaymentListItemModel 
-    {
-        public PagingResponsePaymentListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponsePaymentListItemModel(System.Collections.Generic.ICollection<PaymentListItemModel> items, Pagination.PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pagination.PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PaymentListItemModel> Items { get; set; }
     
     
     }
@@ -450,27 +387,6 @@ namespace OpenWater.ApiClient.Invoice
         /// <summary>Payment created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseRefundListItemModel 
-    {
-        public PagingResponseRefundListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseRefundListItemModel(System.Collections.Generic.ICollection<RefundListItemModel> items, Pagination.PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pagination.PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<RefundListItemModel> Items { get; set; }
     
     
     }
