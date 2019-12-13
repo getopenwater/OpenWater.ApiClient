@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.FieldValues;
+using OpenWater.ApiClient.Pagination;
 using OpenWater.ApiClient.Session;
 
 namespace OpenWater.ApiClient.Samples

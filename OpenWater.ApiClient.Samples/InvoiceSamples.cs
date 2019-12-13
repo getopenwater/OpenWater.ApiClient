@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.Invoice;
+using OpenWater.ApiClient.Pagination;
 
 namespace OpenWater.ApiClient.Samples
 {

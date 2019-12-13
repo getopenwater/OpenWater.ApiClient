@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using OpenWater.ApiClient.JudgeAssignment;
+using OpenWater.ApiClient.Pagination;
 
 namespace OpenWater.ApiClient.Samples
 {
