@@ -12,7 +12,8 @@
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
     <PackageReleaseNotes>Changelog:
-* Added `applicationId` to `DeletedApplicationListItem`.</PackageReleaseNotes>
+* Moved all `PagingResponse` models to `OpenWater.ApiClient.Pagination` namespace
+* Added `Authenticate` action.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
