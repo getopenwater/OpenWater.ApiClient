@@ -10,6 +10,23 @@ FrontendApiManager.onReady("submissionForm", function (api) {
 });
 ```
 
+This code shows you how to add a table row (assuming the table field's alias is "table" and the fields are "firstName" and "lastName"
+
+```
+FrontendApiManager.onReady("submissionForm", function (api) {
+    var table = api.getField("table");
+    table.addRow([
+        {
+            alias: "firstName",
+            value: "John"
+        },
+        {
+            alias: "lastName",
+            value: "Smith"
+        }
+    ]);
+ });
+ ```
 
 ## FrontendApiManager
 
