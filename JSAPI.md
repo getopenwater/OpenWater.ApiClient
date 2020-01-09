@@ -1,5 +1,16 @@
 # Getting API instance
 
+## Getting Started
+Build a submission form with a text field value that has an alias "yourName".  Then load your javascript console and run this code:
+```
+FrontendApiManager.onReady("submissionForm", function (api) {
+    /**single line**/
+    var textBox = api.getField("yourName");
+   console.log(textBox.getValue());});
+});
+```
+
+
 ## FrontendApiManager
 
 `FrontendApiManager` is global scope variable which can be used to subscribe to `ready` event of specific form API.
