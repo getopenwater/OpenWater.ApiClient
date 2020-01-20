@@ -243,7 +243,7 @@ namespace OpenWater.ApiClient.Application
         public RoundSubmission() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, bool? isPaid = null, SubmissionStatus? status = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
+        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, bool? isPaid = null, SubmissionStatus? status = null, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
         {
               RoundId = @roundId;
               RoundName = @roundName;
@@ -309,7 +309,7 @@ namespace OpenWater.ApiClient.Application
         [Newtonsoft.Json.JsonProperty("winnerTypes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> WinnerTypes { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("submissionFieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("submissionFieldValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> SubmissionFieldValues { get; set; }
     
         [Newtonsoft.Json.JsonProperty("judgeScorecardInfos", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

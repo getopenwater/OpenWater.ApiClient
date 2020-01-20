@@ -67,18 +67,23 @@ namespace OpenWater.ApiClient.Invoice
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(System.Collections.Generic.ICollection<BillingLineItemModel> billingLineItems, System.DateTimeOffset createdAtUtc, int id, System.DateTimeOffset mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<PaymentModel> payments, int programId, System.Collections.Generic.ICollection<RefundModel> refunds, int userId, string programCode = null, string thirdPartyCorporateId = null)
+        public DetailsResponse(System.Collections.Generic.ICollection<BillingLineItemModel> billingLineItems, string couponCode, string couponName, System.DateTimeOffset createdAtUtc, int id, System.DateTimeOffset mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<PaymentModel> payments, int programId, System.Collections.Generic.ICollection<RefundModel> refunds, double totalBilled, double totalPaid, double totalRefunded, int userId, string programCode = null, string thirdPartyCorporateId = null)
         {
               Id = @id;
               ProgramId = @programId;
               ProgramCode = @programCode;
               UserId = @userId;
               ThirdPartyCorporateId = @thirdPartyCorporateId;
+              CouponName = @couponName;
+              CouponCode = @couponCode;
               CreatedAtUtc = @createdAtUtc;
               MostRecentTransactionDateUtc = @mostRecentTransactionDateUtc;
               BillingLineItems = @billingLineItems;
               Payments = @payments;
               Refunds = @refunds;
+              TotalBilled = @totalBilled;
+              TotalPaid = @totalPaid;
+              TotalRefunded = @totalRefunded;
         }
     
         /// <summary>Invoice id</summary>
@@ -101,6 +106,14 @@ namespace OpenWater.ApiClient.Invoice
         [Newtonsoft.Json.JsonProperty("thirdPartyCorporateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThirdPartyCorporateId { get; set; }
     
+        /// <summary>Invoice coupon name</summary>
+        [Newtonsoft.Json.JsonProperty("couponName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CouponName { get; set; }
+    
+        /// <summary>Invoice coupon code</summary>
+        [Newtonsoft.Json.JsonProperty("couponCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CouponCode { get; set; }
+    
         /// <summary>Invoice created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset CreatedAtUtc { get; set; }
@@ -120,6 +133,18 @@ namespace OpenWater.ApiClient.Invoice
         /// <summary>Invoice refunds</summary>
         [Newtonsoft.Json.JsonProperty("refunds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RefundModel> Refunds { get; set; }
+    
+        /// <summary>Invoice billing line items total amount</summary>
+        [Newtonsoft.Json.JsonProperty("totalBilled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double TotalBilled { get; set; }
+    
+        /// <summary>Invoice payments total amount</summary>
+        [Newtonsoft.Json.JsonProperty("totalPaid", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double TotalPaid { get; set; }
+    
+        /// <summary>Invoice refunds total amount</summary>
+        [Newtonsoft.Json.JsonProperty("totalRefunded", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double TotalRefunded { get; set; }
     
     
     }

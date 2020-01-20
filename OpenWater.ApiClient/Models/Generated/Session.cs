@@ -24,10 +24,11 @@ namespace OpenWater.ApiClient.Session
         public SessionListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SessionListItemModel(int applicationItemCount, int id, string name, int otherTimeItemCount, int programId, int totalSessionItemCount)
+        public SessionListItemModel(System.Collections.Generic.ICollection<int> applicationIds, int applicationItemCount, int id, string name, int otherTimeItemCount, int programId, int totalSessionItemCount)
         {
               Id = @id;
               ProgramId = @programId;
+              ApplicationIds = @applicationIds;
               Name = @name;
                   ApplicationItemCount = @applicationItemCount;
               OtherTimeItemCount = @otherTimeItemCount;
@@ -41,6 +42,10 @@ namespace OpenWater.ApiClient.Session
         /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; set; }
+    
+        /// <summary>Application ids assigned to session</summary>
+        [Newtonsoft.Json.JsonProperty("applicationIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<int> ApplicationIds { get; set; }
     
         /// <summary>Session name</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
