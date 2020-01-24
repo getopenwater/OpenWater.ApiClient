@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.Program
         public ProgramListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ProgramListItemModel(System.DateTimeOffset createdAtUtc, bool enableScheduler, bool enableSessions, int id, bool isArchived, string name, System.Collections.Generic.ICollection<RoundModel> rounds, string code = null, string tag = null)
+        public ProgramListItemModel(System.Collections.Generic.ICollection<ApplicationCategoryModel> applicationCategories, System.DateTimeOffset createdAtUtc, bool enableScheduler, bool enableSessions, int id, bool isArchived, string name, System.Collections.Generic.ICollection<RoundModel> rounds, string code = null, string tag = null)
         {
               Id = @id;
               Code = @code;
@@ -35,6 +35,7 @@ namespace OpenWater.ApiClient.Program
               EnableScheduler = @enableScheduler;
               CreatedAtUtc = @createdAtUtc;
               Rounds = @rounds;
+              ApplicationCategories = @applicationCategories;
         }
     
         /// <summary>Program id</summary>
@@ -73,6 +74,10 @@ namespace OpenWater.ApiClient.Program
         [Newtonsoft.Json.JsonProperty("rounds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RoundModel> Rounds { get; set; }
     
+        /// <summary>Program application categories</summary>
+        [Newtonsoft.Json.JsonProperty("applicationCategories", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ApplicationCategoryModel> ApplicationCategories { get; set; }
+    
     
     }
     
@@ -93,26 +98,66 @@ namespace OpenWater.ApiClient.Program
               JudgingEndDateUtc = @judgingEndDateUtc;
         }
     
+        /// <summary>Round id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; set; }
     
+        /// <summary>Round name</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
+        /// <summary>Is round judging only</summary>
         [Newtonsoft.Json.JsonProperty("isJudgingOnly", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsJudgingOnly { get; set; }
     
+        /// <summary>Submission period start date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("submissionStartDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? SubmissionStartDateUtc { get; set; }
     
+        /// <summary>Submission period end date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("submissionEndDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? SubmissionEndDateUtc { get; set; }
     
+        /// <summary>Judging period start date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("judgingStartDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? JudgingStartDateUtc { get; set; }
     
+        /// <summary>Judging period end date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("judgingEndDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? JudgingEndDateUtc { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ApplicationCategoryModel 
+    {
+        public ApplicationCategoryModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public ApplicationCategoryModel(string code, int id, string name, string path)
+        {
+              Id = @id;
+              Path = @path;
+              Code = @code;
+              Name = @name;
+        }
+    
+        /// <summary>Application category id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        /// <summary>Application category path</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        /// <summary>Application category code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Code { get; set; }
+    
+        /// <summary>Application category name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
     
     
     }

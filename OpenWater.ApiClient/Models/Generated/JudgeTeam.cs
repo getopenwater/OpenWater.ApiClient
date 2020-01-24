@@ -19,6 +19,34 @@ namespace OpenWater.ApiClient.JudgeTeam
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class JudgeTeamListItemModel 
+    {
+        public JudgeTeamListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public JudgeTeamListItemModel(int id, string name, int roundId)
+        {
+              Id = @id;
+              RoundId = @roundId;
+              Name = @name;
+        }
+    
+        /// <summary>Judge team id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        /// <summary>Judge team round id</summary>
+        [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int RoundId { get; set; }
+    
+        /// <summary>Judge team name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateRequest 
     {
         public CreateRequest() { }

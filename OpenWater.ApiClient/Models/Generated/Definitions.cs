@@ -140,6 +140,40 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BulkJudgeAssignmentType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAll")]
+        AssignAll = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNJudgesOnEachSubmission")]
+        AssignAtLeastNJudgesOnEachSubmission = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachJudge")]
+        AssignAtLeastNSubmissionsOnEachJudge = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachCertainJudge")]
+        AssignAtLeastNSubmissionsOnEachCertainJudge = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachJudgeTeamMember")]
+        AssignAtLeastNSubmissionsOnEachJudgeTeamMember = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BulkJudgeAssignmentFilterType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"All")]
+        All = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationCategories")]
+        ApplicationCategories = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Conditions")]
+        Conditions = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum TextLengthCountMode
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Characters")]

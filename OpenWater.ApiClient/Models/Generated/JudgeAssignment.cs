@@ -165,6 +165,99 @@ namespace OpenWater.ApiClient.JudgeAssignment
     
     
     }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateBulkJudgeAssignmentRuleRequest 
+    {
+        public CreateBulkJudgeAssignmentRuleRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateBulkJudgeAssignmentRuleRequest(System.Collections.Generic.ICollection<int> applicationCategoryIdsToFilterBy, BulkJudgeAssignmentFilterType bulkJudgeAssignmentFilterType, BulkJudgeAssignmentType bulkJudgeAssignmentType, string description, System.Collections.Generic.ICollection<int> judgeTeamIdsToAssign, System.Collections.Generic.ICollection<int> judgeUserIdsToAssign, string name, int roundId, int? assignAtLeastNJudgesOnEachSubmission = null, int? assignAtLeastNSubmissionsOnEachCertainJudge = null, int? assignAtLeastNSubmissionsOnEachJudge = null, int? assignAtLeastNSubmissionsOnEachJudgeTeamMember = null)
+        {
+              RoundId = @roundId;
+              Name = @name;
+              Description = @description;
+              BulkJudgeAssignmentType = @bulkJudgeAssignmentType;
+              BulkJudgeAssignmentFilterType = @bulkJudgeAssignmentFilterType;
+              AssignAtLeastNJudgesOnEachSubmission = @assignAtLeastNJudgesOnEachSubmission;
+              AssignAtLeastNSubmissionsOnEachJudge = @assignAtLeastNSubmissionsOnEachJudge;
+              AssignAtLeastNSubmissionsOnEachCertainJudge = @assignAtLeastNSubmissionsOnEachCertainJudge;
+              AssignAtLeastNSubmissionsOnEachJudgeTeamMember = @assignAtLeastNSubmissionsOnEachJudgeTeamMember;
+              ApplicationCategoryIdsToFilterBy = @applicationCategoryIdsToFilterBy;
+              JudgeUserIdsToAssign = @judgeUserIdsToAssign;
+              JudgeTeamIdsToAssign = @judgeTeamIdsToAssign;
+        }
+    
+        /// <summary>Round id</summary>
+        [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Always)]
+        public int RoundId { get; set; }
+    
+        /// <summary>Rule name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+    
+        /// <summary>Rule description</summary>
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; set; }
+    
+        /// <summary>Assignment type</summary>
+        [Newtonsoft.Json.JsonProperty("bulkJudgeAssignmentType", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BulkJudgeAssignmentType BulkJudgeAssignmentType { get; set; }
+    
+        /// <summary>Filter type</summary>
+        [Newtonsoft.Json.JsonProperty("bulkJudgeAssignmentFilterType", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BulkJudgeAssignmentFilterType BulkJudgeAssignmentFilterType { get; set; }
+    
+        /// <summary>Ensure each Submission is judged at least by a certain number Judges</summary>
+        [Newtonsoft.Json.JsonProperty("assignAtLeastNJudgesOnEachSubmission", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? AssignAtLeastNJudgesOnEachSubmission { get; set; }
+    
+        /// <summary>Ensure each Judge reviews at least a certain number of Submissions (leave blank for all)</summary>
+        [Newtonsoft.Json.JsonProperty("assignAtLeastNSubmissionsOnEachJudge", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? AssignAtLeastNSubmissionsOnEachJudge { get; set; }
+    
+        /// <summary>Assign at least a certain number of Submissions to Judge (leave blank for all)</summary>
+        [Newtonsoft.Json.JsonProperty("assignAtLeastNSubmissionsOnEachCertainJudge", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? AssignAtLeastNSubmissionsOnEachCertainJudge { get; set; }
+    
+        /// <summary>Assign at least a certain number of Submissions to Each Judge in team (leave blank for all Submissions)</summary>
+        [Newtonsoft.Json.JsonProperty("assignAtLeastNSubmissionsOnEachJudgeTeamMember", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? AssignAtLeastNSubmissionsOnEachJudgeTeamMember { get; set; }
+    
+        /// <summary>Application category ids to filter by</summary>
+        [Newtonsoft.Json.JsonProperty("applicationCategoryIdsToFilterBy", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<int> ApplicationCategoryIdsToFilterBy { get; set; }
+    
+        /// <summary>Judge user ids to assign</summary>
+        [Newtonsoft.Json.JsonProperty("judgeUserIdsToAssign", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<int> JudgeUserIdsToAssign { get; set; }
+    
+        /// <summary>Judge team ids to assign</summary>
+        [Newtonsoft.Json.JsonProperty("judgeTeamIdsToAssign", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<int> JudgeTeamIdsToAssign { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateBulkJudgeAssignmentRuleResponse 
+    {
+        public CreateBulkJudgeAssignmentRuleResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateBulkJudgeAssignmentRuleResponse(int id)
+        {
+              Id = @id;
+        }
+    
+        /// <summary>Judge assignment rule id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+    
+    }
 
 }
 
