@@ -129,6 +129,7 @@ namespace OpenWater.ApiClient
         /// <summary>Gets list of applications</summary>
         /// <param name="programId">Program Id</param>
         /// <param name="userId">User Id</param>
+        /// <param name="code">Application code</param>
         /// <param name="startedAtUtc">Started at date (UTC)</param>
         /// <param name="finalizedAtUtc">Finalized at date (UTC)</param>
         /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
@@ -138,15 +139,16 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Pagination.PagingResponseApplicationListItemModel GetApplications(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseApplicationListItemModel GetApplications(int? programId = null, int? userId = null, string code = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetApplicationsAsync(programId, userId, startedAtUtc, finalizedAtUtc, lastModifiedSinceUtc, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetApplicationsAsync(programId, userId, code, startedAtUtc, finalizedAtUtc, lastModifiedSinceUtc, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets list of applications</summary>
         /// <param name="programId">Program Id</param>
         /// <param name="userId">User Id</param>
+        /// <param name="code">Application code</param>
         /// <param name="startedAtUtc">Started at date (UTC)</param>
         /// <param name="finalizedAtUtc">Finalized at date (UTC)</param>
         /// <param name="lastModifiedSinceUtc">Last modified since date (UTC)</param>
@@ -156,7 +158,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Pagination.PagingResponseApplicationListItemModel> GetApplicationsAsync(int? programId = null, int? userId = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseApplicationListItemModel> GetApplicationsAsync(int? programId = null, int? userId = null, string code = null, System.DateTimeOffset? startedAtUtc = null, System.DateTimeOffset? finalizedAtUtc = null, System.DateTimeOffset? lastModifiedSinceUtc = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Applications?");
@@ -167,6 +169,10 @@ namespace OpenWater.ApiClient
             if (userId != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("userId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(userId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (code != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("code") + "=").Append(System.Uri.EscapeDataString(ConvertToString(code, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (startedAtUtc != null) 
             {
