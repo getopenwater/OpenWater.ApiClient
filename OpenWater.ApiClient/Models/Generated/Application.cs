@@ -396,14 +396,19 @@ namespace OpenWater.ApiClient.Application
         public AllowUserToUpdateFinalizedRoundSubmissionRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public AllowUserToUpdateFinalizedRoundSubmissionRequest(bool allowUserToMakeEdits)
+        public AllowUserToUpdateFinalizedRoundSubmissionRequest(bool allowUserToMakeEdits, string reason)
         {
               AllowUserToMakeEdits = @allowUserToMakeEdits;
+              Reason = @reason;
         }
     
         /// <summary>Allow user to edit a round submission</summary>
         [Newtonsoft.Json.JsonProperty("allowUserToMakeEdits", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowUserToMakeEdits { get; set; }
+    
+        /// <summary>Reason to allow</summary>
+        [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Reason { get; set; }
     
     
     }
