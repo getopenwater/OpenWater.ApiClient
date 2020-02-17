@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.9.0</Version>
+    <Version>2.10.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,8 +12,8 @@
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
     <PackageReleaseNotes>Changelog:
-* Added `Reason` property in `AllowUserToUpdateFinalizedRoundSubmissionRequest` model
-* Added `GetProgramById` action.</PackageReleaseNotes>
+* Added `PublicUrlToSubmission` property in `RoundSubmission` model
+* Added `DeleteApplication` action.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 

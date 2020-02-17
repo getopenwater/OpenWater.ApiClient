@@ -243,7 +243,7 @@ namespace OpenWater.ApiClient.Application
         public RoundSubmission() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, bool? isPaid = null, SubmissionStatus? status = null, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
+        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, string publicUrlToSubmission, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, bool? isPaid = null, SubmissionStatus? status = null, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
         {
               RoundId = @roundId;
               RoundName = @roundName;
@@ -257,6 +257,7 @@ namespace OpenWater.ApiClient.Application
               IsForwarded = @isForwarded;
               WinnerNotes = @winnerNotes;
               AdminUrlToSubmission = @adminUrlToSubmission;
+              PublicUrlToSubmission = @publicUrlToSubmission;
               PublicGalleryUrl = @publicGalleryUrl;
               WinnerTypes = @winnerTypes;
               SubmissionFieldValues = @submissionFieldValues;
@@ -302,6 +303,9 @@ namespace OpenWater.ApiClient.Application
     
         [Newtonsoft.Json.JsonProperty("adminUrlToSubmission", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AdminUrlToSubmission { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("publicUrlToSubmission", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PublicUrlToSubmission { get; set; }
     
         [Newtonsoft.Json.JsonProperty("publicGalleryUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PublicGalleryUrl { get; set; }
