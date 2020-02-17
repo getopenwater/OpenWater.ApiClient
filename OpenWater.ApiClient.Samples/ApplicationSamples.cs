@@ -184,7 +184,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            return ApiClient.AllowUserToUpdateFinalizedRoundSubmissionAsync(applicationId, roundId, new AllowUserToUpdateFinalizedRoundSubmissionRequest(true));
+            return ApiClient.AllowUserToUpdateFinalizedRoundSubmissionAsync(applicationId, roundId, new AllowUserToUpdateFinalizedRoundSubmissionRequest(true, "Reason"));
         }
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace OpenWater.ApiClient.Samples
             const int applicationId = 18015;
             const int roundId = 14004;
 
-            ApiClient.AllowUserToUpdateFinalizedRoundSubmission(applicationId, roundId, new AllowUserToUpdateFinalizedRoundSubmissionRequest(true));
+            ApiClient.AllowUserToUpdateFinalizedRoundSubmission(applicationId, roundId, new AllowUserToUpdateFinalizedRoundSubmissionRequest(true, "Reason"));
         }
 
         /// <summary>
