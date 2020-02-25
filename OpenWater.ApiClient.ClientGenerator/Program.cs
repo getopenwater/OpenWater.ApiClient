@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using NJsonSchema;
 using NJsonSchema.CodeGeneration.CSharp;
 using NSwag;
@@ -14,7 +15,7 @@ namespace OpenWater.ApiClient.ClientGenerator
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             const string apiClientClassName = "OpenWaterApiClient";
             const string apiExceptionClassName = "OpenWaterApiException";
@@ -24,9 +25,9 @@ namespace OpenWater.ApiClient.ClientGenerator
             var generatedModelsPath = Path.Combine(outputPath, "Models", "Generated");
 
 #if DEBUG
-            var apiDocument = OpenApiDocument.FromUrlAsync("http://localhost:11100/swagger/v2/swagger.json").Result;
+            var apiDocument = await OpenApiDocument.FromUrlAsync("http://localhost:11100/swagger/v2/swagger.json");
 #else
-            var apiDocument = OpenApiDocument.FromUrlAsync("https://api.secure-platform.com/swagger/v2/swagger.json").Result;
+            var apiDocument = await OpenApiDocument.FromUrlAsync("https://api.secure-platform.com/swagger/v2/swagger.json");
 #endif
 
             apiDocument.SchemaType = SchemaType.OpenApi3;

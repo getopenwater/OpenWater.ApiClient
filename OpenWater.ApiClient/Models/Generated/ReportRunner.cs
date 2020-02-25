@@ -24,14 +24,47 @@ namespace OpenWater.ApiClient.ReportRunner
         public RunRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RunRequest(string outputFormat)
+        public RunRequest(string outputFormat, System.Collections.Generic.ICollection<FieldConditionInfo> andFieldConditions = null, System.Collections.Generic.ICollection<FieldConditionInfo> orFieldConditions = null)
         {
               OutputFormat = @outputFormat;
+              AndFieldConditions = @andFieldConditions;
+              OrFieldConditions = @orFieldConditions;
         }
     
         /// <summary>Report output format (csv, xlsx, json)</summary>
         [Newtonsoft.Json.JsonProperty("outputFormat", Required = Newtonsoft.Json.Required.Always)]
         public string OutputFormat { get; set; }
+    
+        /// <summary>Mandatory field conditions to meet</summary>
+        [Newtonsoft.Json.JsonProperty("andFieldConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<FieldConditionInfo> AndFieldConditions { get; set; }
+    
+        /// <summary>Field conditions to meet at least one of them</summary>
+        [Newtonsoft.Json.JsonProperty("orFieldConditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<FieldConditionInfo> OrFieldConditions { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class FieldConditionInfo 
+    {
+        public FieldConditionInfo() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public FieldConditionInfo(string alias, string value)
+        {
+              Alias = @alias;
+              Value = @value;
+        }
+    
+        /// <summary>Field alias</summary>
+        [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.Always)]
+        public string Alias { get; set; }
+    
+        /// <summary>Field value</summary>
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
+        public string Value { get; set; }
     
     
     }
