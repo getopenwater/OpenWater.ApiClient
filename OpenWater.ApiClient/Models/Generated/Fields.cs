@@ -451,6 +451,20 @@ namespace OpenWater.ApiClient.Fields
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PhoneNumberFieldModel : FieldModelBase
+    {
+        public PhoneNumberFieldModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PhoneNumberFieldModel(string alias, bool hidden, bool isDescriptionWysiwyg, bool required, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, string name = null, int? sortOrder = null)
+            : base(alias, hidden, isDescriptionWysiwyg, required, visibilityCondition, customCssClass, description, name, sortOrder)
+        {
+        }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class RadioListFieldModel : FieldModelBase
     {
         public RadioListFieldModel() { }

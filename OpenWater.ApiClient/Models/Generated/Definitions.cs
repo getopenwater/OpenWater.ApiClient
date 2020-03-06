@@ -102,6 +102,9 @@ namespace OpenWater.ApiClient.Definitions
         [System.Runtime.Serialization.EnumMember(Value = @"Submission")]
         Submission = 3,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"PaymentMethod")]
+        PaymentMethod = 4,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -136,6 +139,9 @@ namespace OpenWater.ApiClient.Definitions
     
         [System.Runtime.Serialization.EnumMember(Value = @"GlobalPay")]
         GlobalPay = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"WorldPay")]
+        WorldPay = 10,
     
     }
     
