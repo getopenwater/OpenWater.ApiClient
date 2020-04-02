@@ -155,9 +155,11 @@ namespace OpenWater.ApiClient.Invoice
         public BillingLineItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemModel(double amount, int id, bool isManualAdjustment, bool isVat, string details = null, string notes = null, BillingLineItemTargetType? targetType = null)
+        public BillingLineItemModel(double amount, int id, bool isManualAdjustment, bool isVat, int? applicationId = null, int? deletedApplicationId = null, string details = null, string notes = null, BillingLineItemTargetType? targetType = null)
         {
               Id = @id;
+              ApplicationId = @applicationId;
+              DeletedApplicationId = @deletedApplicationId;
               Amount = @amount;
               Notes = @notes;
               Details = @details;
@@ -168,6 +170,12 @@ namespace OpenWater.ApiClient.Invoice
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ApplicationId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("deletedApplicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? DeletedApplicationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Amount { get; set; }
@@ -284,9 +292,11 @@ namespace OpenWater.ApiClient.Invoice
         public BillingLineItemListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public BillingLineItemListItemModel(double amount, System.DateTimeOffset createdAtUtc, int id, int invoiceId, bool isManualAdjustment, bool isVat, string details = null, string notes = null, BillingLineItemTargetType? targetType = null)
+        public BillingLineItemListItemModel(double amount, System.DateTimeOffset createdAtUtc, int id, int invoiceId, bool isManualAdjustment, bool isVat, int? applicationId = null, int? deletedApplicationId = null, string details = null, string notes = null, BillingLineItemTargetType? targetType = null)
         {
               Id = @id;
+              ApplicationId = @applicationId;
+              DeletedApplicationId = @deletedApplicationId;
               InvoiceId = @invoiceId;
               Amount = @amount;
               Notes = @notes;
@@ -300,6 +310,14 @@ namespace OpenWater.ApiClient.Invoice
         /// <summary>Billing line item id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; set; }
+    
+        /// <summary>Related application id</summary>
+        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ApplicationId { get; set; }
+    
+        /// <summary>Related deleted application id</summary>
+        [Newtonsoft.Json.JsonProperty("deletedApplicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? DeletedApplicationId { get; set; }
     
         /// <summary>Invoice id</summary>
         [Newtonsoft.Json.JsonProperty("invoiceId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
