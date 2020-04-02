@@ -44,7 +44,7 @@ namespace OpenWater.ApiClient.FieldValues
         public AddressFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public AddressFieldValueModel(string alias, string city, string countryCode, string line2, string state, string street, string zip)
+        public AddressFieldValueModel(string alias, string city, string countryCode, string line2, string line3, string state, string street, string zip)
             : base(alias)
         {
               CountryCode = @countryCode;
@@ -53,6 +53,7 @@ namespace OpenWater.ApiClient.FieldValues
               Zip = @zip;
               Street = @street;
               Line2 = @line2;
+              Line3 = @line3;
         }
     
         [Newtonsoft.Json.JsonProperty("countryCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -72,6 +73,9 @@ namespace OpenWater.ApiClient.FieldValues
     
         [Newtonsoft.Json.JsonProperty("line2", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Line2 { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("line3", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Line3 { get; set; }
     
     
     }

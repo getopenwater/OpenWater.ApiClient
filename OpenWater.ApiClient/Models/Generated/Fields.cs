@@ -97,10 +97,14 @@ namespace OpenWater.ApiClient.Fields
         public AddressFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public AddressFieldModel(string alias, bool hidden, bool isDescriptionWysiwyg, bool required, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, string name = null, int? sortOrder = null)
+        public AddressFieldModel(string alias, bool hidden, bool isDescriptionWysiwyg, bool isLine3Enabled, bool required, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, string name = null, int? sortOrder = null)
             : base(alias, hidden, isDescriptionWysiwyg, required, visibilityCondition, customCssClass, description, name, sortOrder)
         {
+              IsLine3Enabled = @isLine3Enabled;
         }
+    
+        [Newtonsoft.Json.JsonProperty("isLine3Enabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsLine3Enabled { get; set; }
     
     
     }
