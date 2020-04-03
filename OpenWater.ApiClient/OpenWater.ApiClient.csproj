@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.13.0-alpha</Version>
+    <Version>2.13.1-alpha</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -14,10 +14,7 @@
     <PackageReleaseNotes>WARNING! DO NOT USE IN PRODUCTION
 
 Changelog:
-* Added "RecalculateInvoice" method
-* Added roundId to invoice details response
-* Added applicationIds and deletedApplicationIds properties to billingLineItem model.
-* Added Line3 support to address field</PackageReleaseNotes>
+* Fixed response type in "RecalculateInvoice" method</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 

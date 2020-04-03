@@ -2396,9 +2396,9 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Invoice.PayByCheckResponse RecalculateInvoice(int invoiceId, string organizationCode = null, bool? suppressEmails = null)
+        public void RecalculateInvoice(int invoiceId, string organizationCode = null, bool? suppressEmails = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await RecalculateInvoiceAsync(invoiceId, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await RecalculateInvoiceAsync(invoiceId, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2408,7 +2408,7 @@ namespace OpenWater.ApiClient
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Invoice.PayByCheckResponse> RecalculateInvoiceAsync(int invoiceId, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task RecalculateInvoiceAsync(int invoiceId, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (invoiceId == null)
                 throw new System.ArgumentNullException("invoiceId");
@@ -2428,7 +2428,6 @@ namespace OpenWater.ApiClient
                         request_.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
                     request_.Content = new System.Net.Http.StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json");
                     request_.Method = new System.Net.Http.HttpMethod("POST");
-                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
                     var url_ = urlBuilder_.ToString();
@@ -2450,14 +2449,12 @@ namespace OpenWater.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Invoice.PayByCheckResponse>(response_, headers_).ConfigureAwait(false);
-                            return objectResponse_.Object;
+                            return;
                         }
                         else
                         if (status_ == "204") 
                         {
-                            string responseText_ = ( response_.Content == null ) ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new OpenWaterApiException("A server side error occurred.", (int)response_.StatusCode, responseText_, headers_, null);
+                            return;
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -2465,8 +2462,6 @@ namespace OpenWater.ApiClient
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
-            
-                        return default(Invoice.PayByCheckResponse);
                     }
                     finally
                     {
