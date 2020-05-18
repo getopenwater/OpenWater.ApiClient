@@ -128,7 +128,7 @@ namespace OpenWater.ApiClient
     
         /// <summary>Gets list of applications</summary>
         /// <param name="programId">Program Id</param>
-        /// <param name="userId">User Id</param>
+        /// <param name="userId">User Id of application owner or of its sub account</param>
         /// <param name="code">Application code</param>
         /// <param name="startedAtUtc">Started at date (UTC)</param>
         /// <param name="finalizedAtUtc">Finalized at date (UTC)</param>
@@ -147,7 +147,7 @@ namespace OpenWater.ApiClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets list of applications</summary>
         /// <param name="programId">Program Id</param>
-        /// <param name="userId">User Id</param>
+        /// <param name="userId">User Id of application owner or of its sub account</param>
         /// <param name="code">Application code</param>
         /// <param name="startedAtUtc">Started at date (UTC)</param>
         /// <param name="finalizedAtUtc">Finalized at date (UTC)</param>

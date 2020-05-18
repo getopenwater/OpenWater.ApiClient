@@ -24,10 +24,11 @@ namespace OpenWater.ApiClient.Application
         public ApplicationListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationListItemModel(int id, System.DateTimeOffset lastModifiedUtc, int programId, string categoryFriendlyPath = null, string categoryName = null, string code = null, string name = null)
+        public ApplicationListItemModel(int id, System.DateTimeOffset lastModifiedUtc, int programId, int userId, string categoryFriendlyPath = null, string categoryName = null, string code = null, string name = null)
         {
               Id = @id;
               ProgramId = @programId;
+              UserId = @userId;
               Code = @code;
               Name = @name;
               CategoryName = @categoryName;
@@ -42,6 +43,10 @@ namespace OpenWater.ApiClient.Application
         /// <summary>Program id</summary>
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; set; }
+    
+        /// <summary>Application owner user Id</summary>
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int UserId { get; set; }
     
         /// <summary>Application code</summary>
         [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -136,7 +141,7 @@ namespace OpenWater.ApiClient.Application
         [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ProgramId { get; set; }
     
-        /// <summary>User id</summary>
+        /// <summary>Application owner user Id</summary>
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int UserId { get; set; }
     

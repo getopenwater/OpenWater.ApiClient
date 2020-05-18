@@ -130,7 +130,7 @@ namespace OpenWater.ApiClient.User
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(System.DateTimeOffset createdAtUtc, string email, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, int id, bool isApplicant, bool isJudge, bool isSessionChair, System.DateTimeOffset lastModifiedAtUtc, string lastName, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null, string thirdPartyUniqueId = null)
+        public DetailsResponse(System.DateTimeOffset createdAtUtc, string email, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, int id, bool isApplicant, bool isJudge, bool isSessionChair, System.DateTimeOffset lastModifiedAtUtc, string lastName, System.Collections.Generic.ICollection<int> subAccountUserIds, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null, string thirdPartyUniqueId = null)
         {
               Id = @id;
               Email = @email;
@@ -145,6 +145,7 @@ namespace OpenWater.ApiClient.User
               LastModifiedAtUtc = @lastModifiedAtUtc;
               LastLoggedInUtc = @lastLoggedInUtc;
               FieldValues = @fieldValues;
+              SubAccountUserIds = @subAccountUserIds;
         }
     
         /// <summary>User id</summary>
@@ -198,6 +199,10 @@ namespace OpenWater.ApiClient.User
         /// <summary>User profile form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> FieldValues { get; set; }
+    
+        /// <summary>Sub account user Ids</summary>
+        [Newtonsoft.Json.JsonProperty("subAccountUserIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<int> SubAccountUserIds { get; set; }
     
     
     }
