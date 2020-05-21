@@ -120,6 +120,7 @@ Custom script is already executed in handler of `ready` event described above, s
     - `value` - target field value
 - `removeRow(rowIndex: number)` - removes row by index.
 - `getRowCount(): number` - returns row count.
+- `getValueInRow(rowIndex: number, alias: string): string` - returns field value in a specific row.
 
 ### Date
 
