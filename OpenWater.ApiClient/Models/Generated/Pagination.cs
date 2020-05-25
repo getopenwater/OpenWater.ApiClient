@@ -266,6 +266,90 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseScheduleDayListItemModel 
+    {
+        public PagingResponseScheduleDayListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseScheduleDayListItemModel(System.Collections.Generic.ICollection<ScheduleDay.ScheduleDayListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ScheduleDay.ScheduleDayListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseScheduleItemListItemModel 
+    {
+        public PagingResponseScheduleItemListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseScheduleItemListItemModel(System.Collections.Generic.ICollection<ScheduleItem.ScheduleItemListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ScheduleItem.ScheduleItemListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseScheduleRoomListItemModel 
+    {
+        public PagingResponseScheduleRoomListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseScheduleRoomListItemModel(System.Collections.Generic.ICollection<ScheduleRoom.ScheduleRoomListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ScheduleRoom.ScheduleRoomListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseScheduleTimeSlotListItemModel 
+    {
+        public PagingResponseScheduleTimeSlotListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseScheduleTimeSlotListItemModel(System.Collections.Generic.ICollection<ScheduleTimeSlot.ScheduleTimeSlotListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ScheduleTimeSlot.ScheduleTimeSlotListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseSessionListItemModel 
     {
         public PagingResponseSessionListItemModel() { }
