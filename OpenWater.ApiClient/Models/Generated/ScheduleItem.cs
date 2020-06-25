@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.ScheduleItem
         public ScheduleItemListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ScheduleItemListItemModel(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId, SchedulerTargetType targetType)
+        public ScheduleItemListItemModel(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId, SchedulerEventTargetType targetType)
         {
               ScheduleRoomId = @scheduleRoomId;
               ScheduleDayId = @scheduleDayId;
@@ -48,7 +48,7 @@ namespace OpenWater.ApiClient.ScheduleItem
         /// <summary>Target entry type (application, session)</summary>
         [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SchedulerTargetType TargetType { get; set; }
+        public SchedulerEventTargetType TargetType { get; set; }
     
         /// <summary>Target entry Id</summary>
         [Newtonsoft.Json.JsonProperty("targetId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -63,7 +63,7 @@ namespace OpenWater.ApiClient.ScheduleItem
         public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId, SchedulerTargetType targetType)
+        public CreateRequest(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId, SchedulerEventTargetType targetType)
         {
               ScheduleRoomId = @scheduleRoomId;
               ScheduleDayId = @scheduleDayId;
@@ -84,10 +84,10 @@ namespace OpenWater.ApiClient.ScheduleItem
         [Newtonsoft.Json.JsonProperty("scheduleTimeSlotId", Required = Newtonsoft.Json.Required.Always)]
         public int ScheduleTimeSlotId { get; set; }
     
-        /// <summary>Target entry type (application, session)</summary>
+        /// <summary>Target entry type (application, session, other)</summary>
         [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.Always)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SchedulerTargetType TargetType { get; set; }
+        public SchedulerEventTargetType TargetType { get; set; }
     
         /// <summary>Target entry Id</summary>
         [Newtonsoft.Json.JsonProperty("targetId", Required = Newtonsoft.Json.Required.Always)]

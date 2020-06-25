@@ -133,7 +133,7 @@ namespace OpenWater.ApiClient.Fields
         public ApplicationNameFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ApplicationNameFieldModel(string alias, string firstTitle, bool hidden, bool isDescriptionWysiwyg, bool isOneTextField, bool required, string secondTitle, TextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, int? maxLength = null, int? minLength = null, string name = null, int? sortOrder = null)
+        public ApplicationNameFieldModel(string alias, bool hidden, bool isDescriptionWysiwyg, bool isOneTextField, bool required, TextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, string firstTitle = null, int? maxLength = null, int? minLength = null, string name = null, string secondTitle = null, int? sortOrder = null)
             : base(alias, hidden, isDescriptionWysiwyg, required, visibilityCondition, customCssClass, description, name, sortOrder)
         {
               IsOneTextField = @isOneTextField;
@@ -147,10 +147,10 @@ namespace OpenWater.ApiClient.Fields
         [Newtonsoft.Json.JsonProperty("isOneTextField", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsOneTextField { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("firstTitle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("firstTitle", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstTitle { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("secondTitle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("secondTitle", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SecondTitle { get; set; }
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -288,7 +288,7 @@ namespace OpenWater.ApiClient.Fields
         public FileUploadFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public FileUploadFieldModel(string alias, string allowedFileExtensions, string captionLabel, bool hidden, bool isDescriptionWysiwyg, bool required, bool showAudioPreview, bool showCaption, bool showDocumentPreview, bool showImagePreview, bool showVideoPreview, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, int? maxFileSize = null, string name = null, int? sortOrder = null)
+        public FileUploadFieldModel(string alias, bool hidden, bool isDescriptionWysiwyg, bool required, bool showAudioPreview, bool showCaption, bool showDocumentPreview, bool showImagePreview, bool showVideoPreview, FieldVisibilityConditionModel visibilityCondition, string allowedFileExtensions = null, string captionLabel = null, string customCssClass = null, string description = null, int? maxFileSize = null, string name = null, int? sortOrder = null)
             : base(alias, hidden, isDescriptionWysiwyg, required, visibilityCondition, customCssClass, description, name, sortOrder)
         {
               ShowCaption = @showCaption;
@@ -319,10 +319,10 @@ namespace OpenWater.ApiClient.Fields
         [Newtonsoft.Json.JsonProperty("maxFileSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaxFileSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("allowedFileExtensions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("allowedFileExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AllowedFileExtensions { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("captionLabel", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("captionLabel", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CaptionLabel { get; set; }
     
     
@@ -348,7 +348,7 @@ namespace OpenWater.ApiClient.Fields
         public LetterOfRecommendationFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public LetterOfRecommendationFieldModel(string alias, bool allowReceiveRecommendationAfterSubmissionPeriodEnds, bool allowSubmitterToDeleteRecommendationOnIncompleteSubmission, bool allowSubmitterToViewCompletedRecommendation, bool allowToSendRequestPriorToFinalization, string confirmationPageHtml, System.Collections.Generic.ICollection<FieldModelBase> fields, bool hidden, string instructionsHtml, bool isDescriptionWysiwyg, bool required, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, string name = null, int? sortOrder = null)
+        public LetterOfRecommendationFieldModel(string alias, bool allowReceiveRecommendationAfterSubmissionPeriodEnds, bool allowSubmitterToDeleteRecommendationOnIncompleteSubmission, bool allowSubmitterToViewCompletedRecommendation, bool allowToSendRequestPriorToFinalization, System.Collections.Generic.ICollection<FieldModelBase> fields, bool hidden, bool isDescriptionWysiwyg, bool required, FieldVisibilityConditionModel visibilityCondition, string confirmationPageHtml = null, string customCssClass = null, string description = null, string instructionsHtml = null, string name = null, int? sortOrder = null)
             : base(alias, hidden, isDescriptionWysiwyg, required, visibilityCondition, customCssClass, description, name, sortOrder)
         {
               AllowToSendRequestPriorToFinalization = @allowToSendRequestPriorToFinalization;
@@ -372,10 +372,10 @@ namespace OpenWater.ApiClient.Fields
         [Newtonsoft.Json.JsonProperty("allowReceiveRecommendationAfterSubmissionPeriodEnds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool AllowReceiveRecommendationAfterSubmissionPeriodEnds { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("instructionsHtml", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("instructionsHtml", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string InstructionsHtml { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("confirmationPageHtml", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("confirmationPageHtml", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ConfirmationPageHtml { get; set; }
     
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -390,7 +390,7 @@ namespace OpenWater.ApiClient.Fields
         public MultilineTextFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public MultilineTextFieldModel(string alias, string allowedHtmlTags, bool hidden, bool isDescriptionWysiwyg, bool isWysiwyg, bool required, FieldSize size, TextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, int? maxLength = null, int? minLength = null, string name = null, int? sortOrder = null)
+        public MultilineTextFieldModel(string alias, bool hidden, bool isDescriptionWysiwyg, bool isWysiwyg, bool required, FieldSize size, TextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition, string allowedHtmlTags = null, string customCssClass = null, string description = null, int? maxLength = null, int? minLength = null, string name = null, int? sortOrder = null)
             : base(alias, hidden, isDescriptionWysiwyg, required, visibilityCondition, customCssClass, description, name, sortOrder)
         {
               IsWysiwyg = @isWysiwyg;
@@ -404,7 +404,7 @@ namespace OpenWater.ApiClient.Fields
         [Newtonsoft.Json.JsonProperty("isWysiwyg", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsWysiwyg { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("allowedHtmlTags", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("allowedHtmlTags", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AllowedHtmlTags { get; set; }
     
         [Newtonsoft.Json.JsonProperty("textLengthCountMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -430,7 +430,7 @@ namespace OpenWater.ApiClient.Fields
         public NumberFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public NumberFieldModel(string alias, string format, bool hidden, bool isDescriptionWysiwyg, bool required, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, int? maxPrecision = null, double? maxValue = null, double? minValue = null, string name = null, int? sortOrder = null)
+        public NumberFieldModel(string alias, bool hidden, bool isDescriptionWysiwyg, bool required, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, string format = null, int? maxPrecision = null, double? maxValue = null, double? minValue = null, string name = null, int? sortOrder = null)
             : base(alias, hidden, isDescriptionWysiwyg, required, visibilityCondition, customCssClass, description, name, sortOrder)
         {
               MinValue = @minValue;
@@ -448,7 +448,7 @@ namespace OpenWater.ApiClient.Fields
         [Newtonsoft.Json.JsonProperty("maxPrecision", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaxPrecision { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Format { get; set; }
     
     
@@ -520,7 +520,7 @@ namespace OpenWater.ApiClient.Fields
         public TableFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public TableFieldModel(string alias, System.Collections.Generic.ICollection<FieldModelBase> fields, bool hidden, bool isDescriptionWysiwyg, int maxRowCount, int minRowCount, bool required, string rowName, string rowNamePlural, string rowTemplate, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, string name = null, int? sortOrder = null)
+        public TableFieldModel(string alias, System.Collections.Generic.ICollection<FieldModelBase> fields, bool hidden, bool isDescriptionWysiwyg, int maxRowCount, int minRowCount, bool required, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, string name = null, string rowName = null, string rowNamePlural = null, string rowTemplate = null, int? sortOrder = null)
             : base(alias, hidden, isDescriptionWysiwyg, required, visibilityCondition, customCssClass, description, name, sortOrder)
         {
               RowName = @rowName;
@@ -531,13 +531,13 @@ namespace OpenWater.ApiClient.Fields
               Fields = @fields;
         }
     
-        [Newtonsoft.Json.JsonProperty("rowName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("rowName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RowName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("rowNamePlural", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("rowNamePlural", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RowNamePlural { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("rowTemplate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("rowTemplate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RowTemplate { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minRowCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

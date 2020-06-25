@@ -19,20 +19,6 @@ namespace OpenWater.ApiClient.Definitions
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum JudgeScorecardStatus
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
-        NotScored = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Started")]
-        Started = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum SubmissionStatus
     {
         [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
@@ -52,6 +38,20 @@ namespace OpenWater.ApiClient.Definitions
     
         [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
         InCart = 5,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum JudgeScorecardStatus
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
+        NotScored = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Started")]
+        Started = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
+        Complete = 2,
     
     }
     
@@ -180,13 +180,16 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum SchedulerTargetType
+    public enum SchedulerEventTargetType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Session")]
         Session = 0,
     
         [System.Runtime.Serialization.EnumMember(Value = @"Application")]
         Application = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Other")]
+        Other = 2,
     
     }
     
