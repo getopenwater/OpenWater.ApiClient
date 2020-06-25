@@ -61,7 +61,8 @@ namespace OpenWater.ApiClient.ClientGenerator
                     GenerateOptionalParameters = true,
                     ExceptionClass = apiExceptionClassName,
                     GenerateSyncMethods = true,
-                    GenerateExceptionClasses = false
+                    GenerateExceptionClasses = false,
+                    ParameterDateTimeFormat = "u"
                 };
             }
         }
