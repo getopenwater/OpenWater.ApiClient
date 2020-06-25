@@ -176,15 +176,15 @@ namespace OpenWater.ApiClient
             }
             if (startedAtUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("startedAtUtc") + "=").Append(System.Uri.EscapeDataString(startedAtUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("startedAtUtc") + "=").Append(System.Uri.EscapeDataString(startedAtUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (finalizedAtUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("finalizedAtUtc") + "=").Append(System.Uri.EscapeDataString(finalizedAtUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("finalizedAtUtc") + "=").Append(System.Uri.EscapeDataString(finalizedAtUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (lastModifiedSinceUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (pageIndex != null) 
             {
@@ -1384,7 +1384,7 @@ namespace OpenWater.ApiClient
             }
             if (deletedSinceUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("deletedSinceUtc") + "=").Append(System.Uri.EscapeDataString(deletedSinceUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("deletedSinceUtc") + "=").Append(System.Uri.EscapeDataString(deletedSinceUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (pageIndex != null) 
             {
@@ -1587,7 +1587,7 @@ namespace OpenWater.ApiClient
             }
             if (lastModifiedSinceUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (pageIndex != null) 
             {
@@ -1867,7 +1867,7 @@ namespace OpenWater.ApiClient
             }
             if (mostRecentTransactionSinceUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("mostRecentTransactionSinceUtc") + "=").Append(System.Uri.EscapeDataString(mostRecentTransactionSinceUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("mostRecentTransactionSinceUtc") + "=").Append(System.Uri.EscapeDataString(mostRecentTransactionSinceUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (pageIndex != null) 
             {
@@ -2046,7 +2046,7 @@ namespace OpenWater.ApiClient
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/BillingLineItems?");
             if (lastModifiedUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (pageIndex != null) 
             {
@@ -2142,7 +2142,7 @@ namespace OpenWater.ApiClient
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/Payments?");
             if (lastModifiedUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (pageIndex != null) 
             {
@@ -2238,7 +2238,7 @@ namespace OpenWater.ApiClient
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Invoices/Refunds?");
             if (lastModifiedUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (pageIndex != null) 
             {
@@ -3852,7 +3852,7 @@ namespace OpenWater.ApiClient
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs?");
             if (createdSinceUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("createdSinceUtc") + "=").Append(System.Uri.EscapeDataString(createdSinceUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("createdSinceUtc") + "=").Append(System.Uri.EscapeDataString(createdSinceUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (tag != null) 
             {
@@ -4715,7 +4715,7 @@ namespace OpenWater.ApiClient
             }
             if (lastModifiedSinceUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (sessionChairEmail != null) 
             {
@@ -5191,7 +5191,7 @@ namespace OpenWater.ApiClient
             }
             if (lastModifiedSinceUtc != null) 
             {
-                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("s", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+                urlBuilder_.Append(System.Uri.EscapeDataString("lastModifiedSinceUtc") + "=").Append(System.Uri.EscapeDataString(lastModifiedSinceUtc.Value.ToString("u", System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (isApplicant != null) 
             {

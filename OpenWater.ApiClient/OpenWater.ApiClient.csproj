@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.14.0</Version>
+    <Version>2.15.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -11,10 +11,37 @@
     <Company>OpenWater</Company>
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
-    <PackageReleaseNotes>Changelog:
-* Added "UserId" to application list api endpoint response
-* Added "SubAccountUserIds" to application details api endpoint response
-* Updated descriptions for application api endpoint responses</PackageReleaseNotes>
+    <PackageReleaseNotes>PLEASE READ CAREFULLY BEFORE UPDATING PACKAGE. THIS VERSION CONTAINS BREAKING CHANGES.
+
+Changelog:
+* Breaking changes (order of arguments has changed):
+  - [Fields]:
+    + ApplicationNameFieldModel: `firstTitle`, `secondTitle` arguments become optional
+    + FileUploadFieldModel: `allowedFileExtensions`, `captionLabel` arguments become optional
+    + LetterOfRecommendationFieldModel: `confirmationPageHtml` argument becomes optional
+    + MultilineTextFieldModel: `allowedHtmlTags` argument becomes optional
+    + NumberFieldModel: `format` argument becomes optional
+    + TableFieldModel: `rowName`, `rowNamePlural` and `rowTemplate` arguments become optional.
+ 
+ - [Request models]:
+    + ChangeFinalizedRoundSubmissionStatusRequest: `status` argument becomes required.
+
+  - [Field values]:
+    + LetterOfRecommendationFieldValueModel: `email`, `fullName` arguments become optional.
+
+* Not breaking changes:
+ - [Field values]:
+    + AddressFieldValueModel: `city`, `countryCode`, `line2`, `line3`, `state`, `street` and `zip` arguments become optional
+    + ApplicationNameFieldValueModel: `firstValue`, `secondValue` arguments become optional
+    + DigitalSignatureFieldValueModel: `value` argmuent becomes optional
+    + FileUploadFieldValueModel: `caption` argument becomes optional
+    + ImisNumberFieldValueModel: `result`, `value` arguments become optional
+    + SessionNameFieldValueModel: `value` argument becomes optional
+    + TextFieldValueModel: `value` argument becomes optional
+    + WysiwygFieldValueModel: `value` argument becomes optional.
+
+ - [Misc]
+    + Fixed DateTimeOffset handling on HTTP GET requests, when DateTime formatted in UTC instead of local without timezone.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 

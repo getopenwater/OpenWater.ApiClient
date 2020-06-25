@@ -19,29 +19,6 @@ namespace OpenWater.ApiClient.Definitions
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum SubmissionStatus
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
-        NotStarted = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Incomplete")]
-        Incomplete = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PendingApproval")]
-        PendingApproval = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Disapproved")]
-        Disapproved = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
-        InCart = 5,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum JudgeScorecardStatus
     {
         [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
@@ -52,6 +29,29 @@ namespace OpenWater.ApiClient.Definitions
     
         [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
         Complete = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum SubmissionStatus
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Incomplete")]
+        Incomplete = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"PendingApproval")]
+        PendingApproval = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
+        Complete = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Disapproved")]
+        Disapproved = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
+        InCart = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
+        NotStarted = 5,
     
     }
     
