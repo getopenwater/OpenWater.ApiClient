@@ -180,16 +180,24 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum SchedulerEventTargetType
+    public enum ScheduleItemTargetType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"Session")]
-        Session = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Application")]
-        Application = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Primary")]
+        Primary = 0,
     
         [System.Runtime.Serialization.EnumMember(Value = @"Other")]
-        Other = 2,
+        Other = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ScheduleItemTargetType2
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Primary")]
+        Primary = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Other")]
+        Other = 1,
     
     }
     

@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.ScheduleItem
         public ScheduleItemListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ScheduleItemListItemModel(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId, SchedulerEventTargetType targetType)
+        public ScheduleItemListItemModel(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId, ScheduleItemTargetType targetType)
         {
               ScheduleRoomId = @scheduleRoomId;
               ScheduleDayId = @scheduleDayId;
@@ -45,10 +45,10 @@ namespace OpenWater.ApiClient.ScheduleItem
         [Newtonsoft.Json.JsonProperty("scheduleTimeSlotId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int ScheduleTimeSlotId { get; set; }
     
-        /// <summary>Target entry type (application, session)</summary>
+        /// <summary>Target entry type (primary, other)</summary>
         [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SchedulerEventTargetType TargetType { get; set; }
+        public ScheduleItemTargetType TargetType { get; set; }
     
         /// <summary>Target entry Id</summary>
         [Newtonsoft.Json.JsonProperty("targetId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -63,12 +63,11 @@ namespace OpenWater.ApiClient.ScheduleItem
         public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId, SchedulerEventTargetType targetType)
+        public CreateRequest(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId)
         {
               ScheduleRoomId = @scheduleRoomId;
               ScheduleDayId = @scheduleDayId;
               ScheduleTimeSlotId = @scheduleTimeSlotId;
-              TargetType = @targetType;
               TargetId = @targetId;
         }
     
@@ -83,11 +82,6 @@ namespace OpenWater.ApiClient.ScheduleItem
         /// <summary>Schedule time slot Id</summary>
         [Newtonsoft.Json.JsonProperty("scheduleTimeSlotId", Required = Newtonsoft.Json.Required.Always)]
         public int ScheduleTimeSlotId { get; set; }
-    
-        /// <summary>Target entry type (application, session, other)</summary>
-        [Newtonsoft.Json.JsonProperty("targetType", Required = Newtonsoft.Json.Required.Always)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SchedulerEventTargetType TargetType { get; set; }
     
         /// <summary>Target entry Id</summary>
         [Newtonsoft.Json.JsonProperty("targetId", Required = Newtonsoft.Json.Required.Always)]

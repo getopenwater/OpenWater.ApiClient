@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.16.0-alpha</Version>
+    <Version>2.16.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -14,7 +14,9 @@
     <PackageReleaseNotes>PLEASE READ CAREFULLY BEFORE UPDATING PACKAGE. THIS VERSION CONTAINS BREAKING CHANGES.
 
 Changelog:
- + Renamed `SchedulerTargetType` enum to `SchedulerEventTargetType`
+ + Renamed `SchedulerEventTargetType` enum to `SchedulerItemTargetType`
+ + Added inline scores support for table field rows
+ + Added scheduler endpoints support
 
 * Breaking changes (order of arguments has changed):
   - [Fields]:

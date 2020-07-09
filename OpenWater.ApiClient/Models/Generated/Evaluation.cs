@@ -166,9 +166,10 @@ namespace OpenWater.ApiClient.Evaluation
         public JudgeScoreFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public JudgeScoreFieldValueModel(string alias, double? score = null, string text = null)
+        public JudgeScoreFieldValueModel(string alias, System.Collections.Generic.ICollection<RowJudgeScoreFieldValueModel> rowScores, double? score = null, string text = null)
         {
               Alias = @alias;
+              RowScores = @rowScores;
               Score = @score;
               Text = @text;
         }
@@ -176,6 +177,10 @@ namespace OpenWater.ApiClient.Evaluation
         /// <summary>Field alias</summary>
         [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Alias { get; set; }
+    
+        /// <summary>Row scores</summary>
+        [Newtonsoft.Json.JsonProperty("rowScores", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<RowJudgeScoreFieldValueModel> RowScores { get; set; }
     
         /// <summary>Answer score</summary>
         [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -238,6 +243,34 @@ namespace OpenWater.ApiClient.Evaluation
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class RowJudgeScoreFieldValueModel 
+    {
+        public RowJudgeScoreFieldValueModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public RowJudgeScoreFieldValueModel(int rowId, double? score = null, string text = null)
+        {
+              RowId = @rowId;
+              Score = @score;
+              Text = @text;
+        }
+    
+        /// <summary>Row id</summary>
+        [Newtonsoft.Json.JsonProperty("rowId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int RowId { get; set; }
+    
+        /// <summary>Answer score</summary>
+        [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? Score { get; set; }
+    
+        /// <summary>Answer text</summary>
+        [Newtonsoft.Json.JsonProperty("text", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Text { get; set; }
     
     
     }
