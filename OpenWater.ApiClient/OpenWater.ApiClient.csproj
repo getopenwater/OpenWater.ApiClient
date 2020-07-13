@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.16.0</Version>
+    <Version>2.17.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -11,42 +11,10 @@
     <Company>OpenWater</Company>
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
-    <PackageReleaseNotes>PLEASE READ CAREFULLY BEFORE UPDATING PACKAGE. THIS VERSION CONTAINS BREAKING CHANGES.
-
-Changelog:
- + Renamed `SchedulerEventTargetType` enum to `SchedulerItemTargetType`
- + Added inline scores support for table field rows
- + Added scheduler endpoints support
-
-* Breaking changes (order of arguments has changed):
-  - [Fields]:
-    + ApplicationNameFieldModel: `firstTitle`, `secondTitle` arguments become optional
-    + FileUploadFieldModel: `allowedFileExtensions`, `captionLabel` arguments become optional
-    + LetterOfRecommendationFieldModel: `confirmationPageHtml` argument becomes optional
-    + MultilineTextFieldModel: `allowedHtmlTags` argument becomes optional
-    + NumberFieldModel: `format` argument becomes optional
-    + TableFieldModel: `rowName`, `rowNamePlural` and `rowTemplate` arguments become optional.
- 
-  - [Request models]:
-    + ChangeFinalizedRoundSubmissionStatusRequest: `status` argument becomes required.
-
-  - [Field values]:
-    + LetterOfRecommendationFieldValueModel: `email`, `fullName` arguments become optional.
-
-* Not breaking changes:
- - [Field values]:
-    + AddressFieldValueModel: `city`, `countryCode`, `line2`, `line3`, `state`, `street` and `zip` arguments become optional
-    + ApplicationNameFieldValueModel: `firstValue`, `secondValue` arguments become optional
-    + DigitalSignatureFieldValueModel: `value` argmuent becomes optional
-    + FileUploadFieldValueModel: `caption` argument becomes optional
-    + ImisNumberFieldValueModel: `result`, `value` arguments become optional
-    + SessionNameFieldValueModel: `value` argument becomes optional
-    + TextFieldValueModel: `value` argument becomes optional
-    + WysiwygFieldValueModel: `value` argument becomes optional.
-
- - [Misc]
-    + Fixed DateTimeOffset handling on HTTP GET requests, when DateTime formatted in UTC instead of local without timezone.</PackageReleaseNotes>
+    <PackageReleaseNotes>Changelog:
++ Added `AssignToRound` and `UnssignFromRound` endpoins.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
+    <AssemblyVersion>2.17.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

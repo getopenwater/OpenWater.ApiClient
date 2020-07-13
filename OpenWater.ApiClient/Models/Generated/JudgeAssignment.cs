@@ -131,6 +131,29 @@ namespace OpenWater.ApiClient.JudgeAssignment
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class AssignJudgeToRoundRequest 
+    {
+        public AssignJudgeToRoundRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public AssignJudgeToRoundRequest(int judgeUserId, int roundId)
+        {
+              JudgeUserId = @judgeUserId;
+              RoundId = @roundId;
+        }
+    
+        /// <summary>Judge user id</summary>
+        [Newtonsoft.Json.JsonProperty("judgeUserId", Required = Newtonsoft.Json.Required.Always)]
+        public int JudgeUserId { get; set; }
+    
+        /// <summary>Round id</summary>
+        [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Always)]
+        public int RoundId { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplyAllBulkJudgeAssignmentRulesInRoundRequest 
     {
         public ApplyAllBulkJudgeAssignmentRulesInRoundRequest() { }

@@ -68,11 +68,11 @@
         get { return {{ property.FieldName }}; }
 {%     if property.HasSetter -%}
 {%         if RenderInpc -%}
-        {{PropertySetterAccessModifier}}set 
+        {{PropertySetterAccessModifier}}set
         {
             if ({{ property.FieldName }} != value)
             {
-                {{ property.FieldName }} = value; 
+                {{ property.FieldName }} = value;
                 RaisePropertyChanged();
             }
         }
