@@ -202,6 +202,26 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum SchedulerReportType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"VirtualConferenceParticipation")]
+        VirtualConferenceParticipation = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"VirtualConferenceParticipationSummary")]
+        VirtualConferenceParticipationSummary = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"VirtualConferenceRecordings")]
+        VirtualConferenceRecordings = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SchedulerConflicts")]
+        SchedulerConflicts = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"FullSchedule")]
+        FullSchedule = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum TextLengthCountMode
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
