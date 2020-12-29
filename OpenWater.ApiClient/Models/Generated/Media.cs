@@ -24,14 +24,19 @@ namespace OpenWater.ApiClient.Media
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(string url)
+        public DetailsResponse(string fileName, string url)
         {
               Url = @url;
+              FileName = @fileName;
         }
     
         /// <summary>Media Url</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
+    
+        /// <summary>Media file name</summary>
+        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileName { get; set; }
     
     
     }

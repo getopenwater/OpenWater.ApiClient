@@ -334,11 +334,15 @@ namespace OpenWater.ApiClient.FieldValues
         public RowModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RowModel(System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, int sortOrder)
+        public RowModel(System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, System.Guid id, int sortOrder)
         {
+              Id = @id;
               SortOrder = @sortOrder;
               FieldValues = @fieldValues;
         }
+    
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int SortOrder { get; set; }
