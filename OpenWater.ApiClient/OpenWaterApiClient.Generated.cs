@@ -3479,6 +3479,126 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets a list of judge recusals</summary>
+        /// <param name="roundId">Round id</param>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="judgeFirstName">Judge first name</param>
+        /// <param name="judgeLastName">Judge last name</param>
+        /// <param name="judgeEmail">Judge email</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Pagination.PagingResponseJudgeRecusalListItemModel GetJudgeRecusals(int roundId, int? applicationId = null, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetJudgeRecusalsAsync(roundId, applicationId, judgeFirstName, judgeLastName, judgeEmail, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Gets a list of judge recusals</summary>
+        /// <param name="roundId">Round id</param>
+        /// <param name="applicationId">Application id</param>
+        /// <param name="judgeFirstName">Judge first name</param>
+        /// <param name="judgeLastName">Judge last name</param>
+        /// <param name="judgeEmail">Judge email</param>
+        /// <param name="pageIndex">Page index (0 by default)</param>
+        /// <param name="pageSize">Page size (10 by default)</param>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseJudgeRecusalListItemModel> GetJudgeRecusalsAsync(int roundId, int? applicationId = null, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (roundId == null)
+                throw new System.ArgumentNullException("roundId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Judges/Recusals?");
+            urlBuilder_.Append(System.Uri.EscapeDataString("roundId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (applicationId != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("applicationId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(applicationId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (judgeFirstName != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("judgeFirstName") + "=").Append(System.Uri.EscapeDataString(ConvertToString(judgeFirstName, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (judgeLastName != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("judgeLastName") + "=").Append(System.Uri.EscapeDataString(ConvertToString(judgeLastName, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (judgeEmail != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("judgeEmail") + "=").Append(System.Uri.EscapeDataString(ConvertToString(judgeEmail, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (pageIndex != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("pageIndex") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageIndex, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (pageSize != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("pageSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(pageSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    if (organizationCode != null)
+                        request_.Headers.TryAddWithoutValidation("X-OrganizationCode", ConvertToString(organizationCode, System.Globalization.CultureInfo.InvariantCulture));
+                    if (suppressEmails != null)
+                        request_.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Pagination.PagingResponseJudgeRecusalListItemModel>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(Pagination.PagingResponseJudgeRecusalListItemModel);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
         /// <summary>Gets a judge program profile</summary>
         /// <param name="judgeUserId">Judge user id</param>
         /// <param name="programId">Program id</param>

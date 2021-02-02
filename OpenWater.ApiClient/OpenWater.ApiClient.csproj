@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.19.0</Version>
+    <Version>2.20.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,11 +12,10 @@
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
     <PackageReleaseNotes>Changelog:
-+ Added row Id support to table field value row model.
-+ Added file name to media details response</PackageReleaseNotes>
++ Added GetJudgeRecusals endpoint support.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
-    <AssemblyVersion>2.19.0</AssemblyVersion>
-    <FileVersion>2.19.0.0</FileVersion>
+    <AssemblyVersion>2.20.0</AssemblyVersion>
+    <FileVersion>2.20.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

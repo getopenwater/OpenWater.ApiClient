@@ -19,6 +19,49 @@ namespace OpenWater.ApiClient.Judge
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class JudgeRecusalListItemModel 
+    {
+        public JudgeRecusalListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public JudgeRecusalListItemModel(int applicationId, string email, string firstName, string lastName, string recusalReason, int userId)
+        {
+              UserId = @userId;
+              ApplicationId = @applicationId;
+              FirstName = @firstName;
+              LastName = @lastName;
+              Email = @email;
+              RecusalReason = @recusalReason;
+        }
+    
+        /// <summary>Judge user id</summary>
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int UserId { get; set; }
+    
+        /// <summary>Application id</summary>
+        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ApplicationId { get; set; }
+    
+        /// <summary>Judge first name</summary>
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        /// <summary>Judge last name</summary>
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        /// <summary>Judge email</summary>
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Email { get; set; }
+    
+        /// <summary>Recusal reason</summary>
+        [Newtonsoft.Json.JsonProperty("recusalReason", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RecusalReason { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ProgramProfileValuesResponse 
     {
         public ProgramProfileValuesResponse() { }
