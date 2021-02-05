@@ -219,6 +219,12 @@ namespace OpenWater.ApiClient.Definitions
         [System.Runtime.Serialization.EnumMember(Value = @"FullSchedule")]
         FullSchedule = 4,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"SessionsAttended")]
+        SessionsAttended = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SessionsAttendedSummary")]
+        SessionsAttendedSummary = 6,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
