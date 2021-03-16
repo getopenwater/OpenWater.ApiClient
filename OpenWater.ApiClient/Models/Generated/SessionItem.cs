@@ -109,6 +109,23 @@ namespace OpenWater.ApiClient.SessionItem
     
     
     }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ReorderRequest 
+    {
+        public ReorderRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public ReorderRequest(System.Collections.Generic.ICollection<Models.SortOrderInfo> sortOrderInfos)
+        {
+              SortOrderInfos = @sortOrderInfos;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("sortOrderInfos", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Models.SortOrderInfo> SortOrderInfos { get; set; }
+    
+    
+    }
 
 }
 
