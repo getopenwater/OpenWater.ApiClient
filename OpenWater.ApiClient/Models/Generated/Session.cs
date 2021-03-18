@@ -188,14 +188,18 @@ namespace OpenWater.ApiClient.Session
         public SessionItemInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SessionItemInfo(int sortOrder, int? applicationId = null, string customSessionItemTypeDescription = null, int? customSessionItemTypeId = null, int? durationInMinutes = null)
+        public SessionItemInfo(int id, int sortOrder, int? applicationId = null, string customSessionItemTypeDescription = null, int? customSessionItemTypeId = null, int? durationInMinutes = null)
         {
+              Id = @id;
               ApplicationId = @applicationId;
               CustomSessionItemTypeId = @customSessionItemTypeId;
               CustomSessionItemTypeDescription = @customSessionItemTypeDescription;
               SortOrder = @sortOrder;
               DurationInMinutes = @durationInMinutes;
         }
+    
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? ApplicationId { get; set; }
