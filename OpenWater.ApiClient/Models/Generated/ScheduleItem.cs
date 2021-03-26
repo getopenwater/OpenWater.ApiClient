@@ -24,14 +24,19 @@ namespace OpenWater.ApiClient.ScheduleItem
         public ScheduleItemListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ScheduleItemListItemModel(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId, ScheduleItemTargetType targetType)
+        public ScheduleItemListItemModel(int id, int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId, ScheduleItemTargetType targetType)
         {
+              Id = @id;
               ScheduleRoomId = @scheduleRoomId;
               ScheduleDayId = @scheduleDayId;
               ScheduleTimeSlotId = @scheduleTimeSlotId;
               TargetType = @targetType;
               TargetId = @targetId;
         }
+    
+        /// <summary>Schedule item Id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
     
         /// <summary>Schedule room Id</summary>
         [Newtonsoft.Json.JsonProperty("scheduleRoomId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

@@ -4922,6 +4922,90 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Deletes a schedule item from a scheduler</summary>
+        /// <param name="scheduleItemId">Schedule item Id</param>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public void DeleteScheduleItem(int scheduleItemId, string organizationCode = null, bool? suppressEmails = null)
+        {
+            System.Threading.Tasks.Task.Run(async () => await DeleteScheduleItemAsync(scheduleItemId, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Deletes a schedule item from a scheduler</summary>
+        /// <param name="scheduleItemId">Schedule item Id</param>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task DeleteScheduleItemAsync(int scheduleItemId, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (scheduleItemId == null)
+                throw new System.ArgumentNullException("scheduleItemId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs/Scheduler/ScheduleItems/{scheduleItemId}");
+            urlBuilder_.Replace("{scheduleItemId}", System.Uri.EscapeDataString(ConvertToString(scheduleItemId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    if (organizationCode != null)
+                        request_.Headers.TryAddWithoutValidation("X-OrganizationCode", ConvertToString(organizationCode, System.Globalization.CultureInfo.InvariantCulture));
+                    if (suppressEmails != null)
+                        request_.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == "204") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
         /// <summary>Creates an other event schedule item</summary>
         /// <param name="programId">Program Id</param>
         /// <param name="model">Data for an other event schedule item creation</param>
