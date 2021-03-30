@@ -50,6 +50,80 @@ namespace OpenWater.ApiClient.ScheduleDay
     
     
     }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateRequest 
+    {
+        public CreateRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateRequest(string code, System.DateTimeOffset date, string name)
+        {
+              Name = @name;
+              Code = @code;
+              Date = @date;
+        }
+    
+        /// <summary>Name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+    
+        /// <summary>Code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        public string Code { get; set; }
+    
+        /// <summary>Date</summary>
+        [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.Always)]
+        public System.DateTimeOffset Date { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateResponse 
+    {
+        public CreateResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateResponse(int id)
+        {
+              Id = @id;
+        }
+    
+        /// <summary>Schedule day id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class UpdateRequest 
+    {
+        public UpdateRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public UpdateRequest(string code, System.DateTimeOffset date, string name)
+        {
+              Name = @name;
+              Code = @code;
+              Date = @date;
+        }
+    
+        /// <summary>Name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+    
+        /// <summary>Code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        public string Code { get; set; }
+    
+        /// <summary>Date</summary>
+        [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.Always)]
+        public System.DateTimeOffset Date { get; set; }
+    
+    
+    }
 
 }
 

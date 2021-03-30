@@ -60,6 +60,100 @@ namespace OpenWater.ApiClient.ScheduleTimeSlot
     
     
     }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateRequest 
+    {
+        public CreateRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateRequest(string code, string endTime, string name, System.Collections.Generic.ICollection<int> scheduleDayIds, string startTime)
+        {
+              Name = @name;
+              Code = @code;
+              StartTime = @startTime;
+              EndTime = @endTime;
+              ScheduleDayIds = @scheduleDayIds;
+        }
+    
+        /// <summary>Name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+    
+        /// <summary>Code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        public string Code { get; set; }
+    
+        /// <summary>Start time</summary>
+        [Newtonsoft.Json.JsonProperty("startTime", Required = Newtonsoft.Json.Required.Always)]
+        public string StartTime { get; set; }
+    
+        /// <summary>End time</summary>
+        [Newtonsoft.Json.JsonProperty("endTime", Required = Newtonsoft.Json.Required.Always)]
+        public string EndTime { get; set; }
+    
+        /// <summary>Available only in certain schedule days. Leave empty to make it available in all days.</summary>
+        [Newtonsoft.Json.JsonProperty("scheduleDayIds", Required = Newtonsoft.Json.Required.Always)]
+        public System.Collections.Generic.ICollection<int> ScheduleDayIds { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateResponse 
+    {
+        public CreateResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateResponse(int id)
+        {
+              Id = @id;
+        }
+    
+        /// <summary>Schedule time slot id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class UpdateRequest 
+    {
+        public UpdateRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public UpdateRequest(string code, string endTime, string name, System.Collections.Generic.ICollection<int> scheduleDayIds, string startTime)
+        {
+              Name = @name;
+              Code = @code;
+              StartTime = @startTime;
+              EndTime = @endTime;
+              ScheduleDayIds = @scheduleDayIds;
+        }
+    
+        /// <summary>Name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+    
+        /// <summary>Code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        public string Code { get; set; }
+    
+        /// <summary>Start time</summary>
+        [Newtonsoft.Json.JsonProperty("startTime", Required = Newtonsoft.Json.Required.Always)]
+        public string StartTime { get; set; }
+    
+        /// <summary>End time</summary>
+        [Newtonsoft.Json.JsonProperty("endTime", Required = Newtonsoft.Json.Required.Always)]
+        public string EndTime { get; set; }
+    
+        /// <summary>Available only in certain schedule days. Leave empty to make it available in all days.</summary>
+        [Newtonsoft.Json.JsonProperty("scheduleDayIds", Required = Newtonsoft.Json.Required.Always)]
+        public System.Collections.Generic.ICollection<int> ScheduleDayIds { get; set; }
+    
+    
+    }
 
 }
 

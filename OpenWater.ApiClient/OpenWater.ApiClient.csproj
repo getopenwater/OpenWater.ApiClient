@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.25.0</Version>
+    <Version>2.26.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,11 +12,12 @@
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
     <PackageReleaseNotes>Changelog:
-+ Updated Schedule item list endpoint to return Id in response.
-+ Added delete schedule item endpoint support.</PackageReleaseNotes>
++ Added support of schedule room configuration endpoints.
++ Added support of schedule day configuration endpoints.
++ Added support of schedule time slot configuration endpoints.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
-    <AssemblyVersion>2.25.0</AssemblyVersion>
-    <FileVersion>2.25.0.0</FileVersion>
+    <AssemblyVersion>2.26.0</AssemblyVersion>
+    <FileVersion>2.26.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

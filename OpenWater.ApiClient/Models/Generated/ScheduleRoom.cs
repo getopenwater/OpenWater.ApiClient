@@ -55,6 +55,90 @@ namespace OpenWater.ApiClient.ScheduleRoom
     
     
     }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateRequest 
+    {
+        public CreateRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateRequest(int capacity, string code, string name, string notes)
+        {
+              Name = @name;
+              Code = @code;
+              Capacity = @capacity;
+              Notes = @notes;
+        }
+    
+        /// <summary>Name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+    
+        /// <summary>Code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        public string Code { get; set; }
+    
+        /// <summary>Capacity</summary>
+        [Newtonsoft.Json.JsonProperty("capacity", Required = Newtonsoft.Json.Required.Always)]
+        public int Capacity { get; set; }
+    
+        /// <summary>Notes</summary>
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Notes { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateResponse 
+    {
+        public CreateResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateResponse(int id)
+        {
+              Id = @id;
+        }
+    
+        /// <summary>Schedule room id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class UpdateRequest 
+    {
+        public UpdateRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public UpdateRequest(int capacity, string code, string name, string notes)
+        {
+              Name = @name;
+              Code = @code;
+              Capacity = @capacity;
+              Notes = @notes;
+        }
+    
+        /// <summary>Name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+    
+        /// <summary>Code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        public string Code { get; set; }
+    
+        /// <summary>Capacity</summary>
+        [Newtonsoft.Json.JsonProperty("capacity", Required = Newtonsoft.Json.Required.Always)]
+        public int Capacity { get; set; }
+    
+        /// <summary>Notes</summary>
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Notes { get; set; }
+    
+    
+    }
 
 }
 
