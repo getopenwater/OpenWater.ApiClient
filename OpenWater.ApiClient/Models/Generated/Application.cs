@@ -432,10 +432,11 @@ namespace OpenWater.ApiClient.Application
         public SetWinnerStatusForApplicationInRoundRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SetWinnerStatusForApplicationInRoundRequest(bool isWinner, string winnerNotes, System.Collections.Generic.ICollection<int> winnerTypeIds)
+        public SetWinnerStatusForApplicationInRoundRequest(bool isWinner, string winnerNotes, System.Collections.Generic.ICollection<int> winnerTypeIds, bool? replaceAlreadyAssignedWinnerTypes = null)
         {
               IsWinner = @isWinner;
               WinnerNotes = @winnerNotes;
+              ReplaceAlreadyAssignedWinnerTypes = @replaceAlreadyAssignedWinnerTypes;
               WinnerTypeIds = @winnerTypeIds;
         }
     
@@ -446,6 +447,10 @@ namespace OpenWater.ApiClient.Application
         /// <summary>Winner notes</summary>
         [Newtonsoft.Json.JsonProperty("winnerNotes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WinnerNotes { get; set; }
+    
+        /// <summary>Replace Existing Statuses before Setting. Set New Statuses but do not Clear Existing otherwise (if not set).</summary>
+        [Newtonsoft.Json.JsonProperty("replaceAlreadyAssignedWinnerTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? ReplaceAlreadyAssignedWinnerTypes { get; set; }
     
         /// <summary>Winner type ids</summary>
         [Newtonsoft.Json.JsonProperty("winnerTypeIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
