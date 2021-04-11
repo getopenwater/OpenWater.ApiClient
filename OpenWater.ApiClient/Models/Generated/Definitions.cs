@@ -143,6 +143,9 @@ namespace OpenWater.ApiClient.Definitions
         [System.Runtime.Serialization.EnumMember(Value = @"WorldPay")]
         WorldPay = 10,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"StripeJsWith3dSecure")]
+        StripeJsWith3dSecure = 11,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -224,6 +227,9 @@ namespace OpenWater.ApiClient.Definitions
     
         [System.Runtime.Serialization.EnumMember(Value = @"SessionsAttendedSummary")]
         SessionsAttendedSummary = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"VirtualConferenceReports")]
+        VirtualConferenceReports = 7,
     
     }
     

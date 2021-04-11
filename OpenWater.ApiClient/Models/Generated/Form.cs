@@ -24,10 +24,11 @@ namespace OpenWater.ApiClient.Form
         public ListValue() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public ListValue(System.Guid id, string value)
+        public ListValue(System.Guid id, bool isDisabled, string value)
         {
               Id = @id;
               Value = @value;
+              IsDisabled = @isDisabled;
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -35,6 +36,9 @@ namespace OpenWater.ApiClient.Form
     
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Value { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isDisabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsDisabled { get; set; }
     
     
     }
