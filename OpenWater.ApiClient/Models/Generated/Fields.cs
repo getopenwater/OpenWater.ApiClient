@@ -167,6 +167,20 @@ namespace OpenWater.ApiClient.Fields
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CharityCheckFieldModel : FieldModelBase
+    {
+        public CharityCheckFieldModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CharityCheckFieldModel(string alias, bool hidden, bool isDescriptionWysiwyg, bool required, FieldVisibilityConditionModel visibilityCondition, string customCssClass = null, string description = null, string name = null, int? sortOrder = null)
+            : base(alias, hidden, isDescriptionWysiwyg, required, visibilityCondition, customCssClass, description, name, sortOrder)
+        {
+        }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CheckboxListFieldModel : FieldModelBase
     {
         public CheckboxListFieldModel() { }

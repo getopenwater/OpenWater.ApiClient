@@ -121,6 +121,28 @@ namespace OpenWater.ApiClient.FieldValues
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CharityCheckFieldValueModel : FieldValueModelBase
+    {
+        public CharityCheckFieldValueModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CharityCheckFieldValueModel(string alias, string charityName = null, string ein = null)
+            : base(alias)
+        {
+              Ein = @ein;
+              CharityName = @charityName;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("ein", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Ein { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("charityName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CharityName { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CheckboxListFieldValueModel : FieldValueModelBase
     {
         public CheckboxListFieldValueModel() { }
