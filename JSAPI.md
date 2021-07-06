@@ -110,6 +110,17 @@ Custom script is already executed in handler of `ready` event described above, s
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
 
+### Phone Number
+
+- `getValue(): string` - returns current value.
+- `setValue(value: string)` - sets new value.
+- `show()` - makes field section visible if it was previosly hidden via frontend API.
+- `hide()` - hides field section.
+- `onChange(handler)` - event is triggered on focus out and value is changed.
+- `offChange(handler)` - unsubscribe from change event.
+- `getSelectedCountry()` - returns current selected country in phone number input.
+- `setCountry(countryCode: string)` - selects country in phone number input.
+
 ### Table
 
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
