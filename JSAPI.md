@@ -118,7 +118,7 @@ Custom script is already executed in handler of `ready` event described above, s
 - `hide()` - hides field section.
 - `onChange(handler)` - event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
-- `getSelectedCountry()` - returns current selected country in phone number input.
+- `getSelectedCountry(): string` - returns current selected country in phone number input.
 - `setCountry(countryCode: string)` - selects country in phone number input.
 
 ### Table
