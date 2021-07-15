@@ -333,6 +333,24 @@ namespace OpenWater.ApiClient.FieldValues
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SessionTypeFieldValueModel : FieldValueModelBase
+    {
+        public SessionTypeFieldValueModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public SessionTypeFieldValueModel(string alias, int? selectedTypeId = null)
+            : base(alias)
+        {
+              SelectedTypeId = @selectedTypeId;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("selectedTypeId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? SelectedTypeId { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TableFieldValueModel : FieldValueModelBase
     {
         public TableFieldValueModel() { }
