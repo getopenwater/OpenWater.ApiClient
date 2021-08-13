@@ -307,7 +307,7 @@ namespace OpenWater.ApiClient.Samples
         /// <summary>
         /// Get deleted applications in last week async
         /// </summary>
-        public static Task<PagingResponseDeletedApplicationListItem>
+        public static Task<PagingResponseDeletedApplicationListItemModel>
             ViewDeletedApplicationsInLastWeekAsync()
         {
             return ApiClient.GetDeletedApplicationsAsync(deletedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
@@ -316,7 +316,7 @@ namespace OpenWater.ApiClient.Samples
         /// <summary>
         /// Get deleted applications in last week
         /// </summary>
-        public static PagingResponseDeletedApplicationListItem ViewDeletedApplicationsInLastWeek()
+        public static PagingResponseDeletedApplicationListItemModel ViewDeletedApplicationsInLastWeek()
         {
             return ApiClient.GetDeletedApplications(deletedSinceUtc: DateTimeOffset.UtcNow.AddDays(-7));
         }

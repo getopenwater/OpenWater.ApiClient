@@ -19,12 +19,12 @@ namespace OpenWater.ApiClient.DeletedSession
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DeletedSessionListItem 
+    public partial class DeletedSessionListItemModel 
     {
-        public DeletedSessionListItem() { }
+        public DeletedSessionListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DeletedSessionListItem(System.DateTimeOffset deletedAtUtc, int id, int programId, int sessionId, string sessionName, int? deletedByUserId = null)
+        public DeletedSessionListItemModel(System.DateTimeOffset deletedAtUtc, int id, int programId, int sessionId, string sessionName, int? deletedByUserId = null)
         {
               Id = @id;
               ProgramId = @programId;

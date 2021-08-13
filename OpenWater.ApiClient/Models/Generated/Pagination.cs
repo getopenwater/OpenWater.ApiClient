@@ -77,12 +77,12 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseDeletedApplicationListItem 
+    public partial class PagingResponseDeletedApplicationListItemModel 
     {
-        public PagingResponseDeletedApplicationListItem() { }
+        public PagingResponseDeletedApplicationListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseDeletedApplicationListItem(System.Collections.Generic.ICollection<DeletedApplication.DeletedApplicationListItem> items, PagingInfo pagingInfo)
+        public PagingResponseDeletedApplicationListItemModel(System.Collections.Generic.ICollection<DeletedApplication.DeletedApplicationListItemModel> items, PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -92,7 +92,7 @@ namespace OpenWater.ApiClient.Pagination
         public PagingInfo PagingInfo { get; set; }
     
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<DeletedApplication.DeletedApplicationListItem> Items { get; set; }
+        public System.Collections.Generic.ICollection<DeletedApplication.DeletedApplicationListItemModel> Items { get; set; }
     
     
     }
@@ -266,6 +266,27 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseOtherSessionItemTypeListItemModel 
+    {
+        public PagingResponseOtherSessionItemTypeListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseOtherSessionItemTypeListItemModel(System.Collections.Generic.ICollection<OtherSessionItemType.OtherSessionItemTypeListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<OtherSessionItemType.OtherSessionItemTypeListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseProgramListItemModel 
     {
         public PagingResponseProgramListItemModel() { }
@@ -392,12 +413,12 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseDeletedSessionListItem 
+    public partial class PagingResponseDeletedSessionListItemModel 
     {
-        public PagingResponseDeletedSessionListItem() { }
+        public PagingResponseDeletedSessionListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseDeletedSessionListItem(System.Collections.Generic.ICollection<DeletedSession.DeletedSessionListItem> items, PagingInfo pagingInfo)
+        public PagingResponseDeletedSessionListItemModel(System.Collections.Generic.ICollection<DeletedSession.DeletedSessionListItemModel> items, PagingInfo pagingInfo)
         {
               PagingInfo = @pagingInfo;
               Items = @items;
@@ -407,7 +428,7 @@ namespace OpenWater.ApiClient.Pagination
         public PagingInfo PagingInfo { get; set; }
     
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<DeletedSession.DeletedSessionListItem> Items { get; set; }
+        public System.Collections.Generic.ICollection<DeletedSession.DeletedSessionListItemModel> Items { get; set; }
     
     
     }

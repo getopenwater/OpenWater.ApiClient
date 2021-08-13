@@ -19,12 +19,12 @@ namespace OpenWater.ApiClient.DeletedApplication
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DeletedApplicationListItem 
+    public partial class DeletedApplicationListItemModel 
     {
-        public DeletedApplicationListItem() { }
+        public DeletedApplicationListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DeletedApplicationListItem(int applicationId, System.DateTimeOffset deletedAtUtc, string email, string firstName, int id, string lastName, int programId, int userId, string applicationCode = null, string applicationName = null)
+        public DeletedApplicationListItemModel(int applicationId, System.DateTimeOffset deletedAtUtc, string email, string firstName, int id, string lastName, int programId, int userId, string applicationCode = null, string applicationName = null)
         {
               Id = @id;
               ProgramId = @programId;
