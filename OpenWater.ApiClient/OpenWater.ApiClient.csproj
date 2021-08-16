@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.33.0</Version>
+    <Version>2.34.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,11 +12,10 @@
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
     <PackageReleaseNotes>Changelog:
-+ Added "GetOtherSessionItemTypesByProgramId" method.
-+ Fixed type names for several list item models.</PackageReleaseNotes>
++ Added "GetApplicationCategories" method.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
-    <AssemblyVersion>2.33.0</AssemblyVersion>
-    <FileVersion>2.33.0.0</FileVersion>
+    <AssemblyVersion>2.34.0</AssemblyVersion>
+    <FileVersion>2.34.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
