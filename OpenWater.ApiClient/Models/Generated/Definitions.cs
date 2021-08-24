@@ -88,6 +88,50 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum CurrencyType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Usd")]
+        Usd = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Aud")]
+        Aud = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Cad")]
+        Cad = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Eur")]
+        Eur = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Gbp")]
+        Gbp = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Hkd")]
+        Hkd = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Pkr")]
+        Pkr = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Nok")]
+        Nok = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Rmb")]
+        Rmb = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Inr")]
+        Inr = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Sgd")]
+        Sgd = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Nzd")]
+        Nzd = 11,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Aed")]
+        Aed = 12,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum BillingLineItemTargetType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"None")]
