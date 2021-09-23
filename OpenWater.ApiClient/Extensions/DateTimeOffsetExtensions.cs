@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Threading;
 
 [assembly: InternalsVisibleTo("OpenWater.ApiClient.Tests")]
@@ -24,13 +25,19 @@ namespace OpenWater.ApiClient.Extensions
                 RemoveOutdatedIntervals(self);
 
                 var intervalMilliseconds = self.Last().ToUnixTimeMilliseconds() - self.First().ToUnixTimeMilliseconds();
-                var throttleMilliseconds = checked((int)(MillisecondsInSecondCount - intervalMilliseconds));
 
-                if (throttleMilliseconds < 1)
+                try
+                {
+                    var throttleMilliseconds = checked((int)(MillisecondsInSecondCount - intervalMilliseconds));
+                    if (throttleMilliseconds < 1)
+                        return 0;
+
+                    return throttleMilliseconds;
+                }
+                catch (OverflowException)
+                {
                     return 0;
-
-                return throttleMilliseconds;
-
+                }
             }
         }
 
