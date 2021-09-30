@@ -40,6 +40,30 @@ namespace OpenWater.ApiClient.SessionChair
     
     
     }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ChangeTypeRequest 
+    {
+        public ChangeTypeRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public ChangeTypeRequest(int sessionChairId, SessionChairType sessionChairType)
+        {
+              SessionChairId = @sessionChairId;
+              SessionChairType = @sessionChairType;
+        }
+    
+        /// <summary>Session chair id</summary>
+        [Newtonsoft.Json.JsonProperty("sessionChairId", Required = Newtonsoft.Json.Required.Always)]
+        public int SessionChairId { get; set; }
+    
+        /// <summary>Session chair type</summary>
+        [Newtonsoft.Json.JsonProperty("sessionChairType", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SessionChairType SessionChairType { get; set; }
+    
+    
+    }
 
 }
 

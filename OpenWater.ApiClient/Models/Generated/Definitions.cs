@@ -278,6 +278,20 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum SessionChairType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"ReadOnly")]
+        ReadOnly = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Collaborator")]
+        Collaborator = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Primary")]
+        Primary = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum TextLengthCountMode
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
