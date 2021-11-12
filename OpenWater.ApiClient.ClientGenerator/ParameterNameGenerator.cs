@@ -10,9 +10,13 @@ namespace OpenWater.ApiClient.ClientGenerator
         public string Generate(OpenApiParameter parameter, IEnumerable<OpenApiParameter> allParameters)
         {
             const string customHeaderPrefix = "x_";
+            const string bodyParameterNameExtensionKey = "x-codegen-request-body-name";
 
             if (string.IsNullOrEmpty(parameter.Name))
                 return "unnamed";
+
+            if (parameter.Kind == OpenApiParameterKind.Body && parameter.Parent is OpenApiOperation operation && operation.ExtensionData != null && operation.ExtensionData.TryGetValue(bodyParameterNameExtensionKey, out var bodyParameterName))
+                return (string)bodyParameterName;
 
             var lowerCamelCase = ConversionUtilities.ConvertToLowerCamelCase(parameter.Name.Replace("-", "_")
                 .Replace(".", "_").Replace("$", string.Empty)
