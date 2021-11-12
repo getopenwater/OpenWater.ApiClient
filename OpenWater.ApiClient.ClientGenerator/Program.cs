@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace OpenWater.ApiClient.ClientGenerator
 #endif
 
             apiDocument.SchemaType = SchemaType.OpenApi3;
+            apiDocument.Consumes = new[] { MediaTypeNames.Application.Json };
 
             GenerateClient(apiDocument, outputPath, apiClientClassName, generatedClientFilePostfix, CSharpClientGeneratorSettingsCreator, out var typeNameHintsModelWithNamespaceInfos);
 
