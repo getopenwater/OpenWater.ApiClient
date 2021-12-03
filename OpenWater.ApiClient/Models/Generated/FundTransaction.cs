@@ -60,6 +60,54 @@ namespace OpenWater.ApiClient.FundTransaction
     
     
     }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DetailsResponse 
+    {
+        public DetailsResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public DetailsResponse(double amount, int applicationId, int approvedByUserId, System.DateTimeOffset date, string description, int fundId, int id)
+        {
+              Id = @id;
+              FundId = @fundId;
+              ApplicationId = @applicationId;
+              ApprovedByUserId = @approvedByUserId;
+              Amount = @amount;
+              Description = @description;
+              Date = @date;
+        }
+    
+        /// <summary>Fund transaction id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        /// <summary>Fund id</summary>
+        [Newtonsoft.Json.JsonProperty("fundId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int FundId { get; set; }
+    
+        /// <summary>Application id</summary>
+        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ApplicationId { get; set; }
+    
+        /// <summary>Approved by user id</summary>
+        [Newtonsoft.Json.JsonProperty("approvedByUserId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ApprovedByUserId { get; set; }
+    
+        /// <summary>Fund transaction amount</summary>
+        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Amount { get; set; }
+    
+        /// <summary>Fund transaction description</summary>
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; set; }
+    
+        /// <summary>Fund transaction date</summary>
+        [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset Date { get; set; }
+    
+    
+    }
 
 }
 

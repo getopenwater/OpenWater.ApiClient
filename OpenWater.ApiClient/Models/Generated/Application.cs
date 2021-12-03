@@ -115,11 +115,14 @@ namespace OpenWater.ApiClient.Application
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(System.Collections.Generic.ICollection<CollaboratorInfo> collaborators, string downloadPdfAsApplicantUrl, string downloadPdfAsJudgeUrl, int id, int programId, System.Collections.Generic.ICollection<RoundSubmission> roundSubmissions, SchedulerInfo scheduler, int userId, string categoryCode = null, string categoryName = null, string categoryPath = null, string code = null, string name = null, int? sessionId = null)
+        public DetailsResponse(System.Collections.Generic.ICollection<CollaboratorInfo> collaborators, string downloadPdfAsApplicantUrl, string downloadPdfAsJudgeUrl, string email, System.Collections.Generic.ICollection<int> fundTransactionIds, int id, int programId, System.Collections.Generic.ICollection<RoundSubmission> roundSubmissions, SchedulerInfo scheduler, int userId, string categoryCode = null, string categoryName = null, string categoryPath = null, string code = null, string externalAccountData = null, string name = null, int? sessionId = null, string thirdPartyUniqueId = null)
         {
               Id = @id;
               ProgramId = @programId;
               UserId = @userId;
+              Email = @email;
+              ThirdPartyUniqueId = @thirdPartyUniqueId;
+              ExternalAccountData = @externalAccountData;
               SessionId = @sessionId;
               Name = @name;
               Code = @code;
@@ -131,6 +134,7 @@ namespace OpenWater.ApiClient.Application
               Scheduler = @scheduler;
               Collaborators = @collaborators;
               RoundSubmissions = @roundSubmissions;
+              FundTransactionIds = @fundTransactionIds;
         }
     
         /// <summary>Application id</summary>
@@ -144,6 +148,18 @@ namespace OpenWater.ApiClient.Application
         /// <summary>Application owner user Id</summary>
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int UserId { get; set; }
+    
+        /// <summary>Application owner user Email</summary>
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Email { get; set; }
+    
+        /// <summary>Application owner user 3rd party unique id</summary>
+        [Newtonsoft.Json.JsonProperty("thirdPartyUniqueId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ThirdPartyUniqueId { get; set; }
+    
+        /// <summary>Application owner user external auth data</summary>
+        [Newtonsoft.Json.JsonProperty("externalAccountData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExternalAccountData { get; set; }
     
         /// <summary>Session id</summary>
         [Newtonsoft.Json.JsonProperty("sessionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -188,6 +204,10 @@ namespace OpenWater.ApiClient.Application
         /// <summary>Application round submissions</summary>
         [Newtonsoft.Json.JsonProperty("roundSubmissions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RoundSubmission> RoundSubmissions { get; set; }
+    
+        /// <summary>Application fund transaction ids</summary>
+        [Newtonsoft.Json.JsonProperty("fundTransactionIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<int> FundTransactionIds { get; set; }
     
     
     }

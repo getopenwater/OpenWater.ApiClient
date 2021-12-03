@@ -67,14 +67,16 @@ namespace OpenWater.ApiClient.Invoice
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(System.Collections.Generic.ICollection<BillingLineItemModel> billingLineItems, string couponCode, string couponName, System.DateTimeOffset createdAtUtc, int id, System.DateTimeOffset mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<PaymentModel> payments, int programId, System.Collections.Generic.ICollection<RefundModel> refunds, int roundId, double totalBilled, double totalPaid, double totalRefunded, int userId, string programCode = null, string thirdPartyCorporateId = null)
+        public DetailsResponse(System.Collections.Generic.ICollection<BillingLineItemModel> billingLineItems, string couponCode, string couponName, System.DateTimeOffset createdAtUtc, string email, int id, System.DateTimeOffset mostRecentTransactionDateUtc, System.Collections.Generic.ICollection<PaymentModel> payments, int programId, System.Collections.Generic.ICollection<RefundModel> refunds, int roundId, double totalBilled, double totalPaid, double totalRefunded, int userId, string externalAccountData = null, string programCode = null, string thirdPartyCorporateId = null)
         {
               Id = @id;
               ProgramId = @programId;
               ProgramCode = @programCode;
               RoundId = @roundId;
               UserId = @userId;
+              Email = @email;
               ThirdPartyCorporateId = @thirdPartyCorporateId;
+              ExternalAccountData = @externalAccountData;
               CouponName = @couponName;
               CouponCode = @couponCode;
               CreatedAtUtc = @createdAtUtc;
@@ -107,9 +109,17 @@ namespace OpenWater.ApiClient.Invoice
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int UserId { get; set; }
     
+        /// <summary>User Email</summary>
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Email { get; set; }
+    
         /// <summary>User 3rd party unique id</summary>
         [Newtonsoft.Json.JsonProperty("thirdPartyCorporateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThirdPartyCorporateId { get; set; }
+    
+        /// <summary>User external auth data</summary>
+        [Newtonsoft.Json.JsonProperty("externalAccountData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExternalAccountData { get; set; }
     
         /// <summary>Invoice coupon name</summary>
         [Newtonsoft.Json.JsonProperty("couponName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
