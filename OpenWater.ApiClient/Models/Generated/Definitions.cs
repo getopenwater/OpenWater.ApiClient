@@ -193,6 +193,26 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum JudgeTeamManagerPermissions
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"SeeJudgeReviewStatus")]
+        SeeJudgeReviewStatus = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AccessJudgeScores")]
+        AccessJudgeScores = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SetWinners")]
+        SetWinners = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"RecuseJudge")]
+        RecuseJudge = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OnlyShowSubmissionsJudgeAssignedTo")]
+        OnlyShowSubmissionsJudgeAssignedTo = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum BulkJudgeAssignmentType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"AssignAll")]
