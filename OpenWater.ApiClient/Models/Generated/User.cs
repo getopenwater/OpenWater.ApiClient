@@ -82,7 +82,7 @@ namespace OpenWater.ApiClient.User
         public CreateRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(string email, string externalAccountData, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, string lastName, string password, string thirdPartyUniqueId)
+        public CreateRequest(string email, string externalAccountData, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, string lastName, string password, string thirdPartyUniqueId, bool? isApplicant = null)
         {
               FirstName = @firstName;
               LastName = @lastName;
@@ -90,6 +90,7 @@ namespace OpenWater.ApiClient.User
               Password = @password;
               ThirdPartyUniqueId = @thirdPartyUniqueId;
               ExternalAccountData = @externalAccountData;
+              IsApplicant = @isApplicant;
               FieldValues = @fieldValues;
         }
     
@@ -116,6 +117,10 @@ namespace OpenWater.ApiClient.User
         /// <summary>External account data</summary>
         [Newtonsoft.Json.JsonProperty("externalAccountData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalAccountData { get; set; }
+    
+        /// <summary>Create as Applicant</summary>
+        [Newtonsoft.Json.JsonProperty("isApplicant", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsApplicant { get; set; }
     
         /// <summary>Profile form values</summary>
         [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
