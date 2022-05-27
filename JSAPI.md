@@ -80,7 +80,8 @@ Custom script is already executed in handler of `ready` event described above, s
 ### Checkbox List
 
 - `getValue(): string[]` - returns array of selected item ids.
-- `setValue(listItemIds: string[])` - check items which are presented in array, uncheck if they are not in array.
+- `getTextValue(): string[]` - returns array of selected item texts.
+- `setValue(listItemValues: string[])` - checks items which are presented in array, unchecks if they are not in array. listItemValues are list item id/text (case-insensitive).
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
 - `onChange(handler)` - event is triggered on check/uncheck of any checkbox.
@@ -89,7 +90,8 @@ Custom script is already executed in handler of `ready` event described above, s
 ### Radio List
 
 - `getValue(): string` - returns selected item id or empty string if no item is selected.
-- `setValue(listItemId: string)` - select item.
+- `getTextValue(): string` - returns selected item text or empty string if no item is selected.
+- `setValue(listItemValue: string)` - selects item. listItemValue is item id/text (case-insensitive).
 - `clearSelection()` - clears selection.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
@@ -99,7 +101,8 @@ Custom script is already executed in handler of `ready` event described above, s
 ### Drop Down List
 
 - `getValue(): string` - returns selected item id or empty string if no item is selected.
-- `setValue(listItemId: string|null)` - select item. Pass `null` to clear selection.
+- `getTextValue(): string` - returns selected item text or empty string if no item is selected.
+- `setValue(listItemValue: string|null)` - selects item. listItemValue is item id/text (case-insensitive). Pass `null` to clear selection.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
 - `onChange(handler)` - event is triggered when any item is selected.
