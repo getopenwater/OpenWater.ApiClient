@@ -81,7 +81,7 @@ Custom script is already executed in handler of `ready` event described above, s
 
 - `getValue(): string[]` - returns array of selected item ids.
 - `getTextValue(): string[]` - returns array of selected item texts.
-- `setValue(listItemValues: string[])` - checks items which are presented in array, uncheck if they are not in array. listItemValues are list item id/text (case-insensitive).
+- `setValue(listItemValues: string[])` - checks items which are presented in array, unchecks if they are not in array. listItemValues are list item id/text (case-insensitive).
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
 - `onChange(handler)` - event is triggered on check/uncheck of any checkbox.
