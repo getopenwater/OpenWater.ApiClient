@@ -208,8 +208,8 @@ Custom script is already executed in handler of `ready` event described above, s
 
 ### Application Category
 
-- `getValue(): number[]` - returns array of category ids ordered by selected category path.
-- `setValue(value: number[])` - array of category ids ordered by selected category path.
+- `getValue(): string` - returns category code or empty string if it's not set.
+- `setValue(value: string)` - sets new value by category code.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
 
