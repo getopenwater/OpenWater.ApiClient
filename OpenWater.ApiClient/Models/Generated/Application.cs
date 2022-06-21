@@ -115,7 +115,7 @@ namespace OpenWater.ApiClient.Application
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(System.Collections.Generic.ICollection<CollaboratorInfo> collaborators, string downloadPdfAsApplicantUrl, string downloadPdfAsJudgeUrl, string email, System.Collections.Generic.ICollection<int> fundTransactionIds, int id, int programId, System.Collections.Generic.ICollection<RoundSubmission> roundSubmissions, SchedulerInfo scheduler, int userId, string categoryCode = null, string categoryName = null, string categoryPath = null, string code = null, string externalAccountData = null, string name = null, int? sessionId = null, string thirdPartyUniqueId = null)
+        public DetailsResponse(System.Collections.Generic.ICollection<CollaboratorInfo> collaborators, string downloadPdfAsApplicantUrl, string downloadPdfAsJudgeUrl, string email, System.Collections.Generic.ICollection<int> fundTransactionIds, int id, int programId, string publicDownloadPdfAsApplicantUrl, System.Collections.Generic.ICollection<RoundSubmission> roundSubmissions, SchedulerInfo scheduler, int userId, string categoryCode = null, string categoryName = null, string categoryPath = null, string code = null, string externalAccountData = null, string name = null, int? sessionId = null, string thirdPartyUniqueId = null)
         {
               Id = @id;
               ProgramId = @programId;
@@ -129,6 +129,7 @@ namespace OpenWater.ApiClient.Application
               CategoryCode = @categoryCode;
               CategoryName = @categoryName;
               CategoryPath = @categoryPath;
+              PublicDownloadPdfAsApplicantUrl = @publicDownloadPdfAsApplicantUrl;
               DownloadPdfAsApplicantUrl = @downloadPdfAsApplicantUrl;
               DownloadPdfAsJudgeUrl = @downloadPdfAsJudgeUrl;
               Scheduler = @scheduler;
@@ -184,6 +185,10 @@ namespace OpenWater.ApiClient.Application
         /// <summary>Application category path</summary>
         [Newtonsoft.Json.JsonProperty("categoryPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CategoryPath { get; set; }
+    
+        /// <summary>Public application as Applicant PDF url</summary>
+        [Newtonsoft.Json.JsonProperty("publicDownloadPdfAsApplicantUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PublicDownloadPdfAsApplicantUrl { get; set; }
     
         /// <summary>Application as Applicant PDF url</summary>
         [Newtonsoft.Json.JsonProperty("downloadPdfAsApplicantUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
