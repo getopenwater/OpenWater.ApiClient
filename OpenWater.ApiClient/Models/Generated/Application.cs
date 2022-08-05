@@ -19,6 +19,29 @@ namespace OpenWater.ApiClient.Application
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class AllowUserToUpdateFinalizedRoundSubmissionRequest 
+    {
+        public AllowUserToUpdateFinalizedRoundSubmissionRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public AllowUserToUpdateFinalizedRoundSubmissionRequest(bool allowUserToMakeEdits, string reason)
+        {
+              AllowUserToMakeEdits = @allowUserToMakeEdits;
+              Reason = @reason;
+        }
+    
+        /// <summary>Allow user to edit a round submission</summary>
+        [Newtonsoft.Json.JsonProperty("allowUserToMakeEdits", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowUserToMakeEdits { get; set; }
+    
+        /// <summary>Reason to allow</summary>
+        [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Reason { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplicationListItemModel 
     {
         public ApplicationListItemModel() { }
@@ -67,6 +90,46 @@ namespace OpenWater.ApiClient.Application
         /// <summary>Application last modified since date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("lastModifiedUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset LastModifiedUtc { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ChangeFinalizedRoundSubmissionStatusRequest 
+    {
+        public ChangeFinalizedRoundSubmissionStatusRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public ChangeFinalizedRoundSubmissionStatusRequest(SubmissionStatus status)
+        {
+              Status = @status;
+        }
+    
+        /// <summary>Round submission status</summary>
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SubmissionStatus Status { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CollaboratorInfo 
+    {
+        public CollaboratorInfo() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CollaboratorInfo(int id, int userId)
+        {
+              Id = @id;
+              UserId = @userId;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int UserId { get; set; }
     
     
     }
@@ -218,51 +281,27 @@ namespace OpenWater.ApiClient.Application
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SchedulerInfo 
+    public partial class JudgeScorecardInfo 
     {
-        public SchedulerInfo() { }
+        public JudgeScorecardInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SchedulerInfo(System.DateTimeOffset applicationEndTimeUtc, System.DateTimeOffset applicationStartTimeUtc, int roomId, int timeSlotId)
-        {
-              ApplicationStartTimeUtc = @applicationStartTimeUtc;
-              ApplicationEndTimeUtc = @applicationEndTimeUtc;
-              RoomId = @roomId;
-              TimeSlotId = @timeSlotId;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("applicationStartTimeUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset ApplicationStartTimeUtc { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("applicationEndTimeUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset ApplicationEndTimeUtc { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("roomId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int RoomId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("timeSlotId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int TimeSlotId { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CollaboratorInfo 
-    {
-        public CollaboratorInfo() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public CollaboratorInfo(int id, int userId)
+        public JudgeScorecardInfo(int id, JudgeScorecardStatus status, double totalScore)
         {
               Id = @id;
-              UserId = @userId;
+              Status = @status;
+              TotalScore = @totalScore;
         }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int UserId { get; set; }
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public JudgeScorecardStatus Status { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("totalScore", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double TotalScore { get; set; }
     
     
     }
@@ -366,87 +405,48 @@ namespace OpenWater.ApiClient.Application
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class JudgeScorecardInfo 
+    public partial class SchedulerInfo 
     {
-        public JudgeScorecardInfo() { }
+        public SchedulerInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public JudgeScorecardInfo(int id, JudgeScorecardStatus status, double totalScore)
+        public SchedulerInfo(System.DateTimeOffset applicationEndTimeUtc, System.DateTimeOffset applicationStartTimeUtc, int roomId, int timeSlotId)
         {
-              Id = @id;
-              Status = @status;
-              TotalScore = @totalScore;
+              ApplicationStartTimeUtc = @applicationStartTimeUtc;
+              ApplicationEndTimeUtc = @applicationEndTimeUtc;
+              RoomId = @roomId;
+              TimeSlotId = @timeSlotId;
         }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("applicationStartTimeUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset ApplicationStartTimeUtc { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public JudgeScorecardStatus Status { get; set; }
+        [Newtonsoft.Json.JsonProperty("applicationEndTimeUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset ApplicationEndTimeUtc { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("totalScore", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double TotalScore { get; set; }
+        [Newtonsoft.Json.JsonProperty("roomId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int RoomId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("timeSlotId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int TimeSlotId { get; set; }
     
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class UpdateApplicationCategoryRequest 
+    public partial class SetForwardingStatusForApplicationInRoundRequest 
     {
-        public UpdateApplicationCategoryRequest() { }
+        public SetForwardingStatusForApplicationInRoundRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public UpdateApplicationCategoryRequest(string categoryCode)
+        public SetForwardingStatusForApplicationInRoundRequest(bool isForwarded)
         {
-              CategoryCode = @categoryCode;
+              IsForwarded = @isForwarded;
         }
     
-        /// <summary>Category code</summary>
-        [Newtonsoft.Json.JsonProperty("categoryCode", Required = Newtonsoft.Json.Required.Always)]
-        public string CategoryCode { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ChangeFinalizedRoundSubmissionStatusRequest 
-    {
-        public ChangeFinalizedRoundSubmissionStatusRequest() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public ChangeFinalizedRoundSubmissionStatusRequest(SubmissionStatus status)
-        {
-              Status = @status;
-        }
-    
-        /// <summary>Round submission status</summary>
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SubmissionStatus Status { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class AllowUserToUpdateFinalizedRoundSubmissionRequest 
-    {
-        public AllowUserToUpdateFinalizedRoundSubmissionRequest() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public AllowUserToUpdateFinalizedRoundSubmissionRequest(bool allowUserToMakeEdits, string reason)
-        {
-              AllowUserToMakeEdits = @allowUserToMakeEdits;
-              Reason = @reason;
-        }
-    
-        /// <summary>Allow user to edit a round submission</summary>
-        [Newtonsoft.Json.JsonProperty("allowUserToMakeEdits", Required = Newtonsoft.Json.Required.Always)]
-        public bool AllowUserToMakeEdits { get; set; }
-    
-        /// <summary>Reason to allow</summary>
-        [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Reason { get; set; }
+        /// <summary>Is forwarded</summary>
+        [Newtonsoft.Json.JsonProperty("isForwarded", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsForwarded { get; set; }
     
     
     }
@@ -485,19 +485,19 @@ namespace OpenWater.ApiClient.Application
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SetForwardingStatusForApplicationInRoundRequest 
+    public partial class UpdateApplicationCategoryRequest 
     {
-        public SetForwardingStatusForApplicationInRoundRequest() { }
+        public UpdateApplicationCategoryRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public SetForwardingStatusForApplicationInRoundRequest(bool isForwarded)
+        public UpdateApplicationCategoryRequest(string categoryCode)
         {
-              IsForwarded = @isForwarded;
+              CategoryCode = @categoryCode;
         }
     
-        /// <summary>Is forwarded</summary>
-        [Newtonsoft.Json.JsonProperty("isForwarded", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsForwarded { get; set; }
+        /// <summary>Category code</summary>
+        [Newtonsoft.Json.JsonProperty("categoryCode", Required = Newtonsoft.Json.Required.Always)]
+        public string CategoryCode { get; set; }
     
     
     }

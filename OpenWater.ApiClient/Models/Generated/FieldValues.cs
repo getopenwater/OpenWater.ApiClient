@@ -19,26 +19,6 @@ namespace OpenWater.ApiClient.FieldValues
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public abstract partial class FieldValueModelBase 
-    {
-        public FieldValueModelBase() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        protected FieldValueModelBase(string alias)
-        {
-              Alias = @alias;
-            }
-    
-        [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Alias { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TypeName { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AddressFieldValueModel : FieldValueModelBase
     {
         public AddressFieldValueModel() { }
@@ -161,6 +141,24 @@ namespace OpenWater.ApiClient.FieldValues
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public abstract partial class ContainerFieldValueModelBase : FieldValueModelBase
+    {
+        public ContainerFieldValueModelBase() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        protected ContainerFieldValueModelBase(string alias, System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues)
+            : base(alias)
+        {
+              FieldValues = @fieldValues;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<FieldValueModelBase> FieldValues { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DateFieldValueModel : FieldValueModelBase
     {
         public DateFieldValueModel() { }
@@ -179,19 +177,35 @@ namespace OpenWater.ApiClient.FieldValues
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DigitalSignatureFieldValueModel : FieldValueModelBase
+    public partial class DigitalSignatureFieldValueModel : TextFieldValueModel
     {
         public DigitalSignatureFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public DigitalSignatureFieldValueModel(string alias, string value = null)
-            : base(alias)
+            : base(alias, value)
         {
-              Value = @value;
         }
     
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Value { get; set; }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public abstract partial class FieldValueModelBase 
+    {
+        public FieldValueModelBase() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        protected FieldValueModelBase(string alias)
+        {
+              Alias = @alias;
+            }
+    
+        [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Alias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TypeName { get; set; }
     
     
     }
@@ -241,20 +255,19 @@ namespace OpenWater.ApiClient.FieldValues
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class LetterOfRecommendationFieldValueModel : FieldValueModelBase
+    public partial class LetterOfRecommendationFieldValueModel : ContainerFieldValueModelBase
     {
         public LetterOfRecommendationFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public LetterOfRecommendationFieldValueModel(string alias, System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, string email = null, string fullName = null, System.DateTimeOffset? receivedAt = null, System.DateTimeOffset? reminderEmailLastSentAt = null, System.Guid? sentHash = null)
-            : base(alias)
+            : base(alias, fieldValues)
         {
               FullName = @fullName;
               Email = @email;
               SentHash = @sentHash;
               ReminderEmailLastSentAt = @reminderEmailLastSentAt;
               ReceivedAt = @receivedAt;
-              FieldValues = @fieldValues;
         }
     
         [Newtonsoft.Json.JsonProperty("fullName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -271,9 +284,6 @@ namespace OpenWater.ApiClient.FieldValues
     
         [Newtonsoft.Json.JsonProperty("receivedAt", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? ReceivedAt { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<FieldValueModelBase> FieldValues { get; set; }
     
     
     }
@@ -315,19 +325,40 @@ namespace OpenWater.ApiClient.FieldValues
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SessionNameFieldValueModel : FieldValueModelBase
+    public partial class RowModel 
+    {
+        public RowModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public RowModel(System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, System.Guid id, int sortOrder)
+        {
+              Id = @id;
+              SortOrder = @sortOrder;
+              FieldValues = @fieldValues;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int SortOrder { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<FieldValueModelBase> FieldValues { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SessionNameFieldValueModel : TextFieldValueModel
     {
         public SessionNameFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public SessionNameFieldValueModel(string alias, string value = null)
-            : base(alias)
+            : base(alias, value)
         {
-              Value = @value;
         }
-    
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Value { get; set; }
     
     
     }
@@ -369,31 +400,6 @@ namespace OpenWater.ApiClient.FieldValues
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class RowModel 
-    {
-        public RowModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public RowModel(System.Collections.Generic.ICollection<FieldValueModelBase> fieldValues, System.Guid id, int sortOrder)
-        {
-              Id = @id;
-              SortOrder = @sortOrder;
-              FieldValues = @fieldValues;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int SortOrder { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fieldValues", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<FieldValueModelBase> FieldValues { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TextFieldValueModel : FieldValueModelBase
     {
         public TextFieldValueModel() { }
@@ -412,19 +418,15 @@ namespace OpenWater.ApiClient.FieldValues
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class WysiwygFieldValueModel : FieldValueModelBase
+    public partial class WysiwygFieldValueModel : TextFieldValueModel
     {
         public WysiwygFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public WysiwygFieldValueModel(string alias, string value = null)
-            : base(alias)
+            : base(alias, value)
         {
-              Value = @value;
         }
-    
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Value { get; set; }
     
     
     }

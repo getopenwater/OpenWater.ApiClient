@@ -19,29 +19,6 @@ namespace OpenWater.ApiClient.SessionChair
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CreateRequest 
-    {
-        public CreateRequest() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(int sessionId, int userId)
-        {
-              SessionId = @sessionId;
-              UserId = @userId;
-        }
-    
-        /// <summary>Session id</summary>
-        [Newtonsoft.Json.JsonProperty("sessionId", Required = Newtonsoft.Json.Required.Always)]
-        public int SessionId { get; set; }
-    
-        /// <summary>User id</summary>
-        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ChangeTypeRequest 
     {
         public ChangeTypeRequest() { }
@@ -61,6 +38,29 @@ namespace OpenWater.ApiClient.SessionChair
         [Newtonsoft.Json.JsonProperty("sessionChairType", Required = Newtonsoft.Json.Required.Always)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SessionChairType SessionChairType { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateRequest 
+    {
+        public CreateRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateRequest(int sessionId, int userId)
+        {
+              SessionId = @sessionId;
+              UserId = @userId;
+        }
+    
+        /// <summary>Session id</summary>
+        [Newtonsoft.Json.JsonProperty("sessionId", Required = Newtonsoft.Json.Required.Always)]
+        public int SessionId { get; set; }
+    
+        /// <summary>User id</summary>
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Always)]
+        public int UserId { get; set; }
     
     
     }

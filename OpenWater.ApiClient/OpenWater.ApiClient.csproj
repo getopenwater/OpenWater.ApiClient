@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.40.0</Version>
+    <Version>2.41.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -11,11 +11,10 @@
     <Company>OpenWater</Company>
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
-    <PackageReleaseNotes>Changelog:
-+ Added "PublicDownloadPdfAsApplicantUrl" value to application details response.</PackageReleaseNotes>
+    <PackageReleaseNotes>Changelog: updated "GetJudgeTeams" method to return info of team judges and managers, updated "GetJobById" method to have "id" as long type.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
-    <AssemblyVersion>2.40.0</AssemblyVersion>
-    <FileVersion>2.40.0.0</FileVersion>
+    <AssemblyVersion>2.41.0</AssemblyVersion>
+    <FileVersion>2.41.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

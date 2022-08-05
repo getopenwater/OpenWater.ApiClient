@@ -19,71 +19,56 @@ namespace OpenWater.ApiClient.Definitions
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum SubmissionStatus
+    public enum BillingLineItemTargetType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
-        NotStarted = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"None")]
+        None = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Incomplete")]
-        Incomplete = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Coupon")]
+        Coupon = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"PendingApproval")]
-        PendingApproval = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationJudgement")]
+        ApplicationJudgement = 2,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 3,
+        [System.Runtime.Serialization.EnumMember(Value = @"Submission")]
+        Submission = 3,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Disapproved")]
-        Disapproved = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
-        InCart = 5,
+        [System.Runtime.Serialization.EnumMember(Value = @"PaymentMethod")]
+        PaymentMethod = 4,
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum JudgeScorecardStatus
+    public enum BulkJudgeAssignmentFilterType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
-        NotScored = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"All")]
+        All = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Started")]
-        Started = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationCategories")]
+        ApplicationCategories = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
-        Complete = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"Conditions")]
+        Conditions = 2,
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum StateType
+    public enum BulkJudgeAssignmentType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"Undefined")]
-        Undefined = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAll")]
+        AssignAll = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Uncommited")]
-        Uncommited = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNJudgesOnEachSubmission")]
+        AssignAtLeastNJudgesOnEachSubmission = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Awaiting")]
-        Awaiting = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachJudge")]
+        AssignAtLeastNSubmissionsOnEachJudge = 2,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Scheduled")]
-        Scheduled = 3,
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachCertainJudge")]
+        AssignAtLeastNSubmissionsOnEachCertainJudge = 3,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Enqueued")]
-        Enqueued = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Processing")]
-        Processing = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
-        Succeeded = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Deleted")]
-        Deleted = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
-        Failed = 8,
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachJudgeTeamMember")]
+        AssignAtLeastNSubmissionsOnEachJudgeTeamMember = 4,
     
     }
     
@@ -132,22 +117,96 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BillingLineItemTargetType
+    public enum FieldSize
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
+        Large = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Coupon")]
-        Coupon = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
+        Medium = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationJudgement")]
-        ApplicationJudgement = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
+        Small = 2,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Submission")]
-        Submission = 3,
+    }
     
-        [System.Runtime.Serialization.EnumMember(Value = @"PaymentMethod")]
-        PaymentMethod = 4,
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum TextLengthCountMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
+        Characters = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
+        Words = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum StateType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Undefined")]
+        Undefined = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Uncommited")]
+        Uncommited = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Awaiting")]
+        Awaiting = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Scheduled")]
+        Scheduled = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Enqueued")]
+        Enqueued = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Processing")]
+        Processing = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
+        Succeeded = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Deleted")]
+        Deleted = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
+        Failed = 8,
+    
+    }
+    
+    /// <summary>Original enum AwardsCms.Domain.JudgeTeamManagerPermissions
+    /// The original enum is the flag enum but the API generator doesn't support the flag enums. Using the flag enum on an array can lead to errors since it is possible to pass multiple enum values at once in each element of the array.
+    /// It must be synchronized when changing the original enum.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum JudgeTeamManagerPermissions
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"SeeJudgeReviewStatus")]
+        SeeJudgeReviewStatus = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AccessJudgeScores")]
+        AccessJudgeScores = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SetWinners")]
+        SetWinners = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"RecuseJudge")]
+        RecuseJudge = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OnlyShowSubmissionsJudgeAssignedTo")]
+        OnlyShowSubmissionsJudgeAssignedTo = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum JudgeScorecardStatus
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"NotScored")]
+        NotScored = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Started")]
+        Started = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
+        Complete = 2,
     
     }
     
@@ -193,72 +252,7 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum JudgeTeamManagerPermissions
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"SeeJudgeReviewStatus")]
-        SeeJudgeReviewStatus = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"AccessJudgeScores")]
-        AccessJudgeScores = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"SetWinners")]
-        SetWinners = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"RecuseJudge")]
-        RecuseJudge = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OnlyShowSubmissionsJudgeAssignedTo")]
-        OnlyShowSubmissionsJudgeAssignedTo = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BulkJudgeAssignmentType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"AssignAll")]
-        AssignAll = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNJudgesOnEachSubmission")]
-        AssignAtLeastNJudgesOnEachSubmission = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachJudge")]
-        AssignAtLeastNSubmissionsOnEachJudge = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachCertainJudge")]
-        AssignAtLeastNSubmissionsOnEachCertainJudge = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachJudgeTeamMember")]
-        AssignAtLeastNSubmissionsOnEachJudgeTeamMember = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BulkJudgeAssignmentFilterType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"All")]
-        All = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ApplicationCategories")]
-        ApplicationCategories = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Conditions")]
-        Conditions = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum ScheduleItemTargetType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Primary")]
-        Primary = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Other")]
-        Other = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ScheduleItemTargetType2
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Primary")]
         Primary = 0,
@@ -312,27 +306,25 @@ namespace OpenWater.ApiClient.Definitions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum TextLengthCountMode
+    public enum SubmissionStatus
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"Characters")]
-        Characters = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"NotStarted")]
+        NotStarted = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Words")]
-        Words = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Incomplete")]
+        Incomplete = 1,
     
-    }
+        [System.Runtime.Serialization.EnumMember(Value = @"PendingApproval")]
+        PendingApproval = 2,
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum FieldSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Large")]
-        Large = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"Complete")]
+        Complete = 3,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Medium")]
-        Medium = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Disapproved")]
+        Disapproved = 4,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Small")]
-        Small = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"InCart")]
+        InCart = 5,
     
     }
 

@@ -19,44 +19,6 @@ namespace OpenWater.ApiClient.ScheduleRoom
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ScheduleRoomListItemModel 
-    {
-        public ScheduleRoomListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public ScheduleRoomListItemModel(string code, int id, string name, string notes, int? capacity = null)
-        {
-              Id = @id;
-              Name = @name;
-              Code = @code;
-              Capacity = @capacity;
-              Notes = @notes;
-        }
-    
-        /// <summary>Schedule room Id</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; set; }
-    
-        /// <summary>Schedule room name</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        /// <summary>Schedule room code</summary>
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Code { get; set; }
-    
-        /// <summary>Schedule room capacity</summary>
-        [Newtonsoft.Json.JsonProperty("capacity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Capacity { get; set; }
-    
-        /// <summary>Schedule room notes</summary>
-        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Notes { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateRequest 
     {
         public CreateRequest() { }
@@ -103,6 +65,44 @@ namespace OpenWater.ApiClient.ScheduleRoom
         /// <summary>Schedule room id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ScheduleRoomListItemModel 
+    {
+        public ScheduleRoomListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public ScheduleRoomListItemModel(string code, int id, string name, string notes, int? capacity = null)
+        {
+              Id = @id;
+              Name = @name;
+              Code = @code;
+              Capacity = @capacity;
+              Notes = @notes;
+        }
+    
+        /// <summary>Schedule room Id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        /// <summary>Schedule room name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        /// <summary>Schedule room code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Code { get; set; }
+    
+        /// <summary>Schedule room capacity</summary>
+        [Newtonsoft.Json.JsonProperty("capacity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Capacity { get; set; }
+    
+        /// <summary>Schedule room notes</summary>
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Notes { get; set; }
     
     
     }

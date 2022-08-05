@@ -19,55 +19,6 @@ namespace OpenWater.ApiClient.Session
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SessionListItemModel 
-    {
-        public SessionListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public SessionListItemModel(System.Collections.Generic.ICollection<int> applicationIds, int applicationItemCount, int id, string name, int otherTimeItemCount, int programId, int totalSessionItemCount)
-        {
-              Id = @id;
-              ProgramId = @programId;
-              ApplicationIds = @applicationIds;
-              Name = @name;
-                  ApplicationItemCount = @applicationItemCount;
-              OtherTimeItemCount = @otherTimeItemCount;
-              TotalSessionItemCount = @totalSessionItemCount;
-        }
-    
-        /// <summary>Session id</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; set; }
-    
-        /// <summary>Program id</summary>
-        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int ProgramId { get; set; }
-    
-        /// <summary>Application ids assigned to session</summary>
-        [Newtonsoft.Json.JsonProperty("applicationIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<int> ApplicationIds { get; set; }
-    
-        /// <summary>Session name</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        /// <summary>Session type name</summary>
-        [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TypeName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("applicationItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int ApplicationItemCount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("otherTimeItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int OtherTimeItemCount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("totalSessionItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int TotalSessionItemCount { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateRequest 
     {
         public CreateRequest() { }
@@ -215,6 +166,55 @@ namespace OpenWater.ApiClient.Session
     
         [Newtonsoft.Json.JsonProperty("durationInMinutes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? DurationInMinutes { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SessionListItemModel 
+    {
+        public SessionListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public SessionListItemModel(System.Collections.Generic.ICollection<int> applicationIds, int applicationItemCount, int id, string name, int otherTimeItemCount, int programId, int totalSessionItemCount)
+        {
+              Id = @id;
+              ProgramId = @programId;
+              ApplicationIds = @applicationIds;
+              Name = @name;
+                  ApplicationItemCount = @applicationItemCount;
+              OtherTimeItemCount = @otherTimeItemCount;
+              TotalSessionItemCount = @totalSessionItemCount;
+        }
+    
+        /// <summary>Session id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        /// <summary>Program id</summary>
+        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProgramId { get; set; }
+    
+        /// <summary>Application ids assigned to session</summary>
+        [Newtonsoft.Json.JsonProperty("applicationIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<int> ApplicationIds { get; set; }
+    
+        /// <summary>Session name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        /// <summary>Session type name</summary>
+        [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TypeName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("applicationItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ApplicationItemCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("otherTimeItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int OtherTimeItemCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("totalSessionItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int TotalSessionItemCount { get; set; }
     
     
     }

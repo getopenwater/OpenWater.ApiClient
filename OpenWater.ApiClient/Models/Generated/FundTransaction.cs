@@ -19,14 +19,15 @@ namespace OpenWater.ApiClient.FundTransaction
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FundTransactionListItemModel 
+    public partial class DetailsResponse 
     {
-        public FundTransactionListItemModel() { }
+        public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public FundTransactionListItemModel(double amount, int applicationId, int approvedByUserId, System.DateTimeOffset date, string description, int id)
+        public DetailsResponse(double amount, int applicationId, int approvedByUserId, System.DateTimeOffset date, string description, int fundId, int id)
         {
               Id = @id;
+              FundId = @fundId;
               ApplicationId = @applicationId;
               ApprovedByUserId = @approvedByUserId;
               Amount = @amount;
@@ -37,6 +38,10 @@ namespace OpenWater.ApiClient.FundTransaction
         /// <summary>Fund transaction id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; set; }
+    
+        /// <summary>Fund id</summary>
+        [Newtonsoft.Json.JsonProperty("fundId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int FundId { get; set; }
     
         /// <summary>Application id</summary>
         [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -62,15 +67,14 @@ namespace OpenWater.ApiClient.FundTransaction
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DetailsResponse 
+    public partial class FundTransactionListItemModel 
     {
-        public DetailsResponse() { }
+        public FundTransactionListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(double amount, int applicationId, int approvedByUserId, System.DateTimeOffset date, string description, int fundId, int id)
+        public FundTransactionListItemModel(double amount, int applicationId, int approvedByUserId, System.DateTimeOffset date, string description, int id)
         {
               Id = @id;
-              FundId = @fundId;
               ApplicationId = @applicationId;
               ApprovedByUserId = @approvedByUserId;
               Amount = @amount;
@@ -81,10 +85,6 @@ namespace OpenWater.ApiClient.FundTransaction
         /// <summary>Fund transaction id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; set; }
-    
-        /// <summary>Fund id</summary>
-        [Newtonsoft.Json.JsonProperty("fundId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int FundId { get; set; }
     
         /// <summary>Application id</summary>
         [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

@@ -19,29 +19,6 @@ namespace OpenWater.ApiClient.Media
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DetailsResponse 
-    {
-        public DetailsResponse() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(string fileName, string url)
-        {
-              Url = @url;
-              FileName = @fileName;
-        }
-    
-        /// <summary>Media Url</summary>
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
-    
-        /// <summary>Media file name</summary>
-        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FileName { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateRequest 
     {
         public CreateRequest() { }
@@ -83,6 +60,29 @@ namespace OpenWater.ApiClient.Media
         /// <summary>Media Url</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DetailsResponse 
+    {
+        public DetailsResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public DetailsResponse(string fileName, string url)
+        {
+              Url = @url;
+              FileName = @fileName;
+        }
+    
+        /// <summary>Media Url</summary>
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        /// <summary>Media file name</summary>
+        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileName { get; set; }
     
     
     }

@@ -19,12 +19,26 @@ namespace OpenWater.ApiClient.Models
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SortOrderInfo 
+    public partial class SortOrderInfo : SortOrderInfoInt32
     {
         public SortOrderInfo() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public SortOrderInfo(int id, int sortOrder)
+            : base(id, sortOrder)
+        {
+        }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SortOrderInfoInt32 
+    {
+        public SortOrderInfoInt32() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public SortOrderInfoInt32(int id, int sortOrder)
         {
               Id = @id;
               SortOrder = @sortOrder;

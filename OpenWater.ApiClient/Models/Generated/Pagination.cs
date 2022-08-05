@@ -19,27 +19,6 @@ namespace OpenWater.ApiClient.Pagination
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseApplicationListItemModel 
-    {
-        public PagingResponseApplicationListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseApplicationListItemModel(System.Collections.Generic.ICollection<Application.ApplicationListItemModel> items, PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Application.ApplicationListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingInfo 
     {
         public PagingInfo() { }
@@ -77,6 +56,69 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseApplicationCategoryListItemModel 
+    {
+        public PagingResponseApplicationCategoryListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseApplicationCategoryListItemModel(System.Collections.Generic.ICollection<ApplicationCategory.ApplicationCategoryListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ApplicationCategory.ApplicationCategoryListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseApplicationListItemModel 
+    {
+        public PagingResponseApplicationListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseApplicationListItemModel(System.Collections.Generic.ICollection<Application.ApplicationListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Application.ApplicationListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseBillingLineItemListItemModel 
+    {
+        public PagingResponseBillingLineItemListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseBillingLineItemListItemModel(System.Collections.Generic.ICollection<Invoice.BillingLineItemListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Invoice.BillingLineItemListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseDeletedApplicationListItemModel 
     {
         public PagingResponseDeletedApplicationListItemModel() { }
@@ -93,6 +135,27 @@ namespace OpenWater.ApiClient.Pagination
     
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<DeletedApplication.DeletedApplicationListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseDeletedSessionListItemModel 
+    {
+        public PagingResponseDeletedSessionListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseDeletedSessionListItemModel(System.Collections.Generic.ICollection<DeletedSession.DeletedSessionListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<DeletedSession.DeletedSessionListItemModel> Items { get; set; }
     
     
     }
@@ -182,69 +245,6 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseBillingLineItemListItemModel 
-    {
-        public PagingResponseBillingLineItemListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseBillingLineItemListItemModel(System.Collections.Generic.ICollection<Invoice.BillingLineItemListItemModel> items, PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Invoice.BillingLineItemListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponsePaymentListItemModel 
-    {
-        public PagingResponsePaymentListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponsePaymentListItemModel(System.Collections.Generic.ICollection<Invoice.PaymentListItemModel> items, PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Invoice.PaymentListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseRefundListItemModel 
-    {
-        public PagingResponseRefundListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseRefundListItemModel(System.Collections.Generic.ICollection<Invoice.RefundListItemModel> items, PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Invoice.RefundListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseJudgeListItemModel 
     {
         public PagingResponseJudgeListItemModel() { }
@@ -308,27 +308,6 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseApplicationCategoryListItemModel 
-    {
-        public PagingResponseApplicationCategoryListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseApplicationCategoryListItemModel(System.Collections.Generic.ICollection<ApplicationCategory.ApplicationCategoryListItemModel> items, PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ApplicationCategory.ApplicationCategoryListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseOtherSessionItemTypeListItemModel 
     {
         public PagingResponseOtherSessionItemTypeListItemModel() { }
@@ -350,6 +329,27 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponsePaymentListItemModel 
+    {
+        public PagingResponsePaymentListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponsePaymentListItemModel(System.Collections.Generic.ICollection<Invoice.PaymentListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Invoice.PaymentListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseProgramListItemModel 
     {
         public PagingResponseProgramListItemModel() { }
@@ -366,6 +366,27 @@ namespace OpenWater.ApiClient.Pagination
     
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Program.ProgramListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseRefundListItemModel 
+    {
+        public PagingResponseRefundListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseRefundListItemModel(System.Collections.Generic.ICollection<Invoice.RefundListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Invoice.RefundListItemModel> Items { get; set; }
     
     
     }
@@ -455,48 +476,6 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseSessionTypeListItemModel 
-    {
-        public PagingResponseSessionTypeListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseSessionTypeListItemModel(System.Collections.Generic.ICollection<SessionType.SessionTypeListItemModel> items, PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SessionType.SessionTypeListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingResponseDeletedSessionListItemModel 
-    {
-        public PagingResponseDeletedSessionListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public PagingResponseDeletedSessionListItemModel(System.Collections.Generic.ICollection<DeletedSession.DeletedSessionListItemModel> items, PagingInfo pagingInfo)
-        {
-              PagingInfo = @pagingInfo;
-              Items = @items;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingInfo PagingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<DeletedSession.DeletedSessionListItemModel> Items { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseSessionListItemModel 
     {
         public PagingResponseSessionListItemModel() { }
@@ -513,6 +492,27 @@ namespace OpenWater.ApiClient.Pagination
     
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Session.SessionListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseSessionTypeListItemModel 
+    {
+        public PagingResponseSessionTypeListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseSessionTypeListItemModel(System.Collections.Generic.ICollection<SessionType.SessionTypeListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SessionType.SessionTypeListItemModel> Items { get; set; }
     
     
     }

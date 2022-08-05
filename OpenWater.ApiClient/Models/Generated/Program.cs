@@ -19,6 +19,75 @@ namespace OpenWater.ApiClient.Program
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ApplicationCategoryModel 
+    {
+        public ApplicationCategoryModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public ApplicationCategoryModel(string code, int id, string name, string path)
+        {
+              Id = @id;
+              Path = @path;
+              Code = @code;
+              Name = @name;
+        }
+    
+        /// <summary>Application category id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        /// <summary>Application category path</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        /// <summary>Application category code</summary>
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Code { get; set; }
+    
+        /// <summary>Application category name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ExportResponse 
+    {
+        public ExportResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public ExportResponse(long jobId)
+        {
+              JobId = @jobId;
+        }
+    
+        /// <summary>Job id</summary>
+        [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long JobId { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class FormTemplateResponse 
+    {
+        public FormTemplateResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public FormTemplateResponse(System.Collections.Generic.ICollection<Fields.FieldModelBase> fields)
+        {
+              Fields = @fields;
+        }
+    
+        /// <summary>Form fields</summary>
+        [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Fields.FieldModelBase> Fields { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ProgramListItemModel 
     {
         public ProgramListItemModel() { }
@@ -125,75 +194,6 @@ namespace OpenWater.ApiClient.Program
         /// <summary>Judging period end date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("judgingEndDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? JudgingEndDateUtc { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ApplicationCategoryModel 
-    {
-        public ApplicationCategoryModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public ApplicationCategoryModel(string code, int id, string name, string path)
-        {
-              Id = @id;
-              Path = @path;
-              Code = @code;
-              Name = @name;
-        }
-    
-        /// <summary>Application category id</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; set; }
-    
-        /// <summary>Application category path</summary>
-        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Path { get; set; }
-    
-        /// <summary>Application category code</summary>
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Code { get; set; }
-    
-        /// <summary>Application category name</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ExportResponse 
-    {
-        public ExportResponse() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public ExportResponse(int jobId)
-        {
-              JobId = @jobId;
-        }
-    
-        /// <summary>Job id</summary>
-        [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JobId { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FormTemplateResponse 
-    {
-        public FormTemplateResponse() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public FormTemplateResponse(System.Collections.Generic.ICollection<Fields.FieldModelBase> fields)
-        {
-              Fields = @fields;
-        }
-    
-        /// <summary>Form fields</summary>
-        [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Fields.FieldModelBase> Fields { get; set; }
     
     
     }

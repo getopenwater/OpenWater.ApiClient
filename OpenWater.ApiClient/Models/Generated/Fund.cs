@@ -19,45 +19,6 @@ namespace OpenWater.ApiClient.Fund
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FundListItemModel 
-    {
-        public FundListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public FundListItemModel(CurrencyType currency, int id, bool isArchived, string name, double totalAmount)
-        {
-              Id = @id;
-              Name = @name;
-              Currency = @currency;
-              TotalAmount = @totalAmount;
-              IsArchived = @isArchived;
-        }
-    
-        /// <summary>Fund id</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; set; }
-    
-        /// <summary>Fund name</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        /// <summary>Fund currency</summary>
-        [Newtonsoft.Json.JsonProperty("currency", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CurrencyType Currency { get; set; }
-    
-        /// <summary>Fund total amount</summary>
-        [Newtonsoft.Json.JsonProperty("totalAmount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double TotalAmount { get; set; }
-    
-        /// <summary>Is fund archived</summary>
-        [Newtonsoft.Json.JsonProperty("isArchived", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsArchived { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DetailsResponse 
     {
         public DetailsResponse() { }
@@ -97,6 +58,45 @@ namespace OpenWater.ApiClient.Fund
         /// <summary>Assigned to program ids</summary>
         [Newtonsoft.Json.JsonProperty("assignedToProgramIds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<int> AssignedToProgramIds { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class FundListItemModel 
+    {
+        public FundListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public FundListItemModel(CurrencyType currency, int id, bool isArchived, string name, double totalAmount)
+        {
+              Id = @id;
+              Name = @name;
+              Currency = @currency;
+              TotalAmount = @totalAmount;
+              IsArchived = @isArchived;
+        }
+    
+        /// <summary>Fund id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        /// <summary>Fund name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        /// <summary>Fund currency</summary>
+        [Newtonsoft.Json.JsonProperty("currency", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public CurrencyType Currency { get; set; }
+    
+        /// <summary>Fund total amount</summary>
+        [Newtonsoft.Json.JsonProperty("totalAmount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double TotalAmount { get; set; }
+    
+        /// <summary>Is fund archived</summary>
+        [Newtonsoft.Json.JsonProperty("isArchived", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsArchived { get; set; }
     
     
     }

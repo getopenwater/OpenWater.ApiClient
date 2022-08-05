@@ -19,62 +19,65 @@ namespace OpenWater.ApiClient.JudgeAssignment
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class JudgeListItemModel 
+    public partial class ApplyAllBulkJudgeAssignmentRulesInRoundRequest 
     {
-        public JudgeListItemModel() { }
+        public ApplyAllBulkJudgeAssignmentRulesInRoundRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public JudgeListItemModel(string email, string firstName, System.Collections.Generic.ICollection<JudgeTeamListItemModel> judgeTeams, string lastName, int userId)
+        public ApplyAllBulkJudgeAssignmentRulesInRoundRequest(int roundId)
         {
-              UserId = @userId;
-              FirstName = @firstName;
-              LastName = @lastName;
-              Email = @email;
-              JudgeTeams = @judgeTeams;
+              RoundId = @roundId;
         }
     
-        /// <summary>User id</summary>
-        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int UserId { get; set; }
-    
-        /// <summary>User first name</summary>
-        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; set; }
-    
-        /// <summary>User last name</summary>
-        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; set; }
-    
-        /// <summary>User email</summary>
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email { get; set; }
-    
-        /// <summary>Judge teams where judge belongs to</summary>
-        [Newtonsoft.Json.JsonProperty("judgeTeams", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<JudgeTeamListItemModel> JudgeTeams { get; set; }
+        /// <summary>Round id</summary>
+        [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Always)]
+        public int RoundId { get; set; }
     
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class JudgeTeamListItemModel 
+    public partial class ApplyAllBulkJudgeAssignmentRulesInRoundResponse 
     {
-        public JudgeTeamListItemModel() { }
+        public ApplyAllBulkJudgeAssignmentRulesInRoundResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public JudgeTeamListItemModel(int id, string name)
+        public ApplyAllBulkJudgeAssignmentRulesInRoundResponse(long jobId)
         {
-              Id = @id;
-              Name = @name;
+              JobId = @jobId;
         }
     
-        /// <summary>Judge Team id</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; set; }
+        /// <summary>Bulk judge assignment job id</summary>
+        [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long JobId { get; set; }
     
-        /// <summary>Judge team name</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class AssignJudgeTeamManagerToJudgeTeamRequest 
+    {
+        public AssignJudgeTeamManagerToJudgeTeamRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public AssignJudgeTeamManagerToJudgeTeamRequest(int judgeTeamId, int judgeUserId, System.Collections.Generic.ICollection<JudgeTeamManagerPermissions> permissions)
+        {
+              JudgeUserId = @judgeUserId;
+              JudgeTeamId = @judgeTeamId;
+              Permissions = @permissions;
+        }
+    
+        /// <summary>Judge user id</summary>
+        [Newtonsoft.Json.JsonProperty("judgeUserId", Required = Newtonsoft.Json.Required.Always)]
+        public int JudgeUserId { get; set; }
+    
+        /// <summary>Judge team id</summary>
+        [Newtonsoft.Json.JsonProperty("judgeTeamId", Required = Newtonsoft.Json.Required.Always)]
+        public int JudgeTeamId { get; set; }
+    
+        /// <summary>Judge team manager permissions</summary>
+        [Newtonsoft.Json.JsonProperty("permissions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<JudgeTeamManagerPermissions> Permissions { get; set; }
     
     
     }
@@ -131,34 +134,6 @@ namespace OpenWater.ApiClient.JudgeAssignment
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class AssignJudgeTeamManagerToJudgeTeamRequest 
-    {
-        public AssignJudgeTeamManagerToJudgeTeamRequest() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public AssignJudgeTeamManagerToJudgeTeamRequest(int judgeTeamId, int judgeUserId, System.Collections.Generic.ICollection<JudgeTeamManagerPermissions> permissions)
-        {
-              JudgeUserId = @judgeUserId;
-              JudgeTeamId = @judgeTeamId;
-              Permissions = @permissions;
-        }
-    
-        /// <summary>Judge user id</summary>
-        [Newtonsoft.Json.JsonProperty("judgeUserId", Required = Newtonsoft.Json.Required.Always)]
-        public int JudgeUserId { get; set; }
-    
-        /// <summary>Judge team id</summary>
-        [Newtonsoft.Json.JsonProperty("judgeTeamId", Required = Newtonsoft.Json.Required.Always)]
-        public int JudgeTeamId { get; set; }
-    
-        /// <summary>Judge team manager permissions</summary>
-        [Newtonsoft.Json.JsonProperty("permissions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<JudgeTeamManagerPermissions> Permissions { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AssignJudgeToRoundRequest 
     {
         public AssignJudgeToRoundRequest() { }
@@ -177,42 +152,6 @@ namespace OpenWater.ApiClient.JudgeAssignment
         /// <summary>Round id</summary>
         [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Always)]
         public int RoundId { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ApplyAllBulkJudgeAssignmentRulesInRoundRequest 
-    {
-        public ApplyAllBulkJudgeAssignmentRulesInRoundRequest() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public ApplyAllBulkJudgeAssignmentRulesInRoundRequest(int roundId)
-        {
-              RoundId = @roundId;
-        }
-    
-        /// <summary>Round id</summary>
-        [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.Always)]
-        public int RoundId { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ApplyAllBulkJudgeAssignmentRulesInRoundResponse 
-    {
-        public ApplyAllBulkJudgeAssignmentRulesInRoundResponse() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public ApplyAllBulkJudgeAssignmentRulesInRoundResponse(int jobId)
-        {
-              JobId = @jobId;
-        }
-    
-        /// <summary>Bulk judge assignment job id</summary>
-        [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JobId { get; set; }
     
     
     }
@@ -306,6 +245,67 @@ namespace OpenWater.ApiClient.JudgeAssignment
         /// <summary>Judge assignment rule id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class JudgeListItemModel 
+    {
+        public JudgeListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public JudgeListItemModel(string email, string firstName, System.Collections.Generic.ICollection<JudgeTeamListItemModel> judgeTeams, string lastName, int userId)
+        {
+              UserId = @userId;
+              FirstName = @firstName;
+              LastName = @lastName;
+              Email = @email;
+              JudgeTeams = @judgeTeams;
+        }
+    
+        /// <summary>User id</summary>
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int UserId { get; set; }
+    
+        /// <summary>User first name</summary>
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        /// <summary>User last name</summary>
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        /// <summary>User email</summary>
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Email { get; set; }
+    
+        /// <summary>Judge teams where judge belongs to</summary>
+        [Newtonsoft.Json.JsonProperty("judgeTeams", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<JudgeTeamListItemModel> JudgeTeams { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class JudgeTeamListItemModel 
+    {
+        public JudgeTeamListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public JudgeTeamListItemModel(int id, string name)
+        {
+              Id = @id;
+              Name = @name;
+        }
+    
+        /// <summary>Judge Team id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        /// <summary>Judge team name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
     
     
     }

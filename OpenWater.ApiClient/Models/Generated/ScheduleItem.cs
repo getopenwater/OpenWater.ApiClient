@@ -19,6 +19,39 @@ namespace OpenWater.ApiClient.ScheduleItem
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateRequest 
+    {
+        public CreateRequest() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public CreateRequest(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId)
+        {
+              ScheduleRoomId = @scheduleRoomId;
+              ScheduleDayId = @scheduleDayId;
+              ScheduleTimeSlotId = @scheduleTimeSlotId;
+              TargetId = @targetId;
+        }
+    
+        /// <summary>Schedule room Id</summary>
+        [Newtonsoft.Json.JsonProperty("scheduleRoomId", Required = Newtonsoft.Json.Required.Always)]
+        public int ScheduleRoomId { get; set; }
+    
+        /// <summary>Schedule day Id</summary>
+        [Newtonsoft.Json.JsonProperty("scheduleDayId", Required = Newtonsoft.Json.Required.Always)]
+        public int ScheduleDayId { get; set; }
+    
+        /// <summary>Schedule time slot Id</summary>
+        [Newtonsoft.Json.JsonProperty("scheduleTimeSlotId", Required = Newtonsoft.Json.Required.Always)]
+        public int ScheduleTimeSlotId { get; set; }
+    
+        /// <summary>Target entry Id</summary>
+        [Newtonsoft.Json.JsonProperty("targetId", Required = Newtonsoft.Json.Required.Always)]
+        public int TargetId { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ScheduleItemListItemModel 
     {
         public ScheduleItemListItemModel() { }
@@ -57,39 +90,6 @@ namespace OpenWater.ApiClient.ScheduleItem
     
         /// <summary>Target entry Id</summary>
         [Newtonsoft.Json.JsonProperty("targetId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int TargetId { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CreateRequest 
-    {
-        public CreateRequest() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public CreateRequest(int scheduleDayId, int scheduleRoomId, int scheduleTimeSlotId, int targetId)
-        {
-              ScheduleRoomId = @scheduleRoomId;
-              ScheduleDayId = @scheduleDayId;
-              ScheduleTimeSlotId = @scheduleTimeSlotId;
-              TargetId = @targetId;
-        }
-    
-        /// <summary>Schedule room Id</summary>
-        [Newtonsoft.Json.JsonProperty("scheduleRoomId", Required = Newtonsoft.Json.Required.Always)]
-        public int ScheduleRoomId { get; set; }
-    
-        /// <summary>Schedule day Id</summary>
-        [Newtonsoft.Json.JsonProperty("scheduleDayId", Required = Newtonsoft.Json.Required.Always)]
-        public int ScheduleDayId { get; set; }
-    
-        /// <summary>Schedule time slot Id</summary>
-        [Newtonsoft.Json.JsonProperty("scheduleTimeSlotId", Required = Newtonsoft.Json.Required.Always)]
-        public int ScheduleTimeSlotId { get; set; }
-    
-        /// <summary>Target entry Id</summary>
-        [Newtonsoft.Json.JsonProperty("targetId", Required = Newtonsoft.Json.Required.Always)]
         public int TargetId { get; set; }
     
     

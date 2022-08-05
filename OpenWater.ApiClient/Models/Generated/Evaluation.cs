@@ -19,75 +19,6 @@ namespace OpenWater.ApiClient.Evaluation
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class EvaluationListItemModel 
-    {
-        public EvaluationListItemModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public EvaluationListItemModel(string applicationCode, int applicationId, System.DateTimeOffset evaluationDateUtc, int id, int judgeUserId, int programId, int roundId, System.DateTimeOffset startedAtUtc, JudgeScorecardStatus status, double totalScore, System.DateTimeOffset? updatedAtUtc = null)
-        {
-              Id = @id;
-              ProgramId = @programId;
-              RoundId = @roundId;
-              JudgeUserId = @judgeUserId;
-              ApplicationId = @applicationId;
-              ApplicationCode = @applicationCode;
-              Status = @status;
-              TotalScore = @totalScore;
-              StartedAtUtc = @startedAtUtc;
-              UpdatedAtUtc = @updatedAtUtc;
-              EvaluationDateUtc = @evaluationDateUtc;
-        }
-    
-        /// <summary>Evaluation id</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Id { get; set; }
-    
-        /// <summary>Program id</summary>
-        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int ProgramId { get; set; }
-    
-        /// <summary>Round id</summary>
-        [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int RoundId { get; set; }
-    
-        /// <summary>Judge user id</summary>
-        [Newtonsoft.Json.JsonProperty("judgeUserId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JudgeUserId { get; set; }
-    
-        /// <summary>Application id</summary>
-        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int ApplicationId { get; set; }
-    
-        /// <summary>Application code</summary>
-        [Newtonsoft.Json.JsonProperty("applicationCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationCode { get; set; }
-    
-        /// <summary>Evaluation Status</summary>
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public JudgeScorecardStatus Status { get; set; }
-    
-        /// <summary>Evaluation total score</summary>
-        [Newtonsoft.Json.JsonProperty("totalScore", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double TotalScore { get; set; }
-    
-        /// <summary>Evaluation started date (UTC)</summary>
-        [Newtonsoft.Json.JsonProperty("startedAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartedAtUtc { get; set; }
-    
-        /// <summary>Evaluation updated date (UTC)</summary>
-        [Newtonsoft.Json.JsonProperty("updatedAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? UpdatedAtUtc { get; set; }
-    
-        /// <summary>Evaluation date (UTC)</summary>
-        [Newtonsoft.Json.JsonProperty("evaluationDateUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EvaluationDateUtc { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DetailsResponse 
     {
         public DetailsResponse() { }
@@ -166,34 +97,70 @@ namespace OpenWater.ApiClient.Evaluation
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class JudgeScoreFieldValueModel 
+    public partial class EvaluationListItemModel 
     {
-        public JudgeScoreFieldValueModel() { }
+        public EvaluationListItemModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public JudgeScoreFieldValueModel(string alias, System.Collections.Generic.ICollection<RowJudgeScoreFieldValueModel> rowScores, double? score = null, string text = null)
+        public EvaluationListItemModel(string applicationCode, int applicationId, System.DateTimeOffset evaluationDateUtc, int id, int judgeUserId, int programId, int roundId, System.DateTimeOffset startedAtUtc, JudgeScorecardStatus status, double totalScore, System.DateTimeOffset? updatedAtUtc = null)
         {
-              Alias = @alias;
-              RowScores = @rowScores;
-              Score = @score;
-              Text = @text;
+              Id = @id;
+              ProgramId = @programId;
+              RoundId = @roundId;
+              JudgeUserId = @judgeUserId;
+              ApplicationId = @applicationId;
+              ApplicationCode = @applicationCode;
+              Status = @status;
+              TotalScore = @totalScore;
+              StartedAtUtc = @startedAtUtc;
+              UpdatedAtUtc = @updatedAtUtc;
+              EvaluationDateUtc = @evaluationDateUtc;
         }
     
-        /// <summary>Field alias</summary>
-        [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Alias { get; set; }
+        /// <summary>Evaluation id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
     
-        /// <summary>Row scores</summary>
-        [Newtonsoft.Json.JsonProperty("rowScores", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<RowJudgeScoreFieldValueModel> RowScores { get; set; }
+        /// <summary>Program id</summary>
+        [Newtonsoft.Json.JsonProperty("programId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProgramId { get; set; }
     
-        /// <summary>Answer score</summary>
-        [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Score { get; set; }
+        /// <summary>Round id</summary>
+        [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int RoundId { get; set; }
     
-        /// <summary>Answer text</summary>
-        [Newtonsoft.Json.JsonProperty("text", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Text { get; set; }
+        /// <summary>Judge user id</summary>
+        [Newtonsoft.Json.JsonProperty("judgeUserId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int JudgeUserId { get; set; }
+    
+        /// <summary>Application id</summary>
+        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ApplicationId { get; set; }
+    
+        /// <summary>Application code</summary>
+        [Newtonsoft.Json.JsonProperty("applicationCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApplicationCode { get; set; }
+    
+        /// <summary>Evaluation Status</summary>
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public JudgeScorecardStatus Status { get; set; }
+    
+        /// <summary>Evaluation total score</summary>
+        [Newtonsoft.Json.JsonProperty("totalScore", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double TotalScore { get; set; }
+    
+        /// <summary>Evaluation started date (UTC)</summary>
+        [Newtonsoft.Json.JsonProperty("startedAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset StartedAtUtc { get; set; }
+    
+        /// <summary>Evaluation updated date (UTC)</summary>
+        [Newtonsoft.Json.JsonProperty("updatedAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? UpdatedAtUtc { get; set; }
+    
+        /// <summary>Evaluation date (UTC)</summary>
+        [Newtonsoft.Json.JsonProperty("evaluationDateUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset EvaluationDateUtc { get; set; }
     
     
     }
@@ -232,6 +199,53 @@ namespace OpenWater.ApiClient.Evaluation
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class JudgeScoreFieldValueModel : JudgeScoreModelBase
+    {
+        public JudgeScoreFieldValueModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public JudgeScoreFieldValueModel(string alias, System.Collections.Generic.ICollection<RowJudgeScoreFieldValueModel> rowScores, double? score = null, string text = null)
+            : base(score, text)
+        {
+              Alias = @alias;
+              RowScores = @rowScores;
+        }
+    
+        /// <summary>Field alias</summary>
+        [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Alias { get; set; }
+    
+        /// <summary>Row scores</summary>
+        [Newtonsoft.Json.JsonProperty("rowScores", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<RowJudgeScoreFieldValueModel> RowScores { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public abstract partial class JudgeScoreModelBase 
+    {
+        public JudgeScoreModelBase() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        protected JudgeScoreModelBase(double? score = null, string text = null)
+        {
+              Score = @score;
+              Text = @text;
+        }
+    
+        /// <summary>Answer score</summary>
+        [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? Score { get; set; }
+    
+        /// <summary>Answer text</summary>
+        [Newtonsoft.Json.JsonProperty("text", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Text { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class JudgeTeamInfo 
     {
         public JudgeTeamInfo() { }
@@ -253,29 +267,20 @@ namespace OpenWater.ApiClient.Evaluation
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class RowJudgeScoreFieldValueModel 
+    public partial class RowJudgeScoreFieldValueModel : JudgeScoreModelBase
     {
         public RowJudgeScoreFieldValueModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
         public RowJudgeScoreFieldValueModel(int rowId, double? score = null, string text = null)
+            : base(score, text)
         {
               RowId = @rowId;
-              Score = @score;
-              Text = @text;
         }
     
         /// <summary>Row id</summary>
         [Newtonsoft.Json.JsonProperty("rowId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int RowId { get; set; }
-    
-        /// <summary>Answer score</summary>
-        [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Score { get; set; }
-    
-        /// <summary>Answer text</summary>
-        [Newtonsoft.Json.JsonProperty("text", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Text { get; set; }
     
     
     }

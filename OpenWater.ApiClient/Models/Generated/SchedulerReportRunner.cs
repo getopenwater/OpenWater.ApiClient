@@ -48,14 +48,14 @@ namespace OpenWater.ApiClient.SchedulerReportRunner
         public RunResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RunResponse(int jobId)
+        public RunResponse(long jobId)
         {
               JobId = @jobId;
         }
     
         /// <summary>Report job id</summary>
         [Newtonsoft.Json.JsonProperty("jobId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int JobId { get; set; }
+        public long JobId { get; set; }
     
     
     }
