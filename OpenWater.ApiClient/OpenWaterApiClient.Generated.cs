@@ -2934,15 +2934,16 @@ namespace OpenWater.ApiClient
         /// <param name="judgeFirstName">Judge first name</param>
         /// <param name="judgeLastName">Judge last name</param>
         /// <param name="judgeEmail">Judge email</param>
+        /// <param name="hasProgramProfile">Has program profile</param>
         /// <param name="pageIndex">Page index (0 by default)</param>
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <param name="organizationCode">Specify the organization code</param>
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public Pagination.PagingResponseJudgeListItemModel GetAssignedToRoundJudges(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
+        public Pagination.PagingResponseJudgeListItemModel GetAssignedToRoundJudges(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, bool? hasProgramProfile = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetAssignedToRoundJudgesAsync(roundId, judgeFirstName, judgeLastName, judgeEmail, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAssignedToRoundJudgesAsync(roundId, judgeFirstName, judgeLastName, judgeEmail, hasProgramProfile, pageIndex, pageSize, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2951,13 +2952,14 @@ namespace OpenWater.ApiClient
         /// <param name="judgeFirstName">Judge first name</param>
         /// <param name="judgeLastName">Judge last name</param>
         /// <param name="judgeEmail">Judge email</param>
+        /// <param name="hasProgramProfile">Has program profile</param>
         /// <param name="pageIndex">Page index (0 by default)</param>
         /// <param name="pageSize">Page size (10 by default)</param>
         /// <param name="organizationCode">Specify the organization code</param>
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Pagination.PagingResponseJudgeListItemModel> GetAssignedToRoundJudgesAsync(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pagination.PagingResponseJudgeListItemModel> GetAssignedToRoundJudgesAsync(int roundId, string judgeFirstName = null, string judgeLastName = null, string judgeEmail = null, bool? hasProgramProfile = null, int? pageIndex = null, int? pageSize = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (roundId == null)
                 throw new System.ArgumentNullException("roundId");
@@ -2976,6 +2978,10 @@ namespace OpenWater.ApiClient
             if (judgeEmail != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("judgeEmail") + "=").Append(System.Uri.EscapeDataString(ConvertToString(judgeEmail, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (hasProgramProfile != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("hasProgramProfile") + "=").Append(System.Uri.EscapeDataString(ConvertToString(hasProgramProfile, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             if (pageIndex != null) 
             {
