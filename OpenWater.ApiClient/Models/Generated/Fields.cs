@@ -566,12 +566,13 @@ namespace OpenWater.ApiClient.Fields
         public TextFieldModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public TextFieldModel(string alias, bool allowAutocompleteFromExternalSource, string externalAutocompleteSourceUrl, string externalValidationUrl, bool hidden, bool isDescriptionWysiwyg, bool required, FieldSize size, TextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition, bool? areOnlyExternalSourceValuesAllowed = null, string customCssClass = null, string description = null, int? maxLength = null, int? minLength = null, string name = null, int? sortOrder = null)
+        public TextFieldModel(string alias, bool allowAutocompleteFromExternalSource, string externalAutocompleteSourceUrl, string externalValidationUrl, bool hidden, bool isDescriptionWysiwyg, bool required, FieldSize size, TextLengthCountMode textLengthCountMode, FieldVisibilityConditionModel visibilityCondition, bool? areOnlyExternalSourceValuesAllowed = null, string customCssClass = null, string description = null, int? maxLength = null, int? minLength = null, string name = null, int? sortOrder = null, bool? validateExternalSourceValueOnChangeOnly = null)
             : base(alias, hidden, isDescriptionWysiwyg, required, size, textLengthCountMode, visibilityCondition, customCssClass, description, maxLength, minLength, name, sortOrder)
         {
               ExternalValidationUrl = @externalValidationUrl;
               AllowAutocompleteFromExternalSource = @allowAutocompleteFromExternalSource;
               AreOnlyExternalSourceValuesAllowed = @areOnlyExternalSourceValuesAllowed;
+              ValidateExternalSourceValueOnChangeOnly = @validateExternalSourceValueOnChangeOnly;
               ExternalAutocompleteSourceUrl = @externalAutocompleteSourceUrl;
         }
     
@@ -583,6 +584,9 @@ namespace OpenWater.ApiClient.Fields
     
         [Newtonsoft.Json.JsonProperty("areOnlyExternalSourceValuesAllowed", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? AreOnlyExternalSourceValuesAllowed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("validateExternalSourceValueOnChangeOnly", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? ValidateExternalSourceValueOnChangeOnly { get; set; }
     
         [Newtonsoft.Json.JsonProperty("externalAutocompleteSourceUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalAutocompleteSourceUrl { get; set; }

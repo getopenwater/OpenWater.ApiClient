@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.42.0</Version>
+    <Version>2.43.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,10 +12,10 @@
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
     <PackageReleaseNotes>Changelog:
-+ added "hasProgramProfile" filter option to "GetAssignedToRoundJudges" method.</PackageReleaseNotes>
++ Added support of "ValidateExternalSourceValueOnChangeOnly" text field option.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
-    <AssemblyVersion>2.42.0</AssemblyVersion>
-    <FileVersion>2.42.0.0</FileVersion>
+    <AssemblyVersion>2.43.0</AssemblyVersion>
+    <FileVersion>2.43.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
