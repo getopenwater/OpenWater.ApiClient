@@ -70,6 +70,9 @@ namespace OpenWater.ApiClient.Definitions
         [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNSubmissionsOnEachJudgeTeamMember")]
         AssignAtLeastNSubmissionsOnEachJudgeTeamMember = 4,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"AssignAtLeastNJudgeTeamsOnEachSubmission")]
+        AssignAtLeastNJudgeTeamsOnEachSubmission = 5,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]

@@ -162,7 +162,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
         public CreateBulkJudgeAssignmentRuleRequest() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public CreateBulkJudgeAssignmentRuleRequest(System.Collections.Generic.ICollection<int> applicationCategoryIdsToFilterBy, BulkJudgeAssignmentFilterType bulkJudgeAssignmentFilterType, BulkJudgeAssignmentType bulkJudgeAssignmentType, string description, System.Collections.Generic.ICollection<int> judgeTeamIdsToAssign, System.Collections.Generic.ICollection<int> judgeUserIdsToAssign, string name, int roundId, int? assignAtLeastNJudgesOnEachSubmission = null, int? assignAtLeastNSubmissionsOnEachCertainJudge = null, int? assignAtLeastNSubmissionsOnEachJudge = null, int? assignAtLeastNSubmissionsOnEachJudgeTeamMember = null)
+        public CreateBulkJudgeAssignmentRuleRequest(System.Collections.Generic.ICollection<int> applicationCategoryIdsToFilterBy, BulkJudgeAssignmentFilterType bulkJudgeAssignmentFilterType, BulkJudgeAssignmentType bulkJudgeAssignmentType, string description, System.Collections.Generic.ICollection<int> judgeTeamIdsToAssign, System.Collections.Generic.ICollection<int> judgeUserIdsToAssign, string name, int roundId, int? assignAtLeastNJudgesOnEachSubmission = null, int? assignAtLeastNJudgeTeamsOnEachSubmission = null, int? assignAtLeastNSubmissionsOnEachCertainJudge = null, int? assignAtLeastNSubmissionsOnEachJudge = null, int? assignAtLeastNSubmissionsOnEachJudgeTeamMember = null)
         {
               RoundId = @roundId;
               Name = @name;
@@ -173,6 +173,7 @@ namespace OpenWater.ApiClient.JudgeAssignment
               AssignAtLeastNSubmissionsOnEachJudge = @assignAtLeastNSubmissionsOnEachJudge;
               AssignAtLeastNSubmissionsOnEachCertainJudge = @assignAtLeastNSubmissionsOnEachCertainJudge;
               AssignAtLeastNSubmissionsOnEachJudgeTeamMember = @assignAtLeastNSubmissionsOnEachJudgeTeamMember;
+              AssignAtLeastNJudgeTeamsOnEachSubmission = @assignAtLeastNJudgeTeamsOnEachSubmission;
               ApplicationCategoryIdsToFilterBy = @applicationCategoryIdsToFilterBy;
               JudgeUserIdsToAssign = @judgeUserIdsToAssign;
               JudgeTeamIdsToAssign = @judgeTeamIdsToAssign;
@@ -215,6 +216,10 @@ namespace OpenWater.ApiClient.JudgeAssignment
         /// <summary>Assign at least a certain number of Submissions to Each Judge in team (leave blank for all Submissions)</summary>
         [Newtonsoft.Json.JsonProperty("assignAtLeastNSubmissionsOnEachJudgeTeamMember", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? AssignAtLeastNSubmissionsOnEachJudgeTeamMember { get; set; }
+    
+        /// <summary>Ensure each Submission is judged at least by a certain number of Judge teams</summary>
+        [Newtonsoft.Json.JsonProperty("assignAtLeastNJudgeTeamsOnEachSubmission", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? AssignAtLeastNJudgeTeamsOnEachSubmission { get; set; }
     
         /// <summary>Application category ids to filter by</summary>
         [Newtonsoft.Json.JsonProperty("applicationCategoryIdsToFilterBy", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
