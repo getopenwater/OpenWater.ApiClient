@@ -44,9 +44,16 @@ Custom script is already executed in handler of `ready` event described above, s
 
 # API reference
 
+- `isAdminView()` - returns is admin value
+- `isPublicView()` - returns is public value
+- `beforeSubmit(handler)` - event, handler function which is fired before submitting form
+- `afterSubmit(handler)` - event, handler function which is fired after submitting form
+- `validateBeforeSubmit(handler)` - event, handler function which returns true/false and is fired before submitting form, submit continues if handler returns true, otherwise not
+
 ## Submission form and Session form:
 
 - `getField(alias: string)` - returns api object for concrete field
+- `getFieldsByType(type: string)` - returns api objects for concrete field type
 
 ## Evaluation form:
 
@@ -60,6 +67,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: string)` - sets new value.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
 - `autocomplete(options)` - attach autocomplete suggestions to input
@@ -74,6 +84,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: string)` - sets new value.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -84,6 +97,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(listItemValues: string[])` - checks items which are presented in array, unchecks if they are not in array. listItemValues are list item id/text (case-insensitive).
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on check/uncheck of any checkbox.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -95,6 +111,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `clearSelection()` - clears selection.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered when any item is selected or selection is cleared.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -105,6 +124,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(listItemValue: string|null)` - selects item. listItemValue is item id/text (case-insensitive). Pass `null` to clear selection.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered when any item is selected.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -112,6 +134,7 @@ Custom script is already executed in handler of `ready` event described above, s
 
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `getCssClass()` - returns css classes of field section.
 
 ### Phone Number
 
@@ -119,6 +142,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: string)` - sets new value.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
 - `getSelectedCountry(): string` - returns current selected country code in phone number input.
@@ -128,6 +154,9 @@ Custom script is already executed in handler of `ready` event described above, s
 
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section. Also cancel row edit if exists.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `addRow(rowValues): number` - add new row. Returns new row index.
   - `rowValues` - array of values. Value has the following schema:
     - `alias` - field alias
@@ -145,6 +174,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: Date)` - sets new date.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered when day is selected.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -154,6 +186,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: string)` - sets new value. Should be valid email.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -167,6 +202,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `getUrl(): string` - returns url to uploaded file.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `uploadFile(file: File): Promise` - upload [File](https://developer.mozilla.org/en-US/docs/Web/API/File) to Filestack. Returns Promise which is resolved when upload is succeeded.
 - `onChange(handler)` - event is triggered when file is uploaded or deleted.
 - `offChange(handler)` - unsubscribe from change event.
@@ -177,6 +215,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: string)` - sets new value. Should be valid uri.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -193,6 +234,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: AddressFieldValue)` - sets new value.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 
 ### Application Name
 
@@ -203,6 +247,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: ApplicationNameFieldValue)` - sets new value.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - supported only in one text field mode. event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -212,6 +259,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: string)` - sets new value by category code.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 
 ### Letter of Recommendation
 
@@ -222,6 +272,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: LetterOfRecommendationFieldValue | null)` - sets new value. Pass `null` to clear inputs. Can't be set if request is already sent.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 
 ### Session name
 
@@ -229,6 +282,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: string)` - sets new value.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -240,6 +296,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: number)` - value is integer in range of current type question.
 - `show()` - makes question section visible if it was previosly hidden via frontend API.
 - `hide()` - hides question section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered when any item is selected.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -249,6 +308,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: number)` - sets new value.
 - `show()` - makes question section visible if it was previosly hidden via frontend API.
 - `hide()` - hides question section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -258,6 +320,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: string)` - sets new value. `value` is list item text (case-insensitive).
 - `show()` - makes question section visible if it was previosly hidden via frontend API.
 - `hide()` - hides question section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered when any item is selected.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -267,6 +332,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(value: string)` - sets new value.
 - `show()` - makes question section visible if it was previosly hidden via frontend API.
 - `hide()` - hides question section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on focus out and value is changed.
 - `offChange(handler)` - unsubscribe from change event.
 
@@ -274,6 +342,7 @@ Custom script is already executed in handler of `ready` event described above, s
 
 - `show()` - makes question section visible if it was previosly hidden via frontend API.
 - `hide()` - hides question section.
+- `getCssClass()` - returns css classes of field section.
 
 ### File Upload
 
@@ -282,6 +351,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `getUrl(): string` - returns url to uploaded file.
 - `show()` - makes question section visible if it was previosly hidden via frontend API.
 - `hide()` - hides question section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `uploadFile(file: File): Promise` - upload [File](https://developer.mozilla.org/en-US/docs/Web/API/File) to Filestack. Returns Promise which is resolved when upload is succeeded.
 - `onChange(handler)` - event is triggered when file is uploaded or deleted.
 - `offChange(handler)` - unsubscribe from change event.
@@ -292,6 +364,9 @@ Custom script is already executed in handler of `ready` event described above, s
 - `setValue(listItemText: string[])` - check items which are presented in array, uncheck if they are not in array.
 - `show()` - makes question section visible if it was previosly hidden via frontend API.
 - `hide()` - hides question section.
+- `markReadOnly()` - makes field section readonly.
+- `markNotReadOnly()` - makes field section not readonly.
+- `getCssClass()` - returns css classes of field section.
 - `onChange(handler)` - event is triggered on check/uncheck of any checkbox.
 - `offChange(handler)` - unsubscribe from change event.
 
