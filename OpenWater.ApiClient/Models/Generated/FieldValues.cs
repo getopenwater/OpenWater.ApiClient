@@ -233,28 +233,6 @@ namespace OpenWater.ApiClient.FieldValues
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ImisNumberFieldValueModel : FieldValueModelBase
-    {
-        public ImisNumberFieldValueModel() { }
-    
-        [Newtonsoft.Json.JsonConstructor]
-        public ImisNumberFieldValueModel(string alias, string result = null, string value = null)
-            : base(alias)
-        {
-              Value = @value;
-              Result = @result;
-        }
-    
-        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Value { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("result", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Result { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class LetterOfRecommendationFieldValueModel : ContainerFieldValueModelBase
     {
         public LetterOfRecommendationFieldValueModel() { }
