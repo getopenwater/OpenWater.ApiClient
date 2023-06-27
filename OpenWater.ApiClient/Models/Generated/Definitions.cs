@@ -19,6 +19,56 @@ namespace OpenWater.ApiClient.Definitions
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ExportAutoscoringRuleResultDataOptions
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowAutoscoreRuleResults")]
+        ShowAutoscoreRuleResults = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowAutoscoreRuleResultsAndApplicationFields")]
+        ShowAutoscoreRuleResultsAndApplicationFields = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ExportJudgeResponsesDataOptions
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowJudgeScores")]
+        ShowJudgeScores = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowJudgeScoresAndApplicationFields")]
+        ShowJudgeScoresAndApplicationFields = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ExportJudgeResponsesOptions
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowScoreSummariesOnly")]
+        ShowScoreSummariesOnly = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowAllJudgingQuestionsAndScores")]
+        ShowAllJudgingQuestionsAndScores = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ExportJudgeResponsesStatusOptions
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"AllAssignments")]
+        AllAssignments = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ScoredAssignments")]
+        ScoredAssignments = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"UnfinishedAssignments")]
+        UnfinishedAssignments = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum BillingLineItemTargetType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"None")]
