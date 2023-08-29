@@ -5286,6 +5286,87 @@ namespace OpenWater.ApiClient
             }
         }
     
+        /// <summary>Gets program gallery settings</summary>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public Program.GallerySettingsResponse GetGallerySettings(int programId, string organizationCode = null, bool? suppressEmails = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetGallerySettingsAsync(programId, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Gets program gallery settings</summary>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Program.GallerySettingsResponse> GetGallerySettingsAsync(int programId, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (programId == null)
+                throw new System.ArgumentNullException("programId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Programs/{programId}/GallerySettings");
+            urlBuilder_.Replace("{programId}", System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    if (organizationCode != null)
+                        request_.Headers.TryAddWithoutValidation("X-OrganizationCode", ConvertToString(organizationCode, System.Globalization.CultureInfo.InvariantCulture));
+                    if (suppressEmails != null)
+                        request_.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Program.GallerySettingsResponse>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(Program.GallerySettingsResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
         /// <summary>Gets schedule days of a certain program</summary>
         /// <param name="programId">Program Id</param>
         /// <param name="pageIndex">Page index (0 by default)</param>
@@ -7473,6 +7554,174 @@ namespace OpenWater.ApiClient
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json");
                     request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ReportRunner.RunResponse>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(ReportRunner.RunResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Starts an application gallery report execution</summary>
+        /// <param name="programId">Program id</param>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public ReportRunner.RunResponse RunApplicationGalleryReport(int programId, string organizationCode = null, bool? suppressEmails = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await RunApplicationGalleryReportAsync(programId, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Starts an application gallery report execution</summary>
+        /// <param name="programId">Program id</param>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<ReportRunner.RunResponse> RunApplicationGalleryReportAsync(int programId, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (programId == null)
+                throw new System.ArgumentNullException("programId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Export/Reports/Gallery/Applications/{programId}");
+            urlBuilder_.Replace("{programId}", System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    if (organizationCode != null)
+                        request_.Headers.TryAddWithoutValidation("X-OrganizationCode", ConvertToString(organizationCode, System.Globalization.CultureInfo.InvariantCulture));
+                    if (suppressEmails != null)
+                        request_.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
+                    request_.Content = new System.Net.Http.StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json");
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ReportRunner.RunResponse>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new OpenWaterApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(ReportRunner.RunResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Starts a session gallery report execution</summary>
+        /// <param name="programId">Program id</param>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public ReportRunner.RunResponse RunSessionGalleryReport(int programId, string organizationCode = null, bool? suppressEmails = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await RunSessionGalleryReportAsync(programId, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Starts a session gallery report execution</summary>
+        /// <param name="programId">Program id</param>
+        /// <param name="organizationCode">Specify the organization code</param>
+        /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
+        /// <returns>Success</returns>
+        /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<ReportRunner.RunResponse> RunSessionGalleryReportAsync(int programId, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (programId == null)
+                throw new System.ArgumentNullException("programId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Export/Reports/Gallery/Sessions/{programId}");
+            urlBuilder_.Replace("{programId}", System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    if (organizationCode != null)
+                        request_.Headers.TryAddWithoutValidation("X-OrganizationCode", ConvertToString(organizationCode, System.Globalization.CultureInfo.InvariantCulture));
+                    if (suppressEmails != null)
+                        request_.Headers.TryAddWithoutValidation("X-SuppressEmails", ConvertToString(suppressEmails, System.Globalization.CultureInfo.InvariantCulture));
+                    request_.Content = new System.Net.Http.StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json");
                     request_.Method = new System.Net.Http.HttpMethod("POST");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
     

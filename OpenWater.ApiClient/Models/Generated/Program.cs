@@ -88,6 +88,35 @@ namespace OpenWater.ApiClient.Program
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class GallerySettingsResponse 
+    {
+        public GallerySettingsResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public GallerySettingsResponse(bool isSessionGalleryEnabled, System.Collections.Generic.ICollection<int> roundIdsWithEnabledApplicationGallery, SchedulerType? schedulerType = null)
+        {
+              RoundIdsWithEnabledApplicationGallery = @roundIdsWithEnabledApplicationGallery;
+              IsSessionGalleryEnabled = @isSessionGalleryEnabled;
+              SchedulerType = @schedulerType;
+        }
+    
+        /// <summary>Round ids with enabled application gallery</summary>
+        [Newtonsoft.Json.JsonProperty("roundIdsWithEnabledApplicationGallery", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<int> RoundIdsWithEnabledApplicationGallery { get; set; }
+    
+        /// <summary>Is session gallery enabled</summary>
+        [Newtonsoft.Json.JsonProperty("isSessionGalleryEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsSessionGalleryEnabled { get; set; }
+    
+        /// <summary>Enabled scheduler type (null if disabled)</summary>
+        [Newtonsoft.Json.JsonProperty("schedulerType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SchedulerType? SchedulerType { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ProgramListItemModel 
     {
         public ProgramListItemModel() { }
