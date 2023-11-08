@@ -49,6 +49,7 @@ Custom script is already executed in handler of `ready` event described above, s
 - `beforeSubmit(handler)` - event, handler function which is fired before submitting form
 - `afterSubmit(handler)` - event, handler function which is fired after submitting form
 - `validateBeforeSubmit(handler)` - event, handler function which returns true/false and is fired before submitting form, submit continues if handler returns true, otherwise not
+- `pageChanged(handler)` - event, handler function which is fired when form page is changed
 
 ## Submission form and Session form:
 
