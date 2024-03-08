@@ -1,10 +1,10 @@
-﻿using OpenWater.ApiClient.FieldValues;
+﻿using OpenWater.ApiClient.Fields;
 
 namespace OpenWater.ApiClient.Converters
 {
-    internal class FieldValueJsonConverter : DerivedClassJsonConverterBase<FieldValueModelBase>
+    internal class FieldJsonConverter : DerivedClassJsonConverterBase<FieldModelBase>
     {
         internal override string GetTypeConcreteNamespace(string typeName) =>
-            $"OpenWater.ApiClient.FieldValues.{typeName}Model";
+            $"OpenWater.ApiClient.Fields.{typeName}FieldModel";
     }
 }
