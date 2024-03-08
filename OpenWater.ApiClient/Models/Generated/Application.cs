@@ -312,7 +312,7 @@ namespace OpenWater.ApiClient.Application
         public RoundSubmission() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, string publicUrlToSubmission, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, int? invoiceId = null, bool? isPaid = null, SubmissionStatus? status = null, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
+        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, string publicUrlToSubmission, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, System.Collections.Generic.ICollection<Services.GeneralScoringQuestionAggregatedScore> generalScoringQuestionsAggregatedScoreInfos = null, int? invoiceId = null, bool? isPaid = null, SubmissionStatus? status = null, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues = null, System.Collections.Generic.ICollection<Services.SubmissionScoredFieldAggregatedScore> submissionScoredFieldsAggregatedScoreInfos = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
         {
               RoundId = @roundId;
               RoundName = @roundName;
@@ -335,6 +335,8 @@ namespace OpenWater.ApiClient.Application
               NumberOfTimesJudged = @numberOfTimesJudged;
               NumberOfAssignedJudges = @numberOfAssignedJudges;
               AverageScore = @averageScore;
+              SubmissionScoredFieldsAggregatedScoreInfos = @submissionScoredFieldsAggregatedScoreInfos;
+              GeneralScoringQuestionsAggregatedScoreInfos = @generalScoringQuestionsAggregatedScoreInfos;
         }
     
         [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -400,6 +402,12 @@ namespace OpenWater.ApiClient.Application
     
         [Newtonsoft.Json.JsonProperty("averageScore", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? AverageScore { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("submissionScoredFieldsAggregatedScoreInfos", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Services.SubmissionScoredFieldAggregatedScore> SubmissionScoredFieldsAggregatedScoreInfos { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("generalScoringQuestionsAggregatedScoreInfos", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Services.GeneralScoringQuestionAggregatedScore> GeneralScoringQuestionsAggregatedScoreInfos { get; set; }
     
     
     }

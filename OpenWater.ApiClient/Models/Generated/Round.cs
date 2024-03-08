@@ -19,6 +19,24 @@ namespace OpenWater.ApiClient.Round
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class EvaluationFormTemplateResponse 
+    {
+        public EvaluationFormTemplateResponse() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public EvaluationFormTemplateResponse(System.Collections.Generic.ICollection<EvaluationQuestions.EvaluationQuestionModelBase> questions)
+        {
+              Questions = @questions;
+        }
+    
+        /// <summary>Round evaluation form questions</summary>
+        [Newtonsoft.Json.JsonProperty("questions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<EvaluationQuestions.EvaluationQuestionModelBase> Questions { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SubmissionFormTemplateResponse 
     {
         public SubmissionFormTemplateResponse() { }
