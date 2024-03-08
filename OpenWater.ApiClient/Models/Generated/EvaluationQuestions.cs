@@ -54,7 +54,7 @@ namespace OpenWater.ApiClient.EvaluationQuestions
               Name = @name;
               Instructions = @instructions;
               CustomCssClass = @customCssClass;
-        }
+            }
     
         [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Alias { get; set; }
@@ -73,6 +73,9 @@ namespace OpenWater.ApiClient.EvaluationQuestions
     
         [Newtonsoft.Json.JsonProperty("customCssClass", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomCssClass { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("typeName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TypeName { get; set; }
     
     
     }
