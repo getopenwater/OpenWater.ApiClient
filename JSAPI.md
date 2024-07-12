@@ -60,6 +60,9 @@ api.validateBeforeSubmit(function () {
 
 - `getField(alias: string)` - returns api object for concrete field
 - `getFieldsByType(type: string)` - returns api objects for concrete field type
+- `getFieldsByCssClass(cssClass: string)` - returns api objects for concrete field css class
+- `markFieldsReadOnlyByCssClass(cssClass: string, includeHiddenTableNestedFields: boolean)` - marks fields readonly for concrete field css class
+- `markFieldsNotReadOnlyByCssClass(cssClass: string, includeHiddenTableNestedFields: boolean)` - marks fields not readonly for concrete field css class
 
 ## Evaluation form:
 
