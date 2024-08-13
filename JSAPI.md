@@ -44,29 +44,29 @@ Custom script is already executed in handler of `ready` event described above, s
 
 # API reference
 
-- `isAdminView()` - returns is admin value
-- `isPublicView()` - returns is public value
-- `beforeSubmit(handler)` - event, handler function which is fired before submitting form
-- `afterSubmit(handler)` - event, handler function which is fired after submitting form
-- `validateBeforeSubmit(handler)` - event, handler function which returns true/false and is fired before submitting form, submit continues if handler returns true, otherwise not
+- `isAdminView()` - returns is admin value.
+- `isPublicView()` - returns is public value.
+- `beforeSubmit(handler)` - event, handler function which is fired before submitting form.
+- `afterSubmit(handler)` - event, handler function which is fired after submitting form.
+- `validateBeforeSubmit(handler)` - event, handler function which returns true/false and is fired before submitting form, submit continues if handler returns true, otherwise not.
 ```
 api.validateBeforeSubmit(function () {
     return false; // form is invalid, submit doesn't continue
 });
 ```
-- `pageChanged(handler)` - event, handler function which is fired when form page is changed
+- `pageChanged(handler)` - event, handler function which is fired when form page is changed.
 
 ## Submission form and Session form:
 
-- `getField(alias: string)` - returns api object for concrete field
-- `getFieldsByType(type: string)` - returns api objects for concrete field type
-- `getFieldsByCssClass(cssClass: string)` - returns api objects for concrete field css class
-- `markFieldsReadOnlyByCssClass(cssClass: string, includeHiddenTableNestedFields: boolean)` - marks fields readonly for concrete field css class
-- `markFieldsNotReadOnlyByCssClass(cssClass: string, includeHiddenTableNestedFields: boolean)` - marks fields not readonly for concrete field css class
+- `getField(alias: string)` - returns api object for concrete field.
+- `getFieldsByType(type: string)` - returns api objects for concrete field type.
+- `getFieldsByCssClass(cssClass: string)` - returns api objects for concrete field css class.
+- `markFieldsReadOnlyByCssClass(cssClass: string, includeHiddenTableNestedFields: boolean)` - marks fields readonly for concrete field css class.
+- `markFieldsNotReadOnlyByCssClass(cssClass: string, includeHiddenTableNestedFields: boolean)` - marks fields not readonly for concrete field css class.
 
 ## Evaluation form:
 
-- `getQuestion(alias: string)` - returns api object for concrete question
+- `getQuestion(alias: string)` - returns api object for concrete question.
 
 ## Fields API reference
 
@@ -176,6 +176,25 @@ api.validateBeforeSubmit(function () {
 - `onRowOpen(handler)` - event is triggered when row nested form is rendered. Handler receives `nestedFieldApi` as parameter.
   - `handler: (nestedFieldApi) => void` - function to handle `rowOpen` event. Receives instance of nested field API with the following schema:
     - `getField(alias: string)` - returns api object for concrete nested field.
+- `offRowOpen(handler)` - unsubscribe specified handler from row open event (unsubscribes all handlers if no handler is specified).
+- `onTableChange(handler)` - event is triggered when any of the following occur: row added, row updated, row deleted, row reordered.
+  - `handler: () => void` - function to handle the above events.
+- `offTableChange(handler)` - unsubscribe specified handler attached to `onTableChange` (unsubscribes all handlers if no handler is specified).
+- `onRowAdded(handler)` - event is triggered when new row is added (both via UI and API). Handler receives `data` as parameter.
+  - `handler: (data) => void` - function to handle row added event. Receives an object with auxiliary information:
+    - `rowIndex: number` - index of the added row.
+- `offRowAdded(handler)` - unsubscribe specified handler from row added event (unsubscribes all handlers if no handler is specified).
+- `onRowUpdated(handler)` - event is triggered when existing row is updated via UI. Handler receives `data` as parameter.
+  - `handler: (data) => void` - function to handle row updated event. Receives an object with auxiliary information:
+    - `rowIndex: number` - index of the updated row.
+- `offRowUpdated(handler)` - unsubscribe specified handler from row updated event (unsubscribes all handlers if no handler is specified).
+- `onRowDeleted(handler)` - event is triggered when row is deleted (both via UI and API). Handler receives `data` as parameter.
+  - `handler: (data) => void` - function to handle row deleted event. Receives an object with auxiliary information:
+    - `rowIndex: number` - index of the deleted row.
+- `offRowDeleted(handler)` - unsubscribe specified handler from row deleted event (unsubscribes all handlers if no handler is specified).
+- `onRowReordered(handler)` - event is triggered when rows are reordered.
+  - `handler: () => void` - function to handle row reordered event.
+- `offRowReordered(handler)` - unsubscribe specified handler from row reordered event (unsubscribes all handlers if no handler is specified).
 
 ### Date
 
@@ -250,7 +269,7 @@ api.validateBeforeSubmit(function () {
 ### Application Name
 
 - `getValue(): ApplicationNameFieldValue` - returns current value.
-  - `AddressFieldValue` - `string` if one text field option is on, otherwise:
+  - `ApplicationNameFieldValue` - `string` if one text field option is on, otherwise:
     - `firstValue: string` - optional
     - `secondValue: string` - optional
 - `setValue(value: ApplicationNameFieldValue)` - sets new value.
@@ -264,8 +283,10 @@ api.validateBeforeSubmit(function () {
 
 ### Application Category
 
-- `getValue(): string` - returns category code or empty string if it's not set.
-- `setValue(value: string)` - sets new value by category code.
+- `getValue(): string | string[]` - returns current value or values depending on whether "Multiple Application Category Selection Mode" is enabled.
+  - `string` - returns category code or empty string if it's not set when multi-category mode is disabled.
+  - `string[]` - returns array of selected category codes or empty array if not set when multi-category mode is enabled.
+- `setValue(value: string | string[])` - sets new value by category code or selects category codes which are presented in array (for multi-category mode), deselects if they are not in array.
 - `show()` - makes field section visible if it was previosly hidden via frontend API.
 - `hide()` - hides field section.
 - `markReadOnly()` - makes field section readonly.
