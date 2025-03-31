@@ -392,6 +392,27 @@ namespace OpenWater.ApiClient.Pagination
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingResponseReportListItemModel 
+    {
+        public PagingResponseReportListItemModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public PagingResponseReportListItemModel(System.Collections.Generic.ICollection<Report.ReportListItemModel> items, PagingInfo pagingInfo)
+        {
+              PagingInfo = @pagingInfo;
+              Items = @items;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("pagingInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingInfo PagingInfo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Report.ReportListItemModel> Items { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PagingResponseScheduleDayListItemModel 
     {
         public PagingResponseScheduleDayListItemModel() { }
