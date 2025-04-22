@@ -7699,30 +7699,37 @@ namespace OpenWater.ApiClient
     
         /// <summary>Starts an application gallery report execution</summary>
         /// <param name="programId">Program id</param>
+        /// <param name="roundId">Round id</param>
         /// <param name="organizationCode">Specify the organization code</param>
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public ReportRunner.RunResponse RunApplicationGalleryReport(int programId, string organizationCode = null, bool? suppressEmails = null)
+        public ReportRunner.RunResponse RunApplicationGalleryReport(int programId, int? roundId = null, string organizationCode = null, bool? suppressEmails = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await RunApplicationGalleryReportAsync(programId, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await RunApplicationGalleryReportAsync(programId, roundId, organizationCode, suppressEmails, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Starts an application gallery report execution</summary>
         /// <param name="programId">Program id</param>
+        /// <param name="roundId">Round id</param>
         /// <param name="organizationCode">Specify the organization code</param>
         /// <param name="suppressEmails">Specify whether email sending should be suppressed</param>
         /// <returns>Success</returns>
         /// <exception cref="OpenWaterApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<ReportRunner.RunResponse> RunApplicationGalleryReportAsync(int programId, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReportRunner.RunResponse> RunApplicationGalleryReportAsync(int programId, int? roundId = null, string organizationCode = null, bool? suppressEmails = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (programId == null)
                 throw new System.ArgumentNullException("programId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Export/Reports/Gallery/Applications/{programId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/Export/Reports/Gallery/Applications/{programId}?");
             urlBuilder_.Replace("{programId}", System.Uri.EscapeDataString(ConvertToString(programId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (roundId != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("roundId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(roundId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
