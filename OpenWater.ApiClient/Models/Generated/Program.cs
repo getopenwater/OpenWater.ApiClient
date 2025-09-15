@@ -185,7 +185,7 @@ namespace OpenWater.ApiClient.Program
         public RoundModel() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundModel(int id, bool isJudgingOnly, string name, System.DateTimeOffset? judgingEndDateUtc = null, System.DateTimeOffset? judgingStartDateUtc = null, System.DateTimeOffset? submissionEndDateUtc = null, System.DateTimeOffset? submissionStartDateUtc = null)
+        public RoundModel(int id, bool isJudgingOnly, string name, System.Collections.Generic.ICollection<WinnerTypeModel> winnerTypes, System.DateTimeOffset? judgingEndDateUtc = null, System.DateTimeOffset? judgingStartDateUtc = null, System.DateTimeOffset? submissionEndDateUtc = null, System.DateTimeOffset? submissionStartDateUtc = null)
         {
               Id = @id;
               Name = @name;
@@ -194,6 +194,7 @@ namespace OpenWater.ApiClient.Program
               SubmissionEndDateUtc = @submissionEndDateUtc;
               JudgingStartDateUtc = @judgingStartDateUtc;
               JudgingEndDateUtc = @judgingEndDateUtc;
+              WinnerTypes = @winnerTypes;
         }
     
         /// <summary>Round id</summary>
@@ -223,6 +224,33 @@ namespace OpenWater.ApiClient.Program
         /// <summary>Judging period end date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("judgingEndDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? JudgingEndDateUtc { get; set; }
+    
+        /// <summary>Round winner types</summary>
+        [Newtonsoft.Json.JsonProperty("winnerTypes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<WinnerTypeModel> WinnerTypes { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class WinnerTypeModel 
+    {
+        public WinnerTypeModel() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public WinnerTypeModel(int id, string name)
+        {
+              Id = @id;
+              Name = @name;
+        }
+    
+        /// <summary>Winner type id</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+    
+        /// <summary>Winner type name</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
     
     
     }
