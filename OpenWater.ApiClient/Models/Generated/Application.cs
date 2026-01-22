@@ -307,12 +307,54 @@ namespace OpenWater.ApiClient.Application
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class NotReceivedRecommendationInfo 
+    {
+        public NotReceivedRecommendationInfo() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public NotReceivedRecommendationInfo(string fieldAlias, string recommendationUrl)
+        {
+              FieldAlias = @fieldAlias;
+              RecommendationUrl = @recommendationUrl;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("fieldAlias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldAlias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("recommendationUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RecommendationUrl { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ReceivedRecommendationInfo 
+    {
+        public ReceivedRecommendationInfo() { }
+    
+        [Newtonsoft.Json.JsonConstructor]
+        public ReceivedRecommendationInfo(string confirmationUrl, string fieldAlias)
+        {
+              FieldAlias = @fieldAlias;
+              ConfirmationUrl = @confirmationUrl;
+        }
+    
+        [Newtonsoft.Json.JsonProperty("fieldAlias", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldAlias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("confirmationUrl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ConfirmationUrl { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.24.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class RoundSubmission 
     {
         public RoundSubmission() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, string publicUrlToSubmission, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, System.Collections.Generic.ICollection<Services.GeneralScoringQuestionAggregatedScore> generalScoringQuestionsAggregatedScoreInfos = null, int? invoiceId = null, bool? isPaid = null, SubmissionStatus? status = null, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues = null, System.Collections.Generic.ICollection<Services.SubmissionScoredFieldAggregatedScore> submissionScoredFieldsAggregatedScoreInfos = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
+        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, string publicUrlToSubmission, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, System.Collections.Generic.ICollection<Services.GeneralScoringQuestionAggregatedScore> generalScoringQuestionsAggregatedScoreInfos = null, int? invoiceId = null, bool? isPaid = null, System.Collections.Generic.ICollection<NotReceivedRecommendationInfo> notReceivedRecommendations = null, System.Collections.Generic.ICollection<ReceivedRecommendationInfo> receivedRecommendations = null, SubmissionStatus? status = null, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues = null, System.Collections.Generic.ICollection<Services.SubmissionScoredFieldAggregatedScore> submissionScoredFieldsAggregatedScoreInfos = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
         {
               RoundId = @roundId;
               RoundName = @roundName;
@@ -337,6 +379,8 @@ namespace OpenWater.ApiClient.Application
               AverageScore = @averageScore;
               SubmissionScoredFieldsAggregatedScoreInfos = @submissionScoredFieldsAggregatedScoreInfos;
               GeneralScoringQuestionsAggregatedScoreInfos = @generalScoringQuestionsAggregatedScoreInfos;
+              NotReceivedRecommendations = @notReceivedRecommendations;
+              ReceivedRecommendations = @receivedRecommendations;
         }
     
         [Newtonsoft.Json.JsonProperty("roundId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -408,6 +452,12 @@ namespace OpenWater.ApiClient.Application
     
         [Newtonsoft.Json.JsonProperty("generalScoringQuestionsAggregatedScoreInfos", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Services.GeneralScoringQuestionAggregatedScore> GeneralScoringQuestionsAggregatedScoreInfos { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("notReceivedRecommendations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<NotReceivedRecommendationInfo> NotReceivedRecommendations { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("receivedRecommendations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ReceivedRecommendationInfo> ReceivedRecommendations { get; set; }
     
     
     }

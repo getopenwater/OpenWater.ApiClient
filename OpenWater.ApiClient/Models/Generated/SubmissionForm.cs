@@ -24,7 +24,7 @@ namespace OpenWater.ApiClient.SubmissionForm
         public Category() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public Category(System.Collections.Generic.ICollection<Category> categories, bool closeCategoryForNewApplications, string code, string description, bool hideIfNoSubcategories, int id, string name, string path, int? parentId = null, System.DateTimeOffset? submissionEndDateUtc = null, System.DateTimeOffset? submissionStartDateUtc = null)
+        public Category(System.Collections.Generic.ICollection<Category> categories, bool closeCategoryForNewApplications, string code, string description, bool hideIfNoSubcategories, int id, bool isClosedForNewApplications, string name, string path, int? parentId = null, System.DateTimeOffset? submissionEndDateUtc = null, System.DateTimeOffset? submissionStartDateUtc = null)
         {
               Id = @id;
               Code = @code;
@@ -36,6 +36,7 @@ namespace OpenWater.ApiClient.SubmissionForm
               Path = @path;
               SubmissionStartDateUtc = @submissionStartDateUtc;
               SubmissionEndDateUtc = @submissionEndDateUtc;
+              IsClosedForNewApplications = @isClosedForNewApplications;
               Categories = @categories;
         }
     
@@ -68,6 +69,9 @@ namespace OpenWater.ApiClient.SubmissionForm
     
         [Newtonsoft.Json.JsonProperty("submissionEndDateUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? SubmissionEndDateUtc { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isClosedForNewApplications", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsClosedForNewApplications { get; set; }
     
         [Newtonsoft.Json.JsonProperty("categories", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Category> Categories { get; set; }

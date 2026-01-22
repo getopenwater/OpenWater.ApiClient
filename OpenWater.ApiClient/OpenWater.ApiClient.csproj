@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.51.0</Version>
+    <Version>2.52.0</Version>
     <Description>Wrapper for getopenwater.com REST APIs. Full featured read/write API for the most popular application and review platform.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,10 +12,10 @@
     <Product>OpenWater</Product>
     <PackageIconUrl></PackageIconUrl>
     <PackageReleaseNotes>Changelog:
-+ added winner types property to round response model in program list API endpoint.</PackageReleaseNotes>
++ updated application payload to include received and not received lor field recommendation urls.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
-    <AssemblyVersion>2.51.0</AssemblyVersion>
-    <FileVersion>2.51.0.0</FileVersion>
+    <AssemblyVersion>2.52.0</AssemblyVersion>
+    <FileVersion>2.52.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
