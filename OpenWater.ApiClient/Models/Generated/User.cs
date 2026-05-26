@@ -77,7 +77,7 @@ namespace OpenWater.ApiClient.User
         public DetailsResponse() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public DetailsResponse(System.DateTimeOffset createdAtUtc, string email, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, int id, bool isApplicant, bool isJudge, bool isSessionChair, System.DateTimeOffset lastModifiedAtUtc, string lastName, System.Collections.Generic.ICollection<int> subAccountUserIds, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null, string thirdPartyUniqueId = null)
+        public DetailsResponse(System.DateTimeOffset createdAtUtc, string email, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> fieldValues, string firstName, int id, bool isApplicant, bool isGuest, bool isJudge, bool isSessionChair, System.DateTimeOffset lastModifiedAtUtc, string lastName, System.Collections.Generic.ICollection<int> subAccountUserIds, string externalAuthData = null, System.DateTimeOffset? lastLoggedInUtc = null, string thirdPartyUniqueId = null)
         {
               Id = @id;
               Email = @email;
@@ -88,6 +88,7 @@ namespace OpenWater.ApiClient.User
               IsApplicant = @isApplicant;
               IsJudge = @isJudge;
               IsSessionChair = @isSessionChair;
+              IsGuest = @isGuest;
               CreatedAtUtc = @createdAtUtc;
               LastModifiedAtUtc = @lastModifiedAtUtc;
               LastLoggedInUtc = @lastLoggedInUtc;
@@ -130,6 +131,10 @@ namespace OpenWater.ApiClient.User
         /// <summary>Is user session chair</summary>
         [Newtonsoft.Json.JsonProperty("isSessionChair", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSessionChair { get; set; }
+    
+        /// <summary>Is user guest</summary>
+        [Newtonsoft.Json.JsonProperty("isGuest", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsGuest { get; set; }
     
         /// <summary>User created date (UTC)</summary>
         [Newtonsoft.Json.JsonProperty("createdAtUtc", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
