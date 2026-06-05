@@ -173,6 +173,7 @@ api.validateBeforeSubmit(function () {
 - `removeRow(rowIndex: number)` - removes row by index.
 - `getRowCount(): number` - returns row count.
 - `getValueInRow(rowIndex: number, alias: string): string` - returns field value in a specific row.
+- `getTextValueInRow(rowIndex: number, alias: string): string` - returns selected item text or empty string if no item is selected of list field value in a specific row.
 - `onRowOpen(handler)` - event is triggered when row nested form is rendered. Handler receives `nestedFieldApi` as parameter.
   - `handler: (nestedFieldApi) => void` - function to handle `rowOpen` event. Receives instance of nested field API with the following schema:
     - `getField(alias: string)` - returns api object for concrete nested field.
