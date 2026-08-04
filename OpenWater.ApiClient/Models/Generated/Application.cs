@@ -354,12 +354,13 @@ namespace OpenWater.ApiClient.Application
         public RoundSubmission() { }
     
         [Newtonsoft.Json.JsonConstructor]
-        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, string publicUrlToSubmission, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, System.Collections.Generic.ICollection<Services.GeneralScoringQuestionAggregatedScore> generalScoringQuestionsAggregatedScoreInfos = null, int? invoiceId = null, bool? isPaid = null, System.Collections.Generic.ICollection<NotReceivedRecommendationInfo> notReceivedRecommendations = null, System.Collections.Generic.ICollection<ReceivedRecommendationInfo> receivedRecommendations = null, SubmissionStatus? status = null, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues = null, System.Collections.Generic.ICollection<Services.SubmissionScoredFieldAggregatedScore> submissionScoredFieldsAggregatedScoreInfos = null, System.DateTimeOffset? updatedAtUtc = null, string winnerNotes = null)
+        public RoundSubmission(string adminUrlToSubmission, bool isForwarded, bool isWinner, System.Collections.Generic.ICollection<JudgeScorecardInfo> judgeScorecardInfos, int numberOfAssignedJudges, int numberOfTimesJudged, string publicGalleryUrl, string publicUrlToSubmission, int roundId, string roundName, System.DateTimeOffset startedAtUtc, System.Collections.Generic.ICollection<string> winnerTypes, bool? allowUserToMakeEdits = null, double? averageScore = null, System.DateTimeOffset? finalizedAtUtc = null, System.Collections.Generic.ICollection<Services.GeneralScoringQuestionAggregatedScore> generalScoringQuestionsAggregatedScoreInfos = null, int? invoiceId = null, bool? isPaid = null, System.Collections.Generic.ICollection<NotReceivedRecommendationInfo> notReceivedRecommendations = null, System.Collections.Generic.ICollection<ReceivedRecommendationInfo> receivedRecommendations = null, SubmissionStatus? status = null, System.Collections.Generic.ICollection<FieldValues.FieldValueModelBase> submissionFieldValues = null, System.Collections.Generic.ICollection<Services.SubmissionScoredFieldAggregatedScore> submissionScoredFieldsAggregatedScoreInfos = null, System.DateTimeOffset? updatedAtUtc = null, System.DateTimeOffset? updatedByUserAtUtc = null, string winnerNotes = null)
         {
               RoundId = @roundId;
               RoundName = @roundName;
               StartedAtUtc = @startedAtUtc;
               UpdatedAtUtc = @updatedAtUtc;
+              UpdatedByUserAtUtc = @updatedByUserAtUtc;
               FinalizedAtUtc = @finalizedAtUtc;
               Status = @status;
               AllowUserToMakeEdits = @allowUserToMakeEdits;
@@ -394,6 +395,9 @@ namespace OpenWater.ApiClient.Application
     
         [Newtonsoft.Json.JsonProperty("updatedAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? UpdatedAtUtc { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updatedByUserAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? UpdatedByUserAtUtc { get; set; }
     
         [Newtonsoft.Json.JsonProperty("finalizedAtUtc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? FinalizedAtUtc { get; set; }
